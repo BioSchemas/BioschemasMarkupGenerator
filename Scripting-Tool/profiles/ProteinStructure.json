@@ -163,8 +163,21 @@
         },
         "image": {
             "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/ImageObject",
+                        "title": "ImageObject"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
             "propertyOrder": 3,
-            "title": "image (Optional)"
+            "title": "image (Optional)",
+            "type": "array"
         },
         "isContainedIn": {
             "description": "Bioschemas: Indicates a BioChemEntity that this BioChemEntity is (in some sense) a part of. Inverse property: contains. ",
@@ -253,8 +266,17 @@
         },
         "sameAs": {
             "description": "Bioschemas: Link to any resource other than the Record and the official webpage, for instance a Wikipedia page. Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
             "propertyOrder": 3,
-            "title": "sameAs (Optional)"
+            "title": "sameAs (Optional)",
+            "type": "array"
         },
         "url": {
             "description": "Bioschemas: Link to the official webpage associated to this entity. Schema.org: URL of the item. ",

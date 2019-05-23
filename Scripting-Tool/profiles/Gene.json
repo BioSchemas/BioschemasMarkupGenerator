@@ -60,8 +60,21 @@
         },
         "associatedDisease": {
             "description": "Schema.org: Disease associated to this BioChemEntity ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/MedicalCondition",
+                        "title": "MedicalCondition"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
             "propertyOrder": 3,
-            "title": "associatedDisease (Optional)"
+            "title": "associatedDisease (Optional)",
+            "type": "array"
         },
         "description": {
             "description": "Schema.org: A description of the item. ",
@@ -304,8 +317,25 @@
         },
         "taxonomicRange": {
             "description": "Schema.org: The taxonomic grouping of the organism that expresses, encodes, or in someway related to the BioChemEntity. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Taxon",
+                        "title": "Taxon"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
             "propertyOrder": 3,
-            "title": "taxonomicRange (Optional)"
+            "title": "taxonomicRange (Optional)",
+            "type": "array"
         },
         "url": {
             "description": "Bioschemas: Link to the official webpage associated to this entity. Schema.org: URL of the item. ",

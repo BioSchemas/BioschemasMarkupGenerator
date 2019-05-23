@@ -280,17 +280,14 @@ def createJSONSchema(definitionObject):
 				tempTypeObject["$ref"] = "#/definitions/" + type
 				oneOfArray.append(tempTypeObject)
 			# Add oneOf array to property
-			if cardinality.lower() == "many":
+			# If no cardinality is provided default to many
+			if cardinality.lower() == "one":
+				tempPropertyObject["oneOf"] = oneOfArray
+			else:
 				tempPropertyObject["type"] = "array"
 				expectedTypeObject = {}
 				expectedTypeObject["oneOf"] = oneOfArray
 				tempPropertyObject["items"] = expectedTypeObject
-			elif cardinality.lower() == "one":
-				tempPropertyObject["oneOf"] = oneOfArray
-
-			#Default to many
-
-
 			#else:
 			#	print("No Cardinality for: ", property["property"])
 
@@ -322,18 +319,6 @@ def generateDefinitions(definitionsToGenerate):
 
 		# Else assume Schema.org type
 		# Create @id for Schema.org Types
-
-
-		@
-
-
-
-
-
-
-
-
-
 
 	return {}
 
