@@ -9,8 +9,8 @@
         "example": "\"attachment\": [\n    \"https://example.com/PrecourseQuestionnaire\",\n    \"https://example.com/Brochure\" \n]\n"
     },
     "audience": {
-        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)",
-        "example": "\"audience\": [\n  \"http://edamontology.org/topic_0091\",\n  \"http://edamontology.org/topic_3070\"\n]"
+        "example": "\"audience\": [\n  \"http://edamontology.org/topic_0091\",\n  \"http://edamontology.org/topic_3070\"\n]",
+        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)"
     },
     "contact": {
         "example": "\"contact\": [{ \n       \"@type\": \"Person\",\n       \"name\": \"Fred Smith\",\n       \"email\": \"Fred.Smith@example.com\"\n    },\n    {\n       \"@type\": \"Organization\",\n       \"name\": \"Bioinformatics Training Division, University of Manchester\",\n       \"url\": \"http://manchester.ac.uk/bioinformatics/training/contact\"\n    }\n]"
@@ -25,15 +25,15 @@
         "example": "\"description\": \"In this workshop, you will be learning how to analyse RNA-seq count data, using R. This will include reading the data into R, quality control and performing differential expression analysis and gene set testing, with a focus on the edgeR analysis workflow. You will learn how to generate common plots for analysis and visualisation of gene expression data, such as boxplots and heatmaps. You will also be learning how alignment and counting of raw RNA-seq data can be performed in R. This workshop is aimed at biologists interested in learning how to perform differential expression analysis of RNA-seq data when reference genomes are available.\" "
     },
     "eligibility": {
-        "controlled_vocab": "- first come first served\n- registration of interest\n- by invitation",
-        "example": "\"eligibility\": \"First come first served\" "
+        "example": "\"eligibility\": \"First come first served\" ",
+        "controlled_vocab": "- first come first served\n- registration of interest\n- by invitation"
     },
     "endDate": {
         "example": "\"endDate\": \"2018-07-04T18:00:1Z\" "
     },
     "eventType": {
-        "controlled_vocab": "- workshops and courses\n- meetings and conferences\n- receptions and networking\n- awards and prizegivings",
-        "example": "\"eventType\": \"workshops and courses\" \n"
+        "example": "\"eventType\": \"workshops and courses\" \n",
+        "controlled_vocab": "- workshops and courses\n- meetings and conferences\n- receptions and networking\n- awards and prizegivings"
     },
     "hostInstitution": {
         "example": "\"hostInstitution\":     {\n       \"@type\": \"Organization\",\n       \"name\": \"Bioinformatics Training Division, University of Manchester\",\n       \"url\": \"http://manchester.ac.uk/bioinformatics/training/contact\"\n} "
@@ -63,8 +63,8 @@
         "example": "\"programme\": \"http://example.com/programme\" \n"
     },
     "registrationStatus": {
-        "controlled_vocab": "- proposed\n- pre-open\n- open\n- cancelled\n- full",
-        "example": "\"registrationStatus\": \"open\" \n"
+        "example": "\"registrationStatus\": \"open\" \n",
+        "controlled_vocab": "- proposed\n- pre-open\n- open\n- cancelled\n- full"
     },
     "review": {
         "example": "\"review\": [{\n        \"@type\": \"Review\",\n        \"author\": \"Boris\",\n        \"datePublished\": \"2018-08-01\",\n        \"description\": \"I thought the exercises were really useful and the presentations were clear. Would have preferred more diagrams\",\n        \"name\": \"RN-Ace\"\n}]"
@@ -88,8 +88,8 @@
         "example": "\"superEvent\": {\n      \"@type\": \"Event\",\n      \"name\": \"Summer of Science\",\n      \"url\": \"https://sos.com\",\n      \"description\": \" This is a series of lectures for bioinformaticians around Europe\"\n}"
     },
     "topic": {
-        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)",
-        "example": "\"topic\":  [\n   \"http://edamontology.org/topic_3372\",\n   \"http://edamontology.org/topic_3071\"\n]"
+        "example": "\"topic\":  [\n   \"http://edamontology.org/topic_3372\",\n   \"http://edamontology.org/topic_3071\"\n]",
+        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)"
     },
     "url": {
         "example": "\"url\": \"http://courses.manchester.ac.uk/rna-seq_in_r\""

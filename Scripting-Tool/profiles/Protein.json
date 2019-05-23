@@ -1,13 +1,15 @@
 {
-    "definitions": {},
+    "title": "Protein (v0.6)",
     "description": "This Protein profile specification presents the markup when describing a Protein.",
+    "type": "object",
+    "definitions": {},
     "properties": {
         "@context": {
             "default": "http://schema.org",
+            "type": "string",
             "options": {
                 "hidden": "true"
-            },
-            "type": "string"
+            }
         },
         "@type": {
             "default": "Protein",
@@ -17,334 +19,334 @@
             "type": "string"
         },
         "additionalProperty": {
+            "title": "additionalProperty (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Whenever possible, please use a property coined in a third-party well-known vocabulary. For instance, you can directly use [RO ObjectProperty: enables](http://purl.obolibrary.org/obo/RO_0002327) as a property to express how a protein or gene enables some GO molecular function. If you still want or need to use additionalProperty, please use (i) property name to specify the name of the property, (ii) additionalType (if possible) to better specify the nature of the property, and (iii) value to link to the object/range of this property. We recommed to look at the [OBO Relations Ontology (RO)](http://obofoundry.org/ontology/ro.html) or the [Semanticscience Integrated Ontology (SIO)](http://sio.semanticscience.org/) as starting points.\n\n**Bioschemas Protein**: If no suitable property exists in this profile, use any ontology term coined as a property and suitable for your needs. For instance [sio:SIO_000095](http://semanticscience.org/resource/SIO_000095) (is member of) could be used to model the relation between a protein and a protein clan. Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/PropertyValue",
-                        "title": "PropertyValue"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "additionalProperty (Optional)",
-            "type": "array"
+            }
         },
         "additionalType": {
+            "title": "additionalType (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Any ontology term describing the protein concept. This is in addition to the official type used in Bioscheamas to describe a protein.\n\nThe official type for the Protein profile is [PR 000000001](http://purl.obolibrary.org/obo/PR_000000001) Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "additionalType (Optional)",
-            "type": "array"
+            }
         },
         "alternateName": {
+            "title": "alternateName (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: An alias for the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "alternateName (Optional)",
-            "type": "array"
+            }
         },
         "associatedDisease": {
+            "title": "associatedDisease (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Disease associated to this protein, if any. Schema.org: Disease associated to this BioChemEntity. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/MedicalCondition",
-                        "title": "MedicalCondition"
+                        "title": "MedicalCondition",
+                        "$ref": "#/definitions/MedicalCondition"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "associatedDisease (Recommended)",
-            "type": "array"
+            }
         },
         "description": {
+            "title": "description (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Protein function. We recommend to start the description with \"Function: [...]\". Schema.org: A description of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "description (Recommended)"
+            ]
         },
         "enablesMF": {
+            "title": "enablesMF (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: RO:0002327 (enables). GO molecular function enabled by the gene/protein. \nRecommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence should be included. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CategoryCode",
-                        "title": "CategoryCode"
+                        "title": "CategoryCode",
+                        "$ref": "#/definitions/CategoryCode"
                     },
                     {
-                        "$ref": "#/definitions/PropertyValue",
-                        "title": "PropertyValue"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     },
                     {
-                        "$ref": "#/definitions/DataRecord",
-                        "title": "DataRecord"
+                        "title": "DataRecord",
+                        "$ref": "#/definitions/DataRecord"
                     },
                     {
-                        "$ref": "#/definitions/ProteinAnnotation",
-                        "title": "ProteinAnnotation"
+                        "title": "ProteinAnnotation",
+                        "$ref": "#/definitions/ProteinAnnotation"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "enablesMF (Optional)",
-            "type": "array"
+            }
         },
         "hasBioChemEntityPart": {
+            "title": "hasBioChemEntityPart (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: **Bioschemas Protein**: This property can be used to include GO cellular locations; for cellular locations it is a good practice to use hasCategorryCode to point to a GO Cellular Location term. Schema.org: Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.\nInverse property: isPartOfBioChemEntity ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/BioChemEntity",
-                        "title": "BioChemEntity"
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "hasBioChemEntityPart (Optional)",
-            "type": "array"
+            }
         },
         "hasCategoryCode": {
+            "title": "hasCategoryCode (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: A Category code contained in this code set. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CategoryCode",
-                        "title": "CategoryCode"
+                        "title": "CategoryCode",
+                        "$ref": "#/definitions/CategoryCode"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "hasCategoryCode (Optional)",
-            "type": "array"
+            }
         },
         "hasRepresentation": {
+            "title": "hasRepresentation (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: **Bioschemas Protein**: This property could be used, for instance, to register a sequence protein as it is a representation of the protein. If you want to better define the nature of the representation, use a PropertyValue as described in [additionalProperty](http://bioschemas.org/devSpecs/Protein/specification/#additionalProperty). Schema.org: A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/PropertyValue",
-                        "title": "PropertyValue"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "hasRepresentation (Optional)",
-            "type": "array"
+            }
         },
         "identifier": {
+            "title": "identifier (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/PropertyValue",
-                    "title": "PropertyValue"
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "identifier (Minimum)"
+            ]
         },
         "image": {
+            "title": "image (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/ImageObject",
-                        "title": "ImageObject"
+                        "title": "ImageObject",
+                        "$ref": "#/definitions/ImageObject"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "image (Recommended)",
-            "type": "array"
+            }
         },
         "involvedInBP": {
+            "title": "involvedInBP (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: RO:0002331 (is involved in). GO biological process this gene/protein is involved in.\nRecommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence should be included. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CategoryCode",
-                        "title": "CategoryCode"
+                        "title": "CategoryCode",
+                        "$ref": "#/definitions/CategoryCode"
                     },
                     {
-                        "$ref": "#/definitions/PropertyValue",
-                        "title": "PropertyValue"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     },
                     {
-                        "$ref": "#/definitions/DataRecord",
-                        "title": "DataRecord"
+                        "title": "DataRecord",
+                        "$ref": "#/definitions/DataRecord"
                     },
                     {
-                        "$ref": "#/definitions/ProteinAnnotation",
-                        "title": "ProteinAnnotation"
+                        "title": "ProteinAnnotation",
+                        "$ref": "#/definitions/ProteinAnnotation"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "involvedInBP (Optional)",
-            "type": "array"
+            }
         },
         "isEncodedBy": {
+            "title": "isEncodedBy (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Gene(s) from which this protein was encoded. Schema.org: BioChemEntity from which this protein was encoded from. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/BioChemEntity",
-                        "title": "BioChemEntity"
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
                     },
                     {
-                        "$ref": "#/definitions/Gene",
-                        "title": "Gene"
+                        "title": "Gene",
+                        "$ref": "#/definitions/Gene"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "isEncodedBy (Recommended)",
-            "type": "array"
+            }
         },
         "isPartOfBioChemEntity": {
+            "title": "isPartOfBioChemEntity (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: **Bioschemas Protein**: For proteins, it can be used to link to protein sequence annotations such as domains, sites, regions, etc. Schema.org: Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.\nInverse property: hasBioChemEntityPart ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/BioChemEntity",
-                        "title": "BioChemEntity"
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "isPartOfBioChemEntity (Recommended)",
-            "type": "array"
+            }
         },
         "mainEntityOfPage": {
+            "title": "mainEntityOfPage (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Link via DataRecord to the main DataRecord representing this entity in a dataset.  Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](http://schema.org/docs/datamodel.html#mainEntityBackground) for details.\nInverse property: mainEntity. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "mainEntityOfPage (Optional)",
-            "type": "array"
+            }
         },
         "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The name of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "name (Minimum)"
+            ]
         },
         "sameAs": {
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Link to any resource other than the Record and the official webpage, for instance a Wikipedia page. Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "sameAs (Optional)",
-            "type": "array"
+            }
         },
         "taxonomicRange": {
+            "title": "taxonomicRange (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: **Bioschemas Protein**: For proteins, it is recommended to use this property to specify the taxon/organism corresponding to a genome including a expressed gene that can be translated to this protein. For taxon/organism, it is a good practice to use hasCategoryCode to point to a controlled vacabulary such as NCBI taxon or UniProt Taxonomy.  Schema.org: The taxonomic grouping of the organism that expresses, encodes, or in someway related to the BioChemEntity. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Taxon",
-                        "title": "Taxon"
+                        "title": "Taxon",
+                        "$ref": "#/definitions/Taxon"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "taxonomicRange (Recommended)",
-            "type": "array"
+            }
         },
         "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Link to the official webpage associated to this entity. Schema.org: URL of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "url (Recommended)"
+            ]
         }
     },
     "required": [
@@ -352,7 +354,5 @@
         "@context",
         "identifier",
         "name"
-    ],
-    "title": "Protein (v0.6)",
-    "type": "object"
+    ]
 }

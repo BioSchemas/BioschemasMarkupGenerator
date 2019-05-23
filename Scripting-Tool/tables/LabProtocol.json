@@ -1,9 +1,9 @@
 {
-    "ChEBI:reagent": {
-        "controlled_vocab": "[ChEBI](http://purl.bioontology.org/ontology/CHEBI)\n[PubChem](https://pubchem.ncbi.nlm.nih.gov/)"
-    },
     "additionalType": {
         "controlled_vocab": "[SP:ExperimentalProtocol](http://purl.org/net/SMARTprotocol#ExperimentalProtocol)"
+    },
+    "ChEBI:reagent": {
+        "controlled_vocab": "[ChEBI](http://purl.bioontology.org/ontology/CHEBI)\n[PubChem](https://pubchem.ncbi.nlm.nih.gov/)"
     },
     "hasPart": {
         "controlled_vocab": "[SMART Protocols](http://purl.bioontology.org/ontology/SP)"

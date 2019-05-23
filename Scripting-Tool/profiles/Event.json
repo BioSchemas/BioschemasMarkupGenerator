@@ -1,13 +1,15 @@
 {
-    "definitions": {},
+    "title": "Event (v0.1)",
     "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.        ",
+    "type": "object",
+    "definitions": {},
     "properties": {
         "@context": {
             "default": "http://schema.org",
+            "type": "string",
             "options": {
                 "hidden": "true"
-            },
-            "type": "string"
+            }
         },
         "@type": {
             "default": "Event",
@@ -17,466 +19,466 @@
             "type": "string"
         },
         "acceptanceNotificationDate": {
+            "title": "acceptanceNotificationDate (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Date for the host to confirm acceptance to applicants. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Date",
-                        "title": "Date"
+                        "title": "Date",
+                        "$ref": "#/definitions/Date"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "acceptanceNotificationDate (Optional)",
-            "type": "array"
+            }
         },
         "accreditation": {
+            "title": "accreditation (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Type if accrediation or organisation that accredits the event ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Organization",
-                    "title": "Organization"
+                    "title": "Organization",
+                    "$ref": "#/definitions/Organization"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "accreditation (Recommended)"
+            ]
         },
         "alternateName": {
+            "title": "alternateName (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Can be used for the subtitle of the event. Schema.org: An alias for the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "alternateName (Recommended)"
+            ]
         },
         "attachment": {
+            "title": "attachment (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Any files or related websites which give more information about this event. e.g. flyers, third party sites handling tickets. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "attachment (Optional)",
-            "type": "array"
+            }
         },
         "audience": {
+            "title": "audience (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: The scientific background the participants should be from. Please use a term from [EDAM: Topic](http://edamontology.org/topic_0003).\n\n**Note:** Bioschemas have changed the Expected Types from [Audience](http://schema.org/Audience) to [URL](http://schema.org/URL). Schema.org: An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "audience (Recommended)",
-            "type": "array"
+            }
         },
         "contact": {
+            "title": "contact (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: Main point of contact that can be contacted for general queries. This would be an event organizer or an administrator. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "contact (Minimum)",
-            "type": "array"
+            }
         },
         "dateModified": {
+            "title": "dateModified (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: **NOTE**: Keywords is not part of Event Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "dateModified (Optional)"
+            ]
         },
         "deadline": {
+            "title": "deadline (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Deadlines dates for this event e.g. application deadline, poster submission, paper submission, early registration ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "deadline (Recommended)",
-            "type": "array"
+            }
         },
         "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: A description of the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "description (Minimum)",
-            "type": "array"
+            }
         },
         "eligibility": {
+            "title": "eligibility (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Defines the type of eligibility to attend this event e.g. first come first served. Please use one of the values from the Controlled Vocabulary column. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "eligibility (Recommended)",
-            "type": "array"
+            }
         },
         "endDate": {
+            "title": "endDate (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The end date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "endDate (Minimum)"
+            ]
         },
         "eventType": {
+            "title": "eventType (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: This can be one of 4 options. Please see controlled vocabulary ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/EventType",
-                        "title": "EventType"
+                        "title": "EventType",
+                        "$ref": "#/definitions/EventType"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "eventType (Minimum)",
-            "type": "array"
+            }
         },
         "hostInstitution": {
+            "title": "hostInstitution (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: The organization or institution responsible for hosting the event (not necessarily responsible for organizing). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "hostInstitution (Minimum)",
-            "type": "array"
+            }
         },
         "identifier": {
+            "title": "identifier (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Unique id for the event. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/PropertyValue",
-                    "title": "PropertyValue"
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "identifier (Optional)"
+            ]
         },
         "keywords": {
+            "title": "keywords (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: **NOTE**: Keywords is not part of Event Schema.org:  Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "keywords (Recommended)"
+            ]
         },
         "location": {
+            "title": "location (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: The location of the event. It is recommended to use Place, and within [Place](http://schema.org/Place) use the [PostalAddress](http://schema.org/PostalAddress) and [GeoCoordinates](http://schema.org/GeoCoordinates). Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Place",
-                    "title": "Place"
+                    "title": "Place",
+                    "$ref": "#/definitions/Place"
                 },
                 {
-                    "$ref": "#/definitions/PostalAddress",
-                    "title": "PostalAddress"
+                    "title": "PostalAddress",
+                    "$ref": "#/definitions/PostalAddress"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "location (Minimum)"
+            ]
         },
         "maximumAttendeeCapacity": {
+            "title": "maximumAttendeeCapacity (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: The total number of individuals that may attend an event or venue. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Integer",
-                    "title": "Integer"
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "maximumAttendeeCapacity (Recommended)"
+            ]
         },
         "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The name of the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "name (Minimum)",
-            "type": "array"
+            }
         },
         "offers": {
+            "title": "offers (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: An offer to provide this item\u2014for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Offer",
-                    "title": "Offer"
+                    "title": "Offer",
+                    "$ref": "#/definitions/Offer"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "offers (Optional)"
+            ]
         },
         "performer": {
+            "title": "performer (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: A performer at the event\u2014for example, a presenter, musician, musical group or actor. Supersedes performers. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "performer (Optional)",
-            "type": "array"
+            }
         },
         "prerequisite": {
+            "title": "prerequisite (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: A list of prerequisites to be able to attend the event ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "prerequisite (Recommended)",
-            "type": "array"
+            }
         },
         "programme": {
+            "title": "programme (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: A plan or schedule of activities or procedures to be followed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "programme (Recommended)"
+            ]
         },
         "registrationStatus": {
+            "title": "registrationStatus (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: The status of registration for an event; choose a value from the Controlled Vocabulary column. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "registrationStatus (Optional)"
+            ]
         },
         "review": {
+            "title": "review (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: A review of the item. Supersedes reviews. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Review",
-                        "title": "Review"
+                        "title": "Review",
+                        "$ref": "#/definitions/Review"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "review (Optional)",
-            "type": "array"
+            }
         },
         "socialMedia": {
+            "title": "socialMedia (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Link to social media websites like twitter or facebook ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "socialMedia (Optional)",
-            "type": "array"
+            }
         },
         "sponsor": {
+            "title": "sponsor (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: The organizations or institutions providing sponsorship for the event. Schema.org: A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "sponsor (Optional)",
-            "type": "array"
+            }
         },
         "startDate": {
+            "title": "startDate (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The start date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "startDate (Minimum)"
+            ]
         },
         "subEvent": {
+            "title": "subEvent (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference. Supersedes subEvents.\nInverse property: superEvent. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Event",
-                        "title": "Event"
+                        "title": "Event",
+                        "$ref": "#/definitions/Event"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "subEvent (Optional)",
-            "type": "array"
+            }
         },
         "submitter": {
+            "title": "submitter (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: The person or organization who submits an event to a repository or registry of events (such as iAnn, ISCB). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "submitter (Optional)",
-            "type": "array"
+            }
         },
         "superEvent": {
+            "title": "superEvent (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.\nInverse property: subEvent. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Event",
-                    "title": "Event"
+                    "title": "Event",
+                    "$ref": "#/definitions/Event"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "superEvent (Optional)"
+            ]
         },
         "topic": {
+            "title": "topic (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: The scientific topic the event is about. Please use a term from [EDAM: Topic](http://edamontology.org/topic_0003). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "topic (Recommended)",
-            "type": "array"
+            }
         },
         "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: It is recommended you specify the URL even if it is the same as the current page. Schema.org: URL of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "url (Recommended)"
+            ]
         }
     },
     "required": [
@@ -490,7 +492,5 @@
         "location",
         "name",
         "startDate"
-    ],
-    "title": "Event (v0.1)",
-    "type": "object"
+    ]
 }

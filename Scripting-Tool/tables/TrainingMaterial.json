@@ -3,8 +3,8 @@
         "example": "\"about\": \"The basic commands of unix for bioinformaticians\""
     },
     "audience": {
-        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
-        "example": "\"audience\": [\"http://edamontology.org/topic_3372\"]"
+        "example": "\"audience\": [\"http://edamontology.org/topic_3372\"]",
+        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)"
     },
     "author": {
         "example": "\"author\": [\"Niall Beard\"]"
@@ -22,19 +22,19 @@
         "example": "\"description\": \"This tutorial will take you through the basic usage of the command line shell. In it, you will discover what a shell is, skills for directory navigation, file manipulation, and how to run tools\"\n"
     },
     "difficultyLevel": {
-        "controlled_vocab": "- beginner\n- intermediate\n- advanced",
-        "example": "\"difficultyLevel\": \"beginner\""
+        "example": "\"difficultyLevel\": \"beginner\"",
+        "controlled_vocab": "- beginner\n- intermediate\n- advanced"
     },
     "genre": {
-        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
-        "example": "\"genre\": [\n   \"http://edamontology.org/topic_3372\",\n   \"http://edamontology.org/topic_3071\"\n]"
+        "example": "\"genre\": [\n   \"http://edamontology.org/topic_3372\",\n   \"http://edamontology.org/topic_3071\"\n]",
+        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)"
     },
     "hasPart": {
         "example": "\"hasPart\": [\n{\n    \"@type\": \"CreativeWork\",\n    \"url\": \"http://directoryVisuals.io\",\n    \"name\": \"Shell Directory Visualizer\"\n }, \n {\n    \"@type\": \"CreativeWork\",\n    \"url\": \"http://shell.io\",\n    \"name\": \"Interactive Shell tutorial\"\n}]"
     },
     "inLanguage": {
-        "controlled_vocab": "[IETF BCP 47 standard](http://tools.ietf.org/html/bcp47)",
-        "example": "\"inLanguage\": \" en-US\""
+        "example": "\"inLanguage\": \" en-US\"",
+        "controlled_vocab": "[IETF BCP 47 standard](http://tools.ietf.org/html/bcp47)"
     },
     "isPartOf": {
         "example": "\"isPartOf\": [{\n      \"@type\": \"CreativeWork\",\n      \"url\": \"http://computerScience4LS.org\",\n      \"name\": \"The complete Computer Science for Life Scientists Coursebook\"\n}]"
@@ -43,8 +43,8 @@
         "example": "\"keywords\": \"Unix, Shell, Command Line Tools, Terminal, Bash\""
     },
     "learningResourceType": {
-        "controlled_vocab": "- exercise files \n- handout \n- presentation \n- scripts \n- video",
-        "example": "\"learningResourceType\": \"handout\""
+        "example": "\"learningResourceType\": \"handout\"",
+        "controlled_vocab": "- exercise files \n- handout \n- presentation \n- scripts \n- video"
     },
     "license": {
         "example": "\"license\": \"https://creativecommons.org/licenses/by/4.0/\""

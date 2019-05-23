@@ -1,13 +1,15 @@
 {
-    "definitions": {},
+    "title": "DataCatalog (v0.1)",
     "description": "A guide for how to describe data catalogs/repositories in the life-sciences using Schema.org-like annotation.",
+    "type": "object",
+    "definitions": {},
     "properties": {
         "@context": {
             "default": "http://schema.org",
+            "type": "string",
             "options": {
                 "hidden": "true"
-            },
-            "type": "string"
+            }
         },
         "@type": {
             "default": "DataCatalog",
@@ -17,222 +19,222 @@
             "type": "string"
         },
         "alternateName": {
+            "title": "alternateName (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: An alias for the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "alternateName (Recommended)",
-            "type": "array"
+            }
         },
         "citation": {
+            "title": "citation (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: CreativeWork:Name,URL Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "citation (Recommended)",
-            "type": "array"
+            }
         },
         "dataset": {
+            "title": "dataset (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: A dataset contained in this catalog.\nInverse property: [includedInDataCatalog](http://schema.org/includedDataCatalog). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Dataset",
-                        "title": "Dataset"
+                        "title": "Dataset",
+                        "$ref": "#/definitions/Dataset"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "dataset (Recommended)",
-            "type": "array"
+            }
         },
         "dateCreated": {
+            "title": "dateCreated (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "dateCreated (Recommended)"
+            ]
         },
         "dateModified": {
+            "title": "dateModified (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: The date on which the data catalog/repository was most recently modified. Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "dateModified (Optional)"
+            ]
         },
         "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: A description of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "description (Minimum)"
+            ]
         },
         "fileFormat": {
+            "title": "fileFormat (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: Media type, typically MIME format (see IANA site) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "fileFormat (Optional)",
-            "type": "array"
+            }
         },
         "identifier": {
+            "title": "identifier (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Unique identifier for the data catalog. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/PropertyValue",
-                    "title": "PropertyValue"
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "identifier (Recommended)"
+            ]
         },
         "keywords": {
+            "title": "keywords (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: Use terms from Controlled Vocabularies where possible. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "keywords (Minimum)"
+            ]
         },
         "license": {
+            "title": "license (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: CreativeWork:Name,URL Schema.org: A license document that applies to this content, typically indicated by URL. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/CreativeWork",
-                    "title": "CreativeWork"
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "license (Recommended)"
+            ]
         },
         "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The name of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "name (Minimum)"
+            ]
         },
         "provider": {
+            "title": "provider (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: Contact information for this data repository/catalog. Schema.org: The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "provider (Minimum)",
-            "type": "array"
+            }
         },
         "publication": {
+            "title": "publication (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: A publication event associated with the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/PublicationEvent",
-                        "title": "PublicationEvent"
+                        "title": "PublicationEvent",
+                        "$ref": "#/definitions/PublicationEvent"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "publication (Recommended)",
-            "type": "array"
+            }
         },
         "sourceOrganization": {
+            "title": "sourceOrganization (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: The Organization on whose behalf the creator was working. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "sourceOrganization (Recommended)",
-            "type": "array"
+            }
         },
         "url": {
+            "title": "url (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: URL of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "url (Minimum)"
+            ]
         }
     },
     "required": [
@@ -243,7 +245,5 @@
         "name",
         "provider",
         "url"
-    ],
-    "title": "DataCatalog (v0.1)",
-    "type": "object"
+    ]
 }

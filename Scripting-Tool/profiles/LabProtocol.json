@@ -1,13 +1,15 @@
 {
-    "definitions": {},
+    "title": "LabProtocol (v0.2)",
     "description": "An experimental protocol is a sequence of tasks and operations executed to perform experimental research in biological and biomedical areas.Experimental protocols are fundamental information structures that support the description of the processes by means of which results are generated in experimental research [1]. Experimental protocols describe how the data were produced, the steps undertaken and conditions under which these steps were carried out.<br />[1]  Giraldo, O., Garc\u00eda, A., L\u00f3pez, F., & Corcho, O. (2017). Using semantics for representing experimental protocols. Journal of Biomedical Semantics, 8, 52. <a href=\"http://doi.org/10.1186/s13326-017-0160-y\">http://doi.org/10.1186/s13326-017-0160-y</a>",
+    "type": "object",
+    "definitions": {},
     "properties": {
         "@context": {
             "default": "http://schema.org",
+            "type": "string",
             "options": {
                 "hidden": "true"
-            },
-            "type": "string"
+            }
         },
         "@type": {
             "default": "LabProtocol",
@@ -16,253 +18,253 @@
             },
             "type": "string"
         },
-        "ChEBI:reagent": {
-            "description": "Bioschemas: Reagent used in the protocol. It can be a record in a Dataset describing the reagent or a BioChemEntity corresponding to the reagent or a URL pointing to the type of reagent used. ChEBI and PubChem entities can be used whenever available. Commercial names are also acceptable (URL if possible). ",
-            "items": {
-                "oneOf": [
-                    {
-                        "$ref": "#/definitions/BioChemEntity",
-                        "title": "BioChemEntity"
-                    },
-                    {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
-                    },
-                    {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
-                    }
-                ]
-            },
-            "propertyOrder": 1,
-            "title": "ChEBI:reagent (Minimum)",
-            "type": "array"
-        },
         "additionalType": {
+            "title": "additionalType (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Optional for LabProtocol as it has its own type in schema.org. If used, the recommended URL is experimental protocol as defined by SMART Protocols (see Controlled Vocabulary). Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "additionalType (Optional)"
+            ]
         },
-        "citation": {
-            "description": "Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+        "ChEBI:reagent": {
+            "title": "ChEBI:reagent (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Reagent used in the protocol. It can be a record in a Dataset describing the reagent or a BioChemEntity corresponding to the reagent or a URL pointing to the type of reagent used. ChEBI and PubChem entities can be used whenever available. Commercial names are also acceptable (URL if possible). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
+            }
+        },
+        "citation": {
             "title": "citation (Recommended)",
-            "type": "array"
+            "propertyOrder": 2,
+            "description": "Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
         },
         "duration": {
+            "title": "duration (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: The time it takes to actually carry out the protocol, in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date format. Schema.org: The duration of the item (movie, audio recording, event, etc.) in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date format. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Duration",
-                    "title": "Duration"
+                    "title": "Duration",
+                    "$ref": "#/definitions/Duration"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "duration (Recommended)"
+            ]
         },
         "hasPart": {
+            "title": "hasPart (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: A particular case in Bioschemas is LabProtocol where structural elements are used to described advantages (situations the Protocol has been successfully employed), limitations (situations the Protocol would be unreliable or otherwise unsuccessful), applications (Applications of the protocol list the full diversity of the applications of the method and support if is possible to extend the range of applications of the protocol. e.g. northern blot assays, sequencing, etc.), and outcomes (outcome or expected result by a protocol execution).\nFor LabProtocol, in the applicationType, please use [http://purl.org/net/SMARTprotocol#AdvantageOfTheProtocol](http://purl.org/net/SMARTprotocol#AdvantageOfTheProtocol) for advantages, [http://purl.org/net/SMARTprotocol#LimitationOfTheProtocol](http://purl.org/net/SMARTprotocol#LimitationOfTheProtocol) for limitations, [http://purl.org/net/SMARTprotocol#ApplicationOfTheProtocol](http://purl.org/net/SMARTprotocol#ApplicationOfTheProtocol) for applicability, and [http://purl.org/net/SMARTprotocol#OutcomeOfTheProtocol](http://purl.org/net/SMARTprotocol#OutcomeOfTheProtocol) for outcomes. Schema.org: Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.\nInverse property: [isPartOf](http://schema.org/isPartOf). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "hasPart (Recommended)",
-            "type": "array"
+            }
         },
         "identifier": {
+            "title": "identifier (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/PropertyValue",
-                    "title": "PropertyValue"
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "identifier (Recommended)"
+            ]
         },
         "instrument": {
+            "title": "instrument (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: For LabProtocols it would be a laboratory equipment use by a person to follow one or more steps described in this LabProtocol.\n**Note:** Bioschemas have added the following to the list of Expected Types: [Text](http://schema.org/Text) and [URL](http://schema.org/URL). Schema.org: The object that helped the agent perform the action. e.g. John wrote a book with a pen. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     },
                     {
-                        "$ref": "#/definitions/Thing",
-                        "title": "Thing"
+                        "title": "Thing",
+                        "$ref": "#/definitions/Thing"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "instrument (Minimum)",
-            "type": "array"
+            }
         },
         "isBasedOn": {
+            "title": "isBasedOn (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: **Note**: Bioschemas have removed Product from the Expected Types. Schema.org: A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "isBasedOn (Optional)",
-            "type": "array"
+            }
         },
         "isPartOf": {
+            "title": "isPartOf (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: Indicates a CreativeWork that this CreativeWork is (in some sense) part of.\nInverse property: hasPart. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "isPartOf (Recommended)",
-            "type": "array"
+            }
         },
         "keywords": {
+            "title": "keywords (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "keywords (Minimum)"
+            ]
         },
         "license": {
+            "title": "license (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: A license document that applies to this content, typically indicated by URL. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/CreativeWork",
-                    "title": "CreativeWork"
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "license (Recommended)"
+            ]
         },
         "purpose": {
+            "title": "purpose (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: **Note:** Bioschemas have changed the Expected Types by removing [MedicalDevicePurpose](http://health-lifesci.schema.org/MedicalDevicePurpose) and [Thing](http://schema.org/Thing), and adding [Text](http://schema.org/Text). Schema.org: A goal towards an action is taken. Can be concrete or abstract. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "purpose (Minimum)"
+            ]
         },
         "sample": {
+            "title": "sample (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: Sample used in the protocol. It could be a record in a Dataset describing the sample or a physical object corresponding to the sample or a URL pointing to the type of sample used. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/BioChemEntity",
-                        "title": "BioChemEntity"
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "sample (Minimum)",
-            "type": "array"
+            }
         },
         "software": {
+            "title": "software (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: An application that can complete the request. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/SoftwareApplication",
-                        "title": "SoftwareApplication"
+                        "title": "SoftwareApplication",
+                        "$ref": "#/definitions/SoftwareApplication"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "software (Recommended)",
-            "type": "array"
+            }
         },
         "step": {
+            "title": "step (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Use in LabProtocol to include the step by step process followed in this protocol. Schema.org: A single step item (as HowToStep, text, document, video, etc.) or a HowToSection. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     },
                     {
-                        "$ref": "#/definitions/HowToSection",
-                        "title": "HowToSection"
+                        "title": "HowToSection",
+                        "$ref": "#/definitions/HowToSection"
                     },
                     {
-                        "$ref": "#/definitions/HowToStep",
-                        "title": "HowToStep"
+                        "title": "HowToStep",
+                        "$ref": "#/definitions/HowToStep"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "step (Recommended)",
-            "type": "array"
+            }
         }
     },
     "required": [
@@ -273,7 +275,5 @@
         "keywords",
         "purpose",
         "sample"
-    ],
-    "title": "LabProtocol (v0.2)",
-    "type": "object"
+    ]
 }

@@ -9,12 +9,12 @@
         "example": "{\n    \"@type\": [\"Gene\"],\n    \"description\": \"amyloid beta precursor\"\n}"
     },
     "enablesMF": {
-        "controlled_vocab": "Only the molecular function branch of [Gene Ontology (GO)](http://www.geneontology.org)",
-        "example": "//Gene enabling a GO molecular function\n{\n  \"@type\": [\"Gene\"],\n  \"enablesMF\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000166\",\n    \"codeValue\": \"GO:0000166\",\n    \"name\": \"nucleotide binding\"\n    }\n}"
+        "example": "//Gene enabling a GO molecular function\n{\n  \"@type\": [\"Gene\"],\n  \"enablesMF\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000166\",\n    \"codeValue\": \"GO:0000166\",\n    \"name\": \"nucleotide binding\"\n    }\n}",
+        "controlled_vocab": "Only the molecular function branch of [Gene Ontology (GO)](http://www.geneontology.org)"
     },
     "encodes": {
-        "controlled_vocab": "SIO",
-        "example": "{\n  \"@type\": [\"Gene\"],\n  \"encodes\": { \n    \"@type\": [\"Protein\"],\n    \"identifier\": \"uniprotkb:P05067\",\n    \"url\": \"https://www.uniprot.org/uniprot/P05067\"\n  }\n}"
+        "example": "{\n  \"@type\": [\"Gene\"],\n  \"encodes\": { \n    \"@type\": [\"Protein\"],\n    \"identifier\": \"uniprotkb:P05067\",\n    \"url\": \"https://www.uniprot.org/uniprot/P05067\"\n  }\n}",
+        "controlled_vocab": "SIO"
     },
     "hasBioChemEntityPart": {
         "example": "//Contains a variant\n{\n  \"@type\": [\"Gene\"],\n  \"hasBioChemEntityPart\": { \n    \"@type\": \"BioChemEntity\",\n    \"additionalType\": \"http://semanticscience.org/resource/SIO_001381\",\n    \"identifier\": \"rs577882423\",\n    },\n    \"url\": \"https://www.ensembl.org/Homo_sapiens/Variation/Summary?db=core;g=ENSG00000142192;r=21:25880550-26171128;vf=110312838\"\n  }\n}\n"
@@ -29,12 +29,12 @@
         "example": "//Using a URL directly (looks like a text)\n{\n  \"@type\": [\"Gene\"],\n  \"image\": \"https://en.wikipedia.org/wiki/Amyloid_precursor_protein#/media/File:Ideogram_human_chromosome_21.svg\"\n}\n"
     },
     "involvedInBP": {
-        "controlled_vocab": "Only the biological process branch of [Gene Ontology (GO)](http://www.geneontology.org)",
-        "example": "//Gene involved in a GO biological process\n{\n  \"@type\": [\"Gene\"],\n  \"involvedInBP\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000278\",\n    \"codeValue\": \"GO:0000278\",\n    \"name\": \"mitotic cell cycle\"\n    }\n}\n"
+        "example": "//Gene involved in a GO biological process\n{\n  \"@type\": [\"Gene\"],\n  \"involvedInBP\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000278\",\n    \"codeValue\": \"GO:0000278\",\n    \"name\": \"mitotic cell cycle\"\n    }\n}\n",
+        "controlled_vocab": "Only the biological process branch of [Gene Ontology (GO)](http://www.geneontology.org)"
     },
     "isPartOfBioChemEntity": {
-        "controlled_vocab": "For subcellular locations branch from GO, please use [Gene Ontology (GO)](http://www.geneontology.org)",
-        "example": "//Is contained in a chromosome in positions X to Y\n{\n  \"@type\": [\"Gene\"],\n  \"isPartOfBioChemEntity\": {\n    \"@type\": \"BioChemEntity\",\n    \"name\": \"Chromosome 21\",\n  }\n}\n//Is contained in an organism\n{\n  \"@type\": [\"Gene\"],\n  \"isPartOf\": {\n    \"@type\": \"BioChemEntity\",\n    \"name\": \"Homo sapiens\",\n    \"alternateName\": \"Human\",\n    \"codeCategory\": {\n      \"@type\": \"CategoryCode\",\n      \"codeValue\": \"9606\",\n      \"url\": \"http://purl.bioontology.org/ontology/NCBITAXON/9606\",\n      \"sameAs\": \"http://purl.uniprot.org/taxonomy/9606\",\n      \"inCodeSet\": {\n        \"@type\": \"CategoryCodeSet\",\n        \"name\": \"NCBI taxon\"\n      } \n    }\n  }\n}"
+        "example": "//Is contained in a chromosome in positions X to Y\n{\n  \"@type\": [\"Gene\"],\n  \"isPartOfBioChemEntity\": {\n    \"@type\": \"BioChemEntity\",\n    \"name\": \"Chromosome 21\",\n  }\n}\n//Is contained in an organism\n{\n  \"@type\": [\"Gene\"],\n  \"isPartOf\": {\n    \"@type\": \"BioChemEntity\",\n    \"name\": \"Homo sapiens\",\n    \"alternateName\": \"Human\",\n    \"codeCategory\": {\n      \"@type\": \"CategoryCode\",\n      \"codeValue\": \"9606\",\n      \"url\": \"http://purl.bioontology.org/ontology/NCBITAXON/9606\",\n      \"sameAs\": \"http://purl.uniprot.org/taxonomy/9606\",\n      \"inCodeSet\": {\n        \"@type\": \"CategoryCodeSet\",\n        \"name\": \"NCBI taxon\"\n      } \n    }\n  }\n}",
+        "controlled_vocab": "For subcellular locations branch from GO, please use [Gene Ontology (GO)](http://www.geneontology.org)"
     },
     "isTranscribedInto": {
         "controlled_vocab": "SIO"

@@ -1,13 +1,15 @@
 {
-    "definitions": {},
+    "title": "TrainingMaterial (v0.2)",
     "description": "The Life Science Training Materials specification provides a way to describe bioscience training material on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent events in Web pages and applications. The goal of the specification is to make it easier to discover, exchange and integrate life science training material information across the Internet.",
+    "type": "object",
+    "definitions": {},
     "properties": {
         "@context": {
             "default": "http://schema.org",
+            "type": "string",
             "options": {
                 "hidden": "true"
-            },
-            "type": "string"
+            }
         },
         "@type": {
             "default": "TrainingMaterial",
@@ -17,319 +19,319 @@
             "type": "string"
         },
         "about": {
+            "title": "about (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The subject matter of the content. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Thing",
-                    "title": "Thing"
+                    "title": "Thing",
+                    "$ref": "#/definitions/Thing"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "about (Minimum)"
+            ]
         },
         "audience": {
+            "title": "audience (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: Please choose values from [EDAM:Topic](http://edamontology.org/topic_0003). Schema.org: An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Audience",
-                        "title": "Audience"
+                        "title": "Audience",
+                        "$ref": "#/definitions/Audience"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "audience (Minimum)",
-            "type": "array"
+            }
         },
         "author": {
+            "title": "author (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "author (Recommended)",
-            "type": "array"
+            }
         },
         "contributor": {
+            "title": "contributor (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: A secondary contributor to the CreativeWork or Event. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "contributor (Recommended)",
-            "type": "array"
+            }
         },
         "dateCreated": {
+            "title": "dateCreated (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "dateCreated (Optional)"
+            ]
         },
         "dateModified": {
+            "title": "dateModified (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "dateModified (Optional)"
+            ]
         },
         "description": {
+            "title": "description (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: A description of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "description (Recommended)"
+            ]
         },
         "difficultyLevel": {
+            "title": "difficultyLevel (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Difficulty level; level of experience required by users. Choose value from Controlled Vocabulary column. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "difficultyLevel (Recommended)"
+            ]
         },
         "genre": {
+            "title": "genre (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: Genre of the creative work, broadcast channel or group. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "genre (Minimum)",
-            "type": "array"
+            }
         },
         "hasPart": {
+            "title": "hasPart (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.\nInverse property: isPartOf. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "hasPart (Optional)",
-            "type": "array"
+            }
         },
         "inLanguage": {
+            "title": "inLanguage (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Defaults to English if not specified. Please choose a value from [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). Schema.org: The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also [availableLanguage](http://schema.org/availableLanguage). Supersedes language. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Language",
-                    "title": "Language"
+                    "title": "Language",
+                    "$ref": "#/definitions/Language"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "inLanguage (Optional)"
+            ]
         },
         "isPartOf": {
+            "title": "isPartOf (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: Indicates a CreativeWork that this CreativeWork is (in some sense) part of.\nInverse property: [hasPart](http://schema.org/hasPart). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "isPartOf (Optional)",
-            "type": "array"
+            }
         },
         "keywords": {
+            "title": "keywords (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "keywords (Recommended)"
+            ]
         },
         "learningResourceType": {
+            "title": "learningResourceType (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Please either leave blank or select one of the values from the Controlled Vocabulary column. Schema.org: The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "learningResourceType (Optional)",
-            "type": "array"
+            }
         },
         "license": {
+            "title": "license (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: A license document that applies to this content, typically indicated by URL. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/CreativeWork",
-                    "title": "CreativeWork"
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "license (Recommended)"
+            ]
         },
         "mentions": {
+            "title": "mentions (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Can be used to link additional resources, such as datasets, tools, etc. Schema.org: Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Thing",
-                        "title": "Thing"
+                        "title": "Thing",
+                        "$ref": "#/definitions/Thing"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "mentions (Optional)",
-            "type": "array"
+            }
         },
         "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The name of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "name (Minimum)"
+            ]
         },
         "pid": {
+            "title": "pid (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Permanent identifer, such as DOIs. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "pid (Optional)"
+            ]
         },
         "review": {
+            "title": "review (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: A review of the item. Supersedes reviews. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Review",
-                        "title": "Review"
+                        "title": "Review",
+                        "$ref": "#/definitions/Review"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "review (Optional)",
-            "type": "array"
+            }
         },
         "sameAs": {
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "sameAs (Optional)"
+            ]
         },
         "timeRequired": {
+            "title": "timeRequired (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Please specify in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601). Schema.org: Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Duration",
-                    "title": "Duration"
+                    "title": "Duration",
+                    "$ref": "#/definitions/Duration"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "timeRequired (Optional)"
+            ]
         },
         "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: URL of the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "url (Recommended)",
-            "type": "array"
+            }
         },
         "version": {
+            "title": "version (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: The version of the CreativeWork embodied by a specified resource. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Number",
-                    "title": "Number"
+                    "title": "Number",
+                    "$ref": "#/definitions/Number"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "version (Optional)"
+            ]
         }
     },
     "required": [
@@ -339,7 +341,5 @@
         "audience",
         "genre",
         "name"
-    ],
-    "title": "TrainingMaterial (v0.2)",
-    "type": "object"
+    ]
 }

@@ -1,13 +1,15 @@
 {
-    "definitions": {},
+    "title": "Tool (v0.1)",
     "description": "The Life Science Tools specification provides a way to describe bioscience tools and software on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent such tools in Web pages and applications. The goal of the specification is to make it easier to discover, exchange and integrate information about life science tools across the Internet.",
+    "type": "object",
+    "definitions": {},
     "properties": {
         "@context": {
             "default": "http://schema.org",
+            "type": "string",
             "options": {
                 "hidden": "true"
-            },
-            "type": "string"
+            }
         },
         "@type": {
             "default": "Tool",
@@ -17,259 +19,259 @@
             "type": "string"
         },
         "applicationCategory": {
+            "title": "applicationCategory (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Type of software e.g. database, tool, service.\n**Note:** Bioschemas have removed [URL](http://schema.org/URL) from the Expected Types. Schema.org: Type of software application, e.g. 'Game, Multimedia'. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "applicationCategory (Optional)",
-            "type": "array"
+            }
         },
         "citation": {
+            "title": "citation (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: Publication about this software. Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "citation (Recommended)",
-            "type": "array"
+            }
         },
         "dateCreated": {
+            "title": "dateCreated (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "dateCreated (Optional)"
+            ]
         },
         "dateModified": {
+            "title": "dateModified (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Date",
-                    "title": "Date"
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
                 },
                 {
-                    "$ref": "#/definitions/DateTime",
-                    "title": "DateTime"
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "dateModified (Optional)"
+            ]
         },
         "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: A short description of the item. Schema.org: A description of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "description (Minimum)"
+            ]
         },
         "featureList": {
+            "title": "featureList (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: Please choose values from [EDAM:Operation](http://edamontology.org/operation_0004). Schema.org: Features or modules provided by this application (and possibly required by other applications). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "featureList (Minimum)",
-            "type": "array"
+            }
         },
         "hasPart": {
+            "title": "hasPart (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Used to describe tools included into suites/bundles/workflows.\n**Note:** Bioschemas have changed the Expected Type from [CreativeWork](http://schema.org/CreativeWork) to [SoftwareApplication](http://schema.org/SoftwareApplication). Schema.org: Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.\nInverse property: isPartOf. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "hasPart (Optional)",
-            "type": "array"
+            }
         },
         "keywords": {
+            "title": "keywords (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "keywords (Optional)"
+            ]
         },
         "license": {
+            "title": "license (Recommended)",
+            "propertyOrder": 2,
             "description": "Bioschemas: The applicable software license.\n**Note:** Bioschemas have changed the Expected Types from [CreativeWork](http://schema.org/CreativeWork) and [URL](http://schema.org/URL) to [Text](http://schema.org/Text). Schema.org: A license document that applies to this content, typically indicated by URL. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "license (Recommended)",
-            "type": "array"
+            }
         },
         "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The name of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "name (Minimum)"
+            ]
         },
         "offers": {
+            "title": "offers (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: An offer to provide this item\u2014for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Offer",
-                        "title": "Offer"
+                        "title": "Offer",
+                        "$ref": "#/definitions/Offer"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "offers (Optional)",
-            "type": "array"
+            }
         },
         "operatingSystem": {
+            "title": "operatingSystem (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: Operating systems on which the app runs. Schema.org: Operating systems supported (Windows 7, OSX 10.6, Android 1.6). ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "operatingSystem (Optional)",
-            "type": "array"
+            }
         },
         "potentialAction": {
+            "title": "potentialAction (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: The input format of the data. Must be one of the [EDAM:Data](http://edamontology.org/data_0006) concept labels or one of its synonyms.\n**Note:** Bioschemas have changed the Expected Type from [Action](http://schema.org/Action) to [URL](http://schema.org/URL). Schema.org: Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "potentialAction (Optional)",
-            "type": "array"
+            }
         },
         "publisher": {
+            "title": "publisher (Recommended)",
+            "propertyOrder": 2,
             "description": "Schema.org: The publisher of the creative work. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Organization",
-                        "title": "Organization"
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
                     },
                     {
-                        "$ref": "#/definitions/Person",
-                        "title": "Person"
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "publisher (Recommended)",
-            "type": "array"
+            }
         },
         "softwareHelp": {
+            "title": "softwareHelp (Optional)",
+            "propertyOrder": 3,
             "description": "Bioschemas: A documentation for the tool. Schema.org: Software application help. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "softwareHelp (Optional)",
-            "type": "array"
+            }
         },
         "softwareRequirements": {
+            "title": "softwareRequirements (Optional)",
+            "propertyOrder": 3,
             "description": "Schema.org: Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime). Supersedes requirements. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "softwareRequirements (Optional)",
-            "type": "array"
+            }
         },
         "softwareVersion": {
+            "title": "softwareVersion (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: Version of the software instance. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "softwareVersion (Minimum)"
+            ]
         },
         "url": {
+            "title": "url (Minimum)",
+            "propertyOrder": 1,
             "description": "Bioschemas: URL of the item. This property can be used on a page listing many software tools, to indicate each individual tool's page. Schema.org: URL of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "url (Minimum)"
+            ]
         }
     },
     "required": [
@@ -280,7 +282,5 @@
         "name",
         "softwareVersion",
         "url"
-    ],
-    "title": "Tool (v0.1)",
-    "type": "object"
+    ]
 }
