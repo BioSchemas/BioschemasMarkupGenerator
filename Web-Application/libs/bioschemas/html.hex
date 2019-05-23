@@ -1,0 +1,36 @@
+"<script type=""application/ld+json"">
+    {
+      ""@context"": ""http://schema.org"",
+      ""@type"": ""DataCatalog"",
+      ""description"": ""OMA is a project that aims to identify orthologs among publicly available, complete genomes."",
+      ""keywords"": ""evolutionary relation, orthology prediction, paralogy"",
+      ""name"": ""OMA Orthology Database"",
+      ""provider"" : [
+         {
+          ""@type"":""Organization"",
+          ""@id"": ""https://www.sib.swiss/"",
+         },
+         {
+          ""@type"":""Person"",
+          ""@id"": """",
+         }
+         ],
+    ""url"": ""https://omabrowser.org/"",
+    ""alternateName"": """",
+    ""citation"":[
+         {
+          ""@type"":""CreativeWork"",
+          ""@id"": """",
+         },
+         """"
+         ],
+    ""dataset"": """",
+    ""dateCreated"": """",
+    ""identifier"": """",
+    ""license"": """",
+    ""publication"": """",
+    ""sourceOrganization"": """",
+    ""sourceOrganization"": """",
+    ""fileFormat"": """",
+    }
+   </script>"

@@ -1,0 +1,117 @@
+{
+    "definitions": {},
+    "description": "To deliver on the identified use cases for samples, we have identified a minimal set of properties to encapsulate identification, linking, and metadata descriptions. Some of these properties are existing standard schema.org properties, others require Bioschemas extensions. Table 1 outlines the minimal set of properties for the \u2018Sample\u2019 concept and Table 2 shows our recommendations for use of the \u2018PropertyValue\u2019 concept to markup additional characteristics of a sample described within a sample page. We also propose a new concept, \u2018Biomedical Code\u2019, which is a generalisation of the existing \u2018Medical Code\u2019 concept defined in the health-lifesci.schema.org extension.",
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Sample",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "additionalProperty": {
+            "description": "Bioschemas: A property-value pair representing an additional characteristics of the entity, e.g. \u201cOrganism: Homo sapiens\u201d or \u201ctissue type: leaf\u201d. For details of how to use [PropertyValue](http://bioschemas.org/specifications/Sample/specification/#PropertyValue) see below. Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/PropertyValue",
+                        "title": "PropertyValue"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "additionalProperty (Optional)",
+            "type": "array"
+        },
+        "description": {
+            "description": "Bioschemas: A description of the sample in free text. This should not contain information that could be better expressed as key/value pairs. These should be expressed using additionalProperty. Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 3,
+            "title": "description (Optional)"
+        },
+        "identifier": {
+            "description": "Bioschemas: Unique sample IDs. Where possible this should be an identifiers.org compliant prefixed id e.g. a BioSamples ID biosample:SAME12345. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/PropertyValue",
+                        "title": "PropertyValue"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 1,
+            "title": "identifier (Minimum)",
+            "type": "array"
+        },
+        "name": {
+            "description": "Bioschemas: A human readable name for the sample. This should not be an additional identifier. Additional identifiers should be added to the identifier field. Schema.org: The name of the item. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "name (Optional)",
+            "type": "array"
+        },
+        "subjectOf": {
+            "description": "Bioschemas: Provides a link to a dataset that contains data about this sample record. Schema.org: A CreativeWork or Event about this Thing..\nInverse property: about. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/CreativeWork",
+                        "title": "CreativeWork"
+                    },
+                    {
+                        "$ref": "#/definitions/Event",
+                        "title": "Event"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "subjectOf (Optional)",
+            "type": "array"
+        },
+        "url": {
+            "description": "Bioschemas: An access URL for this sample, e.g., in BioSamples or in a Biobank or elsewhere. Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "url (Recommended)"
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "identifier"
+    ],
+    "title": "Sample (v0.2)",
+    "type": "object"
+}

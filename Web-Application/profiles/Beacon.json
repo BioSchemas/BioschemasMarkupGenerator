@@ -1,0 +1,382 @@
+{
+    "definitions": {
+        "Action": {
+            "description": "An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/04/announcing-schemaorg-actions.html\">blog post</a> and <a href=\"http://schema.org/docs/actions.html\">Actions overview document</a>.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "Action",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "Action"
+        },
+        "Boolean": {
+            "type": "boolean"
+        },
+        "DataCatalog": {
+            "description": "A guide for how to describe data catalogs/repositories in the life-sciences using Schema.org-like annotation.",
+            "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "DataCatalog",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "description": " Schema.org: A description of the item.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Text",
+                            "title": "Text"
+                        }
+                    ],
+                    "title": "description (Minimum)"
+                },
+                "keywords": {
+                    "description": " Bioschemas.org: Use terms from Controlled Vocabularies where possible. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Text",
+                            "title": "Text"
+                        }
+                    ],
+                    "title": "keywords (Minimum)"
+                },
+                "name": {
+                    "description": " Schema.org: The name of the item.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Text",
+                            "title": "Text"
+                        }
+                    ],
+                    "title": "name (Minimum)"
+                },
+                "provider": {
+                    "description": " Bioschemas.org: Contact information for this data repository/catalog. Schema.org: The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/Organization",
+                                "title": "Organization"
+                            },
+                            {
+                                "$ref": "#/definitions/Person",
+                                "title": "Person"
+                            }
+                        ]
+                    },
+                    "title": "provider (Minimum)",
+                    "type": "array"
+                },
+                "url": {
+                    "description": " Schema.org: URL of the item.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/URL",
+                            "title": "URL"
+                        }
+                    ],
+                    "title": "url (Minimum)"
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "description",
+                "keywords",
+                "name",
+                "provider",
+                "url"
+            ],
+            "title": "DataCatalog",
+            "type": "object"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Organization": {
+            "description": "An organization such as a school, NGO, corporation, club, etc.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "Organization"
+        },
+        "Person": {
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "Person"
+        },
+        "PropertyValue": {
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "PropertyValue",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "PropertyValue"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Text": {
+            "format": "text",
+            "type": "string"
+        },
+        "URL": {
+            "format": "url",
+            "type": "string"
+        }
+    },
+    "description": "In this document we propose a simple way for a beacons to self-describe their genetic variant cardinality service for better integration with other beacons within the beacon-network. It builds upon the Beacon service API and uses existing schema.org entities and properties. ",
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Beacon",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "aggregator": {
+            "description": " Bioschemas.org: True if Beacon is an agregator of other Beacon Datasets.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Boolean",
+                    "title": "Boolean"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "aggregator (Recommended)"
+        },
+        "dataset": {
+            "description": " Bioschemas.org: Datasets served by this Beacon. Schema.org: A dataset contained in this catalog. \ninverse property: [includedInDataCatalog.](http://schema.org/includedInDataCatalog)",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/DataCatalog",
+                        "title": "DataCatalog"
+                    }
+                ]
+            },
+            "propertyOrder": 1,
+            "title": "dataset (Minimum)",
+            "type": "array"
+        },
+        "description": {
+            "description": " Bioschemas.org: Description of this Beacon. Schema.org: A description of the item.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "description (Recommended)"
+        },
+        "identifier": {
+            "description": " Bioschemas.org: Unique identifier of the Beacon. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/PropertyValue",
+                    "title": "PropertyValue"
+                },
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                },
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "identifier (Recommended)"
+        },
+        "name": {
+            "description": " Bioschemas.org: Name of this Beacon. Schema.org: The name of the item.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "name (Minimum)"
+        },
+        "potentialAction": {
+            "description": " Bioschemas.org: List of Actions that can be performed on this Beacon. Schema.org: Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Action",
+                        "title": "Action"
+                    }
+                ]
+            },
+            "propertyOrder": 1,
+            "title": "potentialAction (Minimum)",
+            "type": "array"
+        },
+        "provider": {
+            "description": " Bioschemas.org: Contact information for this Beacon. Schema.org: The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes [carrier](http://schema.org/carrier).",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Organization",
+                        "title": "Organization"
+                    },
+                    {
+                        "$ref": "#/definitions/Person",
+                        "title": "Person"
+                    }
+                ]
+            },
+            "propertyOrder": 1,
+            "title": "provider (Minimum)",
+            "type": "array"
+        },
+        "sameAs": {
+            "description": " Bioschemas.org: Alternative URL for this Beacon. Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "sameAs (Optional)",
+            "type": "array"
+        },
+        "supportedRefs": {
+            "description": " Bioschemas.org: Supported Genome ID references.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    }
+                ]
+            },
+            "propertyOrder": 1,
+            "title": "supportedRefs (Minimum)",
+            "type": "array"
+        },
+        "url": {
+            "description": " Bioschemas.org: Welcome Page of this Beacon. Schema.org: URL of the item.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "url (Minimum)"
+        },
+        "version": {
+            "description": " Bioschemas.org: Beacon API version number. Schema.org: The version of the CreativeWork embodied by a specified resource.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Number",
+                    "title": "Number"
+                },
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "version (Recommended)"
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dataset",
+        "name",
+        "potentialAction",
+        "provider",
+        "supportedRefs",
+        "url"
+    ],
+    "title": "Beacon (v0.2)",
+    "type": "object"
+}

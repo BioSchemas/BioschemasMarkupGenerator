@@ -1,0 +1,97 @@
+{
+    "acceptanceNotificationDate": {
+        "example": "\"acceptanceNotificationDate\": [ \n   \"2018-07-04T14:16:43Z\"\n]\n"
+    },
+    "alternateName": {
+        "example": "\"name\": \"Introduction to RNA-seq analysis in R\""
+    },
+    "attachment": {
+        "example": "\"attachment\": [\n    \"https://example.com/PrecourseQuestionnaire\",\n    \"https://example.com/Brochure\" \n]\n"
+    },
+    "audience": {
+        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)",
+        "example": "\"audience\": [\n  \"http://edamontology.org/topic_0091\",\n  \"http://edamontology.org/topic_3070\"\n]"
+    },
+    "contact": {
+        "example": "\"contact\": [{ \n       \"@type\": \"Person\",\n       \"name\": \"Fred Smith\",\n       \"email\": \"Fred.Smith@example.com\"\n    },\n    {\n       \"@type\": \"Organization\",\n       \"name\": \"Bioinformatics Training Division, University of Manchester\",\n       \"url\": \"http://manchester.ac.uk/bioinformatics/training/contact\"\n    }\n]"
+    },
+    "dateModified": {
+        "example": "\"dateModified\": \"2018-07-04T14:16:43Z\" "
+    },
+    "deadline": {
+        "example": "\"deadline\": \"Registration finishes 4 weeks prior to the course beginning. Please complete the pre-workshop questionnaire before the workshop\" \n"
+    },
+    "description": {
+        "example": "\"description\": \"In this workshop, you will be learning how to analyse RNA-seq count data, using R. This will include reading the data into R, quality control and performing differential expression analysis and gene set testing, with a focus on the edgeR analysis workflow. You will learn how to generate common plots for analysis and visualisation of gene expression data, such as boxplots and heatmaps. You will also be learning how alignment and counting of raw RNA-seq data can be performed in R. This workshop is aimed at biologists interested in learning how to perform differential expression analysis of RNA-seq data when reference genomes are available.\" "
+    },
+    "eligibility": {
+        "controlled_vocab": "- first come first served\n- registration of interest\n- by invitation",
+        "example": "\"eligibility\": \"First come first served\" "
+    },
+    "endDate": {
+        "example": "\"endDate\": \"2018-07-04T18:00:1Z\" "
+    },
+    "eventType": {
+        "controlled_vocab": "- workshops and courses\n- meetings and conferences\n- receptions and networking\n- awards and prizegivings",
+        "example": "\"eventType\": \"workshops and courses\" \n"
+    },
+    "hostInstitution": {
+        "example": "\"hostInstitution\":     {\n       \"@type\": \"Organization\",\n       \"name\": \"Bioinformatics Training Division, University of Manchester\",\n       \"url\": \"http://manchester.ac.uk/bioinformatics/training/contact\"\n} "
+    },
+    "keywords": {
+        "example": "\"keywords\": [\"RNA-Seq\", \"R language\", \"Programming\", \"R Life science\"] "
+    },
+    "location": {
+        "example": "\n\"location\": {\n    \"@type\": \"Place\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"streetAddress\": \"1.17, Kilburn Building, University of Manchester\",\n      \"addressLocality\": \"Manchester\",\n      \"addressRegion\": \"Greater Manchester\",\n      \"addressCountry\": \"United Kingdom\",\n      \"postalCode\": \"M13 9PL\"\n    }\n}"
+    },
+    "maximumAttendeeCapacity": {
+        "example": " \"maximumAttendeeCapacity\": 35"
+    },
+    "name": {
+        "example": "\"name\": [\"RNA-seq in R\"]"
+    },
+    "offers": {
+        "example": "\"offers\":     {\n      \"@type\": \"Offer\",\n      \"price\": \"100.00\",\n      \"priceCurrency\": \"GBP\",\n      \"url\": \"http://www.eventbrite.com/my-workshop\"\n}\n"
+    },
+    "performer": {
+        "example": "\"performer\": [\n       {\n          \"@type\": \"Person\",\n          \"name\": \"John Smith\",\n          \"sameAs\": \"https://manchester.ac.uk/staff/profiles/john-smith\"\n        }\n] "
+    },
+    "prerequisite": {
+        "example": "\"prerequisite\": \"Attendees must have attended the linux basics course first.\" "
+    },
+    "programme": {
+        "example": "\"programme\": \"http://example.com/programme\" \n"
+    },
+    "registrationStatus": {
+        "controlled_vocab": "- proposed\n- pre-open\n- open\n- cancelled\n- full",
+        "example": "\"registrationStatus\": \"open\" \n"
+    },
+    "review": {
+        "example": "\"review\": [{\n        \"@type\": \"Review\",\n        \"author\": \"Boris\",\n        \"datePublished\": \"2018-08-01\",\n        \"description\": \"I thought the exercises were really useful and the presentations were clear. Would have preferred more diagrams\",\n        \"name\": \"RN-Ace\"\n}]"
+    },
+    "socialMedia": {
+        "example": "\"socialMedia\": [\n       \"http://twitter.com/TrainingGuy\",\n       \"http://linked.in/TrainingInR\"\n] \n"
+    },
+    "sponsor": {
+        "example": "\"sponsor\": [\"ELIXIR\", \"University of Manchester\"] "
+    },
+    "startDate": {
+        "example": "\"startDate\": \"2018-07-04T18:00:1Z\" \n"
+    },
+    "subEvent": {
+        "example": "\"subEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"Lunch time Lecture\",\n      \"url\": \"https://lectureatlunch.com\",\n      \"description\": \"This special lecture hosted during lunchtime as part of the RNA-SEQ in R workshop demonstrates some of the latest technologies available.\"\n  }]"
+    },
+    "submitter": {
+        "example": "\"submitter\": [{ \n      \"@type\": \"Organization\",\n      \"name\" \"iAnn\",\n      \"url\": \"http://https://www.ncbi.nlm.nih.gov/pubmed/23742982\"\n}]"
+    },
+    "superEvent": {
+        "example": "\"superEvent\": {\n      \"@type\": \"Event\",\n      \"name\": \"Summer of Science\",\n      \"url\": \"https://sos.com\",\n      \"description\": \" This is a series of lectures for bioinformaticians around Europe\"\n}"
+    },
+    "topic": {
+        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)",
+        "example": "\"topic\":  [\n   \"http://edamontology.org/topic_3372\",\n   \"http://edamontology.org/topic_3071\"\n]"
+    },
+    "url": {
+        "example": "\"url\": \"http://courses.manchester.ac.uk/rna-seq_in_r\""
+    }
+}

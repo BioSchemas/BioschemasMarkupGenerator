@@ -1,0 +1,204 @@
+{
+    "definitions": {},
+    "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Taxon",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "additionalType": {
+            "description": "Bioschemas: A Taxon type from a well known vocabulary, e.g. DarwinCore http://rs.tdwg.org/dwc/terms/Taxon or http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "additionalType (Optional)",
+            "type": "array"
+        },
+        "alternateName": {
+            "description": "Bioschemas: Scientific name, possibly including authorship and date information, of a synonym of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: An alias for the item. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "alternateName (Optional)",
+            "type": "array"
+        },
+        "childTaxon": {
+            "description": "Bioschemas: Direct, most proximate lower-rank child taxa Schema.org: Closest child taxa of the taxon in question.\nInverse property: parentTaxon ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Taxon",
+                        "title": "Taxon"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "childTaxon (Optional)",
+            "type": "array"
+        },
+        "hasCategoryCode": {
+            "description": "Schema.org: A Category code contained in this code set. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/CategoryCode",
+                        "title": "CategoryCode"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "hasCategoryCode (Optional)",
+            "type": "array"
+        },
+        "name": {
+            "description": "Bioschemas: Taxon name without authorship nor date information of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "name (Minimum)"
+        },
+        "parentTaxon": {
+            "description": "Bioschemas: Direct, most proximate higher-rank parent taxon Schema.org: Closest parent taxon of the taxon in question.\nInverse property: childTaxon ",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Taxon",
+                    "title": "Taxon"
+                },
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                },
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "parentTaxon (Recommended)"
+        },
+        "sameAs": {
+            "description": "Bioschemas: URL of third-party webpages describing the same taxon Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "sameAs (Optional)",
+            "type": "array"
+        },
+        "scientificName": {
+            "description": "Bioschemas: Full scientific name, with authorship and date information if know, of the currently valid (zoological) or accepted (botanical) taxon. ",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 3,
+            "title": "scientificName (Optional)"
+        },
+        "scientificNameAuthorship": {
+            "description": "Bioschemas: Authorship information for the scientificName formatted according to the conventions of the applicable nomenclatural Code. Example: \"(Torr.) J.T. Howell\", \"(Martinovsk\u00fd) Tzvelev\", \"(Gy\u00f6rfi, 1952)\" ",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 3,
+            "title": "scientificNameAuthorship (Optional)"
+        },
+        "taxonRank": {
+            "description": "Schema.org: The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs) ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/PropertyValue",
+                        "title": "PropertyValue"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 2,
+            "title": "taxonRank (Recommended)",
+            "type": "array"
+        },
+        "url": {
+            "description": "Bioschemas: Link to the webpage associated to this taxon Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "url (Recommended)"
+        },
+        "vernacularName": {
+            "description": "Bioschemas: A vernacular (common) name of the taxon ",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "vernacularName (Optional)",
+            "type": "array"
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "name"
+    ],
+    "title": "Taxon (v0.3)",
+    "type": "object"
+}

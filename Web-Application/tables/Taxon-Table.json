@@ -1,0 +1,42 @@
+{
+    "Additionaltype": {
+        "example": "{ \"@context\": [\n        \"http://schema.org\",\n        { \"dwc\": \"http://rs.tdwg.org/dwc/terms/\" }\n    ],\n    \"@type\" : \"Taxon\",\n    \"additionalType\": \"dwc:Taxon\"\n}",
+        "marginality": "Optional"
+    },
+    "Alternatename": {
+        "example": "{\n    \"alternateName\": \"Balaena albicans Muller, 1776\"\n}",
+        "marginality": "Optional"
+    },
+    "Childtaxon": {
+        "example": "{   \"@type\" : \"Taxon\",\n    \"name\": \"Delphinapterus\",\n    \"taxonRank\" : [ \"WD:Q34740\",  \"genus\" ],\n    \"childTaxon\": { \n        \"@type\": \"Taxon\",\n        \"name\": \"Delphinapterus leucas\",\n        \"taxonRank\" : [ \"WD:Q7432\",  \"species\" ]\n    }\n}",
+        "marginality": "Optional"
+    },
+    "Name": {
+        "example": "{\n    \"name\": \"Delphinapterus leucas\"\n}",
+        "marginality": "Minimum"
+    },
+    "Parenttaxon": {
+        "example": "\"parentTaxon\": { \n    \"@type\": \"Taxon\",\n    \"@id\": \"WD:Q16628343\",\n    \"name\": \"Delphinapterus\",\n    \"taxonRank\" : [ \"WD:Q34740\",  \"genus\" ]\n}",
+        "marginality": "Recommended"
+    },
+    "Sameas": {
+        "example": "{\n    \"sameAs\": [\n        \"http://eol.org/pages/328541\",\n        \"http://en.wikipedia.org/w/index.php?title=Beluga_whale\",\n        \"http://www.catalogueoflife.org/annual-checklist/details/species/id/6850357\",\n        \"http://www.iucnredlist.org/details/6335\"\n    ]\n}",
+        "marginality": "Optional"
+    },
+    "Scientificname": {
+        "example": "{\n    \"dwc:scientificName\": \"Delphinapterus leucas (Pallas, 1776)\"\n}",
+        "marginality": "Optional"
+    },
+    "Scientificnameauthorship": {
+        "example": "{\n    \"dwc:scientificNameAuthorship\": \"(Pallas, 1776)\"\n}",
+        "marginality": "Optional"
+    },
+    "Taxonrank": {
+        "example": "{\n    \"taxonRank\": [\n      \"http://rs.tdwg.org/ontology/voc/TaxonRank#Species\",\n      \"http://www.wikidata.org/entity/Q7432\",\n      \"species\"\n    ]\n}",
+        "marginality": "Recommended"
+    },
+    "Vernacularname": {
+        "example": "{\n    \"dwc:vernacularName\": [\n        { \"@language\": \"en\", \"@value\": \"Beluga Whale\" },\n        { \"@language\": \"fr\", \"@value\": \"B\u00e9louga\" }\n    ]\n}",
+        "marginality": "Optional"
+    }
+}

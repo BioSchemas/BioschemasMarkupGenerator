@@ -1,0 +1,64 @@
+{
+    "additionalProperty": {
+        "example": "//Short direct alternative to express, for instance, a relation between a protein and a protein clan.\n{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"http://semanticscience.org/resource/SIO_000095\":\"http://pfam.xfam.org/clan/CL0001\"\n}\n                \n//If no ontology term expressing the desired relation exists, then and only then use additionaProperty\n{\n  \"@type\": [\"Protein\"],\n  \"additionalProperty\": {\n    \"name\": \"my new property\",\n    \"value\": {\n      \"@type\": \"PropertyValue\",\n      \"value\": \"the object in this relation, more properties can be used as needed\"\n    }\n  }\n}"
+    },
+    "additionalType": {
+        "controlled_vocab": "[wikidata:protein](https://www.wikidata.org/wiki/Q8054)\n[SIO:010043](http://semanticscience.org/resource/SIO_010043.rdf)",
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"additionalType\": \"http://semanticscience.org/resource/SIO_010043\"\n}"
+    },
+    "alternateName": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"alternateName\": [\"ABL\", \"JTK7\"]\n}"
+    },
+    "associatedDisease": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"associatedDisease\": {\n    \"@type\": \"MedicalCondition\",\n    \"name\": \"Leukemia, chronic myeloid (CML)\",\n    \"code\": {\n      \"@type\": \"MedicalCode\",\n      \"codeValue\": \"608232\",\n      \"codingSystem\": \"OMIM\"\n    },\n    \"sameAs\": \"http://purl.uniprot.org/mim/608232\",\n    \"url\": \"http://www.uniprot.org/diseases/DI-03735\"\n  }\n}"
+    },
+    "description": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"description\": \"Function: Non-receptor tyrosine-protein kinase that plays a role...\"\n}"
+    },
+    "enablesMF": {
+        "controlled_vocab": "[Gene Ontology (GO)](http://www.geneontology.org)",
+        "example": "//Protein enabling a GO molecular function\n{\n  \"@type\": [\"Protein\"],\n  \"enablesMF\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000166\",\n    \"codeValue\": \"GO:0000166\",\n    \"name\": \"nucleotide binding\"\n    }\n}\n//With evidence\n{\n  \"@type\": [\"Protein\"],\n  \"enablesMF\": {\n    \"@type\": \"ProteinAnnotation\",\n    \"identifier\": \"GO:0000166\",\n    \"categoryCode\": {\n      \"@type\": \"CategoryCode\",\n      \"url\": \"http://purl.obolibrary.org/obo/GO_0000166\",\n      \"codeValue\": \"GO:0000166\",\n      \"name\": \"nucleotide binding\"\n    },\n    \"creationMethod\": {\n      \"@type\": \"PropertyValue\",\n      \"value\": \"imported manually asserted information used in automatic assertion\",\n      \"valueReference\": {\n        \"@type\": \"CategoryCode\",\n        \"codeValue\": \"ECO:0000322\",\n        \"inCategorySet\": {\n          \"@type\": \"CategoryCodeSet\",\n          \"name\": \"ECO Evidence Code Ontology\"\n        }\n      }\n    }\n  }\n}"
+    },
+    "hasBioChemEntityPart": {
+        "controlled_vocab": "Any suitable ontology",
+        "example": "//A protein can contain a variant\n{\n  \"@type\": [\"Protein\"],\n  \"hasBioChemEntityPart\": {\"@id\": \"http://purl.uniprot.org/annotation/VAR_022315\"}\n}\n                \n//More information about the variant can also be included via ProteinAnnotation\n{\n  \"@type\": [\"Protein\"],\n  \"hasBioChemEntityPart\": {\n      \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n      \"@id\": \"http://purl.uniprot.org/annotation/VAR_022315\",\n      \"aditionalType\": \"http://semanticscience.org/resource/SIO_010471\",\n      \"identifier\": \"VAR_022315\"\n    }\n}\n\n//A variant can include an evidence; in this case we model the variant as a ProteinAnnotation  and use creationMethod\n{\n  \"@type\": [\"Protein\"],\n  \"@id\": \"http://purl.uniprot.org/uniprot/P05519\",\n  \"hasBioChemEntityPart\": {\n    \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n    \"@id\": \"http://purl.uniprot.org/annotation/VAR_022315\",\n    \"identifier\": \"VAR_022315\",\n    \"creationMethod\": {\n      \"@type\": \"PropertyValue\",\n      \"value\": \"imported manually asserted information used in automatic assertion\",\n      \"valueReference\": {\n        \"@type\": \"CategoryCode\",\n        \"codeValue\": \"ECO:0000322\",\n        \"inCategorySet\": {\n          \"@type\": \"CategoryCodeSet\",\n          \"name\": \"ECO Evidence Code Ontology\"\n        }\n      }\n    }\n  }\n}"
+    },
+    "hasCategoryCode": {
+        "controlled_vocab": "Any suitable controlled vocabulary",
+        "example": "    {\n      \"@type\": [\"Protein\"],\n      \"hasCategoryCode\": [\n        {\n          \"@type\": \"CategoryCode\",\n          \"codeValue\": \"P05067\",\n          \"url\": \"http://purl.uniprot.org/uniprot/P05067\",\n          \"inCodeSet\": {\n            \"@type\": \"CategoryCodeSet\",\n            \"name\": \"UniProt\",\n            \"url\": \"http://purl.uniprot.org/uniprot/\"\n          }\n        },\n        {\n          \"@type\": \"CategoryCode\",\n          \"codeValue\": \"Q423510\",\n          \"url\": \"https://www.wikidata.org/wiki/Q423510\",\n          \"inCodeSet\": {\n            \"@type\": \"CategoryCodeSet\",\n            \"name\": \"Wikidata\",\n            \"url\": \"https://www.wikidata.org\"        \n          }        \n        }\n      ]\n    }"
+    },
+    "hasRepresentation": {
+        "example": "//A protein can be represented in different ways, for intance using its primary, secondary or tertiaty representations. It can also be graphically and interactevely (so image is not appropriate) represented as shown here:\n{\n  \"@type\": [\"Protein\"],\n  \"hasRepresentation\": \"http://www.uniprot.org/uniprot/P05067#showFeaturesViewer\"\n}"
+    },
+    "identifier": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"identifier\": \"uniprotkb:P00519\"\n}"
+    },
+    "involvedInBP": {
+        "controlled_vocab": "[Gene Ontology (GO)](http://www.geneontology.org)",
+        "example": "//Protein involved in a GO biological process\n{\n  \"@type\": [\"Protein\"],\n  \"involvedInBP\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000278\",\n    \"codeValue\": \"GO:0000278\",\n    \"name\": \"mitotic cell cycle\"\n    }\n}\n//With evidence\n{\n  \"@type\": [\"Protein\"],\n  \"involvedInBP\": {\n    \"@type\": \"ProteinAnnotation\",\n    \"identifier\": \"GO:0000278\",\n    \"categoryCode\": {\n      \"@type\": \"CategoryCode\",\n      \"url\": \"http://purl.obolibrary.org/obo/GO_0000278\",\n      \"codeValue\": \"GO:0000278\",\n      \"name\": \"mitotic cell cycle\"\n    },\n    \"creationMethod\": {\n      \"@type\": \"PropertyValue\",\n      \"value\": \"imported manually asserted information used in automatic assertion\",\n      \"valueReference\": {\n        \"@type\": \"CategoryCode\",\n        \"codeValue\": \"ECO:0000322\",\n        \"inCategorySet\": {\n          \"@type\": \"CategoryCodeSet\",\n          \"name\": \"ECO Evidence Code Ontology\"\n        }\n      }\n    }\n  }\n}"
+    },
+    "isEncodedBy": {
+        "controlled_vocab": "Any suitable ontology",
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"isEncodedBy\": {\n    \"@type\": [\"Gene\"],\n    \"identifier\": \"ABL1\",\n    \"name\": \"ABL1\"\n  }\n}"
+    },
+    "isPartOfBioChemEntity": {
+        "controlled_vocab": "Any suitable ontology",
+        "example": "//Protein is part of (isContainedIn) a GO subcellular location\n{\n  \"@type\": [\"Protein\"],\n  \"isPartOfBioChemEntity\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0016020\",\n    \"codeValue\": \"GO:0016020\",\n    \"name\": \"membrane\"\n    }\n}"
+    },
+    "mainEntityOfPage": {
+        "example": "//Preferred way from DataRecord\n{\n\n  \"@type\": \"DataRecord\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P05519\",\n  \"mainEntity\": {\n    \"@type\": [\"Protein\"]\n    #Any other property for this Protein entity    \n  }\n}\n\n//Also possible from Protein or any other entity referred to from the Protein, e.g., associated disease\n{\n  \"@type\": [\"Protein\"],\n  \"mainEntityOfPage\": { \"@id\": \"http://purl.uniprot.org/uniprot/P05519\" }\n}"
+    },
+    "name": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"name\": \"ABL1\"\n}"
+    },
+    "sameAs": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"sameAs\": [\"https://www.wikidata.org/wiki/Q587961\", \"https//:identifiers.org/uniprot:P05519\"]\n}"
+    },
+    "taxonomicRange": {
+        "controlled_vocab": "Taxonomies or any suitable controlled vocabulary",
+        "example": "//In this example, taxon 9606 is described by a DataRecord somewhere else so there is no need to include all the information but just pointing to it\n{\n  \"@type\": [\"Protein\"],\n  \"taxonomicRange\": {\n    \"@type\": \"Taxon\",\n    \"mainEntityOfPage\": {\n      \"@type\": \"DataRecord\", \n      \"@id\": \"http://purl.uniprot.org/taxonomy/9606\"\n    }\n  }\n}"
+    },
+    "url": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"url\": \"http://www.uniprot.org/uniprot/P05519\"\n}"
+    }
+}

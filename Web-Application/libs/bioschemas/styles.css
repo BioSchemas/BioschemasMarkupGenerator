@@ -1,0 +1,44 @@
+.btn-secondary {
+  background-color: #0B794B !important; /* Green */
+}
+.json-editor-btn-edit {
+  background-color: #0B794B !important; /* Green */
+}
+.json-editor-btntype-properties {
+  background-color: #0B794B !important; /* Green */
+}
+.btn-success {
+  background-color: #0B794B !important; /* Green */
+}
+.bg-success{
+  background-color: #0B794B !important; /* Green */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "form-area form-area form-area tip-area" "form-area form-area form-area tip-area" "form-area form-area form-area tip-area";
+}
+
+.form-area { grid-area: form-area; float:left; }
+
+.tip-area { padding-top: 15px; padding-left: 10px; grid-area: tip-area; float:right;}
+
+.tipAccordion { padding-top: 32px;}
+
+h6 {
+  border-bottom: 1px solid gray;
+}
+
+h4 {
+  float: left;
+}
+
+.modal-header {
+  display: inline !important;
+}
+
+pre, code {
+ background-color: #eff0f1 !important;
+}

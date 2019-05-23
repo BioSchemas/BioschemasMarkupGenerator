@@ -1,0 +1,443 @@
+{
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "CreativeWork": {
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "CreativeWork",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "CreativeWork"
+        },
+        "DataCatalog": {
+            "description": "A guide for how to describe data catalogs/repositories in the life-sciences using Schema.org-like annotation.",
+            "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "DataCatalog",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "description": " Schema.org: A description of the item.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Text",
+                            "title": "Text"
+                        }
+                    ],
+                    "title": "description (Minimum)"
+                },
+                "keywords": {
+                    "description": " Bioschemas.org: Use terms from Controlled Vocabularies where possible. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Text",
+                            "title": "Text"
+                        }
+                    ],
+                    "title": "keywords (Minimum)"
+                },
+                "name": {
+                    "description": " Schema.org: The name of the item.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Text",
+                            "title": "Text"
+                        }
+                    ],
+                    "title": "name (Minimum)"
+                },
+                "provider": {
+                    "description": " Bioschemas.org: Contact information for this data repository/catalog. Schema.org: The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/Organization",
+                                "title": "Organization"
+                            },
+                            {
+                                "$ref": "#/definitions/Person",
+                                "title": "Person"
+                            }
+                        ]
+                    },
+                    "title": "provider (Minimum)",
+                    "type": "array"
+                },
+                "url": {
+                    "description": " Schema.org: URL of the item.",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/URL",
+                            "title": "URL"
+                        }
+                    ],
+                    "title": "url (Minimum)"
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "description",
+                "keywords",
+                "name",
+                "provider",
+                "url"
+            ],
+            "title": "DataCatalog",
+            "type": "object"
+        },
+        "DataDownload": {
+            "description": "A dataset in downloadable form.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "DataDownload",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "DataDownload"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Organization": {
+            "description": "An organization such as a school, NGO, corporation, club, etc.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "Organization"
+        },
+        "Person": {
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "Person"
+        },
+        "PropertyValue": {
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "PropertyValue",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "PropertyValue"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Text": {
+            "format": "text",
+            "type": "string"
+        },
+        "URL": {
+            "format": "url",
+            "type": "string"
+        }
+    },
+    "description": "A guide for how to describe datasets in the life-sciences using Schema.org-like annotation.",
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Dataset",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "citation": {
+            "description": " Bioschemas.org: A citation for a publication that describes the dataset. Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/CreativeWork",
+                        "title": "CreativeWork"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    }
+                ]
+            },
+            "propertyOrder": 2,
+            "title": "citation (Recommended)",
+            "type": "array"
+        },
+        "creator": {
+            "description": " Bioschemas.org: The name of the dataset creator (person or organization). Schema.org: The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Organization",
+                        "title": "Organization"
+                    },
+                    {
+                        "$ref": "#/definitions/Person",
+                        "title": "Person"
+                    }
+                ]
+            },
+            "propertyOrder": 2,
+            "title": "creator (Recommended)",
+            "type": "array"
+        },
+        "description": {
+            "description": " Bioschemas.org: A short summary describing a dataset. Schema.org: A description of the item.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "description (Minimum)"
+        },
+        "distribution": {
+            "description": " Schema.org: A downloadable form of this dataset, at a specific location, in a specific format.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/DataDownload",
+                    "title": "DataDownload"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "distribution (Recommended)"
+        },
+        "identifier": {
+            "description": " Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/PropertyValue",
+                        "title": "PropertyValue"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 1,
+            "title": "identifier (Minimum)",
+            "type": "array"
+        },
+        "includedInDataCatalog": {
+            "description": " Schema.org: A data catalog which contains this dataset. Supersedes catalog, includedDataCatalog.\nInverse property: dataset.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/DataCatalog",
+                        "title": "DataCatalog"
+                    }
+                ]
+            },
+            "propertyOrder": 2,
+            "title": "includedInDataCatalog (Recommended)",
+            "type": "array"
+        },
+        "keywords": {
+            "description": " Bioschemas.org: These keywords provide a summary of the dataset. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "keywords (Minimum)"
+        },
+        "license": {
+            "description": " Bioschemas.org: A license under which the dataset is distributed. Schema.org: A license document that applies to this content, typically indicated by URL.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/CreativeWork",
+                    "title": "CreativeWork"
+                },
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "license (Recommended)"
+        },
+        "measurementTechnique": {
+            "description": " Schema.org: A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s) (described using [variableMeasured](http://pending.schema.org/variableMeasured)). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.\nFor example, if variableMeasured is: molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".\nIf the variableMeasured is \"depression rating\", the measurementTechnique could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".\nIf there are several variableMeasured properties recorded for some given data object, use a PropertyValuefor each variableMeasured and attach the corresponding measurementTechnique.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 2,
+            "title": "measurementTechnique (Recommended)",
+            "type": "array"
+        },
+        "name": {
+            "description": " Bioschemas.org: A descriptive name of the dataset. Schema.org: The name of the item.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "name (Minimum)"
+        },
+        "url": {
+            "description": " Bioschemas.org: The location of a page describing the dataset. Schema.org: URL of the item.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "url (Minimum)"
+        },
+        "variableMeasured": {
+            "description": " Bioschemas.org: What does the dataset measure? (e.g., temperature, pressure). Schema.org: The variableMeasured property can indicate (repeated as necessary) the variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/PropertyValue",
+                        "title": "PropertyValue"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    }
+                ]
+            },
+            "propertyOrder": 2,
+            "title": "variableMeasured (Recommended)",
+            "type": "array"
+        },
+        "version": {
+            "description": " Bioschemas.org: The version number for this dataset. Schema.org: The version of the CreativeWork embodied by a specified resource.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Number",
+                    "title": "Number"
+                },
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 2,
+            "title": "version (Recommended)"
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "description",
+        "identifier",
+        "keywords",
+        "name",
+        "url"
+    ],
+    "title": "Dataset (v0.2)",
+    "type": "object"
+}

@@ -1,0 +1,26 @@
+{
+    "Additionaltype": {
+        "controlled_vocab": "[SP:ExperimentalProtocol](http://purl.org/net/SMARTprotocol#ExperimentalProtocol)",
+        "marginality": "Optional"
+    },
+    "Chebi:reagent": {
+        "controlled_vocab": "[ChEBI](http://purl.bioontology.org/ontology/CHEBI)\n[PubChem](https://pubchem.ncbi.nlm.nih.gov/)",
+        "marginality": "Minimum"
+    },
+    "Haspart": {
+        "controlled_vocab": "[SMART Protocols](http://purl.bioontology.org/ontology/SP)",
+        "marginality": "Recommended"
+    },
+    "Instrument": {
+        "controlled_vocab": "[BAO](http://bioassayontology.org/)\n[EFO](https://www.ebi.ac.uk/efo/)\n[ERO](https://www.ebi.ac.uk/ols/ontologies/ero)\n[OBI](http://obi-ontology.org/)",
+        "marginality": "Minimum"
+    },
+    "Purpose": {
+        "controlled_vocab": "[SMART Protocols](http://purl.bioontology.org/ontology/SP)",
+        "marginality": "Minimum"
+    },
+    "Sample": {
+        "controlled_vocab": "[NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)\n[Uberon](http://uberon.github.io/)",
+        "marginality": "Minimum"
+    }
+}

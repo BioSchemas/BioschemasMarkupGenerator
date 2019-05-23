@@ -1,0 +1,6 @@
+{
+    "Additionaltype": {
+        "controlled_vocab": "[SIO:active_site](http://semanticscience.org/resource/SIO_010041.rdf)\n[SIO:binding_site](http://semanticscience.org/resource/SIO_010040.rdf)\n[SIO:molecular_site](http://semanticscience.org/resource/SIO_010049.rdf)\n[SIO:protein_domain](http://semanticscience.org/resource/SIO_001379.rdf)\n[SIO:protein_family](http://semanticscience.org/resource/SIO_001380.rdf)",
+        "marginality": "Minimum"
+    }
+}
