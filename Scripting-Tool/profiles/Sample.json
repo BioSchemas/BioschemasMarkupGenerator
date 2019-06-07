@@ -2,17 +2,96 @@
     "title": "Sample (v0.2)",
     "description": "To deliver on the identified use cases for samples, we have identified a minimal set of properties to encapsulate identification, linking, and metadata descriptions. Some of these properties are existing standard schema.org properties, others require Bioschemas extensions. Table 1 outlines the minimal set of properties for the \u2018Sample\u2019 concept and Table 2 shows our recommendations for use of the \u2018PropertyValue\u2019 concept to markup additional characteristics of a sample described within a sample page. We also propose a new concept, \u2018Biomedical Code\u2019, which is a generalisation of the existing \u2018Medical Code\u2019 concept defined in the health-lifesci.schema.org extension.",
     "type": "object",
-    "definitions": {},
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Event": {}
+    },
     "properties": {
         "@context": {
             "default": "http://schema.org",
-            "type": "string",
             "options": {
                 "hidden": "true"
-            }
+            },
+            "type": "string"
         },
         "@type": {
             "default": "Sample",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/Sample/0.2",
             "options": {
                 "hidden": "true"
             },
@@ -51,12 +130,12 @@
             "items": {
                 "oneOf": [
                     {
-                        "title": "PropertyValue",
-                        "$ref": "#/definitions/PropertyValue"
-                    },
-                    {
                         "title": "Text",
                         "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     },
                     {
                         "title": "URL",
@@ -112,6 +191,7 @@
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "identifier"
     ]
 }

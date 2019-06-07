@@ -2,17 +2,140 @@
     "title": "Beacon (v0.2)",
     "description": "In this document we propose a simple way for a beacons to self-describe their genetic variant cardinality service for better integration with other beacons within the beacon-network. It builds upon the Beacon service API and uses existing schema.org entities and properties. ",
     "type": "object",
-    "definitions": {},
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "DataCatalog": {},
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Action": {
+            "title": "Action",
+            "description": "An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/04/announcing-schemaorg-actions.html\">blog post</a> and <a href=\"http://schema.org/docs/actions.html\">Actions overview document</a>.",
+            "properties": {
+                "@type": {
+                    "default": "Action",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization",
+            "description": "An organization such as a school, NGO, corporation, club, etc.",
+            "properties": {
+                "@type": {
+                    "default": "Organization",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Person": {
+            "title": "Person",
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "@type": {
+                    "default": "Person",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
     "properties": {
         "@context": {
             "default": "http://schema.org",
-            "type": "string",
             "options": {
                 "hidden": "true"
-            }
+            },
+            "type": "string"
         },
         "@type": {
             "default": "Beacon",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/Beacon/0.2",
             "options": {
                 "hidden": "true"
             },
@@ -60,12 +183,12 @@
             "description": "Bioschemas: Unique identifier of the Beacon. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
-                    "title": "PropertyValue",
-                    "$ref": "#/definitions/PropertyValue"
-                },
-                {
                     "title": "Text",
                     "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
                 },
                 {
                     "title": "URL",
@@ -161,12 +284,12 @@
             "description": "Bioschemas: Beacon API version number. Schema.org: The version of the CreativeWork embodied by a specified resource. ",
             "oneOf": [
                 {
-                    "title": "Number",
-                    "$ref": "#/definitions/Number"
-                },
-                {
                     "title": "Text",
                     "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Number",
+                    "$ref": "#/definitions/Number"
                 }
             ]
         }
@@ -174,6 +297,7 @@
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "dataset",
         "name",
         "potentialAction",

@@ -4,53 +4,162 @@
 <!--jQUERY 1.11.1 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!--JSON EDITOR -->
-<script src="/~st24/libs/json-editor/jsoneditor.min.js"></script>
+<script src="libs/json-editor/jsoneditor.min.js"></script>
 <!--BOOTSTRAP 4 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<!-- HIGHLIGHT.JS 8.9.1 -->  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!-- HIGHLIGHT.JS 8.9.1 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--BIOSCHEMAS -->
-<script src="/~st24/libs/bioschemas/setup.js"></script>
-<link rel="stylesheet" type="text/css" href="/~st24/libs/bioschemas/styles.css">
+<link rel="stylesheet" type="text/css" href="libs/bioschemas/styles.css">
 <!--BOOTBOX.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-<!--BOOTBOX.JS -->
-<script src="/~st24/libs/downloadjs/download.min.js"></script>
+<!--DOWNLOAD.JS By dandavis -->
+<script src="libs/downloadjs/download.min.js"></script>
+
 <head>
-    <title>Bioschemas Profile Markup Generator</title>
+  <title>Bioschemas Profile Markup Generator</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success static-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Bioschemas Profile Markup Generator</a>
-            <ul class="navbar-nav navbar-right">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="about.html">About</a>
-                </li>
-              </ul>
-        </div>
-    </nav>    
-    <!-- Content -->
+<body class="body">
+  <!-- Navigation -->
+  <div id="page-container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success static-top">
     <div class="container">
-      <br>
-      <br>
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">About</h5>
-              <p class="card-text">Bioschemas Profile Markup Generator, is a intuitive tool to help markup web resources based on the Bioschemas profiles.
+
+      <a class="navbar-brand navbar-left" href="#">
+        <img class="dot" width="50" height="50" src="libs/bioschemas/square_logo2.png">
+        Bioschemas Profile Markup Generator</a>
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item ">
+          <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Content -->
+  <div id="content-wrap" class="container">
+    <br>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">About</h2>
+        <p class="card-text">
+          The Bioschemas Profile Markup Generator is a web application for prototyping markup against the Bioschemas <a
+            target="_blank" href="http://bioschemas.org/specifications">profiles</a>. Initially developed as a Honours
+          level dissertation project for Computer Science at Heriot-Watt University by student <a target="_blank"
+            href="https://github.com/y25ean">Sean Turnbull</a> under the supervision of <a target="_blank"
+            href=" https://bioschemas.org/people/AlasdairGray/">Dr. Alasdair Gray</a>.
+          <br>
+
+          <h5 style="color: #0B794B">Description</h5>
+          This web application supports users in the creation of Bioschemas compliant markup required for inclusion on
+          their web resource. Bioschemas provides profiles for Schema.org mark-up in order to structure and expose
+          life-sciences metadata on the web. Each profile brings a list of allowed attributes with their constraints and
+          properties. Some attributes are required, some are composite, some allow multiple values, some are under
+          controlled vocabularies, and some can even be all of that.
+          <br>
+          <br>
+          The Bioschemas Generator is a web application that assists users in the creation of their metadata structure,
+          through dynamically generated forms, allowing easier development of Bioschemas compliant markup for web
+          resources.
+        </p>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Funding</h2>
+        <p class="card-text">
+          The Bioschemas Proflie Markup Generator project has been supported by the following funding sources:
+
+          <br>
+          <h5 style="color: #0B794B">ELIXIR-EXCELERATE</h5>
+
+          <div style="width: 100%; overflow: hidden;">
+            <div style="width: 600px; float: left;">
+
+              <center>
                 <br>
                 <br>
-                It was created by Sean Turnbull for his Computer Science (Hons) dissertation project with the help or Dr. Alasdair Gray. 
+                <img src="libs/bioschemas/excelerate_whitebackground.png" alt="Girl in a jacket"
+                  style="width:75%;height:75%;">
+
+              </center>
+            </div>
+            <div style="margin-left: 620px;">
+              <p><a target="_blank"
+                  href="https://www.elixir-europe.org/about-us/how-funded/eu-projects/excelerate">ELIXIR-EXCELERATE</a>
+                is a HORIZON 2020 project to help ELIXIR coordinate and extend national and international data resources
+                and ensure the delivery of world-leading life-science data services. It supports a pan-European training
+                programme, anchored in national infrastructures, to increase bioinformatics capacity and competency.
+                It also provides efficiencies in management and operation throughout the infrastructure, which is
+                distributed amongst more than 20 European countries.
               </p>
+              <p>ELIXIR-EXCELERATE is funded by the European Commission within the Research Infrastructures programme of
+                Horizon 2020, grant agreement number 676559.</p>
             </div>
           </div>
+          <br>
+
+          <h5 style="color: #0B794B">ELIXIR Bioschemas: Community Adoption and Training</h5>
+
+          <div style="width: 100%; overflow: hidden;">
+            <div style="width: 600px; float: left;">
+
+              <p>This <a target="_blank"
+                  href="https://www.elixir-europe.org/about-us/implementation-studies/bioschemas-community-adoption">implementation
+                  study</a> aims to lift Bioschemas from "pilot" to "practice" and will:
+              </p>
+              <ul>
+                <li>Disseminate and Train: Develop training material; improve the Bioschemas website; make compliant
+                  datasets visible in ELIXIR registries.</li>
+                <li>Adopt: Topic specific workshops; Node-based workshops and inter-node staff exchange; strategic
+                  engagement with data platform Core Data Resources and implementation studies.</li>
+                <li>Sustain: Incorporation into Schema.org; and establish Bioschemas Community governance.</li>
+                <li>Impact: Highlight use cases, showcase impact stories and identify how to mitigate attrition.</li>
+              </ul>
+              <br>
+
+
+
+            </div>
+            <div style="margin-left: 620px;">
+              <center>
+
+                <br>
+                <img src="libs/bioschemas/Elixir-logo.png" alt="Girl in a jacket" style="width:75%;height:75%;">
+              </center>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+</div>
     </div>
+  </div>
+
+  <div id="footer2" class="footer">
+    <div style="padding-top:5px; padding-bottom:5px;">
+      <a style="color:white;" target="_blank" href="/about/">About</a> |
+      <a style="color:white;" target="_blank" href="/about/">Funding</a> |
+      <a style="color:white;" href="mailto:enquiries@bioschemas.org">Contact</a> |
+      <a style="color:white;" target="_blank"
+        href="https://github.com/HW-SWeL/BioschemasMarkupGenerator/tree/master/Scripting-Tool">Github</a>
+    </div>
+  </div>
+</div>
 </body>
+
 </html>

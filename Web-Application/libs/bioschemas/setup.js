@@ -1,13 +1,14 @@
 //GLOBAL VARIABLES
 var editor;
 var dropdownArray = new Array();
+var websiteURL = "http://www2.macs.hw.ac.uk/~st24/Web-Application/"
 //JSON Editor Settings
 JSONEditor.defaults.theme = 'bootstrap4';
 JSONEditor.defaults.options["display_required_only"] = true;
 JSONEditor.defaults.options["disable_collapse"] = true;
 JSONEditor.defaults.options["disable_edit_json"] = true;
 JSONEditor.defaults.options["keep_oneof_values"] = false;
-//Bioschemas Generator Setup Functions:
+JSONEditor.defaults.options["no_additional_properties"] = true;
 
 //When dropdown is ready initalise Bioschemas Generator
 $("#profileDropDown").ready(function () {
@@ -17,15 +18,73 @@ $("#profileDropDown").ready(function () {
 //Initalise Bioschemas Generator
 function initialise() {
     console.log("Initalise Bioschemas Generator");
-    listOfFiles();
+    console.log("Website URL: " + websiteURL)
+    listOfFiles(websiteURL + "/profiles/");
+    //autoPopulateDropDown();
+}
+
+function autoPopulateDropDown() {
+    //NOT COMPLETE
+    profile = getQueryVariable("profile");
+    version = getQueryVariable("version")
+    draft = getQueryVariable("draft")
+    console.log(profile)
+    console.log(version)
+    console.log(draft)
+
+    if (draft) {
+        //draftProfiles()
+        //select checkbox
+        //select dropdown
+    } else {
+        fullProfileName = profile + " " + "(v" + version + ")"
+        console.log(fullProfileName)
+
+        //deselect first element 
+
+        //  console.log(document.getElementById("profileDropDown"))
+
+        var count = $('#profileDropDown option').size();
+        console.log(count)
+        console.log(document.getElementById("profileDropDown").options[0])
+        console.log(document.getElementById("profileDropDown").options[1])
+        //document.getElementById("profileDropDown").text = fullProfileName
+    }
+}
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) { return pair[1]; }
+    }
+    return (false);
+}
+
+function draftProfiles() {
+    var checkbox = document.getElementById("draftCheck");
+    if (checkbox.checked == true) {
+        console.log("Loading Draft Profiles")
+        listOfFiles(websiteURL + "/draft-profiles/");
+    } else {
+        console.log("Removing Draft Profiles")
+        selectbox = document.getElementById("profileDropDown");
+        for (i = selectbox.options.length - 1; i >= 1; i--) {
+            selectbox.remove(i);
+        }
+        listOfFiles(websiteURL + "/profiles/");
+    }
+
+    //autoPopulateDropDown()
 }
 
 //Fetch list of JSON files
-function listOfFiles() {
+function listOfFiles(websiteURL) {
     //Get list of JSON Schema files
     var fileNames = new Array();
     $.ajax({
-        url: "/~st24/profiles/",
+        url: websiteURL,
         success: function (data) {
             $(data).find("td > a").each(function () {
                 //If file is a JSON Schema file add to list
@@ -36,54 +95,54 @@ function listOfFiles() {
         },
         complete: function () {
             //Process JSON Schema Files
-            console.log(fileNames);
-            processJSONSchema(fileNames);
+            //console.log(fileNames);
+            processJSONSchema(websiteURL, fileNames);
         }
     });
 }
 
 //Process JSON Schema FIles
-function processJSONSchema(fileNames){
+function processJSONSchema(websiteURL, fileNames) {
 
-    for (i = 0; i< fileNames.length; i++){
+    for (i = 0; i < fileNames.length; i++) {
         $.ajax({
             type: "Get",
-            url: "http://www2.macs.hw.ac.uk/~st24/profiles/" + fileNames[i],
+            url: websiteURL + fileNames[i],
             dataType: "json",
-            success: function(data) {
-                tableUrl = this.url.replace("profiles","tables");
+            success: function (data) {
+                tableUrl = this.url.replace("profiles", "tables");
                 tableUrl = tableUrl.replace(".json", "-Table.json");
-                console.log(tableUrl);
-                processAdditionalJSON(data,tableUrl);
+                //console.log(tableUrl);
+                processAdditionalJSON(data, tableUrl);
             },
-            error: function(){
+            error: function () {
                 console.log("JSON Schema not found");
             }
         });
-    }   
+    }
 }
 
 //Process Additional Information
-function processAdditionalJSON(jsonSchema,fileName){
-    console.log(fileName);
+function processAdditionalJSON(jsonSchema, fileURL) {
+    //console.log(fileName);
     $.ajax({
         type: "Get",
-        url: fileName ,
+        url: fileURL,
         dataType: "json",
-        success: function(data) {
-            addOptionToDropDown(jsonSchema,data);
+        success: function (data) {
+            addOptionToDropDown(jsonSchema, data);
         },
-        error: function(){
+        error: function () {
             console.log("JSON Schema not found");
-        }
-    });  
+        },
+    });
 }
 
 //Add Option to Dropdown
-function addOptionToDropDown(jsonSchema,additionalJSON){
+function addOptionToDropDown(jsonSchema, additionalJSON) {
     var dropdown = document.getElementById("profileDropDown");
     var option = document.createElement("OPTION");
-    console.log(jsonSchema);
+    //console.log(jsonSchema);
     option.innerHTML = jsonSchema["title"];
     option.value = JSON.stringify(jsonSchema);
     option.setAttribute("data-json", JSON.stringify(additionalJSON));
@@ -91,32 +150,59 @@ function addOptionToDropDown(jsonSchema,additionalJSON){
 }
 
 //Generate Form and Display Additional Info
-function generateForm(){
-    var dropDown =  document.getElementById("profileDropDown"); 
+function generateForm() {
+    var dropDown = document.getElementById("profileDropDown");
     var profileValue = dropDown.value;
-    if(profileValue != "NULL"){
-        if(editor){
-           editor.destroy();
+
+    var urlTextbox = document.getElementById("urlFormInput");
+    var urlValue = urlTextbox.value
+
+    if (urlValue.length == 0 || profileValue == "EMPTY") {
+        console.log("Empty URL / Empty Profile")
+        bootbox.alert({
+            size: "medium",
+            title: "Error",
+            message: "Select a profile and provide the URL of the web page to be annotated in order to continue.",
+            callback: function () { /* your callback code */ }
+        })
+    } else {
+        if (editor) {
+            editor.destroy();
         }
-        editor = new JSONEditor(document.getElementById('editor_holder'),{"schema":JSON.parse(profileValue)});
+        editor = new JSONEditor(document.getElementById('editor_holder'), { "schema": JSON.parse(profileValue) });
+        var additionalValue = dropDown.options[dropDown.selectedIndex].dataset.json;
+
+        //Additional selective  CSS for the form
+        editor.root.header.style.fontSize = "xx-large"
+        editor.root.addproperty_button.style.backgroundColor = "#0B794B"
+
+
+        jsonToTable(JSON.parse(additionalValue));
+        showAccordion("collapseTwo")
+        hideAccordion("collapseOne")
     }
-
-    var additionalValue = dropDown.options[dropDown.selectedIndex].dataset.json;
-    jsonToTable(JSON.parse(additionalValue));
-
-    $("#collapseTwo").tab('show');
 }
 
+
+function showAccordion(accordionID) {
+    document.getElementById(accordionID).className = "collapse show";
+}
+
+function hideAccordion(accordionID) {
+    document.getElementById(accordionID).className = "collapse";
+}
+
+
 //JSON TO TABLE
-function jsonToTable(jsonTable){
-    
+function jsonToTable(jsonTable) {
+
     //Minimum
     //Property
-        // Example
-        // Vocab
+    // Example
+    // Vocab
     //Recommended
     //Optional
-    
+
     var gridContainer = document.getElementById("grid-container");
     var formArea = document.getElementById("form-area");
     var tipArea = document.getElementById("tip-area");
@@ -132,90 +218,138 @@ function jsonToTable(jsonTable){
     var recommendedItems = 0;
     var optionalItems = 0;
 
-    if (!jQuery.isEmptyObject(jsonTable)){
-        gridContainer.setAttribute("class", "grid-container"); 
-        formArea.setAttribute("class", "form-area"); 
-        tipArea.setAttribute("class", "tip-area"); 
+    if (!jQuery.isEmptyObject(jsonTable)) {
+        gridContainer.setAttribute("class", "grid-container");
+        formArea.setAttribute("class", "form-area");
+        tipArea.setAttribute("class", "tip-area");
         tipArea.style.display = "block";
         tipTitle.style.display = "block";
 
         //Sort json object alphabtically
         const ordered = {};
-        Object.keys(jsonTable).sort().forEach(function(key) {
+        Object.keys(jsonTable).sort().forEach(function (key) {
             ordered[key] = jsonTable[key];
         });
-        
-        $.each(ordered, function( key, value ) {
+
+        $.each(ordered, function (key, value) {
             var div = document.createElement("div");
 
             var heading = document.createElement("h6");
             heading.innerHTML = key;
             div.appendChild(heading);
-            
-            
-            if ('example' in value){
+
+
+            if ('example' in value) {
                 exampleDiv = document.createElement("div");
                 exampleDiv.innerHTML = "Example: ";
                 link = document.createElement("a");
                 link.href = "#"
-                link.onclick = function(){
-                    displayModal(key,value["example"]);
+                link.onclick = function () {
+                    displayModal(key, value["example"]);
                 }
                 link.innerHTML = "Show";
                 exampleDiv.appendChild(link);
                 div.appendChild(exampleDiv);
             }
 
-            if ('controlled_vocab' in value){
+            if ('controlled_vocab' in value) {
                 controlledVocabDiv = document.createElement("div");
                 controlledVocabDiv.innerHTML = "Controlled Vocabulary: " + value["controlled_vocab"];
                 div.appendChild(controlledVocabDiv);
-            }         
+            }
 
             marginality = value["marginality"];
-            if (marginality.toLowerCase() === "minimum" ){
+            if (marginality.toLowerCase() === "minimum") {
                 minimumDiv.appendChild(div);
                 minimumItems += 1;
-            }else if (marginality.toLowerCase() === "recommended" ){
+            } else if (marginality.toLowerCase() === "recommended") {
                 recommendedDiv.appendChild(div);
-                recommendedItems +=1 ;
-            }else if (marginality.toLowerCase() === "optional" ){
+                recommendedItems += 1;
+            } else if (marginality.toLowerCase() === "optional") {
                 optionalDiv.appendChild(div);
-                optionalItems +=1;
+                optionalItems += 1;
             }
-        });    
+        });
 
-        if (minimumItems == 0){
+        if (minimumItems == 0) {
             var minimumAccordion = document.getElementById("minimumAccordion");
             minimumAccordion.style.display = "none";
         }
-        if (recommendedItems == 0){
+        if (recommendedItems == 0) {
             var recommendedAccordion = document.getElementById("recommendedAccordion");
             recommendedAccordion.style.display = "none";
         }
-        if (optionalItems == 0){
+        if (optionalItems == 0) {
             var optionalAccordion = document.getElementById("optionalAccordion");
             optionalAccordion.style.display = "none";
         }
 
-    }else{
-        gridContainer.setAttribute("class", ""); 
-        formArea.setAttribute("class", ""); 
-        tipArea.setAttribute("class", ""); 
+    } else {
+        gridContainer.setAttribute("class", "");
+        formArea.setAttribute("class", "");
+        tipArea.setAttribute("class", "");
         tipArea.style.display = "none";
     }
 }
 
 //Display generated Markup
-function generateMarkup(){
-    jsonEditorOutput = JSON.stringify(editor.getValue(),null,2);
-    
-    document.getElementById('json-ld').innerHTML = '&lt;script type="application/ld+json" &gt;\n' + jsonEditorOutput + "\n&lt;/script &gt;";
+function generateMarkup() {
 
-    jsonldToRDFa(editor.getValue());
-    jsonldToMicrodata(editor.getValue());
+    try {
+        editorValue = editor.getValue();
+        console.log(editorValue)
 
-    $("#collapseThree").tab('show');
+        var urlTextbox = document.getElementById("urlFormInput");
+        var urlValue = urlTextbox.value
+
+        editorValue["@id"] = urlValue
+
+
+        jsonEditorOutput = JSON.stringify(editorValue, Object.keys(editorValue).sort(), 2);
+
+        document.getElementById('json-ld').innerHTML = '&lt;script type="application/ld+json" &gt;\n' + jsonEditorOutput + "\n&lt;/script &gt;";
+
+        jsonldToRDFa(editor.getValue());
+        jsonldToMicrodata(editor.getValue());
+
+        hideAccordion("collapseTwo")
+        showAccordion("collapseThree")
+    } catch (err) {
+        bootbox.alert({
+            size: "medium",
+            title: "Error",
+            message: "Select a profile and provide the URL of the web page to be annotated in order to continue.",
+            callback: function () { /* your callback code */ }
+        })
+
+    }
+
+}
+
+function showProfileForm() {
+
+
+    if (editor) {
+        hideAccordion("collapseOne")
+        hideAccordion("collapseThree")
+        showAccordion("collapseTwo")
+    } else {
+        bootbox.alert({
+            size: "medium",
+            title: "Error",
+            message: "Select a profile and provide the URL of the web page to be annotated in order to continue.",
+            callback: function () { /* your callback code */ }
+        })
+
+    }
+
+
+}
+
+function showSelectProfile() {
+    hideAccordion("collapseTwo")
+    hideAccordion("collapseThree")
+    showAccordion("collapseOne")
 }
 
 //Convert JSON to RDFa
@@ -227,11 +361,11 @@ function jsonldToRDFa(jsonld) {
         url: 'http://rdf-translator.appspot.com/convert/json-ld/rdfa/content',
         type: 'post',
         data: postString,
-        success: function( data, textStatus, jQxhr ){
+        success: function (data, textStatus, jQxhr) {
             $("#rdfaCode").text(data);
-            //document.getElementById('rdfa').innerHTML = data;     
+            //document.getElementById('rdfa').innerHTML = data;
         },
-        error: function( jqXhr, textStatus, errorThrown ){
+        error: function (jqXhr, textStatus, errorThrown) {
             document.getElementById('rdfaCode').innerHTML = errorThrown;
         }
     });
@@ -246,44 +380,44 @@ function jsonldToMicrodata(jsonld) {
         url: 'http://rdf-translator.appspot.com/convert/json-ld/microdata/content',
         type: 'post',
         data: postString,
-        success: function( data, textStatus, jQxhr ){
+        success: function (data, textStatus, jQxhr) {
             $("#microdataCode").text(data);
             //document.getElementById('microdata').innerHTML = data;
         },
-        error: function( jqXhr, textStatus, errorThrown ){
+        error: function (jqXhr, textStatus, errorThrown) {
             document.getElementById('microdataCode').innerHTML = errorThrown;
         }
     });
 }
 
 //Display Example JSON-LD in a Modal
-function displayModal(propertyName,example){
-    var modalTitle = "Property &lt&lt" + propertyName+ "&gt&gt Example"
+function displayModal(propertyName, example) {
+    var modalTitle = "Property &lt&lt" + propertyName + "&gt&gt Example"
     var exampleDisplay = "<pre>" + example + "</pre>";
     bootbox.dialog({
-        title: modalTitle ,
+        title: modalTitle,
         message: exampleDisplay,
-        size:"large"
+        size: "large"
     });
 }
 
-//Copy 
-function copyToClipboard(){
+//Copy
+function copyToClipboard() {
     var activeTab = $('.tab-pane.active').find("code").text();
-    
-    console.log(activeTab);
+
+    //console.log(activeTab);
     var range = document.createRange();
-             range.selectNode(activeTab);
-             window.getSelection().removeAllRanges();
-             window.getSelection().addRange(range);
-             document.execCommand("copy")
+    range.selectNode(activeTab);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("copy")
 }
 
-function downloadTest(){
+function downloadTest() {
     var activeTabContent = $('.tab-pane.active').find("code").text();
-    var profileName =  $("#profileDropDown option:selected").text();
+    var profileName = $("#profileDropDown option:selected").text();
     var tabName = $('.nav-link.active').text();
-    download(activeTabContent, profileName+"-"+tabName+".html", "text/html");
-    console.log("test");
-    console.log(activeTabContent);
+    download(activeTabContent, profileName + "-" + tabName + ".html", "text/html");
+    // console.log("test");
+    // console.log(activeTabContent);
 }

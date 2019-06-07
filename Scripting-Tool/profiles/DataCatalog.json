@@ -2,17 +2,162 @@
     "title": "DataCatalog (v0.1)",
     "description": "A guide for how to describe data catalogs/repositories in the life-sciences using Schema.org-like annotation.",
     "type": "object",
-    "definitions": {},
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Dataset": {},
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization",
+            "description": "An organization such as a school, NGO, corporation, club, etc.",
+            "properties": {
+                "@type": {
+                    "default": "Organization",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Person": {
+            "title": "Person",
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "@type": {
+                    "default": "Person",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PublicationEvent": {
+            "title": "PublicationEvent",
+            "description": "A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.",
+            "properties": {
+                "@type": {
+                    "default": "PublicationEvent",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
     "properties": {
         "@context": {
             "default": "http://schema.org",
-            "type": "string",
             "options": {
                 "hidden": "true"
-            }
+            },
+            "type": "string"
         },
         "@type": {
             "default": "DataCatalog",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/DataCatalog/0.1",
             "options": {
                 "hidden": "true"
             },
@@ -40,12 +185,12 @@
             "items": {
                 "oneOf": [
                     {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
-                    },
-                    {
                         "title": "Text",
                         "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
             }
@@ -129,12 +274,12 @@
             "description": "Bioschemas: Unique identifier for the data catalog. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
-                    "title": "PropertyValue",
-                    "$ref": "#/definitions/PropertyValue"
-                },
-                {
                     "title": "Text",
                     "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
                 },
                 {
                     "title": "URL",
@@ -240,6 +385,7 @@
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "description",
         "keywords",
         "name",

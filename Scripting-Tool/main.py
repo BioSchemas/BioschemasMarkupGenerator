@@ -10,9 +10,10 @@ import yaml
 import json
 from yaml import Loader
 
-# Global Variables set by command line arguments in method main(argv).
+# Global Variables set by command line arguments in main method
 GithubURL = ""
 GithubDirectoryPath = ""
+GithubTypePath = ""
 BioschemasURL = ""
 SchemaURL = ""
 
@@ -22,6 +23,9 @@ TempWorkingDirectoryYAML = ""
 ProfileJSONDefinitionDictionary = {}
 ProfileJSONSchemaDictionary = {}
 ProfileJSONTableDictionary = {}
+ProfileMinimumDefinitionDictionary = {}
+ListOfBioschemasProfiles = []
+ListOfBioschemasTypes = []
 
 # Default Definitions for form inputs
 definitions = {
@@ -64,40 +68,44 @@ propertyOrdering = {
 def main(argv):
     global GithubURL
     global GithubDirectoryPath
+    global GithubTypePath
     global BioschemasURL
     global SchemaURL
 
     # Process Command Line Arguments
     try:
-        opts, args = getopt.getopt(argv, "hg:d:b:s:", [
-            "githuburl=", "githubdirectorypath=", "bioschemasurl=", "schemaurl="])
+        opts, args = getopt.getopt(argv, "hg:d:t:b:s:", [
+            "githuburl=", "githubdirectorypath=", "githubtypepath=", "bioschemasurl=", "schemaurl="])
     except getopt.GetoptError:
-        print("main.py -g <Github URL> -d <Github Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
+        print("main.py -g <Github URL> -d <Github Profiles Directory Path>  -t <Github Types Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
         sys.exit(2)
 
     for opt, arg in opts:
         if opt == "-h":
             print(
-                "main.py -g <Github URL> -d <Github Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
+                "main.py -g <Github URL> -d <Github Profiles Directory Path> -t <Github Types Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
             sys.exit()
         elif opt in ("-g", "--githuburl"):
             GithubURL = arg
         elif opt in ("-d", "--githubdirectorypath"):
             GithubDirectoryPath = arg
+        elif opt in ("-t", "--githubtypepath"):
+            GithubTypePath = arg
         elif opt in ("-b", "--bioschemasurl"):
             BioschemasURL = arg
         elif opt in ("-s", "--schemaurl"):
             SchemaURL = arg
 
     # Check Command Line Arguments Exist
-    if (not GithubURL or not GithubDirectoryPath or not BioschemasURL or not SchemaURL):
+    if (not GithubURL or not GithubDirectoryPath or not BioschemasURL or not SchemaURL or not GithubTypePath):
         print("Provide all arguments.")
-        print("main.py -g <Github URL> -d <Github Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
+        print("main.py -g <Github URL> -d <Github Profiles Directory Path> -t <Github Types Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
         sys.exit(2)
 
     # Display Command Line Arguments
     print("Github URL: ", GithubURL)
-    print("Github Directory Path: ", GithubDirectoryPath)
+    print("Github Profiles Path: ", GithubDirectoryPath)
+    print("Github Types Path: ", GithubTypePath)
     print("Bioschemas URL: ", BioschemasURL)
     print("Schema.org URL: ", SchemaURL)
 
@@ -184,6 +192,10 @@ def convertYAML():
 
 
 def processJSONDictionary():
+    # Get List of Profiles and List of Types for Bioschemas
+    listOfBioschemasProfiles()
+    listOfBioschemasTypes()
+
     # For each definition create a JSON-Schema and JSON Table file
     for key, value in ProfileJSONDefinitionDictionary.items():
         try:
@@ -192,6 +204,9 @@ def processJSONDictionary():
             ProfileJSONTableDictionary[key] = createJSONTable(value)
         except:
             print("Error: processJSONDictionary")
+
+    # Add minimum definitions for profiles
+    #addMinimumDefinitions()
 
     # Write JSON Dictionaries to file
     writeJSONFile(sys.path[0] + "/profiles/", ProfileJSONSchemaDictionary)
@@ -222,10 +237,10 @@ def createJSONSchema(definitionObject):
         # JSON-LD Context Attribute
         contextObject = {}
         contextObject["default"] = "http://schema.org"
-        contextObject["type"] = "string"
         optionsObject = {}
         optionsObject["hidden"] = "true"
         contextObject["options"] = optionsObject
+        contextObject["type"] = "string"
         profilePropertiesObject["@context"] = contextObject
         profileRequiredProperties.append("@type")
 
@@ -237,9 +252,19 @@ def createJSONSchema(definitionObject):
         profilePropertiesObject["@type"] = typeObject
         profileRequiredProperties.append("@context")
 
+        # dct:conformsTo
+        dctObject = {}
+        dctObject["default"] = "https://bioschemas.org/specifications/" + \
+            definitionObject["spec_info"]["title"] + "/" + \
+            str(definitionObject["spec_info"]["version"])
+        dctObject["options"] = optionsObject
+        dctObject["type"] = "string"
+        profilePropertiesObject["dct:conformsTo"] = dctObject
+        profileRequiredProperties.append("dct:conformsTo")
+
         # Profile Properties
         for property in definitionObject["mapping"]:
-            # Skip unnecessary types
+            # Skip unnecessary property
             if property["property"] == "rdf:type":
                 continue
 
@@ -279,6 +304,15 @@ def createJSONSchema(definitionObject):
                 tempTypeObject["title"] = type
                 tempTypeObject["$ref"] = "#/definitions/" + type
                 oneOfArray.append(tempTypeObject)
+
+            # Order oneOf Array so that Text is first in the list and therefore default
+            for index, item in enumerate(oneOfArray.copy()):
+                if item["title"] == "Text":
+                    if index == 0:
+                        break
+                    else:
+                        oneOfArray.insert(0, oneOfArray.pop(index))
+
             # Add oneOf array to property
             # If no cardinality is provided default to many
             if cardinality.lower() == "one":
@@ -305,37 +339,211 @@ def createJSONSchema(definitionObject):
 
 
 def generateDefinitions(definitionsToGenerate):
-    # print(definitionsToGenerate)
+    profileDefinitions = definitions.copy()
 
     for definition in definitionsToGenerate:
-        pass
-        # print(definition)
 
-        # Check if in List of Bioschemas profiles
-        # If type has profile use minimum version of profile
+        if definition in ListOfBioschemasProfiles:
+            # If type has profile use minimum version of profile
+            # Added at the end
+            profileDefinitions[definition] = {}
+        elif definition in ListOfBioschemasTypes:
+            # If Bioschemas type create object
+            profileDefinitions[definition] = generateBioschemasDefinition(
+                definition)
+        elif definition not in definitions:
+            # Else assume Schema.org type
+            # Create @id for Schema.org Types
+            profileDefinitions[definition] = generateSchemaDefinition(
+                definition)
 
-    # Check if in List of Bioschemas Types
-        # If Bioschemas type create object
-
-        # Else assume Schema.org type
-        # Create @id for Schema.org Types
-
-    return {}
-
-
-def listOfBioschemasProfiles():
-    #
-    return []
-
-
-def listOfBioschemasTypes():
-    #
-    return []
+    return profileDefinitions
 
 
 def generateBioschemasDefinition(definition):
-    #
-    print(definition)
+
+    try:
+        definitionObject = fetchBioschemaDefinition(definition)
+        definitionSchema = {}
+        schemaProperties = {}
+        requiredProperties = []
+
+        # Title of Bioschemas Type
+        definitionSchema["title"] = definition
+
+        # JSON-LD Context Attribute
+        contextObject = {}
+        contextObject["default"] = "http://schema.org"
+        contextObject["type"] = "string"
+        optionsObject = {}
+        optionsObject["hidden"] = "true"
+        contextObject["options"] = optionsObject
+        schemaProperties["@context"] = contextObject
+        requiredProperties.append("@context")
+
+        # JSON-LD Type Attribute
+        typeObject = {}
+        typeObject["default"] = definition
+        typeObject["options"] = optionsObject
+        typeObject["type"] = "string"
+        schemaProperties["@type"] = typeObject
+        requiredProperties.append("@type")
+
+        for graph in definitionObject["@graph"]:
+            # Bioschemas Type Description
+            try:
+                if graph["@id"] == "schema:" + definition and graph["@type"] == "rdfs:Class":
+                    definitionSchema["description"] = graph["rdfs:comment"]
+            except:
+                print("Error, generateBioschemasDefinition Description")
+
+            # Bioschemas Properties
+            try:
+                if "@type" in graph:
+                    if graph["@type"] == "rdf:Property":
+                        propertyObject = {}
+                        propertyObject["title"] = graph["@id"][7:]
+                        propertyObject["description"] = graph["rdfs:comment"]
+                        # Default to cardinality of MANY
+                        propertyObject["type"] = "array"
+                        oneOfArray = []
+
+                        # Convert rangeIncludes to always be an array to be proccessed easily
+                        rangeIncludes = []
+                        if isinstance(graph["schema:rangeIncludes"], list):
+                            rangeIncludes = rangeIncludes + \
+                                graph["schema:rangeIncludes"]
+                        else:
+                            rangeIncludes.append(graph["schema:rangeIncludes"])
+
+                        for type in rangeIncludes:
+                            typeObject = {}
+                            if type["@id"][7:] in definitions:
+                                typeObject["title"] = type["@id"][7:]
+                                typeObject["$ref"] = "#/definitions/" + \
+                                    type["@id"][7:]
+                            else:
+                                typeObject["title"] = type["@id"][7:]
+                                typeProperties = {}
+                                typeContextObject = {}
+                                typeContextObject["default"] = type["@id"][7:]
+                                typeOptionsObject = {}
+                                typeOptionsObject["hidden"] = "true"
+                                typeContextObject["options"] = typeOptionsObject
+                                typeContextObject["type"] = "string"
+                                typeProperties["@type"] = typeContextObject
+
+                                identifierObject = {}
+                                identifierObject["title"] = "Link to other resource"
+                                identifierObject["description"] = "Placeholder Description"
+                                identifierObject["$ref"] = "#/definitions/URL"
+                                typeProperties["@id"] = identifierObject
+
+                                typeObject["properties"] = typeProperties
+                                typeObject["required"] = ["@type", "@id"]
+
+                            oneOfArray.append(typeObject)
+
+                        # Order oneOf Array so that Text is first in the list and therefore default
+                        for index, item in enumerate(oneOfArray.copy()):
+                            if item["title"] == "Text":
+                                if index == 0:
+                                    break
+                                else:
+                                    oneOfArray.insert(0, oneOfArray.pop(index))
+
+                        propertyObject["items"] = {"oneOf": oneOfArray}
+                        schemaProperties[graph["@id"][7:]] = propertyObject
+
+            except:
+                print("Error, generateBioschemasDefinition Properties")
+
+        definitionSchema["properties"] = schemaProperties
+        definitionSchema["required"] = requiredProperties
+
+        return definitionSchema
+
+    except:
+        print("Error: generateBioschemasDefinition")
+
+
+def generateSchemaDefinition(definition):
+
+    schemaDefinition = {}
+
+    schemaDefinition["title"] = definition
+    schemaDefinition["description"] = fetchSchemaDescription(definition)
+
+    schemaProperties = {}
+
+    contextObject = {}
+    contextObject["default"] = definition
+    contextObject["type"] = "string"
+    optionsObject = {}
+    optionsObject["hidden"] = "true"
+    contextObject["options"] = optionsObject
+    schemaProperties["@type"] = contextObject
+
+    identifierObject = {}
+    identifierObject["title"] = "Link to other resource"
+    identifierObject["description"] = "Placeholder Description"
+    identifierObject["$ref"] = "#/definitions/URL"
+    schemaProperties["@id"] = identifierObject
+
+    schemaDefinition["properties"] = schemaProperties
+
+    schemaDefinition["required"] = ["@id", "@type"]
+
+    return schemaDefinition
+
+
+def createJSONTable(definitionObject):
+    # Create JSON object with additional information about property (example's and controlled vocabularies)
+    tableJSONObject = {}
+
+    try:
+        for property in definitionObject["mapping"]:
+            propertyObject = {}
+
+            if property["example"]:
+                propertyObject["example"] = property["example"]
+            if property["controlled_vocab"]:
+                propertyObject["controlled_vocab"] = property["controlled_vocab"]
+
+            # If Property has additional information add to JSON file output
+            if propertyObject:
+                tableJSONObject[property["property"]] = propertyObject
+    except:
+        print("Error: createJSONTable")
+
+    return tableJSONObject
+
+
+def addMinimumDefinitions(schemaDictionary,minimumDictionary):
+    pass
+
+
+def listOfBioschemasProfiles():
+    global ListOfBioschemasProfiles
+    bioschemasProfilesDirectory = TempWorkingDirectory + GithubDirectoryPath
+    tempListOfProfiles = glob.glob(bioschemasProfilesDirectory + "*.html")
+
+    for profile in tempListOfProfiles:
+        htmlFileName = os.path.basename(profile)
+        profileName = os.path.splitext(htmlFileName)[0]
+        ListOfBioschemasProfiles.append(profileName)
+
+
+def listOfBioschemasTypes():
+    global ListOfBioschemasTypes
+
+    bioschemasTypesDirectory = TempWorkingDirectory + GithubTypePath
+    tempListOfTypes = glob.glob(bioschemasTypesDirectory + "*.html")
+
+    for type in tempListOfTypes:
+        htmlFileName = os.path.basename(type)
+        typeName = os.path.splitext(htmlFileName)[0]
+        ListOfBioschemasTypes.append(typeName)
 
 
 def fetchSchemaDescription(definition):
@@ -354,6 +562,13 @@ def fetchSchemaDescription(definition):
 
     return description
 
+
+def fetchBioschemaDefinition(definition):
+    try:
+        r = requests.get(BioschemasURL + definition + ".jsonld")
+        return json.loads(r.content.decode('utf-8'))
+    except:
+        print("Error: fetchBioschemaDefinition")
 
 
 def cleanDefinitions(definitions):
@@ -381,28 +596,6 @@ def addToArray(string, array):
     # Only add unique items to array
     if string not in array:
         array.append(string)
-
-
-def createJSONTable(definitionObject):
-    # Create JSON object with additional information about property (example's and controlled vocabularies)
-    tableJSONObject = {}
-
-    try:
-        for property in definitionObject["mapping"]:
-            propertyObject = {}
-
-            if property["example"]:
-                propertyObject["example"] = property["example"]
-            if property["controlled_vocab"]:
-                propertyObject["controlled_vocab"] = property["controlled_vocab"]
-
-            # If Property has additional information add to file
-            if propertyObject:
-                tableJSONObject[property["property"]] = propertyObject
-    except:
-        print("Error: createJSONTable")
-
-    return tableJSONObject
 
 
 def writeJSONFile(directory, JSONDictionary):

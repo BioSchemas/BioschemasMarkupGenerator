@@ -1,0 +1,431 @@
+{
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "CreativeWork": {
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "CreativeWork",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "CreativeWork"
+        },
+        "DataDownload": {
+            "description": "A dataset in downloadable form.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "DataDownload",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "DataDownload"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "ImageObject": {
+            "description": "An image file.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "ImageObject",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "ImageObject"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Product": {
+            "description": "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "Product",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "Product"
+        },
+        "PropertyValue": {
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "PropertyValue",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "PropertyValue"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Text": {
+            "format": "text",
+            "type": "string"
+        },
+        "Thing": {
+            "description": "The most generic type of item.",
+            "properties": {
+                "@id": {
+                    "$ref": "#/definitions/URL",
+                    "title": "@id"
+                },
+                "@type": {
+                    "default": "Thing",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ],
+            "title": "Thing"
+        },
+        "URL": {
+            "format": "url",
+            "type": "string"
+        }
+    },
+    "description": "A Record acts itself as a dataset although it refers to what could be seen as the minimum compact, complete and auto-descriptive unit in a dataset, i.e., a record. Bioschemas usage In Life Sciences, records will represent a BioChemEntity.",
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "DataRecord",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "additionalProperty": {
+            "description": " Bioschemas.org: Additional to the use of [name](http://schema.org/name) and [description](http://schema.org/description) to describe this property in a human-readable way, [additionalType](http://schema.org/additionalType) should be used to specify the nature of the property/relation. For instance, if the property refers to a gene/protein disease association, you could use [SIO:000983 (gene-disease association)](http://semanticscience.org/resource/SIO_000983.rdf) as the [additionalType](http://schema.org/additionalType) for the additionalProperty. Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/PropertyValue",
+                        "title": "PropertyValue"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "additionalProperty (Optional)",
+            "type": "array"
+        },
+        "additionalType": {
+            "description": " Bioschemas.org: Although not required, additionalType can be used to specify the nature of the record. For instance, a UniProt protein record would have [UP:Protein](http://www.uniprot.org/core/Protein) as type. Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 2,
+            "title": "additionalType (Recommended)",
+            "type": "array"
+        },
+        "citation": {
+            "description": " Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/CreativeWork",
+                        "title": "CreativeWork"
+                    },
+                    {
+                        "$ref": "#/definitions/Text",
+                        "title": "Text"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "citation (Optional)",
+            "type": "array"
+        },
+        "dateCreated": {
+            "description": " Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Date",
+                    "title": "Date"
+                },
+                {
+                    "$ref": "#/definitions/DateTime",
+                    "title": "DateTime"
+                }
+            ],
+            "propertyOrder": 3,
+            "title": "dateCreated (Optional)"
+        },
+        "dateModified": {
+            "description": " Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Date",
+                    "title": "Date"
+                },
+                {
+                    "$ref": "#/definitions/DateTime",
+                    "title": "DateTime"
+                }
+            ],
+            "propertyOrder": 3,
+            "title": "dateModified (Optional)"
+        },
+        "datePublished": {
+            "description": " Schema.org: Date of first broadcast/publication.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Date",
+                    "title": "Date"
+                }
+            ],
+            "propertyOrder": 3,
+            "title": "datePublished (Optional)"
+        },
+        "distribution": {
+            "description": " Schema.org: A downloadable form of this dataset, at a specific location, in a specific format.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/DataDownload",
+                        "title": "DataDownload"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "distribution (Optional)",
+            "type": "array"
+        },
+        "identifier": {
+            "description": " Schema.org: The identifier property represents any kind of identifier for any kind of [Thing](http://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/PropertyValue",
+                    "title": "PropertyValue"
+                },
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                },
+                {
+                    "$ref": "#/definitions/URL",
+                    "title": "URL"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "identifier (Minimum)"
+        },
+        "image": {
+            "description": " Schema.org: An image of the item. This can be a [URL](http://schema.org/URL) or a fully described [ImageObject](http://schema.org/ImageObject).",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/ImageObject",
+                        "title": "ImageObject"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "image (Optional)",
+            "type": "array"
+        },
+        "isBasedOn": {
+            "description": " Bioschemas.org: Whenever possible use Evidence Codes (ECO) Schema.org: A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, [http://example.com/great-multiplication-intro.html](http://example.com/great-multiplication-intro.html). Supersedes isBasedOnUrl.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/CreativeWork",
+                        "title": "CreativeWork"
+                    },
+                    {
+                        "$ref": "#/definitions/Product",
+                        "title": "Product"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "isBasedOn (Optional)",
+            "type": "array"
+        },
+        "isBasisFor": {
+            "description": " Bioschemas.org: A resource for which this resource is basis for. Inverse property:  [isBasedOn](http://schema.org/isBasedOn).",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/CreativeWork",
+                        "title": "CreativeWork"
+                    },
+                    {
+                        "$ref": "#/definitions/Product",
+                        "title": "Product"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "isBasisFor (Optional)",
+            "type": "array"
+        },
+        "keywords": {
+            "description": " Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Text",
+                    "title": "Text"
+                }
+            ],
+            "propertyOrder": 3,
+            "title": "keywords (Optional)"
+        },
+        "mainEntity": {
+            "description": " Bioschemas.org: Bioschemas usage. Link to the BioChemEntity represented by this record. Schema.org: Indicates the primary entity described in some page or other CreativeWork.\nInverse property: [mainEntityOfPage](http://schema.org/mainEntityOfPage).",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Thing",
+                    "title": "Thing"
+                }
+            ],
+            "propertyOrder": 1,
+            "title": "mainEntity (Minimum)"
+        },
+        "sameAs": {
+            "description": " Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "sameAs (Optional)",
+            "type": "array"
+        },
+        "seeAlso": {
+            "description": " Bioschemas.org: A pointer to any (somehow related) Thing. To be used whenever you are not so sure about the nature of the relation. Otherwise, use more precise terms from pre-existing Controlled Vocabularies.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/Thing",
+                        "title": "Thing"
+                    },
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "seeAlso (Optional)",
+            "type": "array"
+        },
+        "url": {
+            "description": " Schema.org: URL of the item.",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/URL",
+                        "title": "URL"
+                    }
+                ]
+            },
+            "propertyOrder": 3,
+            "title": "url (Optional)",
+            "type": "array"
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "identifier",
+        "mainEntity"
+    ],
+    "title": "DataRecord (v0.1)",
+    "type": "object"
+}

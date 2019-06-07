@@ -1,0 +1,22 @@
+{
+    "Applicationcategory": {
+        "controlled_vocab": "Please choose terms from the 'tool type' table in the [biotools documentation](https://biotools.readthedocs.io/en/latest/curators_guide.html#tool-type)",
+        "marginality": "Optional"
+    },
+    "Featurelist": {
+        "controlled_vocab": "[EDAM:Operation](http://edamontology.org/operation_0004)",
+        "marginality": "Minimum"
+    },
+    "Keywords": {
+        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
+        "marginality": "Optional"
+    },
+    "Potentialaction": {
+        "controlled_vocab": "[EDAM:Data](http://edamontology.org/data_0006)",
+        "marginality": "Optional"
+    },
+    "Rdf:type": {
+        "controlled_vocab": "[SIO:000097 (software entity)](http://semanticscience.org/resource/SIO_000097)",
+        "marginality": "Minimum"
+    }
+}

@@ -2,17 +2,183 @@
     "title": "DataRecord (v0.1)",
     "description": "A Record acts itself as a dataset although it refers to what could be seen as the minimum compact, complete and auto-descriptive unit in a dataset, i.e., a record. Bioschemas usage In Life Sciences, records will represent a BioChemEntity.",
     "type": "object",
-    "definitions": {},
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "DataDownload": {
+            "title": "DataDownload",
+            "description": "A dataset in downloadable form.",
+            "properties": {
+                "@type": {
+                    "default": "DataDownload",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "An image file.",
+            "properties": {
+                "@type": {
+                    "default": "ImageObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Product": {
+            "title": "Product",
+            "description": "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.",
+            "properties": {
+                "@type": {
+                    "default": "Product",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Thing": {
+            "title": "Thing",
+            "description": "The most generic type of item.",
+            "properties": {
+                "@type": {
+                    "default": "Thing",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
     "properties": {
         "@context": {
             "default": "http://schema.org",
-            "type": "string",
             "options": {
                 "hidden": "true"
-            }
+            },
+            "type": "string"
         },
         "@type": {
             "default": "DataRecord",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/DataRecord/0.1",
             "options": {
                 "hidden": "true"
             },
@@ -54,12 +220,12 @@
             "items": {
                 "oneOf": [
                     {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
-                    },
-                    {
                         "title": "Text",
                         "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
             }
@@ -125,12 +291,12 @@
             "description": "Schema.org: The identifier property represents any kind of identifier for any kind of [Thing](http://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
-                    "title": "PropertyValue",
-                    "$ref": "#/definitions/PropertyValue"
-                },
-                {
                     "title": "Text",
                     "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
                 },
                 {
                     "title": "URL",
@@ -272,6 +438,7 @@
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "identifier",
         "mainEntity"
     ]

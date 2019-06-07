@@ -2,17 +2,139 @@
     "title": "Tool (v0.1)",
     "description": "The Life Science Tools specification provides a way to describe bioscience tools and software on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent such tools in Web pages and applications. The goal of the specification is to make it easier to discover, exchange and integrate information about life science tools across the Internet.",
     "type": "object",
-    "definitions": {},
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Offer": {
+            "title": "Offer",
+            "description": "An offer to transfer some rights to an item or to provide a service \u2014 for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.<br/><br/>\n\nFor <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GTIN</a>-related fields, see <a href=\"http://www.gs1.org/barcodes/support/check_digit_calculator\">Check Digit calculator</a> and <a href=\"http://www.gs1us.org/resources/standards/gtin-validation-guide\">validation guide</a> from <a href=\"http://www.gs1.org/\">GS1</a>.",
+            "properties": {
+                "@type": {
+                    "default": "Offer",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization",
+            "description": "An organization such as a school, NGO, corporation, club, etc.",
+            "properties": {
+                "@type": {
+                    "default": "Organization",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Person": {
+            "title": "Person",
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "@type": {
+                    "default": "Person",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
     "properties": {
         "@context": {
             "default": "http://schema.org",
-            "type": "string",
             "options": {
                 "hidden": "true"
-            }
+            },
+            "type": "string"
         },
         "@type": {
             "default": "Tool",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/Tool/0.1",
             "options": {
                 "hidden": "true"
             },
@@ -40,12 +162,12 @@
             "items": {
                 "oneOf": [
                     {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
-                    },
-                    {
                         "title": "Text",
                         "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     }
                 ]
             }
@@ -277,6 +399,7 @@
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "description",
         "featureList",
         "name",

@@ -2,17 +2,96 @@
     "title": "Taxon (v0.3)",
     "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
     "type": "object",
-    "definitions": {},
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Taxon": {},
+        "CategoryCode": {
+            "title": "CategoryCode",
+            "description": "A Category Code.",
+            "properties": {
+                "@type": {
+                    "default": "CategoryCode",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
     "properties": {
         "@context": {
             "default": "http://schema.org",
-            "type": "string",
             "options": {
                 "hidden": "true"
-            }
+            },
+            "type": "string"
         },
         "@type": {
             "default": "Taxon",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/Taxon/0.3",
             "options": {
                 "hidden": "true"
             },
@@ -54,12 +133,12 @@
             "items": {
                 "oneOf": [
                     {
-                        "title": "Taxon",
-                        "$ref": "#/definitions/Taxon"
-                    },
-                    {
                         "title": "Text",
                         "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "Taxon",
+                        "$ref": "#/definitions/Taxon"
                     },
                     {
                         "title": "URL",
@@ -99,12 +178,12 @@
             "description": "Bioschemas: Direct, most proximate higher-rank parent taxon Schema.org: Closest parent taxon of the taxon in question.\nInverse property: childTaxon ",
             "oneOf": [
                 {
-                    "title": "Taxon",
-                    "$ref": "#/definitions/Taxon"
-                },
-                {
                     "title": "Text",
                     "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Taxon",
+                    "$ref": "#/definitions/Taxon"
                 },
                 {
                     "title": "URL",
@@ -156,12 +235,12 @@
             "items": {
                 "oneOf": [
                     {
-                        "title": "PropertyValue",
-                        "$ref": "#/definitions/PropertyValue"
-                    },
-                    {
                         "title": "Text",
                         "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     },
                     {
                         "title": "URL",
@@ -199,6 +278,7 @@
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "name"
     ]
 }
