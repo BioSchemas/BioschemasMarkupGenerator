@@ -87,8 +87,47 @@
             "title": "SemanticAnnotation (v0.1-DRAFT) Minimum Version",
             "description": "A SemanticAnnotation currently corresponds to an expression identified in a ScholarlyArticle and associated to an ontology term. It could apply as well to documents other than ScholarlyArticle, for instant patents and so.",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "mainEntity": {
+                    "title": "mainEntity (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Ontology terms associated to this annotation. On the DefinedTerm, use additionalType to link to a Unified Medical Language System (UMLS) semantic type (TUI) or group, and sameAs to link to the corresponding concept unique identifier (CUI), if available. Schema.org: Indicates the primary entity described in some page or other CreativeWork.\n Inverse property: mainEntityOfPage. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Thing",
+                                "$ref": "#/definitions/Thing"
+                            },
+                            {
+                                "title": "DefinedTerm",
+                                "$ref": "#/definitions/DefinedTerm"
+                            }
+                        ]
+                    }
+                },
+                "text": {
+                    "title": "text (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Expression found in the text corresponding to this annotation. Schema.org: The textual content of this CreativeWork. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "mainEntity",
+                "text"
+            ]
         },
         "PropertyValue": {
             "title": "PropertyValue",
@@ -182,22 +221,97 @@
             "title": "Journal (v0.1-DRAFT) Minimum Version",
             "description": "A Journal is a collection of publication issues, publication volumes or scholarly articles, or possibly, although no commonly, any mix from those mentioned. ",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "issn": {
+                    "title": "issn (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: We recommend to use here the form namespace:id. For instance, issn:2041-1480. Schema.org: The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Title/name of the journal. Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "issn",
+                "name"
+            ]
         },
         "PublicationVolume": {
             "title": "PublicationVolume (v0.1-DRAFT) Minimum Version",
             "description": "A PublicationVolume is a collection of publication issues, or scholarly articles, or possibly, although no commonly, any mix from those mentioned. It is commonly part of a Journal.",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "volumeNumber": {
+                    "title": "volumeNumber (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\". ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "volumeNumber"
+            ]
         },
         "PublicationIssue": {
             "title": "PublicationIssue (v0.1-DRAFT) Minimum Version",
             "description": "A PublicationIssue is a collection of publication scholarly articles published as a collection in a publication volume or a journal",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "issueNumber": {
+                    "title": "issueNumber (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Identifies the issue of publication; for example, \"iii\" or \"2\". ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "issueNumber"
+            ]
         }
     },
     "properties": {

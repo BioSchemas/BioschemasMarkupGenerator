@@ -67,10 +67,10 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "RNA",
+                                "title": "DNA",
                                 "properties": {
                                     "@type": {
-                                        "default": "RNA",
+                                        "default": "DNA",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -88,10 +88,10 @@
                                 ]
                             },
                             {
-                                "title": "DNA",
+                                "title": "RNA",
                                 "properties": {
                                     "@type": {
-                                        "default": "DNA",
+                                        "default": "RNA",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -152,6 +152,10 @@
                     "items": {
                         "oneOf": [
                             {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
                                 "title": "MedicalCondition",
                                 "properties": {
                                     "@type": {
@@ -171,10 +175,6 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
                             },
                             {
                                 "title": "PropertyValue",
@@ -267,27 +267,6 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "SequneceAnnotation",
-                                "properties": {
-                                    "@type": {
-                                        "default": "SequneceAnnotation",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
                                 "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
@@ -307,21 +286,12 @@
                                     "@type",
                                     "@id"
                                 ]
-                            }
-                        ]
-                    }
-                },
-                "biologicalRole": {
-                    "title": "biologicalRole",
-                    "description": "A role played by the molecular entity within a biological context.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
+                            },
                             {
-                                "title": "DefinedTerm",
+                                "title": "SequneceAnnotation",
                                 "properties": {
                                     "@type": {
-                                        "default": "DefinedTerm",
+                                        "default": "SequneceAnnotation",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -348,27 +318,6 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "DefinedTerm",
-                                "properties": {
-                                    "@type": {
-                                        "default": "DefinedTerm",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
                                 "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
@@ -392,6 +341,27 @@
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
+                            },
+                            {
+                                "title": "DefinedTerm",
+                                "properties": {
+                                    "@type": {
+                                        "default": "DefinedTerm",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             }
                         ]
                     }
@@ -420,10 +390,10 @@
                                 "$ref": "#/definitions/Text"
                             },
                             {
-                                "title": "DefinedTerm",
+                                "title": "Taxon",
                                 "properties": {
                                     "@type": {
-                                        "default": "DefinedTerm",
+                                        "default": "Taxon",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -445,10 +415,10 @@
                                 "$ref": "#/definitions/URL"
                             },
                             {
-                                "title": "Taxon",
+                                "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
-                                        "default": "Taxon",
+                                        "default": "DefinedTerm",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -479,6 +449,10 @@
                                 "$ref": "#/definitions/Text"
                             },
                             {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
                                 "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
@@ -498,10 +472,6 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
@@ -556,6 +526,10 @@
                     "items": {
                         "oneOf": [
                             {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
                                 "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
@@ -596,10 +570,6 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
@@ -743,6 +713,27 @@
                     "items": {
                         "oneOf": [
                             {
+                                "title": "CreativeWork",
+                                "properties": {
+                                    "@type": {
+                                        "default": "CreativeWork",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
                                 "title": "Event",
                                 "properties": {
                                     "@type": {
@@ -762,12 +753,21 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
+                            }
+                        ]
+                    }
+                },
+                "biologicalRole": {
+                    "title": "biologicalRole",
+                    "description": "A role played by the molecular entity within a biological context.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
                             {
-                                "title": "CreativeWork",
+                                "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
-                                        "default": "CreativeWork",
+                                        "default": "DefinedTerm",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -862,10 +862,6 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            },
-                            {
                                 "title": "CreativeWork",
                                 "properties": {
                                     "@type": {
@@ -885,6 +881,10 @@
                                     "@type",
                                     "@id"
                                 ]
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }

@@ -28,7 +28,6 @@ ProfileMinimumDefinitionDictionary = {}
 ListOfBioschemasProfiles = []
 ListOfBioschemasTypes = []
 
-
 # Default Definitions for form inputs
 definitions = {
     "Boolean": {
@@ -66,7 +65,7 @@ propertyOrdering = {
     "Optional": 3
 }
 
-
+# Main Method
 def main(argv):
     global GithubURL
     global GithubDirectoryPath
@@ -81,8 +80,8 @@ def main(argv):
     global ProfileMinimumDefinitionDictionary
     global ListOfBioschemasProfiles
     global ListOfBioschemasTypes
-    
-    # Process Current Profiles
+
+    # Retrieve configuration variables
     try:
         config = configparser.ConfigParser()
         config.read("ConfigFile.ini")
@@ -100,6 +99,7 @@ def main(argv):
         print("Provide all arguments through ConfigFile.ini")
         sys.exit(2)
 
+    # Process Current Profiles
     print("Processing Current Profiles with the following arguments:")
     print("Github URL:", GithubURL)
     print("Github Profiles Path: ", CurrentProfilesDirectoryPath)
@@ -118,6 +118,7 @@ def main(argv):
 
     print("Processing Current Profiles Finished.")
 
+    # Process Draft Profiles
     print("Processing Draft Profiles with the following arguments:")
     print("Github URL:", GithubURL)
     print("Github Profiles Path: ", DraftProfilesDirectoryPath)
@@ -237,7 +238,7 @@ def processJSONDictionary(profileDirectory, tableDirectory, additionalTitleInfo)
         except:
             print("Error: processJSONDictionary")
 
-    # Add minimum definitions for profiles
+    # Add minimum definitions of profiles to profiles
     addMinimumDefinitions(ProfileJSONSchemaDictionary,ProfileMinimumDefinitionDictionary)
 
     # Write JSON Dictionaries to file
@@ -275,9 +276,6 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
         # Required Properties of the Profile
         profileRequiredProperties = []
 
-        # Required Properties of the minimum Profile
-        minimumProfileRequiredProperties = []
-
         # Property definitions to generate for profile
         definitionsToGenerate = []
 
@@ -289,6 +287,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
         contextObject["options"] = optionsObject
         contextObject["type"] = "string"
         profilePropertiesObject["@context"] = contextObject
+        minimumProfilePropertiesObject["@context"] = contextObject
         profileRequiredProperties.append("@type")
 
         # JSON-LD Type Attribute
@@ -297,6 +296,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
         typeObject["options"] = optionsObject
         typeObject["type"] = "string"
         profilePropertiesObject["@type"] = typeObject
+        minimumProfilePropertiesObject["@type"] = typeObject
         profileRequiredProperties.append("@context")
 
         # dct:conformsTo
@@ -307,6 +307,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
         dctObject["options"] = optionsObject
         dctObject["type"] = "string"
         profilePropertiesObject["dct:conformsTo"] = dctObject
+        minimumProfilePropertiesObject["dct:conformsTo"] = dctObject
         profileRequiredProperties.append("dct:conformsTo")
 
         # Profile Properties
@@ -323,10 +324,6 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
 
             # Property Ordering displated in form
             tempPropertyObject["propertyOrder"] = propertyOrdering[property["marginality"]]
-
-            # Minimum Properties are required by default
-            if property["marginality"].lower() == "minimum":
-                profileRequiredProperties.append(property["property"])
 
             # Property Description
             concatenatedDescription = ""
@@ -372,6 +369,13 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
 
             profilePropertiesObject[property["property"]] = tempPropertyObject
 
+            # Minimum Properties are required by default
+            if property["marginality"].lower() == "minimum":
+                profileRequiredProperties.append(property["property"])
+                minimumProfilePropertiesObject[property["property"]] = tempPropertyObject
+
+
+
         # Generate Definitions needed for the Profile
         schemaJSONObject["definitions"] = generateDefinitions(
             definitionsToGenerate)
@@ -382,7 +386,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
         # Add Required Properties Array to Schema
         schemaJSONObject["required"] = profileRequiredProperties
         # Add Required Properties Array to minimum schema
-        minimumSchemaObject["required"] = minimumProfileRequiredProperties
+        minimumSchemaObject["required"] = profileRequiredProperties
 
     except:
         print("Error: createJSONSchema")

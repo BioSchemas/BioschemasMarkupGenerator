@@ -60,8 +60,45 @@
             "title": "ScholarlyArticle (v0.1-DRAFT) Minimum Version",
             "description": "A ScholarlyArticle is an article commonly reporting a scientific research, for instance a journal article or thesis.",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "headline": {
+                    "title": "headline (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Title of the article. Schema.org: Headline of the article. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: A global a unique identifier for articles in their DOI. Any other identifier can be included as an alternate name. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "PropertyValue",
+                            "$ref": "#/definitions/PropertyValue"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "headline",
+                "identifier"
+            ]
         },
         "PropertyValue": {
             "title": "PropertyValue",
@@ -111,15 +148,69 @@
             "title": "PublicationVolume (v0.1-DRAFT) Minimum Version",
             "description": "A PublicationVolume is a collection of publication issues, or scholarly articles, or possibly, although no commonly, any mix from those mentioned. It is commonly part of a Journal.",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "volumeNumber": {
+                    "title": "volumeNumber (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\". ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "volumeNumber"
+            ]
         },
         "Journal": {
             "title": "Journal (v0.1-DRAFT) Minimum Version",
             "description": "A Journal is a collection of publication issues, publication volumes or scholarly articles, or possibly, although no commonly, any mix from those mentioned. ",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "issn": {
+                    "title": "issn (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: We recommend to use here the form namespace:id. For instance, issn:2041-1480. Schema.org: The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Title/name of the journal. Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "issn",
+                "name"
+            ]
         }
     },
     "properties": {

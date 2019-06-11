@@ -60,22 +60,101 @@
             "title": "PublicationIssue (v0.1-DRAFT) Minimum Version",
             "description": "A PublicationIssue is a collection of publication scholarly articles published as a collection in a publication volume or a journal",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "issueNumber": {
+                    "title": "issueNumber (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Identifies the issue of publication; for example, \"iii\" or \"2\". ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "issueNumber"
+            ]
         },
         "PublicationVolume": {
             "title": "PublicationVolume (v0.1-DRAFT) Minimum Version",
             "description": "A PublicationVolume is a collection of publication issues, or scholarly articles, or possibly, although no commonly, any mix from those mentioned. It is commonly part of a Journal.",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "volumeNumber": {
+                    "title": "volumeNumber (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\". ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "volumeNumber"
+            ]
         },
         "ScholarlyArticle": {
             "title": "ScholarlyArticle (v0.1-DRAFT) Minimum Version",
             "description": "A ScholarlyArticle is an article commonly reporting a scientific research, for instance a journal article or thesis.",
             "type": "object",
-            "properties": {},
-            "required": []
+            "properties": {
+                "headline": {
+                    "title": "headline (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Title of the article. Schema.org: Headline of the article. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: A global a unique identifier for articles in their DOI. Any other identifier can be included as an alternate name. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "PropertyValue",
+                            "$ref": "#/definitions/PropertyValue"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "headline",
+                "identifier"
+            ]
         },
         "Language": {
             "title": "Language",
