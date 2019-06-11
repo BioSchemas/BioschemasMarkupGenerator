@@ -81,6 +81,7 @@ def main(argv):
     global ProfileMinimumDefinitionDictionary
     global ListOfBioschemasProfiles
     global ListOfBioschemasTypes
+    
     # Process Current Profiles
     try:
         config = configparser.ConfigParser()
@@ -390,6 +391,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
 
 
 def generateDefinitions(definitionsToGenerate):
+    # Generate definitions for each type (Minimum profile, Bioschemas and Schema.org)
     profileDefinitions = definitions.copy()
 
     for definition in definitionsToGenerate:
@@ -412,6 +414,7 @@ def generateDefinitions(definitionsToGenerate):
 
 
 def generateBioschemasDefinition(definition):
+    # Generate definition for Bioschemas type
 
     try:
         definitionObject = fetchBioschemaDefinition(definition)
@@ -519,6 +522,7 @@ def generateBioschemasDefinition(definition):
 
 
 def generateSchemaDefinition(definition):
+    # Generate definition for Schema.org type
 
     schemaDefinition = {}
 
@@ -571,6 +575,7 @@ def createJSONTable(definitionObject):
 
 
 def addMinimumDefinitions(jsonSchemaDictionary,definitionsMinimum):
+    # Add minimum version of profiles if references in other profiles
     print("Adding minimum versions of Bioschemas profiles to definitions for profiles:")
 
     for key, value in jsonSchemaDictionary.items():
@@ -584,6 +589,7 @@ def addMinimumDefinitions(jsonSchemaDictionary,definitionsMinimum):
     return jsonSchemaDictionary
 
 def listOfBioschemasProfiles():
+    # Retrieve a list of all Bioschemas profiles
     global ListOfBioschemasProfiles
     bioschemasProfilesDirectory = TempWorkingDirectory + GithubDirectoryPath
     tempListOfProfiles = glob.glob(bioschemasProfilesDirectory + "*.html")
@@ -595,6 +601,7 @@ def listOfBioschemasProfiles():
 
 
 def listOfBioschemasTypes():
+    # Retrieve a list of all Bioschemas types
     global ListOfBioschemasTypes
 
     bioschemasTypesDirectory = TempWorkingDirectory + GithubTypePath
@@ -624,6 +631,7 @@ def fetchSchemaDescription(definition):
 
 
 def fetchBioschemaDefinition(definition):
+    # Fetch the description of Bioschema types
     try:
         r = requests.get(BioschemasURL + definition + ".jsonld")
         return json.loads(r.content.decode('utf-8'))
