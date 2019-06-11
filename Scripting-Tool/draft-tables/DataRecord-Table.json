@@ -1,0 +1,55 @@
+{
+    "additionalProperty": {
+        "marginality": "Optional"
+    },
+    "additionalType": {
+        "marginality": "Recommended"
+    },
+    "citation": {
+        "marginality": "Optional"
+    },
+    "dateCreated": {
+        "marginality": "Optional"
+    },
+    "dateModified": {
+        "marginality": "Optional"
+    },
+    "datePublished": {
+        "marginality": "Optional"
+    },
+    "distribution": {
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "marginality": "Minimum"
+    },
+    "image": {
+        "marginality": "Optional"
+    },
+    "isBasedOn": {
+        "controlled_vocab": "[ECO](https://www.ebi.ac.uk/ols/ontologies/eco)",
+        "marginality": "Optional"
+    },
+    "isBasisFor": {
+        "controlled_vocab": "[ECO](https://www.ebi.ac.uk/ols/ontologies/eco)",
+        "marginality": "Optional"
+    },
+    "keywords": {
+        "marginality": "Optional"
+    },
+    "mainEntity": {
+        "marginality": "Minimum"
+    },
+    "rdf:type": {
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "marginality": "Optional"
+    },
+    "seeAlso": {
+        "marginality": "Optional"
+    },
+    "url": {
+        "marginality": "Optional"
+    }
+}

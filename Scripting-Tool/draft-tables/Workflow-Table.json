@@ -1,0 +1,26 @@
+{
+    "accessibilityAPI": {
+        "marginality": "Optional"
+    },
+    "audience": {
+        "marginality": "Optional"
+    },
+    "description": {
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "marginality": "Minimum"
+    },
+    "image": {
+        "marginality": "Recommended"
+    },
+    "name": {
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "marginality": "Optional"
+    },
+    "url": {
+        "marginality": "Minimum"
+    }
+}

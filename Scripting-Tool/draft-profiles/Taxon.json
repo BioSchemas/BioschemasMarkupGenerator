@@ -1,5 +1,5 @@
 {
-    "title": "Taxon (v0.3)",
+    "title": "Taxon (v0.3) Draft",
     "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
     "type": "object",
     "definitions": {

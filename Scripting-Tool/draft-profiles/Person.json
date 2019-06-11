@@ -1,0 +1,5 @@
+{
+    "title": "Person (v0.1) Draft",
+    "description": "The Life Science Person specification provides a way to describe bioscience people on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+    "type": "object"
+}

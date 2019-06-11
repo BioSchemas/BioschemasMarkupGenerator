@@ -1,0 +1,41 @@
+{
+    "about": {
+        "marginality": "Optional"
+    },
+    "editor": {
+        "marginality": "Optional"
+    },
+    "hasPart": {
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "marginality": "Recommended"
+    },
+    "inLanguage": {
+        "marginality": "Optional"
+    },
+    "isPartOf": {
+        "marginality": "Recommended"
+    },
+    "keywords": {
+        "marginality": "Optional"
+    },
+    "pageEnd": {
+        "marginality": "Recommended"
+    },
+    "pageStart": {
+        "marginality": "Recommended"
+    },
+    "pagination": {
+        "marginality": "Optional"
+    },
+    "sameAs": {
+        "marginality": "Optional"
+    },
+    "url": {
+        "marginality": "Recommended"
+    },
+    "volumeNumber": {
+        "marginality": "Minimum"
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "alternateName": {
+        "marginality": "Recommended"
+    },
+    "alternativeHeadline": {
+        "marginality": "Optional"
+    },
+    "articleBody": {
+        "marginality": "Optional"
+    },
+    "articleSection": {
+        "marginality": "Optional"
+    },
+    "author": {
+        "marginality": "Recommended"
+    },
+    "backstory": {
+        "marginality": "Recommended"
+    },
+    "citation": {
+        "marginality": "Recommended"
+    },
+    "about": {
+        "marginality": "Recommended"
+    },
+    "copyrightHolder": {
+        "marginality": "Optional"
+    },
+    "copyrightYear": {
+        "marginality": "Optional"
+    },
+    "dateCreated": {
+        "marginality": "Recommended"
+    },
+    "dateModified": {
+        "marginality": "Recommended"
+    },
+    "datePublished": {
+        "marginality": "Recommended"
+    },
+    "headline": {
+        "marginality": "Minimum"
+    },
+    "identifier": {
+        "marginality": "Minimum"
+    },
+    "inLanguage": {
+        "marginality": "Optional"
+    },
+    "isAccessibleForFree": {
+        "marginality": "Optional"
+    },
+    "isBasedOn": {
+        "marginality": "Recommended"
+    },
+    "isPartOf": {
+        "marginality": "Recommended"
+    },
+    "keywords": {
+        "marginality": "Recommended"
+    },
+    "license": {
+        "marginality": "Recommended"
+    },
+    "pageEnd": {
+        "marginality": "Recommended"
+    },
+    "pageStart": {
+        "marginality": "Recommended"
+    },
+    "pagination": {
+        "marginality": "Optional"
+    },
+    "sameAs": {
+        "marginality": "Optional"
+    },
+    "url": {
+        "marginality": "Recommended"
+    },
+    "version": {
+        "marginality": "Optional"
+    },
+    "wordCount": {
+        "marginality": "Optional"
+    }
+}

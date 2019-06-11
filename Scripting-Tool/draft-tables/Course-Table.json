@@ -1,0 +1,122 @@
+{
+    "about": {
+        "example": "\"about\": [{\n  \"@type\": \"DefinedTerm\", \n  \"@id\": \"http://edamontology.org/topic_3316\",\n  \"inDefinedTermSet\": \"http://edamontology.org\",\n  \"termCode\": \"topic_3316\",\n  \"name\": \"Computer Science\",\n  \"url\": \"https://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Ftopic_3316\"\n}]",
+        "controlled_vocab": "EDAM term",
+        "marginality": "Recommended"
+    },
+    "abstract": {
+        "example": "\"abstract\": \"This tutorial will take you through the basic usage of the command line shell. In it, you will discover what a shell is, skills for directory navigation, file manipulation, and how to run tools\"\n",
+        "marginality": "Optional"
+    },
+    "accessibilitySummary": {
+        "example": "\"accessibilitySummary\": \"Visual elements are not described.\"\n",
+        "marginality": "Optional"
+    },
+    "aggregateRating": {
+        "marginality": "Recommended"
+    },
+    "alternateName": {
+        "example": "\"alternateName\": [\"Comp-sci 101\"]",
+        "marginality": "Optional"
+    },
+    "citation": {
+        "marginality": "Recommended"
+    },
+    "comment": {
+        "marginality": "Optional"
+    },
+    "commentCount": {
+        "marginality": "Optional"
+    },
+    "contentReferenceTime": {
+        "marginality": "Optional"
+    },
+    "courseCode": {
+        "example": "\"courseCode\": \"CS101\"",
+        "marginality": "Optional"
+    },
+    "coursePrerequisites": {
+        "example": "\"coursePrerequisites\": [\n     {\n          \"@type\": \"AlignmentObject\",\n          \"alignmentType\": \"educationalLevel\",\n          \"educationalFramework\": \"QAA\",\n          \"targetName\": \"Higher Education Credit Framework For England\",\n          \"targetUrl\": \"https://www.qaa.ac.uk/docs/qaa/quality-code/academic-credit-framework.pdf?sfvrsn=940bf781_12\"\n    },\n    {\n        \"@type\": \"Course\",\n        //Minimal\n        \"name\": \"Foundation Course in CS\",\n        \"description\": \"This course introduces you to the very basic, foundational concepts of computers and programming\",\n        \"keywords\": \"CS, foundation, course, eLearning\",\n        //Recommended\n        \"url\": \"http://my-training.site/myPrerequisiteCourse\",\n        \"timeRequired\": \"P1W2DT5H\",\n        \"skillLevel\": \"beginner\"\n    }\n]",
+        "marginality": "Recommended"
+    },
+    "creator": {
+        "example": "\"author\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Optional"
+    },
+    "dateCreated": {
+        "example": "\"dateCreated\": \"2019-02-18 09:00:00 +0000\"",
+        "marginality": "Optional"
+    },
+    "dateModified": {
+        "example": "\"dateModified\": [\"2019-03-28 13:25:13 +0000\"]",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "\"description\": \"This is a course ran at an institution. It's ran periodically - specific courses can be found through CourseInstances\"",
+        "marginality": "Minimum"
+    },
+    "educationalCredentialAwarded": {
+        "example": "\"educationalCredentialAwarded\": \"Certified Software Carpentry Instructor\"",
+        "marginality": "Optional"
+    },
+    "hasCourseInstance": {
+        "example": "\"hasCourseInstance\": [\n    {\n      \"@type\": \"CourseInstance\",\n\n      //Minimal\n      \"courseMode\": \"online\",\n      \"location\": {\n          \"@type\": \"Place\",\n          \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"streetAddress\": \"1.17, Kilburn Building, University of Manchester\",\n            \"addressLocality\": \"Manchester\",\n            \"addressRegion\": \"Greater Manchester\",\n            \"addressCountry\": \"United Kingdom\",\n            \"postalCode\": \"M13 9PL\"\n          }\n      },\n      //Recommended\n      \"url\": \"http://my-training.site/myCourse/courseInstance\",\n      \"inLanguage\": \"en-GB\",\n      \"instructor\": [{\n        \"@type\": \"Person\",\n        \"name\": \"John Smith\"\n      },{ \n        \"@type\": \"Person\",\n        \"name\": \"Bob Jones\"\n      }],\n      \"startDate\": \"2019-02-04T11:00:00\",\n      \"endDate\": \"2019-02-05T17:00:00\",\n      \"offers\":     {\n            \"@type\": \"Offer\",\n            \"price\": \"100.00\",\n            \"priceCurrency\": \"GBP\",\n            \"url\": \"http://www.eventbrite.com/my-workshop\"\n      },\n      \"mentions\": [{\n          \"@type\": \"Tool\",\n          \"name\": \"Galaxy\",\n          \"url\": \"https://bio.tools/galaxy\",\n          \"description\": \"Open, web-based platform for data intensive biomedical research\"\n       },\n       {\n          \"@type\": \"Dataset\",\n          \"name\": \"European Genome-phenome Archive\",\n          \"url\": \"https://www.ebi.ac.uk/ega/home\",\n          \"description\": \"The EGA archives a large number of datasets, the access to which is controlled by a Data Access Committee (DAC).\"\n        }],\n    }\n]",
+        "marginality": "Recommended"
+    },
+    "hasPart": {
+        "example": "\"hasPart\": [{\n  \"@type\": \"TrainingMaterial\",\n\n  //Minimum\n  \"name\": \"Course Slides for CS101\",\n  \"description\": \"The course slides contain diagrams, questions, and links to various resources about this course\",\n  \"keywords\": \"Computer Science, CS, Introductory\",\n\n  //Recommended\n  \"timeRequired\": \"P1W2DT5H\",\n  \"learningResourceType\": [\"slides\"],\n  \"url\": \"http://example.com/slides_website\",\n  \"license\": [\"https://creativecommons.org/licenses/by/4.0/\"],\n  \"skillLevel\": \"beginner\",\n  \"identifier\": [\"http://identifiers.org/my-org/13412\"],\n  \"about\": [{\n      \"@type\": \"DefinedTerm\", \n      \"@id\": \"http://edamontology.org/topic_3316\",\n      \"inDefinedTermSet\": \"http://edamontology.org\",\n      \"termCode\": \"topic_3316\",\n      \"name\": \"Computer Science\",\n      \"url\": \"https://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Ftopic_3316\"\n  }],\n  \"inLanguage\": \"en-GB\",\n  \"mentions\": [{\n      \"@type\": \"Tool\",\n      \"name\": \"Galaxy\",\n      \"url\": \"https://bio.tools/galaxy\",\n      \"description\": \"Open, web-based platform for data intensive biomedical research\"\n   }]\n}]",
+        "marginality": "Optional"
+    },
+    "image": {
+        "example": "\"image\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "isBasedOn": {
+        "marginality": "Optional"
+    },
+    "keywords": {
+        "example": "\"keywords\": \"RNA-Seq, Workshop\"",
+        "marginality": "Minimum"
+    },
+    "learningOutcome": {
+        "example": "\"learningOutcome\": [\"The student will be able to recall shell commands\", \"The student will be able to write code to copy files\"\", \"The student will be able to discover new commands on their own\"]\n",
+        "controlled_vocab": "It is recommended you utilize terms from Blooms taxonomy",
+        "marginality": "Optional"
+    },
+    "license": {
+        "marginality": "Recommended"
+    },
+    "mentions": {
+        "example": "\"mentions\": [{\n  \"@type\": \"Tool\",\n  \"name\": \"Galaxy\",\n  \"url\": \"https://bio.tools/galaxy\",\n  \"description\": \"Open, web-based platform for data intensive biomedical research\"\n},{\n  \"@type\": \"Dataset\",\n  \"name\": \"European Genome-phenome Archive\",\n  \"url\": \"https://www.ebi.ac.uk/ega/home\",\n  \"description\": \"The EGA archives a large number of datasets, the access to which is controlled by a Data Access Committee (DAC).\"\n}]",
+        "marginality": "Recommended"
+    },
+    "name": {
+        "example": "\"name\": \"My Course\"",
+        "marginality": "Minimum"
+    },
+    "provider": {
+        "example": "\"provider\":  [{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Recommended"
+    },
+    "skillLevel": {
+        "example": "\"skillLevel\": \"beginner\"",
+        "marginality": "Recommended"
+    },
+    "thumbnailUrl": {
+        "example": "\"thumbnailUrl\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "timeRequired": {
+        "example": "\"timeRequired\": \"P3D\"",
+        "controlled_vocab": "ISO 8601",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "\"url\": \"https://training.site/123\"",
+        "marginality": "Recommended"
+    },
+    "uses": {
+        "example": "\"uses\": [{\n  \"@type\": \"Tool\",\n  \"name\": \"Galaxy\",\n  \"url\": \"https://bio.tools/galaxy\",\n  \"description\": \"Open, web-based platform for data intensive biomedical research\"\n},{\n  \"@type\": \"Dataset\",\n  \"name\": \"European Genome-phenome Archive\",\n  \"url\": \"https://www.ebi.ac.uk/ega/home\",\n  \"description\": \"The EGA archives a large number of datasets, the access to which is controlled by a Data Access Committee (DAC).\"\n}]",
+        "marginality": "Recommended"
+    }
+}

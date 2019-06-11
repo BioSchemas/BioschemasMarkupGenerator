@@ -1,0 +1,106 @@
+{
+    "acceptanceNotificationDate": {
+        "marginality": "Optional"
+    },
+    "accreditation": {
+        "marginality": "Recommended"
+    },
+    "alternateName": {
+        "marginality": "Recommended"
+    },
+    "attachment": {
+        "marginality": "Optional"
+    },
+    "audience": {
+        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)",
+        "marginality": "Recommended"
+    },
+    "contact": {
+        "marginality": "Minimum"
+    },
+    "dateModified": {
+        "marginality": "Optional"
+    },
+    "deadline": {
+        "marginality": "Recommended"
+    },
+    "description": {
+        "marginality": "Minimum"
+    },
+    "eligibility": {
+        "controlled_vocab": "- first come first served\n- registration of interest\n- by invitation",
+        "marginality": "Recommended"
+    },
+    "endDate": {
+        "marginality": "Minimum"
+    },
+    "eventType": {
+        "controlled_vocab": "- workshops and courses\n- meetings and conferences\n- receptions and networking\n- awards and prizegivings",
+        "marginality": "Minimum"
+    },
+    "hostInstitution": {
+        "marginality": "Minimum"
+    },
+    "identifier": {
+        "marginality": "Optional"
+    },
+    "keywords": {
+        "marginality": "Recommended"
+    },
+    "location": {
+        "marginality": "Minimum"
+    },
+    "maximumAttendeeCapacity": {
+        "marginality": "Recommended"
+    },
+    "name": {
+        "marginality": "Minimum"
+    },
+    "offers": {
+        "marginality": "Optional"
+    },
+    "performer": {
+        "marginality": "Optional"
+    },
+    "prerequisite": {
+        "marginality": "Recommended"
+    },
+    "programme": {
+        "marginality": "Recommended"
+    },
+    "rdf:type": {
+        "marginality": "Minimum"
+    },
+    "registrationStatus": {
+        "controlled_vocab": "- proposed\n- pre-open\n- open\n- cancelled\n- full",
+        "marginality": "Optional"
+    },
+    "review": {
+        "marginality": "Optional"
+    },
+    "socialMedia": {
+        "marginality": "Optional"
+    },
+    "sponsor": {
+        "marginality": "Optional"
+    },
+    "startDate": {
+        "marginality": "Minimum"
+    },
+    "subEvent": {
+        "marginality": "Optional"
+    },
+    "submitter": {
+        "marginality": "Optional"
+    },
+    "superEvent": {
+        "marginality": "Optional"
+    },
+    "topic": {
+        "controlled_vocab": "[EDAM: Topic](http://edamontology.org/topic_0003)",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "marginality": "Recommended"
+    }
+}

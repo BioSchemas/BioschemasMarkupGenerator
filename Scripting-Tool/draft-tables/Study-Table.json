@@ -1,0 +1,49 @@
+{
+    "about": {
+        "marginality": "Recommended"
+    },
+    "additionalProperty": {
+        "example": "{\n  \"@type\": [\"Study\"],\n  \"additionalProperty\": {\n   \"@type\": \"PropertyValue\",\n    \"name\": \"Organism\",\n    \"value\": \"Homo sapiens\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "author": {
+        "marginality": "Minimum"
+    },
+    "citation": {
+        "marginality": "Recommended"
+    },
+    "dateCreated": {
+        "marginality": "Recommended"
+    },
+    "datePublished": {
+        "marginality": "Minimum"
+    },
+    "description": {
+        "marginality": "Minimum"
+    },
+    "identifier": {
+        "marginality": "Minimum"
+    },
+    "isPartOf": {
+        "marginality": "Optional"
+    },
+    "keywords": {
+        "marginality": "Recommended"
+    },
+    "name": {
+        "marginality": "Minimum"
+    },
+    "relatedStudy": {
+        "marginality": "Optional"
+    },
+    "studyDomain": {
+        "marginality": "Minimum"
+    },
+    "studyProcess": {
+        "controlled_vocab": "http://www.ebi.ac.uk/efo/EFO_0001433",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "marginality": "Recommended"
+    }
+}

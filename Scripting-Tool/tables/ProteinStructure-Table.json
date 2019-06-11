@@ -1,0 +1,57 @@
+{
+    "additionalProperty": {
+        "marginality": "Optional"
+    },
+    "additionalType": {
+        "marginality": "Recommended"
+    },
+    "alternateName": {
+        "marginality": "Recommended"
+    },
+    "contains": {
+        "marginality": "Optional"
+    },
+    "description": {
+        "marginality": "Recommended"
+    },
+    "hasRepresentation": {
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "marginality": "Minimum"
+    },
+    "image": {
+        "marginality": "Optional"
+    },
+    "isContainedIn": {
+        "marginality": "Optional"
+    },
+    "location": {
+        "marginality": "Optional"
+    },
+    "mainEntityOfPage": {
+        "marginality": "Optional"
+    },
+    "name": {
+        "marginality": "Recommended"
+    },
+    "organism": {
+        "marginality": "Minimum"
+    },
+    "rdf:type": {
+        "controlled_vocab": "[SIO:011119 (biomolecular structure descriptor)](http://semanticscience.org/resource/SIO_011119)",
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "marginality": "Optional"
+    },
+    "SIO:000983": {
+        "marginality": "Recommended"
+    },
+    "SIO:010081": {
+        "marginality": "Minimum"
+    },
+    "url": {
+        "marginality": "Recommended"
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "alternateName": {
+        "example": "        \"alternateName\": [\n                \"3-hydroxytyramine\",\n                \"4-(2-aminoethyl)catechol\",\n                \"4-(2-aminoethyl)pyrocatechol\"\n        ]",
+        "marginality": "Optional"
+    },
+    "biochemicalInteraction": {
+        "example": "\"biochemicalInteraction\": [{\n    \"@type\": \"BioChemEntity\",\n    \"identifier\": \"CHEMBL3510\",\n    \"name\": \"Carbonic anhydrase XIV\",\n    \"url\": \"https://www.ebi.ac.uk/chembl/beta/target_report_card/CHEMBL3510/\"\n}],",
+        "marginality": "Optional"
+    },
+    "biochemicalSimilarity": {
+        "example": "\"biochemicalSimilarity\": [\n    {\n        \"@type\": \"MolecularEntity\",\n        \"identifier\": \"CHEMBL31088\",\n        \"name\": \"DEOXIEPINEPHRINE\",\n        \"url\": \"https://www.ebi.ac.uk/chembl/beta/compound_report_card/CHEMBL31088/\"\n    },\n    {\n        \"@type\": \"MolecularEntity\",\n        \"identifier\": \"CHEMBL1950045\",\n        \"name\": \"3,4-Dihydroxyphenylethanol\",\n        \"url\": \"https://www.ebi.ac.uk/chembl/beta/compound_report_card/CHEMBL1950045/\"\n    }\n]",
+        "marginality": "Optional"
+    },
+    "biologicalRole": {
+        "example": "{\n    \"@type\": \"DefinedTerm\",\n    \"@id\": \"http://purl.obolibrary.org/obo/CHEBI_35522\",\n    \"inDefinedTermSet\":\n        {\n            \"@type\":\"DefinedTermSet\",\n            \"@id\":\"ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl\",\n            \"name\": \"CHEBI\"\n        },\n    \"termCode\": \"CHEBI:35522\",\n    \"name\": \"\u03b2-adrenergic agonist\",\n    \"url\": \"https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:35522\"\n},\n{\n    \"@type\": \"DefinedTerm\",\n    \"@id\": \"http://purl.obolibrary.org/obo/CHEBI_77746\",\n    \"inDefinedTermSet\":\n        {\n            \"@type\":\"DefinedTermSet\",\n            \"@id\":\"ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl\",\n            \"name\": \"CHEBI\"\n        },\n    \"termCode\": \"CHEBI:77746\",\n    \"name\": \"human metabolite\",\n    \"url\": \"https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:77746\"\n}",
+        "controlled_vocab": "Any suitable ontology such as [ChEBI biological role](https://www.ebi.ac.uk/ols/ontologies/chebi/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCHEBI_24432)",
+        "marginality": "Optional"
+    },
+    "chemicalRole": {
+        "example": "{\n    \"@type\": \"DefinedTerm\",\n    \"@id\": \"http://purl.obolibrary.org/obo/CHEBI_39142\",\n    \"inDefinedTermSet\":\n        {\n            \"@type\":\"DefinedTermSet\",\n            \"@id\":\"ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl\",\n            \"name\": \"CHEBI\"\n        },\n    \"termCode\": \"CHEBI:39142\",\n    \"name\": \"Br\u00f8nsted base\",\n    \"url\": \"https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:39142\"\n}",
+        "controlled_vocab": "Any suitable ontology such as [ChEBI Chemical Role](https://www.ebi.ac.uk/ols/ontologies/chebi/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCHEBI_51086)",
+        "marginality": "Optional"
+    },
+    "description": {
+        "marginality": "Optional"
+    },
+    "disambiguatingDescription": {
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "\"identifier\": \"CHEMBL59\" or \"identifier\": \"CHEMBL:CHEMBL59\" (Compact Identifier) or \"identifier\":\"http://identifiers.org/chembl.compound/CHEMBL59\"",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "\"image\": \"https://www.ebi.ac.uk/chembl/api/data/image/CHEMBL59.svg?engine=indigo\"",
+        "marginality": "Optional"
+    },
+    "inChI": {
+        "example": "\"inChI\": \"InChI=1S/C8H11NO2/c9-4-3-6-1-2-7(10)8(11)5-6/h1-2,5,10-11H,3-4,9H2\"",
+        "marginality": "Recommended"
+    },
+    "inChIKey": {
+        "example": "\"inChIKey\": \"VYFYYTLLBUKUHU-UHFFFAOYSA-N\"",
+        "marginality": "Recommended"
+    },
+    "iupacName": {
+        "example": "\"iupacName\": \"4-(2-aminoethyl)benzene-1,2-diol\"",
+        "marginality": "Recommended"
+    },
+    "molecularFormula": {
+        "example": "\"molecularFormula\": \"C8H11NO2\"",
+        "marginality": "Recommended"
+    },
+    "molecularWeight": {
+        "example": "\"molecularWeight\": 153.181",
+        "marginality": "Recommended"
+    },
+    "monoisotopicMolecularWeight": {
+        "example": "\"monoisotopicMolecularWeight\": 153.079",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "\"name\": \"Dopamine\"",
+        "marginality": "Minimum"
+    },
+    "potentialUse": {
+        "example": "{\n    \"@type\": \"DefinedTerm\",\n    \"@id\": \"http://purl.obolibrary.org/obo/CHEBI_38147\",\n    \"inDefinedTermSet\":\n        {\n            \"@type\":\"DefinedTermSet\",\n            \"@id\":\"ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl\",\n            \"name\": \"CHEBI\"\n        },\n    \"termCode\": \"CHEBI:38147\",\n    \"name\": \"cardiotonic drug\",\n    \"url\": \"https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:38147\"\n}",
+        "controlled_vocab": "Any suitable ontology such as  [ChEBI Application](https://www.ebi.ac.uk/ols/ontologies/chebi/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCHEBI_33232)",
+        "marginality": "Optional"
+    },
+    "sameAs": {
+        "example": "\"sameAs\": \"https://www.wikidata.org/wiki/Q170304\"",
+        "marginality": "Optional"
+    },
+    "smiles": {
+        "example": "\"smiles\": [\"NCCc1ccc(O)c(O)c1\"]",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "\"url\": \"https://www.ebi.ac.uk/chembl/beta/compound_report_card/CHEMBL59/\"",
+        "marginality": "Minimum"
+    }
+}

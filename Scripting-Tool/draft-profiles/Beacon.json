@@ -1,5 +1,5 @@
 {
-    "title": "Beacon (v0.2)",
+    "title": "Beacon (v0.2-draft) Draft",
     "description": "In this document we propose a simple way for a beacons to self-describe their genetic variant cardinality service for better integration with other beacons within the beacon-network. It builds upon the Beacon service API and uses existing schema.org entities and properties. ",
     "type": "object",
     "definitions": {
@@ -30,7 +30,7 @@
             "type": "string"
         },
         "DataCatalog": {
-            "title": "DataCatalog (v0.1) Minimum Version",
+            "title": "DataCatalog (v0.2-DRAFT) Minimum Version",
             "description": "A guide for how to describe data catalogs/repositories in the life-sciences using Schema.org-like annotation.",
             "type": "object",
             "properties": {},
@@ -81,48 +81,14 @@
             ]
         },
         "Organization": {
-            "title": "Organization",
-            "description": "An organization such as a school, NGO, corporation, club, etc.",
-            "properties": {
-                "@type": {
-                    "default": "Organization",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
+            "title": "Organization (v0.1) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object"
         },
         "Person": {
-            "title": "Person",
-            "description": "A person (alive, dead, undead, or fictional).",
-            "properties": {
-                "@type": {
-                    "default": "Person",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
+            "title": "Person (v0.1) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience people on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object"
         }
     },
     "properties": {
@@ -141,7 +107,7 @@
             "type": "string"
         },
         "dct:conformsTo": {
-            "default": "https://bioschemas.org/specifications/Beacon/0.2",
+            "default": "https://bioschemas.org/specifications/Beacon/0.2-draft",
             "options": {
                 "hidden": "true"
             },

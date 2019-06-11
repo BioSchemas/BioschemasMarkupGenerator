@@ -1,0 +1,66 @@
+{
+    "additionalProperty": {
+        "marginality": "Optional"
+    },
+    "additionalType": {
+        "marginality": "Optional"
+    },
+    "alternateName": {
+        "marginality": "Recommended"
+    },
+    "boundMolecule": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"boundMolecule\": [\n     \"http://identifiers.org/pdb.ligand:NI\",\n     \"http://identifiers.org/pdb.ligand:SO4\"\n  ]\n}",
+        "marginality": "Recommended"
+    },
+    "contains": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"contains\": {\n      \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n      \"@id\": \"http://identifiers.org/interpro:IPR001357\",\n      \"aditionalType\": \"http://semanticscience.org/resource/SIO_001379\",\n      \"identifier\": \"interpro:IPR001357\",\n      \"name\": \"BRCT domain\"\n    }\n}",
+        "marginality": "Optional"
+    },
+    "description": {
+        "marginality": "Recommended"
+    },
+    "expressionSystem": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"expressionSystem\": {\n    \"@type\": [\"BioChemEntity\", \"Taxon\"],\n    \"@id\": \"http://identifiers.org/taxonomy:9606\",\n    \"name\": \"Homo sapiens\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "hasCategoryCode": {
+        "controlled_vocab": "Any suitable controlled vocabulary",
+        "marginality": "Optional"
+    },
+    "hasRepresentation": {
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"identifier\": \"pdb:3pxa\"\n}",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"image\": \"https://www.ebi.ac.uk/pdbe/entry/pdb/3pxa/portfolio/?view=entry_index#ad-image-0\"\n}",
+        "marginality": "Recommended"
+    },
+    "isContainedIn": {
+        "marginality": "Optional"
+    },
+    "location": {
+        "marginality": "Optional"
+    },
+    "mainEntityOfPage": {
+        "example": "//Preferred way from DataRecord\n{\n  \"@type\": \"DataRecord\",\n  \"@id\": \"https://www.ebi.ac.uk/pdbe/entry/pdb/3pxa\",\n  \"mainEntity\": {\n    \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n    \"name\": \"Name and any other property for this ProteinStructure entity\"\n  }\n}\n\n//Also possible from ProteinStructure\n{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"mainEntityOfPage\": { \"@id\": \"https://www.ebi.ac.uk/pdbe/entry/pdb/3pxa\" }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"name\": \"Impact of BRCA1 BRCT domain missense substitutions on phospho-peptide recognition: G1656D\"\n}",
+        "marginality": "Recommended"
+    },
+    "sameAs": {
+        "marginality": "Optional"
+    },
+    "structureDeterminationMethod": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"structureDeterminationMethod\": \"X-ray diffraction\"\n}",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinStructure\"],\n  \"url\": \"https://www.ebi.ac.uk/pdbe/entry/pdb/3pxa\"\n}",
+        "marginality": "Recommended"
+    }
+}

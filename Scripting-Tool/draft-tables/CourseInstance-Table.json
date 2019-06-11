@@ -1,0 +1,106 @@
+{
+    "alternateName": {
+        "example": "\"alternateName\": \"CS101 as part of M.130\"",
+        "marginality": "Optional"
+    },
+    "contributor": {
+        "example": "\"contributor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"John Smith\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"Janet Jones\"\n}]",
+        "marginality": "Optional"
+    },
+    "courseMode": {
+        "example": "\"courseMode\": [\"online\", \"synchronous\", \"part-time\"]",
+        "controlled_vocab": "- \"online\", \"onsite\" or \"blend of online and onsite\" \n- \"synchronous\" or \"asynchronous\"\n- \"full-time\" or \"part-time\"",
+        "marginality": "Minimum"
+    },
+    "description": {
+        "example": "\"description\": \"An instance of a course being ran\"",
+        "marginality": "Optional"
+    },
+    "duration": {
+        "example": "\"duration\": \"P1DT6H\"",
+        "marginality": "Optional"
+    },
+    "endDate": {
+        "example": "\"endTime\": \"2019-02-05T17:00:00\"",
+        "controlled_vocab": "ISO 8601",
+        "marginality": "Recommended"
+    },
+    "eventStatus": {
+        "example": "\"eventStatus\": \"postponed\"",
+        "controlled_vocab": "- postponed\n- cancelled\n- date TBD",
+        "marginality": "Optional"
+    },
+    "funder": {
+        "example": "\"funder\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"John Smith\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Optional"
+    },
+    "helper": {
+        "example": "\"helper\": [{\n  \"@type\": \"Person\",\n  \"name\": \"Bob Terwiliker\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"Terry Jones\",\n  \"url\": \"https://manchester.ac.uk/staff/profiles/t-jones\"\n}]",
+        "marginality": "Optional"
+    },
+    "image": {
+        "example": "\"image\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\": \"en-GB\"",
+        "marginality": "Recommended"
+    },
+    "instructor": {
+        "example": "\"instructor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"Alan Jones\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"John Smith\",\n  \"url\": \"https://manchester.ac.uk/staff/profiles/john-smith\"\n}]",
+        "marginality": "Recommended"
+    },
+    "location": {
+        "example": "\"location\": {\n    \"@type\": \"Place\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"streetAddress\": \"1.17, Kilburn Building, University of Manchester\",\n      \"addressLocality\": \"Manchester\",\n      \"addressRegion\": \"Greater Manchester\",\n      \"addressCountry\": \"United Kingdom\",\n      \"postalCode\": \"M13 9PL\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "maximumAttendeeCapacity": {
+        "example": " \"maximumAttendeeCapacity\": 35",
+        "marginality": "Optional"
+    },
+    "mentions": {
+        "example": "\"mentions\": [{\n  \"@type\": \"Tool\",\n  \"name\": \"Galaxy\",\n  \"url\": \"https://bio.tools/galaxy\",\n  \"description\": \"Open, web-based platform for data intensive biomedical research\"\n},{\n  \"@type\": \"Dataset\",\n  \"name\": \"European Genome-phenome Archive\",\n  \"url\": \"https://www.ebi.ac.uk/ega/home\",\n  \"description\": \"The EGA archives a large number of datasets, the access to which is controlled by a Data Access Committee (DAC).\"\n}]",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "\"name\": \"RNA-seq in R for Autumn 2020 CS101\"",
+        "marginality": "Optional"
+    },
+    "offers": {
+        "example": "\"offers\": [\n    //Early bird tickets\n    {\n        \"@type\": \"Offer\",\n        \"name\": \"Early Bird Tickets\",\n        \"priceValidUntil\": \"2019-02-04T09:00:00\",\n        \"price\": \"50.00\",\n        \"priceCurrency\": \"GBP\"\n    },\n\n    //Academic Pricing\n    {\n      \"@type\": \"Offer\",\n      \"name\": \"Academic Discount\",\n      \"price\": \"100.00\",\n      \"priceValidUntil\": \"2019-02-05T17:00:00\",\n      \"eligibleCustomerType\": {\n        \"@type\": \"BusinessEntityType\",\n        \"name\": \"Academic\"\n      },\n      \"priceCurrency\": \"GBP\",\n      \"url\": \"http://www.eventbrite.com/my-workshop/academic\"\n    },\n    //Industry Pricing\n    {\n      \"@type\": \"Offer\",\n      \"name\": \"Industry Price\",\n      \"price\": \"500.00\",\n      \"priceCurrency\": \"GBP\",\n        \"eligibleCustomerType\": {\n        \"@type\": \"BusinessEntityType\",\n        \"name\": \"Industrial\"\n      },\n      \"url\": \"http://www.eventbrite.com/my-workshop/industry\"\n    },\n    //First 50 tickets free\n    {\n      \"@type\": \"Offer\",\n      \"name\": \"Free bursary for first 50 registrants\",\n      \"price\": \"0.00\",\n      \"priceCurrency\": \"GBP\",\n      \"url\": \"http://www.eventbrite.com/my-workshop\",\n      \"eligibleQuantity\": {\n        \"@type\": \"QuantitativeValue\",\n        \"value\": 50\n      }\n    }\n]",
+        "controlled_vocab": "Currency and value, Date specified price",
+        "marginality": "Recommended"
+    },
+    "organizer": {
+        "example": "\"organizer\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\",\n  \"email\": \"e.r.windsor@gmail.com\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Optional"
+    },
+    "review": {
+        "marginality": "Optional"
+    },
+    "startDate": {
+        "example": "\"startDate\": \"2019-02-04T09:00:00\"",
+        "controlled_vocab": "ISO 8601",
+        "marginality": "Recommended"
+    },
+    "subEvent": {
+        "example": "\"subEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"Lunch time Lecture\",\n      \"url\": \"https://lectureatlunch.com\",\n      \"description\": \"This special lecture hosted during lunchtime as part of the RNA-SEQ in R workshop demonstrates some of the latest technologies available.\"\n  }]",
+        "marginality": "Optional"
+    },
+    "superEvent": {
+        "example": "\"superEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"Galaxy Conference\",\n      \"url\": \"https://usegalaxy.org\",\n      \"description\": \"This years galaxy conference will contain a special education section\"\n  }]",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"http://example.com/rna-seq_in_r\"",
+        "marginality": "Recommended"
+    },
+    "uses": {
+        "example": "\"uses\": [{\n  \"@type\": \"Tool\",\n  \"name\": \"Galaxy\",\n  \"url\": \"https://bio.tools/galaxy\",\n  \"description\": \"Open, web-based platform for data intensive biomedical research\"\n},{\n  \"@type\": \"Dataset\",\n  \"name\": \"European Genome-phenome Archive\",\n  \"url\": \"https://www.ebi.ac.uk/ega/home\",\n  \"description\": \"The EGA archives a large number of datasets, the access to which is controlled by a Data Access Committee (DAC).\"\n}]",
+        "marginality": "Optional"
+    },
+    "workFeatured": {
+        "example": "\"workFeatured\": [{\n  \"@type\": \"TrainingMaterial\",\n  \"name\": \"Course Slides for Autumn 2020 offering of CS101\",\n  \"url\": \"http://example.com/slides_website\"\n  \"description\": \"The course slides contain diagrams, questions, and links to various resources about this course\" \n  \"keywords\": \"Computer Science, CS, Introductory\"\n}]",
+        "marginality": "Optional"
+    }
+}

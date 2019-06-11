@@ -1,6 +1,6 @@
 {
-    "title": "Event (v0.1)",
-    "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.        ",
+    "title": "Event (v0.1) Draft",
+    "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.",
     "type": "object",
     "definitions": {
         "Boolean": {
@@ -30,48 +30,14 @@
             "type": "string"
         },
         "Organization": {
-            "title": "Organization",
-            "description": "An organization such as a school, NGO, corporation, club, etc.",
-            "properties": {
-                "@type": {
-                    "default": "Organization",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
+            "title": "Organization (v0.1) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object"
         },
         "Person": {
-            "title": "Person",
-            "description": "A person (alive, dead, undead, or fictional).",
-            "properties": {
-                "@type": {
-                    "default": "Person",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
+            "title": "Person (v0.1) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience people on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object"
         },
         "EventType": {
             "title": "EventType",
@@ -207,7 +173,7 @@
         },
         "Event": {
             "title": "Event (v0.1) Minimum Version",
-            "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.        ",
+            "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.",
             "type": "object",
             "properties": {},
             "required": []

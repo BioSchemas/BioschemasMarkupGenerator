@@ -1,0 +1,55 @@
+{
+    "additionalProperty": {
+        "marginality": "Optional"
+    },
+    "alternateName": {
+        "example": "{\n    \"@type\": [\"Phenotype\"],\n    \"alternateName\": \"abnormal finger morphology\"\n}",
+        "marginality": "Optional"
+    },
+    "anatomicalLocation": {
+        "example": "{\n  \"@type\": [\"Phenotype\"],\n  \"anatomicalLocation\": {\n                \"@context\": \"http://schema.org\",\n                \"@type\": \"DefinedTerm\",\n                \"name\": \"limb digit\",\n                \"inDefinedTermSet\": \"http://purl.obolibrary.org/obo/emapa.owl\",\n                \"termCode\": \"EMAPA_32725\"\n        }\n}",
+        "controlled_vocab": "Any term from a suitable ontology such as [Foundational Model of Anatomy Ontology](http://www.ontobee.org/ontology/FMA), [EMAPA](http://www.ontobee.org/ontology/EMAPA), ",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "{\n    \"@type\": [\"Phenotype\"],\n    \"description\": \"any structural anomaly of the fingers or toes\"\n}",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "//Using a text\n{\n    \"@type\": [\"Phenotype\"],\n    \"identifier\": \"MP:0002110\"\n}\n//Using a URL directly (looks like a text)\n{\n    \"@type\": [\"Phenotype\"],\n    \"identifier\": \"http://purl.obolibrary.org/obo/MP_0002110\"\n}\n//Using a URL modeled as schema:URL (equivalent to the previous one but more verbose)\n{\n    \"@type\": [\"Phenotype\"],\n    \"identifier\": {\n      \"@type\": \"URL\",\n      \"url\": \"http://purl.obolibrary.org/obo/MP_0002110\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "//Using a URL directly (looks like a text)\n{\n  \"@type\": [\"Phenotype\"],\n  \"image\": \"http://www.ebi.ac.uk/mi/impc/phenotype-archive/media/images/900/M00571072_00021593_download_tn_large.jpg\"\n}\n",
+        "marginality": "Recommended"
+    },
+    "isAssociatedWith": {
+        "marginality": "Optional"
+    },
+    "mainEntityOfPage": {
+        "example": "//Preferred way from DataRecord\n{\n\n  \"@type\": \"DataRecord\",\n  \"@id\": \"http://www.mousephenotype.org/data/phenotypes/MP:0002110\"\n  \"mainEntity\": {\n    \"@type\": [\"Phenotype\"],\n    \"name\": \"Name and any other property for this Phenotype entity\"\n  }\n}\n\n//Also possible from Phenotype\n{\n  \"@type\": [\"Phenotype\"],\n  \"mainEntityOfPage\": { \"@id\": \"http://www.mousephenotype.org/data/phenotypes/MP:0002110\" }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"@type\": [\"Phenotype\"],\n  \"name\": \"abnormal digit morphology\"\n}",
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "example": "{\n  \"@type\": [\"Phenotype\"],\n  \"sameAs\": \"http://www.informatics.jax.org/vocab/mp_ontology/MP:0002110\"\n}",
+        "marginality": "Optional"
+    },
+    "taxonomicRange": {
+        "example": "{\n  \"@type\": [\"Phenotype\"],\n   \"taxonomicRange\": {\n                \"@context\": \"http://schema.org\",\n                \"@type\": \"Taxon\",\n                \"name\": \"Mus musculus\",\n                \"url\": \"https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=10090\"\n      }\n}",
+        "controlled_vocab": "NCBITaxon",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "{\n  \"@type\": [\"Phenotype\"],\n  \"url\": \"http://www.mousephenotype.org/data/phenotypes/MP:0002110\"\n}",
+        "marginality": "Recommended"
+    },
+    "valueReference": {
+        "example": "{\n  \"@type\": [\"Phenotype\"],\n   \"valueReference\": {\n                \"@context\": \"http://schema.org\",\n                \"@type\": \"DefinedTerm\",\n                \"inDefinedTermSet\": \"http://purl.obolibrary.org/obo/mp.owl\",\n                \"termCode\": \"MP:0002110\"\n        }\n}",
+        "controlled_vocab": "Any term from a suitable ontology such as [Human Phenotype Ontology](http://www.ontobee.org/ontology/HP),  [Mammalian Phenotype Ontology](http://www.ontobee.org/ontology/MP), [Plant Phenotype Ontology](http://www.ontobee.org/ontology/flopo)",
+        "marginality": "Optional"
+    }
+}

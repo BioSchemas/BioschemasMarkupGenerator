@@ -1,5 +1,5 @@
 {
-    "title": "Dataset (v0.2)",
+    "title": "Dataset (v0.3-DRAFT) Draft",
     "description": "A guide for how to describe datasets in the life-sciences using Schema.org-like annotation.",
     "type": "object",
     "definitions": {
@@ -52,48 +52,14 @@
             ]
         },
         "Organization": {
-            "title": "Organization",
-            "description": "An organization such as a school, NGO, corporation, club, etc.",
-            "properties": {
-                "@type": {
-                    "default": "Organization",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
+            "title": "Organization (v0.1) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object"
         },
         "Person": {
-            "title": "Person",
-            "description": "A person (alive, dead, undead, or fictional).",
-            "properties": {
-                "@type": {
-                    "default": "Person",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
+            "title": "Person (v0.1) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience people on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object"
         },
         "DataDownload": {
             "title": "DataDownload",
@@ -140,7 +106,7 @@
             ]
         },
         "DataCatalog": {
-            "title": "DataCatalog (v0.1) Minimum Version",
+            "title": "DataCatalog (v0.2-DRAFT) Minimum Version",
             "description": "A guide for how to describe data catalogs/repositories in the life-sciences using Schema.org-like annotation.",
             "type": "object",
             "properties": {},
@@ -163,7 +129,7 @@
             "type": "string"
         },
         "dct:conformsTo": {
-            "default": "https://bioschemas.org/specifications/Dataset/0.2",
+            "default": "https://bioschemas.org/specifications/Dataset/0.3-DRAFT",
             "options": {
                 "hidden": "true"
             },
@@ -267,12 +233,15 @@
             "title": "keywords (Minimum)",
             "propertyOrder": 1,
             "description": "Bioschemas: These keywords provide a summary of the dataset. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
-            "oneOf": [
-                {
-                    "title": "Text",
-                    "$ref": "#/definitions/Text"
-                }
-            ]
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
         },
         "license": {
             "title": "license (Recommended)",
@@ -292,7 +261,7 @@
         "measurementTechnique": {
             "title": "measurementTechnique (Recommended)",
             "propertyOrder": 2,
-            "description": "Schema.org: A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s) (described using [variableMeasured](http://pending.schema.org/variableMeasured)). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.\nFor example, if variableMeasured is: molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".\nIf the variableMeasured is \"depression rating\", the measurementTechnique could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".\nIf there are several variableMeasured properties recorded for some given data object, use a PropertyValuefor each variableMeasured and attach the corresponding measurementTechnique. ",
+            "description": "Schema.org: A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.\nFor example, if variableMeasured is: molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".\nIf the variableMeasured is \"depression rating\", the measurementTechnique could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".\nIf there are several variableMeasured properties recorded for some given data object, use a PropertyValue for each variableMeasured and attach the corresponding measurementTechnique. ",
             "type": "array",
             "items": {
                 "oneOf": [

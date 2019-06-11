@@ -8,9 +8,10 @@ import zipfile
 import glob
 import yaml
 import json
+import configparser
 from yaml import Loader
 
-# Global Variables set by command line arguments in main method
+# Global Variables set by properties file in main method
 GithubURL = ""
 GithubDirectoryPath = ""
 GithubTypePath = ""
@@ -26,6 +27,7 @@ ProfileJSONTableDictionary = {}
 ProfileMinimumDefinitionDictionary = {}
 ListOfBioschemasProfiles = []
 ListOfBioschemasTypes = []
+
 
 # Default Definitions for form inputs
 definitions = {
@@ -71,50 +73,77 @@ def main(argv):
     global GithubTypePath
     global BioschemasURL
     global SchemaURL
-
-    # Process Command Line Arguments
+    global TempWorkingDirectory
+    global TempWorkingDirectoryYAML
+    global ProfileJSONDefinitionDictionary
+    global ProfileJSONSchemaDictionary
+    global ProfileJSONTableDictionary
+    global ProfileMinimumDefinitionDictionary
+    global ListOfBioschemasProfiles
+    global ListOfBioschemasTypes
+    # Process Current Profiles
     try:
-        opts, args = getopt.getopt(argv, "hg:d:t:b:s:", [
-            "githuburl=", "githubdirectorypath=", "githubtypepath=", "bioschemasurl=", "schemaurl="])
-    except getopt.GetoptError:
-        print("main.py -g <Github URL> -d <Github Profiles Directory Path>  -t <Github Types Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
+        config = configparser.ConfigParser()
+        config.read("ConfigFile.ini")
+
+        GithubURL = config.get("Github","url")
+        CurrentProfilesDirectoryPath = config.get("Github","currentProfilesDirectoryPath")
+        CurrentTypesDirectoryPath = config.get("Github","currentTypesDirectoryPath")
+        DraftProfilesDirectoryPath = config.get("Github","draftProfilesDirectoryPath")
+        DraftTypesDirectoryPath = config.get("Github","draftTypesDirectoryPath")
+        BioschemasURL = config.get("Bioschemas","url")
+        SchemaURL = config.get("SchemaOrg","url")
+
+    except:
+        print("Error: main")
+        print("Provide all arguments through ConfigFile.ini")
         sys.exit(2)
 
-    for opt, arg in opts:
-        if opt == "-h":
-            print(
-                "main.py -g <Github URL> -d <Github Profiles Directory Path> -t <Github Types Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
-            sys.exit()
-        elif opt in ("-g", "--githuburl"):
-            GithubURL = arg
-        elif opt in ("-d", "--githubdirectorypath"):
-            GithubDirectoryPath = arg
-        elif opt in ("-t", "--githubtypepath"):
-            GithubTypePath = arg
-        elif opt in ("-b", "--bioschemasurl"):
-            BioschemasURL = arg
-        elif opt in ("-s", "--schemaurl"):
-            SchemaURL = arg
-
-    # Check Command Line Arguments Exist
-    if (not GithubURL or not GithubDirectoryPath or not BioschemasURL or not SchemaURL or not GithubTypePath):
-        print("Provide all arguments.")
-        print("main.py -g <Github URL> -d <Github Profiles Directory Path> -t <Github Types Directory Path> -b <Bioschemas URL> -s <Schema.org URL>")
-        sys.exit(2)
-
-    # Display Command Line Arguments
-    print("Github URL: ", GithubURL)
-    print("Github Profiles Path: ", GithubDirectoryPath)
-    print("Github Types Path: ", GithubTypePath)
+    print("Processing Current Profiles with the following arguments:")
+    print("Github URL:", GithubURL)
+    print("Github Profiles Path: ", CurrentProfilesDirectoryPath)
+    GithubDirectoryPath = CurrentProfilesDirectoryPath
+    print("Github Types Path: ", CurrentTypesDirectoryPath)
+    GithubTypePath = CurrentTypesDirectoryPath
     print("Bioschemas URL: ", BioschemasURL)
     print("Schema.org URL: ", SchemaURL)
 
-    # Transformation Process
+    # Transformation Process for current profiles.
     downloadGithubRepository()
     extractGithubRepositoryZip()
     extractYAML()
     convertYAML()
-    processJSONDictionary()
+    processJSONDictionary("/profiles/","/tables/", "")
+
+    print("Processing Current Profiles Finished.")
+
+    print("Processing Draft Profiles with the following arguments:")
+    print("Github URL:", GithubURL)
+    print("Github Profiles Path: ", DraftProfilesDirectoryPath)
+    GithubDirectoryPath = DraftProfilesDirectoryPath
+    print("Github Types Path: ", DraftTypesDirectoryPath)
+    GithubTypePath = DraftTypesDirectoryPath
+    print("Bioschemas URL: ", BioschemasURL)
+    print("Schema.org URL: ", SchemaURL)
+
+    # Reset global variables for draft profiles
+    TempWorkingDirectory = ""
+    TempWorkingDirectoryYAML = ""
+    ProfileJSONDefinitionDictionary = {}
+    ProfileJSONSchemaDictionary = {}
+    ProfileJSONTableDictionary = {}
+    ProfileMinimumDefinitionDictionary = {}
+    ListOfBioschemasProfiles = []
+    ListOfBioschemasTypes = []
+
+    # Transformation Process for Draft Profiles
+    downloadGithubRepository()
+    extractGithubRepositoryZip()
+    extractYAML()
+    convertYAML()
+    processJSONDictionary("/draft-profiles/","/draft-tables/", " Draft")
+
+    print("Processing Draft Profiles Finished.")
 
 
 def downloadGithubRepository():
@@ -191,7 +220,7 @@ def convertYAML():
             print("Error: convertYAML")
 
 
-def processJSONDictionary():
+def processJSONDictionary(profileDirectory, tableDirectory, additionalTitleInfo):
     # Get List of Profiles and List of Types for Bioschemas
     listOfBioschemasProfiles()
     listOfBioschemasTypes()
@@ -200,36 +229,53 @@ def processJSONDictionary():
     for key, value in ProfileJSONDefinitionDictionary.items():
         try:
             print(key)
-            ProfileJSONSchemaDictionary[key] = createJSONSchema(value)
-            ProfileJSONTableDictionary[key] = createJSONTable(value)
+            fullSchema, minimumSchema =  createJSONSchema(value, additionalTitleInfo )
+            ProfileJSONSchemaDictionary[key] = fullSchema
+            ProfileMinimumDefinitionDictionary[key] = minimumSchema
+            ProfileJSONTableDictionary[key + "-Table"] = createJSONTable(value)
         except:
             print("Error: processJSONDictionary")
 
     # Add minimum definitions for profiles
-    #addMinimumDefinitions()
+    addMinimumDefinitions(ProfileJSONSchemaDictionary,ProfileMinimumDefinitionDictionary)
 
     # Write JSON Dictionaries to file
-    writeJSONFile(sys.path[0] + "/profiles/", ProfileJSONSchemaDictionary)
-    writeJSONFile(sys.path[0] + "/tables/", ProfileJSONTableDictionary)
+    writeJSONFile(sys.path[0] + profileDirectory, ProfileJSONSchemaDictionary)
+    writeJSONFile(sys.path[0] + tableDirectory, ProfileJSONTableDictionary)
 
 
-def createJSONSchema(definitionObject):
+def createJSONSchema(definitionObject, additionalTitleInfo):
     # Create the JSON Schema describing a Bioschemas Profile
     schemaJSONObject = {}
+    minimumSchemaObject = {}
 
     try:
         # Title / Version Number of Profile
         schemaJSONObject["title"] = definitionObject["spec_info"]["title"] + \
-            " (v" + str(definitionObject["spec_info"]["version"]) + ")"
+            " (v" + str(definitionObject["spec_info"]["version"]) + ")" + additionalTitleInfo
         # Description of Profile
         schemaJSONObject["description"] = definitionObject["spec_info"]["description"]
         # JSON Type
         schemaJSONObject["type"] = "object"
 
+        #MINIMUM SCHEMA OBJECT
+        # Title / Version Number of Profile
+        minimumSchemaObject["title"] = definitionObject["spec_info"]["title"] + \
+            " (v" + str(definitionObject["spec_info"]["version"]) + ")" + " Minimum Version"
+        # Description of Profile
+        minimumSchemaObject["description"] = definitionObject["spec_info"]["description"]
+        # JSON Type
+        minimumSchemaObject["type"] = "object"
+
         # Properties of the Profile
         profilePropertiesObject = {}
+        # Properties of the minimum Profile
+        minimumProfilePropertiesObject = {}
         # Required Properties of the Profile
         profileRequiredProperties = []
+
+        # Required Properties of the minimum Profile
+        minimumProfileRequiredProperties = []
 
         # Property definitions to generate for profile
         definitionsToGenerate = []
@@ -330,12 +376,17 @@ def createJSONSchema(definitionObject):
             definitionsToGenerate)
         # Add Properties Object to Schema
         schemaJSONObject["properties"] = profilePropertiesObject
+        # Add Properties Object to minimum Schema
+        minimumSchemaObject["properties"] = minimumProfilePropertiesObject
         # Add Required Properties Array to Schema
         schemaJSONObject["required"] = profileRequiredProperties
+        # Add Required Properties Array to minimum schema
+        minimumSchemaObject["required"] = minimumProfileRequiredProperties
+
     except:
         print("Error: createJSONSchema")
 
-    return schemaJSONObject
+    return schemaJSONObject, minimumSchemaObject
 
 
 def generateDefinitions(definitionsToGenerate):
@@ -504,11 +555,11 @@ def createJSONTable(definitionObject):
     try:
         for property in definitionObject["mapping"]:
             propertyObject = {}
-
             if property["example"]:
                 propertyObject["example"] = property["example"]
             if property["controlled_vocab"]:
                 propertyObject["controlled_vocab"] = property["controlled_vocab"]
+            propertyObject["marginality"] = property["marginality"]
 
             # If Property has additional information add to JSON file output
             if propertyObject:
@@ -519,9 +570,18 @@ def createJSONTable(definitionObject):
     return tableJSONObject
 
 
-def addMinimumDefinitions(schemaDictionary,minimumDictionary):
-    pass
+def addMinimumDefinitions(jsonSchemaDictionary,definitionsMinimum):
+    print("Adding minimum versions of Bioschemas profiles to definitions for profiles:")
 
+    for key, value in jsonSchemaDictionary.items():
+        try:
+            for key2, value2 in jsonSchemaDictionary[key]["definitions"].items():
+                if key2 in definitionsMinimum:
+                    jsonSchemaDictionary[key]["definitions"][key2] = definitionsMinimum[key2]
+        except:
+            print("Error: addMinimumDefinitions for profile: ", key)
+
+    return jsonSchemaDictionary
 
 def listOfBioschemasProfiles():
     global ListOfBioschemasProfiles
@@ -558,7 +618,7 @@ def fetchSchemaDescription(definition):
             if graph["@id"] == "schema:" + definition:
                 description = graph["rdfs:comment"]
     except:
-        print("Error: fetchSchemaDescription")
+        print("Error: fetchSchemaDescription for Schema.org property: ", definition)
 
     return description
 
@@ -568,7 +628,7 @@ def fetchBioschemaDefinition(definition):
         r = requests.get(BioschemasURL + definition + ".jsonld")
         return json.loads(r.content.decode('utf-8'))
     except:
-        print("Error: fetchBioschemaDefinition")
+        print("Error: fetchBioschemaDefinition for Bioschemas property: ", definition)
 
 
 def cleanDefinitions(definitions):

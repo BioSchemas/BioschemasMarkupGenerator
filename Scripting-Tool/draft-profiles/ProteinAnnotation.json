@@ -1,6 +1,6 @@
 {
-    "title": "LabProtocol (v0.2)",
-    "description": "An experimental protocol is a sequence of tasks and operations executed to perform experimental research in biological and biomedical areas.Experimental protocols are fundamental information structures that support the description of the processes by means of which results are generated in experimental research [1]. Experimental protocols describe how the data were produced, the steps undertaken and conditions under which these steps were carried out.<br />[1]  Giraldo, O., Garc\u00eda, A., L\u00f3pez, F., & Corcho, O. (2017). Using semantics for representing experimental protocols. Journal of Biomedical Semantics, 8, 52. <a href=\"http://doi.org/10.1186/s13326-017-0160-y\">http://doi.org/10.1186/s13326-017-0160-y</a>",
+    "title": "ProteinAnnotation (v0.4) Draft",
+    "description": "This profile specification presents the BioChemEntity usage when describing a Protein annotation.",
     "type": "object",
     "definitions": {
         "Boolean": {
@@ -28,6 +28,28 @@
         },
         "String": {
             "type": "string"
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
         },
         "BioChemEntity": {
             "title": "BioChemEntity",
@@ -67,6 +89,27 @@
                     "items": {
                         "oneOf": [
                             {
+                                "title": "Gene",
+                                "properties": {
+                                    "@type": {
+                                        "default": "Gene",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
                                 "title": "RNA",
                                 "properties": {
                                     "@type": {
@@ -92,27 +135,6 @@
                                 "properties": {
                                     "@type": {
                                         "default": "DNA",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
-                                "title": "Gene",
-                                "properties": {
-                                    "@type": {
-                                        "default": "Gene",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -267,27 +289,6 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "SequneceAnnotation",
-                                "properties": {
-                                    "@type": {
-                                        "default": "SequneceAnnotation",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
                                 "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
@@ -307,21 +308,12 @@
                                     "@type",
                                     "@id"
                                 ]
-                            }
-                        ]
-                    }
-                },
-                "biologicalRole": {
-                    "title": "biologicalRole",
-                    "description": "A role played by the molecular entity within a biological context.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
+                            },
                             {
-                                "title": "DefinedTerm",
+                                "title": "SequneceAnnotation",
                                 "properties": {
                                     "@type": {
-                                        "default": "DefinedTerm",
+                                        "default": "SequneceAnnotation",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -348,6 +340,10 @@
                     "items": {
                         "oneOf": [
                             {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
                                 "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
@@ -388,10 +384,6 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
@@ -420,6 +412,27 @@
                                 "$ref": "#/definitions/Text"
                             },
                             {
+                                "title": "Taxon",
+                                "properties": {
+                                    "@type": {
+                                        "default": "Taxon",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
                                 "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
@@ -443,27 +456,6 @@
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
-                            },
-                            {
-                                "title": "Taxon",
-                                "properties": {
-                                    "@type": {
-                                        "default": "Taxon",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
                             }
                         ]
                     }
@@ -502,6 +494,36 @@
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "isPartOfBioChemEntity": {
+                    "title": "isPartOfBioChemEntity",
+                    "description": "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "BioChemEntity",
+                                "properties": {
+                                    "@type": {
+                                        "default": "BioChemEntity",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             }
                         ]
                     }
@@ -556,25 +578,8 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "PropertyValue",
-                                "properties": {
-                                    "@type": {
-                                        "default": "PropertyValue",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
                             },
                             {
                                 "title": "DefinedTerm",
@@ -598,8 +603,25 @@
                                 ]
                             },
                             {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
+                                "title": "PropertyValue",
+                                "properties": {
+                                    "@type": {
+                                        "default": "PropertyValue",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             }
                         ]
                     }
@@ -709,10 +731,6 @@
                                 ]
                             },
                             {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            },
-                            {
                                 "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
@@ -732,6 +750,10 @@
                                     "@type",
                                     "@id"
                                 ]
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
@@ -787,21 +809,17 @@
                         ]
                     }
                 },
-                "hasRepresentation": {
-                    "title": "hasRepresentation",
-                    "description": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
+                "biologicalRole": {
+                    "title": "biologicalRole",
+                    "description": "A role played by the molecular entity within a biological context.",
                     "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "title": "Text",
-                                "$ref": "#/definitions/Text"
-                            },
-                            {
-                                "title": "PropertyValue",
+                                "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
-                                        "default": "PropertyValue",
+                                        "default": "DefinedTerm",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -817,25 +835,29 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
                 },
-                "isPartOfBioChemEntity": {
-                    "title": "isPartOfBioChemEntity",
-                    "description": "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.",
+                "hasRepresentation": {
+                    "title": "hasRepresentation",
+                    "description": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
                     "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "title": "BioChemEntity",
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
+                                "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
-                                        "default": "BioChemEntity",
+                                        "default": "PropertyValue",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -951,12 +973,12 @@
                 "@type"
             ]
         },
-        "CreativeWork": {
-            "title": "CreativeWork",
-            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "An image file.",
             "properties": {
                 "@type": {
-                    "default": "CreativeWork",
+                    "default": "ImageObject",
                     "type": "string",
                     "options": {
                         "hidden": "true"
@@ -973,12 +995,12 @@
                 "@type"
             ]
         },
-        "Duration": {
-            "title": "Duration",
-            "description": "Quantity: Duration (use <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 duration format</a>).",
+        "Place": {
+            "title": "Place",
+            "description": "Entities that have a somewhat fixed, physical extension.",
             "properties": {
                 "@type": {
-                    "default": "Duration",
+                    "default": "Place",
                     "type": "string",
                     "options": {
                         "hidden": "true"
@@ -995,12 +1017,12 @@
                 "@type"
             ]
         },
-        "PropertyValue": {
-            "title": "PropertyValue",
-            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+        "PostalAddress": {
+            "title": "PostalAddress",
+            "description": "The mailing address.",
             "properties": {
                 "@type": {
-                    "default": "PropertyValue",
+                    "default": "PostalAddress",
                     "type": "string",
                     "options": {
                         "hidden": "true"
@@ -1017,93 +1039,12 @@
                 "@type"
             ]
         },
-        "Thing": {
-            "title": "Thing",
-            "description": "The most generic type of item.",
-            "properties": {
-                "@type": {
-                    "default": "Thing",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
-        },
-        "SoftwareApplication": {
-            "title": "SoftwareApplication",
-            "description": "A software application.",
-            "properties": {
-                "@type": {
-                    "default": "SoftwareApplication",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
-        },
-        "HowToSection": {
-            "title": "HowToSection",
-            "description": "A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe).",
-            "properties": {
-                "@type": {
-                    "default": "HowToSection",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
-        },
-        "HowToStep": {
-            "title": "HowToStep",
-            "description": "A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items.",
-            "properties": {
-                "@type": {
-                    "default": "HowToStep",
-                    "type": "string",
-                    "options": {
-                        "hidden": "true"
-                    }
-                },
-                "@id": {
-                    "title": "Link to other resource",
-                    "description": "Placeholder Description",
-                    "$ref": "#/definitions/URL"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ]
+        "DataRecord": {
+            "title": "DataRecord (v0.1) Minimum Version",
+            "description": "A Record acts itself as a dataset although it refers to what could be seen as the minimum compact, complete and auto-descriptive unit in a dataset, i.e., a record. Bioschemas usage In Life Sciences, records will represent a BioChemEntity.",
+            "type": "object",
+            "properties": {},
+            "required": []
         }
     },
     "properties": {
@@ -1115,41 +1056,68 @@
             "type": "string"
         },
         "@type": {
-            "default": "LabProtocol",
+            "default": "ProteinAnnotation",
             "options": {
                 "hidden": "true"
             },
             "type": "string"
         },
         "dct:conformsTo": {
-            "default": "https://bioschemas.org/specifications/LabProtocol/0.2",
+            "default": "https://bioschemas.org/specifications/ProteinAnnotation/0.4",
             "options": {
                 "hidden": "true"
             },
             "type": "string"
         },
-        "additionalType": {
-            "title": "additionalType (Optional)",
+        "additionalProperty": {
+            "title": "additionalProperty (Optional)",
             "propertyOrder": 3,
-            "description": "Bioschemas: Optional for LabProtocol as it has its own type in schema.org. If used, the recommended URL is experimental protocol as defined by SMART Protocols (see Controlled Vocabulary). Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
-            "oneOf": [
-                {
-                    "title": "URL",
-                    "$ref": "#/definitions/URL"
-                }
-            ]
+            "description": "Bioschemas: As much a possible, do not use it! Alternatively, consider reusing properties/relations already coined in controlled vocabularies. We recommed to look at the [OBO Relations Ontology (RO)](http://obofoundry.org/ontology/ro.html) or the [Semanticscience Integrated Ontology (SIO)](http://sio.semanticscience.org/) as starting points. Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    }
+                ]
+            }
         },
-        "ChEBI:reagent": {
-            "title": "ChEBI:reagent (Minimum)",
+        "additionalType": {
+            "title": "additionalType (Minimum)",
             "propertyOrder": 1,
-            "description": "Bioschemas: Reagent used in the protocol. It can be a record in a Dataset describing the reagent or a BioChemEntity corresponding to the reagent or a URL pointing to the type of reagent used. ChEBI and PubChem entities can be used whenever available. Commercial names are also acceptable (URL if possible). ",
+            "description": "Bioschemas: Should be set to any of the values listed in the Controlled Vocabulary. Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "alternateName": {
+            "title": "alternateName (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: An alias for the item. ",
             "type": "array",
             "items": {
                 "oneOf": [
                     {
                         "title": "Text",
                         "$ref": "#/definitions/Text"
-                    },
+                    }
+                ]
+            }
+        },
+        "contains": {
+            "title": "contains (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity. Inverse property: isContainedIn. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
                     {
                         "title": "BioChemEntity",
                         "$ref": "#/definitions/BioChemEntity"
@@ -1161,10 +1129,32 @@
                 ]
             }
         },
-        "citation": {
-            "title": "citation (Recommended)",
+        "creationMethod": {
+            "title": "creationMethod (Recommended)",
             "propertyOrder": 2,
-            "description": "Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "description": "Bioschemas: Method used to create this annotation. ",
+            "oneOf": [
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
+                }
+            ]
+        },
+        "description": {
+            "title": "description (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "hasRepresentation": {
+            "title": "hasRepresentation (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Representation of this entity. For instance, a chemical structure or sequence. Schema.org: A representation for this entity other than, for instance, an image (use image property for that) or the main web page/record (use mainEntityOfPage for that), and see background notes, for sameAs and url). ",
             "type": "array",
             "items": {
                 "oneOf": [
@@ -1173,40 +1163,19 @@
                         "$ref": "#/definitions/Text"
                     },
                     {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
-                    }
-                ]
-            }
-        },
-        "duration": {
-            "title": "duration (Recommended)",
-            "propertyOrder": 2,
-            "description": "Bioschemas: The time it takes to actually carry out the protocol, in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date format. Schema.org: The duration of the item (movie, audio recording, event, etc.) in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date format. ",
-            "oneOf": [
-                {
-                    "title": "Duration",
-                    "$ref": "#/definitions/Duration"
-                }
-            ]
-        },
-        "hasPart": {
-            "title": "hasPart (Recommended)",
-            "propertyOrder": 2,
-            "description": "Bioschemas: A particular case in Bioschemas is LabProtocol where structural elements are used to described advantages (situations the Protocol has been successfully employed), limitations (situations the Protocol would be unreliable or otherwise unsuccessful), applications (Applications of the protocol list the full diversity of the applications of the method and support if is possible to extend the range of applications of the protocol. e.g. northern blot assays, sequencing, etc.), and outcomes (outcome or expected result by a protocol execution).\nFor LabProtocol, in the applicationType, please use [http://purl.org/net/SMARTprotocol#AdvantageOfTheProtocol](http://purl.org/net/SMARTprotocol#AdvantageOfTheProtocol) for advantages, [http://purl.org/net/SMARTprotocol#LimitationOfTheProtocol](http://purl.org/net/SMARTprotocol#LimitationOfTheProtocol) for limitations, [http://purl.org/net/SMARTprotocol#ApplicationOfTheProtocol](http://purl.org/net/SMARTprotocol#ApplicationOfTheProtocol) for applicability, and [http://purl.org/net/SMARTprotocol#OutcomeOfTheProtocol](http://purl.org/net/SMARTprotocol#OutcomeOfTheProtocol) for outcomes. Schema.org: Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.\nInverse property: [isPartOf](http://schema.org/isPartOf). ",
-            "type": "array",
-            "items": {
-                "oneOf": [
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
                     {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
             }
         },
         "identifier": {
-            "title": "identifier (Recommended)",
-            "propertyOrder": 2,
+            "title": "identifier (Minimum)",
+            "propertyOrder": 1,
             "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
             "oneOf": [
                 {
@@ -1223,38 +1192,16 @@
                 }
             ]
         },
-        "instrument": {
-            "title": "instrument (Minimum)",
-            "propertyOrder": 1,
-            "description": "Bioschemas: For LabProtocols it would be a laboratory equipment use by a person to follow one or more steps described in this LabProtocol.\n**Note:** Bioschemas have added the following to the list of Expected Types: [Text](http://schema.org/Text) and [URL](http://schema.org/URL). Schema.org: The object that helped the agent perform the action. e.g. John wrote a book with a pen. ",
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    {
-                        "title": "Text",
-                        "$ref": "#/definitions/Text"
-                    },
-                    {
-                        "title": "URL",
-                        "$ref": "#/definitions/URL"
-                    },
-                    {
-                        "title": "Thing",
-                        "$ref": "#/definitions/Thing"
-                    }
-                ]
-            }
-        },
-        "isBasedOn": {
-            "title": "isBasedOn (Optional)",
+        "image": {
+            "title": "image (Optional)",
             "propertyOrder": 3,
-            "description": "Bioschemas: **Note**: Bioschemas have removed Product from the Expected Types. Schema.org: A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl. ",
+            "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
             "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
+                        "title": "ImageObject",
+                        "$ref": "#/definitions/ImageObject"
                     },
                     {
                         "title": "URL",
@@ -1263,68 +1210,13 @@
                 ]
             }
         },
-        "isPartOf": {
-            "title": "isPartOf (Recommended)",
-            "propertyOrder": 2,
-            "description": "Schema.org: Indicates a CreativeWork that this CreativeWork is (in some sense) part of.\nInverse property: hasPart. ",
+        "isContainedIn": {
+            "title": "isContainedIn (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Indicates a BioChemEntity that this BioChemEntity is (in some sense) a part of. Inverse property: contains. ",
             "type": "array",
             "items": {
                 "oneOf": [
-                    {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
-                    }
-                ]
-            }
-        },
-        "keywords": {
-            "title": "keywords (Minimum)",
-            "propertyOrder": 1,
-            "description": "Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
-            "oneOf": [
-                {
-                    "title": "Text",
-                    "$ref": "#/definitions/Text"
-                }
-            ]
-        },
-        "license": {
-            "title": "license (Recommended)",
-            "propertyOrder": 2,
-            "description": "Schema.org: A license document that applies to this content, typically indicated by URL. ",
-            "oneOf": [
-                {
-                    "title": "CreativeWork",
-                    "$ref": "#/definitions/CreativeWork"
-                },
-                {
-                    "title": "URL",
-                    "$ref": "#/definitions/URL"
-                }
-            ]
-        },
-        "purpose": {
-            "title": "purpose (Minimum)",
-            "propertyOrder": 1,
-            "description": "Bioschemas: **Note:** Bioschemas have changed the Expected Types by removing [MedicalDevicePurpose](http://health-lifesci.schema.org/MedicalDevicePurpose) and [Thing](http://schema.org/Thing), and adding [Text](http://schema.org/Text). Schema.org: A goal towards an action is taken. Can be concrete or abstract. ",
-            "oneOf": [
-                {
-                    "title": "Text",
-                    "$ref": "#/definitions/Text"
-                }
-            ]
-        },
-        "sample": {
-            "title": "sample (Minimum)",
-            "propertyOrder": 1,
-            "description": "Bioschemas: Sample used in the protocol. It could be a record in a Dataset describing the sample or a physical object corresponding to the sample or a URL pointing to the type of sample used. ",
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    {
-                        "title": "Text",
-                        "$ref": "#/definitions/Text"
-                    },
                     {
                         "title": "BioChemEntity",
                         "$ref": "#/definitions/BioChemEntity"
@@ -1336,24 +1228,10 @@
                 ]
             }
         },
-        "software": {
-            "title": "software (Recommended)",
-            "propertyOrder": 2,
-            "description": "Bioschemas: An application that can complete the request. ",
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    {
-                        "title": "SoftwareApplication",
-                        "$ref": "#/definitions/SoftwareApplication"
-                    }
-                ]
-            }
-        },
-        "step": {
-            "title": "step (Recommended)",
-            "propertyOrder": 2,
-            "description": "Bioschemas: Use in LabProtocol to include the step by step process followed in this protocol. Schema.org: A single step item (as HowToStep, text, document, video, etc.) or a HowToSection. ",
+        "location": {
+            "title": "location (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: The location can refer to a position in the chromosome or sequence or to a physical place where, for instance, a sample is stored. Using [additionalType](http://bioschemas.org/devSpecs/ProteinAnnotation/#additionalType) is advised to make this distinction. For instance, [FALDO](https://github.com/OBF/FALDO) can be used for sequence co-ordinates.\n**Note:** The list of Expected Types has been extended as schema.org/location only has Place, PostalAddress and Text. Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place. ",
             "type": "array",
             "items": {
                 "oneOf": [
@@ -1362,29 +1240,81 @@
                         "$ref": "#/definitions/Text"
                     },
                     {
-                        "title": "CreativeWork",
-                        "$ref": "#/definitions/CreativeWork"
+                        "title": "Place",
+                        "$ref": "#/definitions/Place"
                     },
                     {
-                        "title": "HowToSection",
-                        "$ref": "#/definitions/HowToSection"
+                        "title": "PostalAddress",
+                        "$ref": "#/definitions/PostalAddress"
                     },
                     {
-                        "title": "HowToStep",
-                        "$ref": "#/definitions/HowToStep"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
             }
+        },
+        "mainEntityOfPage": {
+            "title": "mainEntityOfPage (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Link via DataRecord or [URL](http://schema.org/url) to the main Record representing this entity in a dataset.\n**Note:** Bioschemas has replaced CreativeWork with DataRecord in the Expected Types. Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details. ",
+            "oneOf": [
+                {
+                    "title": "DataRecord",
+                    "$ref": "#/definitions/DataRecord"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "name": {
+            "title": "name (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "sameAs": {
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Link to any resource other than the Record and the official webpage, for instance a Wikipedia page. Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Link to the official webpage associated to this entity. Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
         }
     },
     "required": [
         "@type",
         "@context",
         "dct:conformsTo",
-        "ChEBI:reagent",
-        "instrument",
-        "keywords",
-        "purpose",
-        "sample"
+        "additionalType",
+        "identifier"
     ]
 }
