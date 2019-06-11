@@ -6,3 +6,6 @@ This web application supports users in the creation of Bioschemas compliant mark
 
 The Bioschemas Generator is a web application that assists users in the creation of their metadata structure, through dynamically generated forms, allowing easier development of Bioschemas compliant markup for web resources.
 
+## Scripting-Tool
+
+## Web-Application
