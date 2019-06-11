@@ -61,6 +61,27 @@
             "description": "A ScholarlyArticle is an article commonly reporting a scientific research, for instance a journal article or thesis.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "ScholarlyArticle",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/ScholarlyArticle/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "headline": {
                     "title": "headline (Minimum)",
                     "propertyOrder": 1,
@@ -149,6 +170,27 @@
             "description": "A PublicationVolume is a collection of publication issues, or scholarly articles, or possibly, although no commonly, any mix from those mentioned. It is commonly part of a Journal.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "PublicationVolume",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/PublicationVolume/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "volumeNumber": {
                     "title": "volumeNumber (Minimum)",
                     "propertyOrder": 1,
@@ -177,6 +219,27 @@
             "description": "A Journal is a collection of publication issues, publication volumes or scholarly articles, or possibly, although no commonly, any mix from those mentioned. ",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Journal",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Journal/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "issn": {
                     "title": "issn (Minimum)",
                     "propertyOrder": 1,

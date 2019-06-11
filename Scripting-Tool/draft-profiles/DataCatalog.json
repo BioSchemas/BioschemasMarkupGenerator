@@ -78,6 +78,27 @@
             "description": "A guide for how to describe datasets in the life-sciences using Schema.org-like annotation.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Dataset",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Dataset/0.3-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "description": {
                     "title": "description (Minimum)",
                     "propertyOrder": 1,

@@ -78,6 +78,27 @@
             "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Event",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Event/0.1",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "contact": {
                     "title": "contact (Minimum)",
                     "propertyOrder": 1,

@@ -88,6 +88,27 @@
             "description": "A SemanticAnnotation currently corresponds to an expression identified in a ScholarlyArticle and associated to an ontology term. It could apply as well to documents other than ScholarlyArticle, for instant patents and so.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "SemanticAnnotation",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/SemanticAnnotation/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "mainEntity": {
                     "title": "mainEntity (Minimum)",
                     "propertyOrder": 1,
@@ -222,6 +243,27 @@
             "description": "A Journal is a collection of publication issues, publication volumes or scholarly articles, or possibly, although no commonly, any mix from those mentioned. ",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Journal",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Journal/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "issn": {
                     "title": "issn (Minimum)",
                     "propertyOrder": 1,
@@ -262,6 +304,27 @@
             "description": "A PublicationVolume is a collection of publication issues, or scholarly articles, or possibly, although no commonly, any mix from those mentioned. It is commonly part of a Journal.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "PublicationVolume",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/PublicationVolume/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "volumeNumber": {
                     "title": "volumeNumber (Minimum)",
                     "propertyOrder": 1,
@@ -290,6 +353,27 @@
             "description": "A PublicationIssue is a collection of publication scholarly articles published as a collection in a publication volume or a journal",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "PublicationIssue",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/PublicationIssue/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "issueNumber": {
                     "title": "issueNumber (Minimum)",
                     "propertyOrder": 1,

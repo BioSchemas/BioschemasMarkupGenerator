@@ -110,6 +110,27 @@
             "description": "A guide for how to describe data catalogs/repositories in the life-sciences using Schema.org-like annotation.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "DataCatalog",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/DataCatalog/0.2-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "description": {
                     "title": "description (Minimum)",
                     "propertyOrder": 1,

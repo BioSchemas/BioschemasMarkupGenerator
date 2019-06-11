@@ -88,6 +88,27 @@
             "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Event",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Event/0.1",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "contact": {
                     "title": "contact (Minimum)",
                     "propertyOrder": 1,
@@ -231,6 +252,27 @@
             "description": "This specification must be used in tandem with a courseInstance. A course is used to describe the broad, common aspects of a recurring training event - whereas a course instance is about the specific times and location of when that course is held. ",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Course",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Course/0.6-draft",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "description": {
                     "title": "description (Minimum)",
                     "propertyOrder": 1,

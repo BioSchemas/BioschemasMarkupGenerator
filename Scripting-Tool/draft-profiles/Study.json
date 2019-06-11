@@ -132,6 +132,27 @@
             "description": "This Study profile presents the marckup when describing a Study",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Study",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Study/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "author": {
                     "title": "author (Minimum)",
                     "propertyOrder": 1,

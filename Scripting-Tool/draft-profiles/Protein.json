@@ -1043,7 +1043,29 @@
             "title": "DNA (v0.1-DRAFT) Minimum Version",
             "description": "",
             "type": "object",
-            "properties": {},
+            "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "DNA",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/DNA/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                }
+            },
             "required": [
                 "@type",
                 "@context",
@@ -1055,6 +1077,27 @@
             "description": "This Gene profile specification presents the markup for describing a Gene.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Gene",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Gene/0.4",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "identifier": {
                     "title": "identifier (Minimum)",
                     "propertyOrder": 1,
@@ -1165,6 +1208,27 @@
             "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
             "type": "object",
             "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Taxon",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Taxon/0.3",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "name": {
                     "title": "name (Minimum)",
                     "propertyOrder": 1,
