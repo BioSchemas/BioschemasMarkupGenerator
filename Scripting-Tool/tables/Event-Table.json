@@ -3,9 +3,6 @@
         "example": "\"acceptanceNotificationDate\": [ \n   \"2018-07-04T14:16:43Z\"\n]\n",
         "marginality": "Optional"
     },
-    "accreditation": {
-        "marginality": "Recommended"
-    },
     "alternateName": {
         "example": "\"name\": \"Introduction to RNA-seq analysis in R\"",
         "marginality": "Recommended"
@@ -53,9 +50,6 @@
         "example": "\"hostInstitution\":     {\n       \"@type\": \"Organization\",\n       \"name\": \"Bioinformatics Training Division, University of Manchester\",\n       \"url\": \"http://manchester.ac.uk/bioinformatics/training/contact\"\n} ",
         "marginality": "Minimum"
     },
-    "identifier": {
-        "marginality": "Optional"
-    },
     "keywords": {
         "example": "\"keywords\": [\"RNA-Seq\", \"R language\", \"Programming\", \"R Life science\"] ",
         "marginality": "Recommended"
@@ -87,9 +81,6 @@
     "programme": {
         "example": "\"programme\": \"http://example.com/programme\" \n",
         "marginality": "Recommended"
-    },
-    "rdf:type": {
-        "marginality": "Minimum"
     },
     "registrationStatus": {
         "example": "\"registrationStatus\": \"open\" \n",

@@ -11,9 +11,6 @@
         "example": "{   \"@type\" : \"Taxon\",\n    \"name\": \"Delphinapterus\",\n    \"taxonRank\" : [ \"WD:Q34740\",  \"genus\" ],\n    \"childTaxon\": { \n        \"@type\": \"Taxon\",\n        \"name\": \"Delphinapterus leucas\",\n        \"taxonRank\" : [ \"WD:Q7432\",  \"species\" ]\n    }\n}",
         "marginality": "Optional"
     },
-    "hasCategoryCode": {
-        "marginality": "Optional"
-    },
     "name": {
         "example": "{\n    \"name\": \"Delphinapterus leucas\"\n}",
         "marginality": "Minimum"
@@ -36,9 +33,6 @@
     },
     "taxonRank": {
         "example": "{\n    \"taxonRank\": [\n      \"http://rs.tdwg.org/ontology/voc/TaxonRank#Species\",\n      \"http://www.wikidata.org/entity/Q7432\",\n      \"species\"\n    ]\n}",
-        "marginality": "Recommended"
-    },
-    "url": {
         "marginality": "Recommended"
     },
     "vernacularName": {

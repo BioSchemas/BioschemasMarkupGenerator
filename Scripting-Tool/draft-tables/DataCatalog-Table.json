@@ -1,7 +1,4 @@
 {
-    "about": {
-        "marginality": "Recommended"
-    },
     "alternateName": {
         "example": "{\n\"@type\": \"DataCatalog\",\n\"alternateName\": \"Reactome Pathway Database\"\n}",
         "marginality": "Recommended"
@@ -10,21 +7,9 @@
         "example": "{\n\"@type\": \"DataCatalog\",\n\"citation\": {\n    \"@type\": \"ScholarlyArticle\",\n    \"headline\": \"The Reactome pathway knowledgebase.\",\n    \"identifier\": [\n      \"http://identifiers.org/pubmed/24243840\"\n    ],\n    \"datePublished\": \"2015-11\"\n  }\n}",
         "marginality": "Recommended"
     },
-    "dataset": {
-        "marginality": "Recommended"
-    },
-    "dateCreated": {
-        "marginality": "Recommended"
-    },
-    "dateModified": {
-        "marginality": "Optional"
-    },
     "description": {
         "example": "{\n\"@type\": \"DataCatalog\",\n \"description\": \"The Reactome project is a collaboration to develop a curated resource of core pathways and reactions in human biology.\"\n}",
         "marginality": "Minimum"
-    },
-    "encodingFormat": {
-        "marginality": "Optional"
     },
     "identifier": {
         "example": "{\n\"@type\": \"DataCatalog\",\n\"identifier\": \"MIR:00000018\"\n}",
@@ -45,9 +30,6 @@
     "provider": {
         "example": "{\n  \"@type\": \"DataCatalog\",\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"EMBL-EBI\",\n    \"url\": \"https://www.ebi.ac.uk\"\n  }\n}",
         "marginality": "Minimum"
-    },
-    "sourceOrganization": {
-        "marginality": "Recommended"
     },
     "url": {
         "example": "{\n\"@type\": \"DataCatalog\",\n\"url\": \"https://www.reactome.org/\"\n}",

@@ -1,16 +1,10 @@
 {
-    "additionalProperty": {
-        "marginality": "Optional"
-    },
     "additionalType": {
         "example": "{\n    \"@type\": [\"Gene\"],\n    \"additionalType\": \"http://semanticscience.org/resource/SIO_010035\"\n}",
         "marginality": "Optional"
     },
     "alternateName": {
         "example": "{\n    \"@type\": [\"Gene\"],\n    \"alternateName\": \"AD1\"\n}",
-        "marginality": "Optional"
-    },
-    "associatedDisease": {
         "marginality": "Optional"
     },
     "description": {
@@ -29,9 +23,6 @@
     },
     "hasBioChemEntityPart": {
         "example": "//Contains a variant\n{\n  \"@type\": [\"Gene\"],\n  \"hasBioChemEntityPart\": { \n    \"@type\": \"BioChemEntity\",\n    \"additionalType\": \"http://semanticscience.org/resource/SIO_001381\",\n    \"identifier\": \"rs577882423\",\n    },\n    \"url\": \"https://www.ensembl.org/Homo_sapiens/Variation/Summary?db=core;g=ENSG00000142192;r=21:25880550-26171128;vf=110312838\"\n  }\n}\n",
-        "marginality": "Optional"
-    },
-    "hasCategoryCode": {
         "marginality": "Optional"
     },
     "hasRepresentation": {
@@ -74,9 +65,6 @@
     },
     "sameAs": {
         "example": "{\n  \"@type\": [\"Gene\"],\n  \"sameAs\": \"https://www.wikidata.org/wiki/Q14865870\"\n}",
-        "marginality": "Optional"
-    },
-    "taxonomicRange": {
         "marginality": "Optional"
     },
     "url": {

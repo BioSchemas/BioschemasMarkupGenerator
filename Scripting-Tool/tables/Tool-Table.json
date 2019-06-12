@@ -3,62 +3,20 @@
         "controlled_vocab": "Please choose terms from the 'tool type' table in the [biotools documentation](https://biotools.readthedocs.io/en/latest/curators_guide.html#tool-type)",
         "marginality": "Optional"
     },
-    "citation": {
-        "marginality": "Recommended"
-    },
-    "dateCreated": {
-        "marginality": "Optional"
-    },
-    "dateModified": {
-        "marginality": "Optional"
-    },
-    "description": {
-        "marginality": "Minimum"
-    },
     "featureList": {
         "controlled_vocab": "[EDAM:Operation](http://edamontology.org/operation_0004)",
         "marginality": "Minimum"
     },
-    "hasPart": {
-        "marginality": "Optional"
-    },
     "keywords": {
         "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
-        "marginality": "Optional"
-    },
-    "license": {
-        "marginality": "Recommended"
-    },
-    "name": {
-        "marginality": "Minimum"
-    },
-    "offers": {
-        "marginality": "Optional"
-    },
-    "operatingSystem": {
         "marginality": "Optional"
     },
     "potentialAction": {
         "controlled_vocab": "[EDAM:Data](http://edamontology.org/data_0006)",
         "marginality": "Optional"
     },
-    "publisher": {
-        "marginality": "Recommended"
-    },
     "rdf:type": {
         "controlled_vocab": "[SIO:000097 (software entity)](http://semanticscience.org/resource/SIO_000097)",
-        "marginality": "Minimum"
-    },
-    "softwareHelp": {
-        "marginality": "Optional"
-    },
-    "softwareRequirements": {
-        "marginality": "Optional"
-    },
-    "softwareVersion": {
-        "marginality": "Minimum"
-    },
-    "url": {
         "marginality": "Minimum"
     }
 }

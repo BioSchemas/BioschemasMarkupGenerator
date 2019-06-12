@@ -1,28 +1,10 @@
 {
+    "title": "Sample (v0.2)",
+    "description": "To deliver on the identified use cases for samples, we have identified a minimal set of properties to encapsulate identification, linking, and metadata descriptions. Some of these properties are existing standard schema.org properties, others require Bioschemas extensions. Table 1 outlines the minimal set of properties for the \u2018Sample\u2019 concept and Table 2 shows our recommendations for use of the \u2018PropertyValue\u2019 concept to markup additional characteristics of a sample described within a sample page. We also propose a new concept, \u2018Biomedical Code\u2019, which is a generalisation of the existing \u2018Medical Code\u2019 concept defined in the health-lifesci.schema.org extension.",
+    "type": "object",
     "definitions": {
         "Boolean": {
             "type": "boolean"
-        },
-        "CreativeWork": {
-            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
-            "properties": {
-                "@id": {
-                    "$ref": "#/definitions/URL",
-                    "title": "@id"
-                },
-                "@type": {
-                    "default": "CreativeWork",
-                    "options": {
-                        "hidden": "true"
-                    },
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ],
-            "title": "CreativeWork"
         },
         "Date": {
             "type": "string"
@@ -30,8 +12,71 @@
         "DateTime": {
             "type": "string"
         },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
         "Event": {
+            "title": "Event (v0.1) Minimum Version",
             "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.        ",
+            "type": "object",
             "properties": {
                 "@context": {
                     "default": "http://schema.org",
@@ -47,125 +92,141 @@
                     },
                     "type": "string"
                 },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Event/0.1",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "contact": {
-                    "description": " Bioschemas.org: Main point of contact that can be contacted for general queries. This would be an event organizer or an administrator.",
+                    "title": "contact (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Main point of contact that can be contacted for general queries. This would be an event organizer or an administrator. ",
+                    "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/Organization",
-                                "title": "Organization"
+                                "title": "Organization",
+                                "$ref": "#/definitions/Organization"
                             },
                             {
-                                "$ref": "#/definitions/Person",
-                                "title": "Person"
+                                "title": "Person",
+                                "$ref": "#/definitions/Person"
                             }
                         ]
-                    },
-                    "title": "contact (Minimum)",
-                    "type": "array"
+                    }
                 },
                 "description": {
-                    "description": " Schema.org: A description of the item.",
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/Text",
-                                "title": "Text"
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
                             }
                         ]
-                    },
-                    "title": "description (Minimum)",
-                    "type": "array"
+                    }
                 },
                 "endDate": {
-                    "description": " Schema.org: The end date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format).",
+                    "title": "endDate (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The end date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
                     "oneOf": [
                         {
-                            "$ref": "#/definitions/Date",
-                            "title": "Date"
+                            "title": "Date",
+                            "$ref": "#/definitions/Date"
                         },
                         {
-                            "$ref": "#/definitions/DateTime",
-                            "title": "DateTime"
+                            "title": "DateTime",
+                            "$ref": "#/definitions/DateTime"
                         }
-                    ],
-                    "title": "endDate (Minimum)"
+                    ]
                 },
                 "eventType": {
-                    "description": " Bioschemas.org: This can be one of 4 options. Please see controlled vocabulary",
+                    "title": "eventType (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: This can be one of 4 options. Please see controlled vocabulary ",
+                    "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/EventType",
-                                "title": "EventType"
+                                "title": "EventType",
+                                "$ref": "#/definitions/EventType"
                             }
                         ]
-                    },
-                    "title": "eventType (Minimum)",
-                    "type": "array"
+                    }
                 },
                 "hostInstitution": {
-                    "description": " Bioschemas.org: The organization or institution responsible for hosting the event (not necessarily responsible for organizing).",
+                    "title": "hostInstitution (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The organization or institution responsible for hosting the event (not necessarily responsible for organizing). ",
+                    "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/Organization",
-                                "title": "Organization"
+                                "title": "Organization",
+                                "$ref": "#/definitions/Organization"
                             }
                         ]
-                    },
-                    "title": "hostInstitution (Minimum)",
-                    "type": "array"
+                    }
                 },
                 "location": {
-                    "description": " Bioschemas.org: The location of the event. It is recommended to use Place, and within [Place](http://schema.org/Place) use the [PostalAddress](http://schema.org/PostalAddress) and [GeoCoordinates](http://schema.org/GeoCoordinates). Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place.",
+                    "title": "location (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The location of the event. It is recommended to use Place, and within [Place](http://schema.org/Place) use the [PostalAddress](http://schema.org/PostalAddress) and [GeoCoordinates](http://schema.org/GeoCoordinates). Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place. ",
                     "oneOf": [
                         {
-                            "$ref": "#/definitions/Place",
-                            "title": "Place"
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
                         },
                         {
-                            "$ref": "#/definitions/PostalAddress",
-                            "title": "PostalAddress"
+                            "title": "Place",
+                            "$ref": "#/definitions/Place"
                         },
                         {
-                            "$ref": "#/definitions/Text",
-                            "title": "Text"
+                            "title": "PostalAddress",
+                            "$ref": "#/definitions/PostalAddress"
                         }
-                    ],
-                    "title": "location (Minimum)"
+                    ]
                 },
                 "name": {
-                    "description": " Schema.org: The name of the item.",
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/Text",
-                                "title": "Text"
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
                             }
                         ]
-                    },
-                    "title": "name (Minimum)",
-                    "type": "array"
+                    }
                 },
                 "startDate": {
-                    "description": " Schema.org: The start date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format).",
+                    "title": "startDate (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The start date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
                     "oneOf": [
                         {
-                            "$ref": "#/definitions/Date",
-                            "title": "Date"
+                            "title": "Date",
+                            "$ref": "#/definitions/Date"
                         },
                         {
-                            "$ref": "#/definitions/DateTime",
-                            "title": "DateTime"
+                            "title": "DateTime",
+                            "$ref": "#/definitions/DateTime"
                         }
-                    ],
-                    "title": "startDate (Minimum)"
+                    ]
                 }
             },
             "required": [
                 "@type",
                 "@context",
+                "dct:conformsTo",
                 "contact",
                 "description",
                 "endDate",
@@ -174,50 +235,9 @@
                 "location",
                 "name",
                 "startDate"
-            ],
-            "title": "Event",
-            "type": "object"
-        },
-        "Integer": {
-            "type": "integer"
-        },
-        "Number": {
-            "type": "number"
-        },
-        "PropertyValue": {
-            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
-            "properties": {
-                "@id": {
-                    "$ref": "#/definitions/URL",
-                    "title": "@id"
-                },
-                "@type": {
-                    "default": "PropertyValue",
-                    "options": {
-                        "hidden": "true"
-                    },
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ],
-            "title": "PropertyValue"
-        },
-        "String": {
-            "type": "string"
-        },
-        "Text": {
-            "format": "text",
-            "type": "string"
-        },
-        "URL": {
-            "format": "url",
-            "type": "string"
+            ]
         }
     },
-    "description": "To deliver on the identified use cases for samples, we have identified a minimal set of properties to encapsulate identification, linking, and metadata descriptions. Some of these properties are existing standard schema.org properties, others require Bioschemas extensions. Table 1 outlines the minimal set of properties for the \u2018Sample\u2019 concept and Table 2 shows our recommendations for use of the \u2018PropertyValue\u2019 concept to markup additional characteristics of a sample described within a sample page. We also propose a new concept, \u2018Biomedical Code\u2019, which is a generalisation of the existing \u2018Medical Code\u2019 concept defined in the health-lifesci.schema.org extension.",
     "properties": {
         "@context": {
             "default": "http://schema.org",
@@ -233,102 +253,108 @@
             },
             "type": "string"
         },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/Sample/0.2",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
         "additionalProperty": {
-            "description": " Bioschemas.org: A property-value pair representing an additional characteristics of the entity, e.g. \u201cOrganism: Homo sapiens\u201d or \u201ctissue type: leaf\u201d. For details of how to use [PropertyValue](http://bioschemas.org/specifications/Sample/specification/#PropertyValue) see below. Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.",
+            "title": "additionalProperty (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A property-value pair representing an additional characteristics of the entity, e.g. \u201cOrganism: Homo sapiens\u201d or \u201ctissue type: leaf\u201d. For details of how to use [PropertyValue](http://bioschemas.org/specifications/Sample/specification/#PropertyValue) see below. Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/PropertyValue",
-                        "title": "PropertyValue"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "additionalProperty (Optional)",
-            "type": "array"
+            }
         },
         "description": {
-            "description": " Bioschemas.org: A description of the sample in free text. This should not contain information that could be better expressed as key/value pairs. These should be expressed using additionalProperty. Schema.org: A description of the item.",
+            "title": "description (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A description of the sample in free text. This should not contain information that could be better expressed as key/value pairs. These should be expressed using additionalProperty. Schema.org: A description of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "description (Optional)"
+            ]
         },
         "identifier": {
-            "description": " Bioschemas.org: Unique sample IDs. Where possible this should be an identifiers.org compliant prefixed id e.g. a BioSamples ID biosample:SAME12345. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details.",
+            "title": "identifier (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Unique sample IDs. Where possible this should be an identifiers.org compliant prefixed id e.g. a BioSamples ID biosample:SAME12345. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/PropertyValue",
-                        "title": "PropertyValue"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 1,
-            "title": "identifier (Minimum)",
-            "type": "array"
+            }
         },
         "name": {
-            "description": " Bioschemas.org: A human readable name for the sample. This should not be an additional identifier. Additional identifiers should be added to the identifier field. Schema.org: The name of the item.",
+            "title": "name (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A human readable name for the sample. This should not be an additional identifier. Additional identifiers should be added to the identifier field. Schema.org: The name of the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "name (Optional)",
-            "type": "array"
+            }
         },
         "subjectOf": {
-            "description": " Bioschemas.org: Provides a link to a dataset that contains data about this sample record. Schema.org: A CreativeWork or Event about this Thing..\nInverse property: about.",
+            "title": "subjectOf (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Provides a link to a dataset that contains data about this sample record. Schema.org: A CreativeWork or Event about this Thing..\nInverse property: about. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CreativeWork",
-                        "title": "CreativeWork"
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
                     },
                     {
-                        "$ref": "#/definitions/Event",
-                        "title": "Event"
+                        "title": "Event",
+                        "$ref": "#/definitions/Event"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "subjectOf (Optional)",
-            "type": "array"
+            }
         },
         "url": {
-            "description": " Bioschemas.org: An access URL for this sample, e.g., in BioSamples or in a Biobank or elsewhere. Schema.org: URL of the item.",
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: An access URL for this sample, e.g., in BioSamples or in a Biobank or elsewhere. Schema.org: URL of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "url (Recommended)"
+            ]
         }
     },
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "identifier"
-    ],
-    "title": "Sample (v0.2)",
-    "type": "object"
+    ]
 }

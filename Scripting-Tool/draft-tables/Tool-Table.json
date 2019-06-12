@@ -12,9 +12,6 @@
         "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
         "marginality": "Recommended"
     },
-    "applicationSuite": {
-        "marginality": "Optional"
-    },
     "author": {
         "example": "TODO",
         "marginality": "Recommended"
@@ -27,15 +24,9 @@
         "example": "{\n  \"@context\": \"http://schema.org\",\n  \"@type\": [\"SoftwareApplication\", \"SoftwareSourceCode\"],\n  \"codeRepository\": \"https://github.com/compomics/peptide-shaker\"\n}\n",
         "marginality": "Optional"
     },
-    "contributor": {
-        "marginality": "Optional"
-    },
     "description": {
         "example": "{\n   \"@context\": \"http://schema.org\",  \"@type\": \"SoftwareApplication\",\n  \"description\": \"PeptideShaker is a search engine independent platform for interpretation of proteomics identification results from multiple search engines, currently supporting X!Tandem, MS-GF+, MS Amanda, OMSSA, MyriMatch, Comet, Tide, Mascot, Andromeda and mzIdentML. By combining the results from multiple search engines, while re-calculating PTM localization scores and redoing the protein inference, PeptideShaker attempts to give you the best possible understanding of your proteomics data!\"\n}",
         "marginality": "Minimum"
-    },
-    "discussionUrl": {
-        "marginality": "Optional"
     },
     "downloadUrl": {
         "example": "{\n   \"@context\": \"http://schema.org\",  \"@type\": \"SoftwareApplication\",\n  \"downloadURL\": \"https://github.com/sacdallago/cellmap\"\n}",
@@ -45,12 +36,6 @@
         "example": "{\n  \"@context\": \"http://schema.org\",\n  \"@type\": \"SoftwareApplication\",\n  \"featureList\": [\"http://edamontology.org/operation_3645\", \"http://edamontology.org/operation_3649\"]\n}",
         "controlled_vocab": "[EDAM:Operation](http://edamontology.org/operation_0004)",
         "marginality": "Recommended"
-    },
-    "funder": {
-        "marginality": "Optional"
-    },
-    "hasPart": {
-        "marginality": "Optional"
     },
     "identifier": {
         "example": "{\n  \"@context\": \"http://schema.org\",\n  \"@type\": \"SoftwareApplication\",\n  \"@id\": \"https://bio.tools/peptideshaker\",\n  \"identifier\": \"https://bio.tools/peptideshaker\"\n}",
@@ -72,12 +57,6 @@
     },
     "isBasedOn": {
         "example": "2 examples: URL and name",
-        "marginality": "Optional"
-    },
-    "isPartOf": {
-        "marginality": "Optional"
-    },
-    "keywords": {
         "marginality": "Optional"
     },
     "license": {
@@ -111,9 +90,6 @@
     },
     "provider": {
         "example": "{\n  \"@context\": \"http://schema.org\",\n  \"@type\": \"SoftwareApplication\",\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Bioinfra.Prot\",\n    \"url\": \"http://www.ruhr-uni-bochum.de/mpc/medical_bioinformatics/bioinfraprot/\"\n  }\n}",
-        "marginality": "Optional"
-    },
-    "softwareAddOn": {
         "marginality": "Optional"
     },
     "softwareHelp": {

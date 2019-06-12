@@ -259,59 +259,17 @@
                         ]
                     }
                 },
-                "isEncodedByBioChemEntity": {
-                    "title": "isEncodedByBioChemEntity",
-                    "description": "Another BioChemEntity encoding by this one.",
+                "bioChemInteraction": {
+                    "title": "bioChemInteraction",
+                    "description": "A BioChemEntity that is known to interact with this item.",
                     "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "title": "DNA",
+                                "title": "BioChemEntity",
                                 "properties": {
                                     "@type": {
-                                        "default": "DNA",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
-                                "title": "RNA",
-                                "properties": {
-                                    "@type": {
-                                        "default": "RNA",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
-                                "title": "Gene",
-                                "properties": {
-                                    "@type": {
-                                        "default": "Gene",
+                                        "default": "BioChemEntity",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -351,8 +309,25 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
+                                "title": "PropertyValue",
+                                "properties": {
+                                    "@type": {
+                                        "default": "PropertyValue",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             },
                             {
                                 "title": "MedicalCondition",
@@ -376,25 +351,8 @@
                                 ]
                             },
                             {
-                                "title": "PropertyValue",
-                                "properties": {
-                                    "@type": {
-                                        "default": "PropertyValue",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
@@ -459,17 +417,17 @@
                         ]
                     }
                 },
-                "hasSequenceAnnotation": {
-                    "title": "hasSequenceAnnotation",
-                    "description": "Pointer to a sequence annotation; please use PropertyValue if you want to include any evidence.",
+                "bioChemSimilarity": {
+                    "title": "bioChemSimilarity",
+                    "description": "A similar molecular entity, e.g., obtained by fingerprint similarity algorithms.",
                     "type": "array",
                     "items": {
                         "oneOf": [
                             {
-                                "title": "PropertyValue",
+                                "title": "BioChemEntity",
                                 "properties": {
                                     "@type": {
-                                        "default": "PropertyValue",
+                                        "default": "BioChemEntity",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -485,12 +443,21 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
+                            }
+                        ]
+                    }
+                },
+                "biologicalRole": {
+                    "title": "biologicalRole",
+                    "description": "A role played by the molecular entity within a biological context.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
                             {
-                                "title": "SequneceAnnotation",
+                                "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
-                                        "default": "SequneceAnnotation",
+                                        "default": "DefinedTerm",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -589,6 +556,27 @@
                                 "$ref": "#/definitions/Text"
                             },
                             {
+                                "title": "DefinedTerm",
+                                "properties": {
+                                    "@type": {
+                                        "default": "DefinedTerm",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
                                 "title": "Taxon",
                                 "properties": {
                                     "@type": {
@@ -612,27 +600,6 @@
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
-                            },
-                            {
-                                "title": "DefinedTerm",
-                                "properties": {
-                                    "@type": {
-                                        "default": "DefinedTerm",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
                             }
                         ]
                     }
@@ -640,355 +607,6 @@
                 "identifier": {
                     "title": "identifier",
                     "description": "The identifier property represents any kind of identifier for any kind of <a class=\"localLink\" href=\"http://schema.org/Thing\">Thing</a>, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See <a href=\"/docs/datamodel.html#identifierBg\">background notes</a> for more details.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "Text",
-                                "$ref": "#/definitions/Text"
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            },
-                            {
-                                "title": "PropertyValue",
-                                "properties": {
-                                    "@type": {
-                                        "default": "PropertyValue",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "bioChemSimilarity": {
-                    "title": "bioChemSimilarity",
-                    "description": "A similar molecular entity, e.g., obtained by fingerprint similarity algorithms.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "BioChemEntity",
-                                "properties": {
-                                    "@type": {
-                                        "default": "BioChemEntity",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "description": {
-                    "title": "description",
-                    "description": "A description of the item.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "Text",
-                                "$ref": "#/definitions/Text"
-                            }
-                        ]
-                    }
-                },
-                "hasMolecularFunction": {
-                    "title": "hasMolecularFunction",
-                    "description": "Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            },
-                            {
-                                "title": "PropertyValue",
-                                "properties": {
-                                    "@type": {
-                                        "default": "PropertyValue",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
-                                "title": "DefinedTerm",
-                                "properties": {
-                                    "@type": {
-                                        "default": "DefinedTerm",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "isMatchedBy": {
-                    "title": "isMatchedBy",
-                    "description": "A model matching this BioChemEntity.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "SequenceMatchingModel",
-                                "properties": {
-                                    "@type": {
-                                        "default": "SequenceMatchingModel",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "additionalType": {
-                    "title": "additionalType",
-                    "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            }
-                        ]
-                    }
-                },
-                "image": {
-                    "title": "image",
-                    "description": "An image of the item. This can be a <a class=\"localLink\" href=\"http://schema.org/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"http://schema.org/ImageObject\">ImageObject</a>.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "ImageObject",
-                                "properties": {
-                                    "@type": {
-                                        "default": "ImageObject",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            }
-                        ]
-                    }
-                },
-                "isLocatedInSubcellularLocation": {
-                    "title": "isLocatedInSubcellularLocation",
-                    "description": "Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "PropertyValue",
-                                "properties": {
-                                    "@type": {
-                                        "default": "PropertyValue",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            },
-                            {
-                                "title": "DefinedTerm",
-                                "properties": {
-                                    "@type": {
-                                        "default": "DefinedTerm",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "subjectOf": {
-                    "title": "subjectOf",
-                    "description": "A CreativeWork or Event about this Thing..",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "CreativeWork",
-                                "properties": {
-                                    "@type": {
-                                        "default": "CreativeWork",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
-                                "title": "Event",
-                                "properties": {
-                                    "@type": {
-                                        "default": "Event",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "biologicalRole": {
-                    "title": "biologicalRole",
-                    "description": "A role played by the molecular entity within a biological context.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "DefinedTerm",
-                                "properties": {
-                                    "@type": {
-                                        "default": "DefinedTerm",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "hasRepresentation": {
-                    "title": "hasRepresentation",
-                    "description": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
                     "type": "array",
                     "items": {
                         "oneOf": [
@@ -1054,12 +672,233 @@
                         ]
                     }
                 },
-                "mainEntityOfPage": {
-                    "title": "mainEntityOfPage",
-                    "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.",
+                "description": {
+                    "title": "description",
+                    "description": "A description of the item.",
                     "type": "array",
                     "items": {
                         "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "hasMolecularFunction": {
+                    "title": "hasMolecularFunction",
+                    "description": "Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "PropertyValue",
+                                "properties": {
+                                    "@type": {
+                                        "default": "PropertyValue",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
+                                "title": "DefinedTerm",
+                                "properties": {
+                                    "@type": {
+                                        "default": "DefinedTerm",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "additionalType": {
+                    "title": "additionalType",
+                    "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "image": {
+                    "title": "image",
+                    "description": "An image of the item. This can be a <a class=\"localLink\" href=\"http://schema.org/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"http://schema.org/ImageObject\">ImageObject</a>.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "ImageObject",
+                                "properties": {
+                                    "@type": {
+                                        "default": "ImageObject",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "isLocatedInSubcellularLocation": {
+                    "title": "isLocatedInSubcellularLocation",
+                    "description": "Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "properties": {
+                                    "@type": {
+                                        "default": "PropertyValue",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
+                                "title": "DefinedTerm",
+                                "properties": {
+                                    "@type": {
+                                        "default": "DefinedTerm",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "isEncodedByBioChemEntity": {
+                    "title": "isEncodedByBioChemEntity",
+                    "description": "Another BioChemEntity encoding by this one.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Gene",
+                                "properties": {
+                                    "@type": {
+                                        "default": "Gene",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "subjectOf": {
+                    "title": "subjectOf",
+                    "description": "A CreativeWork or Event about this Thing..",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Event",
+                                "properties": {
+                                    "@type": {
+                                        "default": "Event",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
                             {
                                 "title": "CreativeWork",
                                 "properties": {
@@ -1080,10 +919,78 @@
                                     "@type",
                                     "@id"
                                 ]
+                            }
+                        ]
+                    }
+                },
+                "hasRepresentation": {
+                    "title": "hasRepresentation",
+                    "description": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "properties": {
+                                    "@type": {
+                                        "default": "PropertyValue",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             },
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage",
+                    "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
+                                "title": "CreativeWork",
+                                "properties": {
+                                    "@type": {
+                                        "default": "CreativeWork",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             }
                         ]
                     }
@@ -1110,36 +1017,6 @@
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
-                            }
-                        ]
-                    }
-                },
-                "bioChemInteraction": {
-                    "title": "bioChemInteraction",
-                    "description": "A BioChemEntity that is known to interact with this item.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "BioChemEntity",
-                                "properties": {
-                                    "@type": {
-                                        "default": "BioChemEntity",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
                             }
                         ]
                     }

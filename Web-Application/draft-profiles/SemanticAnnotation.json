@@ -1,0 +1,613 @@
+{
+    "title": "SemanticAnnotation (v0.1-DRAFT) Draft",
+    "description": "A SemanticAnnotation currently corresponds to an expression identified in a ScholarlyArticle and associated to an ontology term. It could apply as well to documents other than ScholarlyArticle, for instant patents and so.",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Event": {
+            "title": "Event (v0.1) Minimum Version",
+            "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Event",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Event/0.1",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "contact": {
+                    "title": "contact (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Main point of contact that can be contacted for general queries. This would be an event organizer or an administrator. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Organization",
+                                "$ref": "#/definitions/Organization"
+                            },
+                            {
+                                "title": "Person",
+                                "$ref": "#/definitions/Person"
+                            }
+                        ]
+                    }
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "endDate": {
+                    "title": "endDate (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The end date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
+                    "oneOf": [
+                        {
+                            "title": "Date",
+                            "$ref": "#/definitions/Date"
+                        },
+                        {
+                            "title": "DateTime",
+                            "$ref": "#/definitions/DateTime"
+                        }
+                    ]
+                },
+                "eventType": {
+                    "title": "eventType (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: This can be one of 4 options. Please see controlled vocabulary ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "EventType",
+                                "$ref": "#/definitions/EventType"
+                            }
+                        ]
+                    }
+                },
+                "hostInstitution": {
+                    "title": "hostInstitution (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The organization or institution responsible for hosting the event (not necessarily responsible for organizing). ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Organization",
+                                "$ref": "#/definitions/Organization"
+                            }
+                        ]
+                    }
+                },
+                "location": {
+                    "title": "location (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The location of the event. It is recommended to use Place, and within [Place](http://schema.org/Place) use the [PostalAddress](http://schema.org/PostalAddress) and [GeoCoordinates](http://schema.org/GeoCoordinates). Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Place",
+                            "$ref": "#/definitions/Place"
+                        },
+                        {
+                            "title": "PostalAddress",
+                            "$ref": "#/definitions/PostalAddress"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "startDate": {
+                    "title": "startDate (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The start date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
+                    "oneOf": [
+                        {
+                            "title": "Date",
+                            "$ref": "#/definitions/Date"
+                        },
+                        {
+                            "title": "DateTime",
+                            "$ref": "#/definitions/DateTime"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "contact",
+                "description",
+                "endDate",
+                "eventType",
+                "hostInstitution",
+                "location",
+                "name",
+                "startDate"
+            ]
+        },
+        "ScholarlyPublication": {
+            "title": "ScholarlyPublication",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ScholarlyPublication",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization (v0.1) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object"
+        },
+        "Person": {
+            "title": "Person (v0.1) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience people on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object"
+        },
+        "SoftwareApplication": {
+            "title": "SoftwareApplication",
+            "description": "A software application.",
+            "properties": {
+                "@type": {
+                    "default": "SoftwareApplication",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Language": {
+            "title": "Language",
+            "description": "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"http://schema.org/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"http://schema.org/ComputerLanguage\">ComputerLanguage</a>.",
+            "properties": {
+                "@type": {
+                    "default": "Language",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Thing": {
+            "title": "Thing",
+            "description": "The most generic type of item.",
+            "properties": {
+                "@type": {
+                    "default": "Thing",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "DefinedTerm": {
+            "title": "DefinedTerm",
+            "description": "A word, name, acronym, phrase, etc. with a formal definition. Often used in the context of category or subject classification, glossaries or dictionaries, product or creative work types, etc. Use the name property for the term being defined, use termCode if the term has an alpha-numeric code allocated, use description to provide the definition of the term.",
+            "properties": {
+                "@type": {
+                    "default": "DefinedTerm",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "BreadcrumbList": {
+            "title": "BreadcrumbList",
+            "description": "A BreadcrumbList is an ItemList consisting of a chain of linked Web pages, typically described using at least their URL and their name, and typically ending with the current page.<br/><br/>\n\nThe <a class=\"localLink\" href=\"http://schema.org/position\">position</a> property is used to reconstruct the order of the items in a BreadcrumbList The convention is that a breadcrumb list has an <a class=\"localLink\" href=\"http://schema.org/itemListOrder\">itemListOrder</a> of <a class=\"localLink\" href=\"http://schema.org/ItemListOrderAscending\">ItemListOrderAscending</a> (lower values listed first), and that the first items in this list correspond to the \"top\" or beginning of the breadcrumb trail, e.g. with a site or section homepage. The specific values of 'position' are not assigned meaning for a BreadcrumbList, but they should be integers, e.g. beginning with '1' for the first item in the list.",
+            "properties": {
+                "@type": {
+                    "default": "BreadcrumbList",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "SemanticAnnotation",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/SemanticAnnotation/0.1-DRAFT",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "subjectOf": {
+            "title": "subjectOf (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The ScholarlyPublication where this annotation is found. Schema.org: A CreativeWork or Event about this Thing. ",
+            "oneOf": [
+                {
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
+                },
+                {
+                    "title": "Event",
+                    "$ref": "#/definitions/Event"
+                },
+                {
+                    "title": "ScholarlyPublication",
+                    "$ref": "#/definitions/ScholarlyPublication"
+                }
+            ]
+        },
+        "commentCount": {
+            "title": "commentCount (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Number of times this annotation is found in the associated scholarly article. Schema.org: The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere. ",
+            "oneOf": [
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "creator": {
+            "title": "creator (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Person, organization or software application used to create this annotation. Schema.org: The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    },
+                    {
+                        "title": "SoftwareApplication",
+                        "$ref": "#/definitions/SoftwareApplication"
+                    }
+                ]
+            }
+        },
+        "dateCreated": {
+            "title": "dateCreated (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                },
+                {
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
+                }
+            ]
+        },
+        "dateModified": {
+            "title": "dateModified (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Date",
+                        "$ref": "#/definitions/Date"
+                    },
+                    {
+                        "title": "DateTime",
+                        "$ref": "#/definitions/DateTime"
+                    }
+                ]
+            }
+        },
+        "identifier": {
+            "title": "identifier (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: If available. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "inLanguage": {
+            "title": "inLanguage (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also availableLanguage. Supersedes language. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Language",
+                    "$ref": "#/definitions/Language"
+                }
+            ]
+        },
+        "isAccessibleForFree": {
+            "title": "isAccessibleForFree (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A flag to signal that the item, event, or place is accessible for free. Supersedes free. ",
+            "oneOf": [
+                {
+                    "title": "Boolean",
+                    "$ref": "#/definitions/Boolean"
+                }
+            ]
+        },
+        "license": {
+            "title": "license (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A license document that applies to this content, typically indicated by URL. ",
+            "oneOf": [
+                {
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "mainEntity": {
+            "title": "mainEntity (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Ontology terms associated to this annotation. On the DefinedTerm, use additionalType to link to a Unified Medical Language System (UMLS) semantic type (TUI) or group, and sameAs to link to the corresponding concept unique identifier (CUI), if available. Schema.org: Indicates the primary entity described in some page or other CreativeWork.\n Inverse property: mainEntityOfPage. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Thing",
+                        "$ref": "#/definitions/Thing"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    }
+                ]
+            }
+        },
+        "position": {
+            "title": "position (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: A list of links that can help a user understand and navigate to a section or paragraph in the scholarly article where this annotation is located. If a text is used, different steps on the list should be separated with the character '>', being the sentence where the annotation is found the last element. If a URL is used, it should identify the section or paragraph where this annoation is found. Schema.org: The position of an item in a series or sequence of items. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                },
+                {
+                    "title": "BreadcrumbList",
+                    "$ref": "#/definitions/BreadcrumbList"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "text": {
+            "title": "text (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Expression found in the text corresponding to this annotation. Schema.org: The textual content of this CreativeWork. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "mainEntity",
+        "text"
+    ]
+}

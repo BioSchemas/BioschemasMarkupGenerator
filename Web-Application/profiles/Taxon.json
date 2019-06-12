@@ -1,28 +1,10 @@
 {
+    "title": "Taxon (v0.3)",
+    "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
+    "type": "object",
     "definitions": {
         "Boolean": {
             "type": "boolean"
-        },
-        "CategoryCode": {
-            "description": "A Category Code.",
-            "properties": {
-                "@id": {
-                    "$ref": "#/definitions/URL",
-                    "title": "@id"
-                },
-                "@type": {
-                    "default": "CategoryCode",
-                    "options": {
-                        "hidden": "true"
-                    },
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ],
-            "title": "CategoryCode"
         },
         "Date": {
             "type": "string"
@@ -36,32 +18,21 @@
         "Number": {
             "type": "number"
         },
-        "PropertyValue": {
-            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
-            "properties": {
-                "@id": {
-                    "$ref": "#/definitions/URL",
-                    "title": "@id"
-                },
-                "@type": {
-                    "default": "PropertyValue",
-                    "options": {
-                        "hidden": "true"
-                    },
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type"
-            ],
-            "title": "PropertyValue"
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
         },
         "String": {
             "type": "string"
         },
         "Taxon": {
+            "title": "Taxon (v0.3) Minimum Version",
             "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
+            "type": "object",
             "properties": {
                 "@context": {
                     "default": "http://schema.org",
@@ -77,35 +48,77 @@
                     },
                     "type": "string"
                 },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Taxon/0.3",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
                 "name": {
-                    "description": " Bioschemas.org: Taxon name without authorship nor date information of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: The name of the item.",
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Taxon name without authorship nor date information of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: The name of the item. ",
                     "oneOf": [
                         {
-                            "$ref": "#/definitions/Text",
-                            "title": "Text"
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
                         }
-                    ],
-                    "title": "name (Minimum)"
+                    ]
                 }
             },
             "required": [
                 "@type",
                 "@context",
+                "dct:conformsTo",
                 "name"
-            ],
-            "title": "Taxon",
-            "type": "object"
+            ]
         },
-        "Text": {
-            "format": "text",
-            "type": "string"
+        "CategoryCode": {
+            "title": "CategoryCode",
+            "description": "A Category Code.",
+            "properties": {
+                "@type": {
+                    "default": "CategoryCode",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
         },
-        "URL": {
-            "format": "url",
-            "type": "string"
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
         }
     },
-    "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
     "properties": {
         "@context": {
             "default": "http://schema.org",
@@ -121,189 +134,195 @@
             },
             "type": "string"
         },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/Taxon/0.3",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
         "additionalType": {
-            "description": " Bioschemas.org: A Taxon type from a well known vocabulary, e.g. DarwinCore http://rs.tdwg.org/dwc/terms/Taxon or http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+            "title": "additionalType (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A Taxon type from a well known vocabulary, e.g. DarwinCore http://rs.tdwg.org/dwc/terms/Taxon or http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "additionalType (Optional)",
-            "type": "array"
+            }
         },
         "alternateName": {
-            "description": " Bioschemas.org: Scientific name, possibly including authorship and date information, of a synonym of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: An alias for the item.",
+            "title": "alternateName (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Scientific name, possibly including authorship and date information, of a synonym of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: An alias for the item. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "alternateName (Optional)",
-            "type": "array"
+            }
         },
         "childTaxon": {
-            "description": " Bioschemas.org: Direct, most proximate lower-rank child taxa Schema.org: Closest child taxa of the taxon in question.\nInverse property: parentTaxon",
+            "title": "childTaxon (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Direct, most proximate lower-rank child taxa Schema.org: Closest child taxa of the taxon in question.\nInverse property: parentTaxon ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Taxon",
-                        "title": "Taxon"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Taxon",
+                        "$ref": "#/definitions/Taxon"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "childTaxon (Optional)",
-            "type": "array"
+            }
         },
         "hasCategoryCode": {
-            "description": " Schema.org: A Category code contained in this code set.",
+            "title": "hasCategoryCode (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A Category code contained in this code set. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/CategoryCode",
-                        "title": "CategoryCode"
+                        "title": "CategoryCode",
+                        "$ref": "#/definitions/CategoryCode"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "hasCategoryCode (Optional)",
-            "type": "array"
+            }
         },
         "name": {
-            "description": " Bioschemas.org: Taxon name without authorship nor date information of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: The name of the item.",
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Taxon name without authorship nor date information of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: The name of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 1,
-            "title": "name (Minimum)"
+            ]
         },
         "parentTaxon": {
-            "description": " Bioschemas.org: Direct, most proximate higher-rank parent taxon Schema.org: Closest parent taxon of the taxon in question.\nInverse property: childTaxon",
+            "title": "parentTaxon (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Direct, most proximate higher-rank parent taxon Schema.org: Closest parent taxon of the taxon in question.\nInverse property: childTaxon ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Taxon",
-                    "title": "Taxon"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 },
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Taxon",
+                    "$ref": "#/definitions/Taxon"
                 },
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "parentTaxon (Recommended)"
+            ]
         },
         "sameAs": {
-            "description": " Bioschemas.org: URL of third-party webpages describing the same taxon Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: URL of third-party webpages describing the same taxon Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "sameAs (Optional)",
-            "type": "array"
+            }
         },
         "scientificName": {
-            "description": " Bioschemas.org: Full scientific name, with authorship and date information if know, of the currently valid (zoological) or accepted (botanical) taxon.",
+            "title": "scientificName (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Full scientific name, with authorship and date information if know, of the currently valid (zoological) or accepted (botanical) taxon. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "scientificName (Optional)"
+            ]
         },
         "scientificNameAuthorship": {
-            "description": " Bioschemas.org: Authorship information for the scientificName formatted according to the conventions of the applicable nomenclatural Code. Example: \"(Torr.) J.T. Howell\", \"(Martinovsk\u00fd) Tzvelev\", \"(Gy\u00f6rfi, 1952)\"",
+            "title": "scientificNameAuthorship (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Authorship information for the scientificName formatted according to the conventions of the applicable nomenclatural Code. Example: \"(Torr.) J.T. Howell\", \"(Martinovsk\u00fd) Tzvelev\", \"(Gy\u00f6rfi, 1952)\" ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Text",
-                    "title": "Text"
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
                 }
-            ],
-            "propertyOrder": 3,
-            "title": "scientificNameAuthorship (Optional)"
+            ]
         },
         "taxonRank": {
-            "description": " Schema.org: The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs)",
+            "title": "taxonRank (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs) ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/PropertyValue",
-                        "title": "PropertyValue"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     },
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
                     },
                     {
-                        "$ref": "#/definitions/URL",
-                        "title": "URL"
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
                     }
                 ]
-            },
-            "propertyOrder": 2,
-            "title": "taxonRank (Recommended)",
-            "type": "array"
+            }
         },
         "url": {
-            "description": " Bioschemas.org: Link to the webpage associated to this taxon Schema.org: URL of the item.",
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Link to the webpage associated to this taxon Schema.org: URL of the item. ",
             "oneOf": [
                 {
-                    "$ref": "#/definitions/URL",
-                    "title": "URL"
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
                 }
-            ],
-            "propertyOrder": 2,
-            "title": "url (Recommended)"
+            ]
         },
         "vernacularName": {
-            "description": " Bioschemas.org: A vernacular (common) name of the taxon",
+            "title": "vernacularName (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A vernacular (common) name of the taxon ",
+            "type": "array",
             "items": {
                 "oneOf": [
                     {
-                        "$ref": "#/definitions/Text",
-                        "title": "Text"
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
                     }
                 ]
-            },
-            "propertyOrder": 3,
-            "title": "vernacularName (Optional)",
-            "type": "array"
+            }
         }
     },
     "required": [
         "@type",
         "@context",
+        "dct:conformsTo",
         "name"
-    ],
-    "title": "Taxon (v0.3)",
-    "type": "object"
+    ]
 }

@@ -1,0 +1,548 @@
+{
+    "title": "Study (v0.1-DRAFT) Draft",
+    "description": "This Study profile presents the marckup when describing a Study",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Thing": {
+            "title": "Thing",
+            "description": "The most generic type of item.",
+            "properties": {
+                "@type": {
+                    "default": "Thing",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization (v0.1) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object"
+        },
+        "Person": {
+            "title": "Person (v0.1) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience people on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object"
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Trip": {
+            "title": "Trip",
+            "description": "A trip or journey. An itinerary of visits to one or more places.",
+            "properties": {
+                "@type": {
+                    "default": "Trip",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "Placeholder Description",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Study": {
+            "title": "Study (v0.1-DRAFT) Minimum Version",
+            "description": "This Study profile presents the marckup when describing a Study",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "http://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Study",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/specifications/Study/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "author": {
+                    "title": "author (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Organization",
+                                "$ref": "#/definitions/Organization"
+                            },
+                            {
+                                "title": "Person",
+                                "$ref": "#/definitions/Person"
+                            }
+                        ]
+                    }
+                },
+                "datePublished": {
+                    "title": "datePublished (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Date of first broadcast/publication. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Date",
+                                "$ref": "#/definitions/Date"
+                            }
+                        ]
+                    }
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "$ref": "#/definitions/PropertyValue"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "studyDomain": {
+                    "title": "studyDomain (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: For example, in the life sciences  we could have\nFunctional Genomics: http://edamontology.org/topic_0085\nProtemics: http://edamontology.org/topic_0121 Schema.org: Define the domain of the study. For example, the domain could be astrophysics, functional genomics or earth science. Those domains can also have an ontology reference. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "author",
+                "datePublished",
+                "description",
+                "identifier",
+                "name",
+                "studyDomain"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Study",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/Study/0.1-DRAFT",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "about": {
+            "title": "about (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Use to link to the Protein, Gene, etc that the study is about Schema.org: The subject matter of the content.\nInverse property: subjectOf. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Thing",
+                        "$ref": "#/definitions/Thing"
+                    }
+                ]
+            }
+        },
+        "additionalProperty": {
+            "title": "additionalProperty (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Used to provide arbirary properties of a study. Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    }
+                ]
+            }
+        },
+        "author": {
+            "title": "author (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "citation": {
+            "title": "citation (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "dateCreated": {
+            "title": "dateCreated (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Date",
+                        "$ref": "#/definitions/Date"
+                    },
+                    {
+                        "title": "DateTime",
+                        "$ref": "#/definitions/DateTime"
+                    }
+                ]
+            }
+        },
+        "datePublished": {
+            "title": "datePublished (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: Date of first broadcast/publication. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Date",
+                        "$ref": "#/definitions/Date"
+                    }
+                ]
+            }
+        },
+        "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: A description of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "identifier": {
+            "title": "identifier (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isPartOf": {
+            "title": "isPartOf (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Used to indicate the project that the study is a part of. Schema.org: Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of. Inverse property: hasPart. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "Trip",
+                        "$ref": "#/definitions/Trip"
+                    }
+                ]
+            }
+        },
+        "keywords": {
+            "title": "keywords (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The name of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "relatedStudy": {
+            "title": "relatedStudy (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Other related studies. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Thing",
+                        "$ref": "#/definitions/Thing"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    },
+                    {
+                        "title": "Study",
+                        "$ref": "#/definitions/Study"
+                    }
+                ]
+            }
+        },
+        "studyDomain": {
+            "title": "studyDomain (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: For example, in the life sciences  we could have\nFunctional Genomics: http://edamontology.org/topic_0085\nProtemics: http://edamontology.org/topic_0121 Schema.org: Define the domain of the study. For example, the domain could be astrophysics, functional genomics or earth science. Those domains can also have an ontology reference. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "studyProcess": {
+            "title": "studyProcess (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: For example, in the life sciences  we could have \nRNA-seq of coding RNA from single cells: http://www.ebi.ac.uk/efo/EFO_0005684\ncase control design: http://www.ebi.ac.uk/efo/EFO_0001427 Schema.org: A process performed as part of an experiment or wider study, i.e. intentionally designed.\nThese processes can have ontology URL attached to. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: URL of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "author",
+        "datePublished",
+        "description",
+        "identifier",
+        "name",
+        "studyDomain"
+    ]
+}

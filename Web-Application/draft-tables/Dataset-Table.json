@@ -1,1 +1,54 @@
-{}
+{
+    "citation": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"citation\": {\n    \"@type\": \"ScholarlyArticle\",\n    \"headline\": \"Automated Label-free Quantification of Metabolites from Liquid Chromatography\u00e2\u20ac\u201cMass Spectrometry Data\",\n    \"identifier\": [\n      \"http://doi.org/10.1074/mcp.M113.031278\",\n      \"https://www.ncbi.nlm.nih.gov/pubmed/24176773\"\n    ],\n    \"datePublished\": \"2014-01\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "creator": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"creator\": {\n    \"@type\": \"Person\",\n    \"familyName\": \"Kohlbacher\",\n    \"givenName\": \"Oliver\",\n    \"email\": \"oliver.kohlbacher@uni-tuebingen.de\",\n    \"affiliation\": \"Wilhelm Schickard Institute for Computer Science, University of Tubingen\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "description": {
+        "example": "{\n\"@type\": \"Dataset\",\n \"description\": \"Liquid chromatography coupled to mass spectrometry (LC-MS) has become a standard technology in metabolomics. In particular, label-free quantification based on LC-MS ...\"\n}",
+        "marginality": "Minimum"
+    },
+    "distribution": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"distribution\": [\n    {\n      \"@type\": \"DataDownload\",\n      \"name\": \"UniParc XML\",\n      \"fileFormat\": \"xml\",\n      \"contentURL\": \"ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/uniparc/uniparc_all.xml.gz\"\n    },\n    {\n      \"@type\": \"DataDownload\",\n      \"name\": \"UniParc FASTA\",\n      \"fileFormat\": \"fasta\",\n      \"contentURL\": \"ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/uniparc/uniparc_active.fasta.gz\"\n    }\n]\n}",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"identifier\": \"MTBLS234\"\n}",
+        "marginality": "Minimum"
+    },
+    "includedInDataCatalog": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"includedinDataCatalog\": {\n    \"@type\": \"DataCatalog\",\n    \"name\": \"EMBL-EBI Metabolights\",\n    \"url\": \"http://www.ebi.ac.uk/metabolights\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "keywords": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"keywords\": [\n    \"Mass spectrometry\",\n    \"Plasma\",\n    \"Spike-in\",\n    \"Control\"\n  ]\n}",
+        "marginality": "Minimum"
+    },
+    "license": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"license\": \"http://www.ebi.ac.uk/about/terms-of-use\"\n}",
+        "marginality": "Recommended"
+    },
+    "measurementTechnique": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"measurementTechnique\": \"mass spectrometry\"\n}",
+        "marginality": "Recommended"
+    },
+    "name": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"name\": \"Automated Label-free Quantification of Metabolites from Liquid Chromatography\u00e2\u20ac\u201cMass Spectrometry Data (Plasma)Automated Label-free Quantification of Metabolites from Liquid Chromatography\u00e2\u20ac\u201cMass Spectrometry Data (Plasma)\"\n}",
+        "marginality": "Minimum"
+    },
+    "url": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"url\": \"http://www.ebi.ac.uk/metabolights/MTBLS234\"\n}",
+        "marginality": "Minimum"
+    },
+    "variableMeasured": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"variablesMeasured\": \"metabolite concentration\"\n}",
+        "marginality": "Recommended"
+    },
+    "version": {
+        "example": "{\n\"@type\": \"Dataset\",\n\"version\": \"8.0.1 c\"\n}",
+        "marginality": "Recommended"
+    }
+}

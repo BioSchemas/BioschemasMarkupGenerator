@@ -1,9 +1,9 @@
 {
-    "Isbasedon": {
+    "isBasedOn": {
         "controlled_vocab": "[ECO](https://www.ebi.ac.uk/ols/ontologies/eco)",
         "marginality": "Optional"
     },
-    "Isbasisfor": {
+    "isBasisFor": {
         "controlled_vocab": "[ECO](https://www.ebi.ac.uk/ols/ontologies/eco)",
         "marginality": "Optional"
     }

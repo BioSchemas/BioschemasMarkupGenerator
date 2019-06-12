@@ -567,10 +567,10 @@ def createJSONTable(definitionObject):
                 propertyObject["example"] = property["example"]
             if property["controlled_vocab"]:
                 propertyObject["controlled_vocab"] = property["controlled_vocab"]
-            propertyObject["marginality"] = property["marginality"]
-
+            
             # If Property has additional information add to JSON file output
             if propertyObject:
+                propertyObject["marginality"] = property["marginality"]
                 tableJSONObject[property["property"]] = propertyObject
     except:
         print("Error: createJSONTable")

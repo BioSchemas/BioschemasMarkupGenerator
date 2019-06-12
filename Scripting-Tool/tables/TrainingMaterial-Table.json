@@ -76,9 +76,6 @@
         "example": "\"pid\": \"https://dx.doi.org/1202.2021\"",
         "marginality": "Optional"
     },
-    "rdf:type": {
-        "marginality": "Minimum"
-    },
     "review": {
         "example": "\"review\": [{\n      \"@type\": \"Review\",\n      \"author\": \"Boris\",\n      \"datePublished\": \"2018-08-01\",\n      \"description\": \"I thought the exercises were really useful and the writing style was clear. Would have preferred more diagrams\",\n      \"name\": \"Ex-shell-ent\"\n}]",
         "marginality": "Optional"

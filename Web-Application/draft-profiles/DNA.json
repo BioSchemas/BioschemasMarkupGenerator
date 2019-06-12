@@ -1,0 +1,61 @@
+{
+    "title": "DNA (v0.1-DRAFT) Draft",
+    "description": "",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "http://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "DNA",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/specifications/DNA/0.1-DRAFT",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo"
+    ]
+}

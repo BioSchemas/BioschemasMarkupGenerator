@@ -43,9 +43,6 @@
         "example": "{\n  \"@type\": [\"Protein\"],\n  \"identifier\": \"uniprotkb:P00519\"\n}",
         "marginality": "Minimum"
     },
-    "image": {
-        "marginality": "Recommended"
-    },
     "involvedInBP": {
         "example": "//Protein involved in a GO biological process\n{\n  \"@type\": [\"Protein\"],\n  \"involvedInBP\": {\n    \"@type\": \"CategoryCode\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000278\",\n    \"codeValue\": \"GO:0000278\",\n    \"name\": \"mitotic cell cycle\"\n    }\n}\n//With evidence\n{\n  \"@type\": [\"Protein\"],\n  \"involvedInBP\": {\n    \"@type\": \"ProteinAnnotation\",\n    \"identifier\": \"GO:0000278\",\n    \"categoryCode\": {\n      \"@type\": \"CategoryCode\",\n      \"url\": \"http://purl.obolibrary.org/obo/GO_0000278\",\n      \"codeValue\": \"GO:0000278\",\n      \"name\": \"mitotic cell cycle\"\n    },\n    \"creationMethod\": {\n      \"@type\": \"PropertyValue\",\n      \"value\": \"imported manually asserted information used in automatic assertion\",\n      \"valueReference\": {\n        \"@type\": \"CategoryCode\",\n        \"codeValue\": \"ECO:0000322\",\n        \"inCategorySet\": {\n          \"@type\": \"CategoryCodeSet\",\n          \"name\": \"ECO Evidence Code Ontology\"\n        }\n      }\n    }\n  }\n}",
         "controlled_vocab": "[Gene Ontology (GO)](http://www.geneontology.org)",

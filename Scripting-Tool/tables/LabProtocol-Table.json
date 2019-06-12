@@ -7,50 +7,20 @@
         "controlled_vocab": "[ChEBI](http://purl.bioontology.org/ontology/CHEBI)\n[PubChem](https://pubchem.ncbi.nlm.nih.gov/)",
         "marginality": "Minimum"
     },
-    "citation": {
-        "marginality": "Recommended"
-    },
-    "duration": {
-        "marginality": "Recommended"
-    },
     "hasPart": {
         "controlled_vocab": "[SMART Protocols](http://purl.bioontology.org/ontology/SP)",
-        "marginality": "Recommended"
-    },
-    "identifier": {
         "marginality": "Recommended"
     },
     "instrument": {
         "controlled_vocab": "[BAO](http://bioassayontology.org/)\n[EFO](https://www.ebi.ac.uk/efo/)\n[ERO](https://www.ebi.ac.uk/ols/ontologies/ero)\n[OBI](http://obi-ontology.org/)",
         "marginality": "Minimum"
     },
-    "isBasedOn": {
-        "marginality": "Optional"
-    },
-    "isPartOf": {
-        "marginality": "Recommended"
-    },
-    "keywords": {
-        "marginality": "Minimum"
-    },
-    "license": {
-        "marginality": "Recommended"
-    },
     "purpose": {
         "controlled_vocab": "[SMART Protocols](http://purl.bioontology.org/ontology/SP)",
-        "marginality": "Minimum"
-    },
-    "rdf:type": {
         "marginality": "Minimum"
     },
     "sample": {
         "controlled_vocab": "[NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)\n[Uberon](http://uberon.github.io/)",
         "marginality": "Minimum"
-    },
-    "software": {
-        "marginality": "Recommended"
-    },
-    "step": {
-        "marginality": "Recommended"
     }
 }
