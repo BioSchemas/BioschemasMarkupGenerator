@@ -126,36 +126,6 @@
                         ]
                     }
                 },
-                "bioChemInteraction": {
-                    "title": "bioChemInteraction",
-                    "description": "A BioChemEntity that is known to interact with this item.",
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "BioChemEntity",
-                                "properties": {
-                                    "@type": {
-                                        "default": "BioChemEntity",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            }
-                        ]
-                    }
-                },
                 "disambiguatingDescription": {
                     "title": "disambiguatingDescription",
                     "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.",
@@ -176,10 +146,10 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "PropertyValue",
+                                "title": "MedicalCondition",
                                 "properties": {
                                     "@type": {
-                                        "default": "PropertyValue",
+                                        "default": "MedicalCondition",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -197,10 +167,10 @@
                                 ]
                             },
                             {
-                                "title": "MedicalCondition",
+                                "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
-                                        "default": "MedicalCondition",
+                                        "default": "PropertyValue",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -351,6 +321,27 @@
                     "items": {
                         "oneOf": [
                             {
+                                "title": "DefinedTerm",
+                                "properties": {
+                                    "@type": {
+                                        "default": "DefinedTerm",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            },
+                            {
                                 "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
@@ -374,27 +365,6 @@
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
-                            },
-                            {
-                                "title": "DefinedTerm",
-                                "properties": {
-                                    "@type": {
-                                        "default": "DefinedTerm",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
                             }
                         ]
                     }
@@ -423,25 +393,8 @@
                                 "$ref": "#/definitions/Text"
                             },
                             {
-                                "title": "DefinedTerm",
-                                "properties": {
-                                    "@type": {
-                                        "default": "DefinedTerm",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
                             },
                             {
                                 "title": "Taxon",
@@ -465,8 +418,25 @@
                                 ]
                             },
                             {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
+                                "title": "DefinedTerm",
+                                "properties": {
+                                    "@type": {
+                                        "default": "DefinedTerm",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             }
                         ]
                     }
@@ -559,27 +529,6 @@
                     "items": {
                         "oneOf": [
                             {
-                                "title": "PropertyValue",
-                                "properties": {
-                                    "@type": {
-                                        "default": "PropertyValue",
-                                        "options": {
-                                            "hidden": "true"
-                                        },
-                                        "type": "string"
-                                    },
-                                    "@id": {
-                                        "title": "Link to other resource",
-                                        "description": "Placeholder Description",
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                },
-                                "required": [
-                                    "@type",
-                                    "@id"
-                                ]
-                            },
-                            {
                                 "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
@@ -603,6 +552,27 @@
                             {
                                 "title": "URL",
                                 "$ref": "#/definitions/URL"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "properties": {
+                                    "@type": {
+                                        "default": "PropertyValue",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
                             }
                         ]
                     }
@@ -627,6 +597,10 @@
                     "items": {
                         "oneOf": [
                             {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            },
+                            {
                                 "title": "ImageObject",
                                 "properties": {
                                     "@type": {
@@ -646,10 +620,6 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
@@ -665,10 +635,10 @@
                                 "$ref": "#/definitions/URL"
                             },
                             {
-                                "title": "PropertyValue",
+                                "title": "DefinedTerm",
                                 "properties": {
                                     "@type": {
-                                        "default": "PropertyValue",
+                                        "default": "DefinedTerm",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -686,10 +656,10 @@
                                 ]
                             },
                             {
-                                "title": "DefinedTerm",
+                                "title": "PropertyValue",
                                 "properties": {
                                     "@type": {
-                                        "default": "DefinedTerm",
+                                        "default": "PropertyValue",
                                         "options": {
                                             "hidden": "true"
                                         },
@@ -790,6 +760,36 @@
                         ]
                     }
                 },
+                "bioChemInteraction": {
+                    "title": "bioChemInteraction",
+                    "description": "A BioChemEntity that is known to interact with this item.",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "BioChemEntity",
+                                "properties": {
+                                    "@type": {
+                                        "default": "BioChemEntity",
+                                        "options": {
+                                            "hidden": "true"
+                                        },
+                                        "type": "string"
+                                    },
+                                    "@id": {
+                                        "title": "Link to other resource",
+                                        "description": "Placeholder Description",
+                                        "$ref": "#/definitions/URL"
+                                    }
+                                },
+                                "required": [
+                                    "@type",
+                                    "@id"
+                                ]
+                            }
+                        ]
+                    }
+                },
                 "hasRepresentation": {
                     "title": "hasRepresentation",
                     "description": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
@@ -799,6 +799,10 @@
                             {
                                 "title": "Text",
                                 "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
                             },
                             {
                                 "title": "PropertyValue",
@@ -820,10 +824,6 @@
                                     "@type",
                                     "@id"
                                 ]
-                            },
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
@@ -834,10 +834,6 @@
                     "type": "array",
                     "items": {
                         "oneOf": [
-                            {
-                                "title": "URL",
-                                "$ref": "#/definitions/URL"
-                            },
                             {
                                 "title": "CreativeWork",
                                 "properties": {
@@ -858,6 +854,10 @@
                                     "@type",
                                     "@id"
                                 ]
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
                             }
                         ]
                     }
