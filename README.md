@@ -8,6 +8,9 @@ The Bioschemas Generator is a web application that assists users in the creation
 
 ## Install / Update instructions
 
+This assumes you are running apache web server with `IndexOptions FancyIndexing HTMLTable`.
+See [here](https://cwiki.apache.org/confluence/display/HTTPD/DirectoryListings) for details.
+
 First you *should* update the profiles. To do this follow these instructions:
 https://github.com/HW-SWeL/BioschemasMarkupGenerator/wiki/Scripting-Tool
 
