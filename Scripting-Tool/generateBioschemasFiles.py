@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import sys
 import getopt
 import tempfile
@@ -567,7 +567,7 @@ def createJSONTable(definitionObject):
                 propertyObject["example"] = property["example"]
             if property["controlled_vocab"]:
                 propertyObject["controlled_vocab"] = property["controlled_vocab"]
-            
+
             # If Property has additional information add to JSON file output
             if propertyObject:
                 propertyObject["marginality"] = property["marginality"]
