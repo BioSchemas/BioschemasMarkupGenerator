@@ -135,6 +135,7 @@ def main(argv):
     ProfileJSONSchemaDictionary = {}
     ProfileJSONTableDictionary = {}
     ProfileMinimumDefinitionDictionary = {}
+    ProfileShExDictionary = {}
     ListOfBioschemasProfiles = []
     ListOfBioschemasTypes = []
 
@@ -234,6 +235,7 @@ def processJSONDictionary(profileDirectory, tableDirectory, additionalTitleInfo)
             fullSchema, minimumSchema =  createJSONSchema(value, additionalTitleInfo )
             ProfileJSONSchemaDictionary[key] = fullSchema
             ProfileMinimumDefinitionDictionary[key] = minimumSchema
+            ProfileShExDictionary[key] = createShExSchema(value, additionalTitleInfo)
             ProfileJSONTableDictionary[key + "-Table"] = createJSONTable(value)
         except:
             print("Error: processJSONDictionary")
@@ -555,6 +557,15 @@ def generateSchemaDefinition(definition):
 
     return schemaDefinition
 
+def createShExSchema(definitionObject, additionalTitleInfo):
+    # Create the ShEx for a Bioschemas Profiles
+    shexObject = {}
+    try:
+        print("Creating ShEx for " + definitionObject["spec_info"]["title"])
+    except:
+        print("Error: createShExSchema")
+
+    return shexObject
 
 def createJSONTable(definitionObject):
     # Create JSON object with additional information about property (example's and controlled vocabularies)
