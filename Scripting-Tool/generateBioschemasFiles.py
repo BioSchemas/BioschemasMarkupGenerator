@@ -579,7 +579,7 @@ def createShExSchema(definitionObject, additionalTitleInfo):
 
         # Minimum shape
         shapeMinimum = '\n<' + definitionObject["spec_info"]["title"] + 'Minimum> {\n '
-        shapeMinimum += '\trdf:type [' + definitionObject["spec_info"]["title"] + '] ;'
+        shapeMinimum += '\trdf:type [schema:' + definitionObject["spec_info"]["title"] + '] ;'
     except:
         print("Error: createShExSchema")
     shape += shapeMinimum + '\n}\n\n'
