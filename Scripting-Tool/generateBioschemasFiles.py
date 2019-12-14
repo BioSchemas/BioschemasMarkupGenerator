@@ -562,12 +562,23 @@ def createShExSchema(definitionObject, additionalTitleInfo):
     # Create the ShEx for a Bioschemas Profiles
     try:
         print("Creating ShEx for " + definitionObject["spec_info"]["title"])
+
+        # Metadata for the generate file
         shape = '# Auto generated shape definitions using ' + sys.argv[0] + '\n'
         shape += '# Date generated: ' + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n'
         shape += '# Profile: ' + definitionObject["spec_info"]["title"] + \
             ' (v' + str(definitionObject["spec_info"]["version"]) + ")" + \
             additionalTitleInfo + '\n\n'
-        shapeMinimum = '<' + definitionObject["spec_info"]["title"] + 'Minimum> {\n '
+
+        # Prefixes and utility shapes
+        shape += 'PREFIX schema: <http://schema.org/>\n'
+        shape += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n'
+        shape += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n'
+        shape += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n'
+        shape += '\n<URL>\n\t xsd:string OR IRI\n'
+
+        # Minimum shape
+        shapeMinimum = '\n<' + definitionObject["spec_info"]["title"] + 'Minimum> {\n '
         shapeMinimum += '\trdf:type [' + definitionObject["spec_info"]["title"] + '] ;'
     except:
         print("Error: createShExSchema")
