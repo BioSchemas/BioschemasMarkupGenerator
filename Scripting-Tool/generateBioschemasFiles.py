@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+import datetime
 import getopt
 import tempfile
 import requests
@@ -559,13 +560,20 @@ def generateSchemaDefinition(definition):
 
 def createShExSchema(definitionObject, additionalTitleInfo):
     # Create the ShEx for a Bioschemas Profiles
-    shexObject = {}
     try:
         print("Creating ShEx for " + definitionObject["spec_info"]["title"])
+        shape = '# Auto generated shape definitions using ' + sys.argv[0] + '\n'
+        shape += '# Date generated: ' + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n'
+        shape += '# Profile: ' + definitionObject["spec_info"]["title"] + \
+            ' (v' + str(definitionObject["spec_info"]["version"]) + ")" + \
+            additionalTitleInfo + '\n\n'
+        shapeMinimum = '<' + definitionObject["spec_info"]["title"] + 'Minimum> {\n '
+        shapeMinimum += '\trdf:type [' + definitionObject["spec_info"]["title"] + '] ;'
     except:
         print("Error: createShExSchema")
-
-    return shexObject
+    shape += shapeMinimum + '\n}\n\n'
+    print(shape)
+    return shapeMinimum
 
 def createJSONTable(definitionObject):
     # Create JSON object with additional information about property (example's and controlled vocabularies)
