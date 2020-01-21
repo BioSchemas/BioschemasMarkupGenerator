@@ -84,6 +84,8 @@ def main(argv):
     global ListOfBioschemasProfiles
     global ListOfBioschemasTypes
 
+    #TODO: Tidy up! The code now processes all profiles in one pass
+
     # Retrieve configuration variables
     try:
         config = configparser.ConfigParser()
@@ -126,6 +128,9 @@ def main(argv):
     processJSONDictionary("/profiles/","/tables/", "")
 
     print("Processing Current Profiles Finished.")
+
+    #TODO: Use ProfileMetadata to copy release into profile directory and latest draft to draft-profile directory
+
 
     # # Process Draft Profiles
     # print("Processing Draft Profiles with the following relative paths:")
