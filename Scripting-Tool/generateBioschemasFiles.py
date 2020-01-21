@@ -15,6 +15,7 @@ from yaml import Loader
 # Global Variables set by properties file in main method
 GithubURL = ""
 GithubDirectoryPath = ""
+GithubProfilePath = ""
 GithubTypePath = ""
 BioschemasURL = ""
 SchemaURL = ""
@@ -70,6 +71,7 @@ propertyOrdering = {
 def main(argv):
     global GithubURL
     global GithubDirectoryPath
+    global GithubProfilePath
     global GithubTypePath
     global BioschemasURL
     global SchemaURL
@@ -88,10 +90,11 @@ def main(argv):
         config.read("ConfigFile.ini")
 
         GithubURL = config.get("Github","url")
-        CurrentProfilesDirectoryPath = config.get("Github","currentProfilesDirectoryPath")
-        CurrentTypesDirectoryPath = config.get("Github","currentTypesDirectoryPath")
-        DraftProfilesDirectoryPath = config.get("Github","draftProfilesDirectoryPath")
-        DraftTypesDirectoryPath = config.get("Github","draftTypesDirectoryPath")
+        GithubDirectoryPath = config.get("Github", "githubDirectoryPath")
+        CurrentProfilesDirectoryPath = GithubDirectoryPath + config.get("Github","currentProfilesDirectoryPath")
+        CurrentTypesDirectoryPath = GithubDirectoryPath + config.get("Github","currentTypesDirectoryPath")
+        DraftProfilesDirectoryPath = GithubDirectoryPath + config.get("Github","draftProfilesDirectoryPath")
+        DraftTypesDirectoryPath = GithubDirectoryPath + config.get("Github","draftTypesDirectoryPath")
         BioschemasURL = config.get("Bioschemas","url")
         SchemaURL = config.get("SchemaOrg","url")
 
@@ -100,54 +103,54 @@ def main(argv):
         print("Provide all arguments through ConfigFile.ini")
         sys.exit(2)
 
-    # Process Current Profiles
-    print("Processing Current Profiles with the following arguments:")
-    print("Github URL:", GithubURL)
-    print("Github Profiles Path: ", CurrentProfilesDirectoryPath)
-    GithubDirectoryPath = CurrentProfilesDirectoryPath
-    print("Github Types Path: ", CurrentTypesDirectoryPath)
-    GithubTypePath = CurrentTypesDirectoryPath
-    print("Bioschemas URL: ", BioschemasURL)
-    print("Schema.org URL: ", SchemaURL)
-
-    # Transformation Process for current profiles.
+    print("Retrieve GitHub repository with following arguments:")
+    print("\tGithub URL:", GithubURL)
+    print("\tGithub Directory:", GithubDirectoryPath)
+    print("\tBioschemas URL: ", BioschemasURL)
+    print("\tSchema.org URL: ", SchemaURL)
     downloadGithubRepository()
     extractGithubRepositoryZip()
+    extractProfileMetadata()
+    extractTypeMetadata()
+
+    # Process Current Profiles
+    print("Processing Current Profiles with the following relative paths:")
+    print("\tGithub Profiles Path: ", CurrentProfilesDirectoryPath)
+    GithubProfilePath = CurrentProfilesDirectoryPath
+    print("\tGithub Types Path: ", CurrentTypesDirectoryPath)
+    GithubTypePath = CurrentTypesDirectoryPath
+
+    # Transformation Process for current profiles.
     extractYAML()
     convertYAML()
     processJSONDictionary("/profiles/","/tables/", "")
 
     print("Processing Current Profiles Finished.")
 
-    # Process Draft Profiles
-    print("Processing Draft Profiles with the following arguments:")
-    print("Github URL:", GithubURL)
-    print("Github Profiles Path: ", DraftProfilesDirectoryPath)
-    GithubDirectoryPath = DraftProfilesDirectoryPath
-    print("Github Types Path: ", DraftTypesDirectoryPath)
-    GithubTypePath = DraftTypesDirectoryPath
-    print("Bioschemas URL: ", BioschemasURL)
-    print("Schema.org URL: ", SchemaURL)
-
-    # Reset global variables for draft profiles
-    TempWorkingDirectory = ""
-    TempWorkingDirectoryYAML = ""
-    ProfileJSONDefinitionDictionary = {}
-    ProfileJSONSchemaDictionary = {}
-    ProfileJSONTableDictionary = {}
-    ProfileMinimumDefinitionDictionary = {}
-    ProfileShExDictionary = {}
-    ListOfBioschemasProfiles = []
-    ListOfBioschemasTypes = []
-
-    # Transformation Process for Draft Profiles
-    downloadGithubRepository()
-    extractGithubRepositoryZip()
-    extractYAML()
-    convertYAML()
-    processJSONDictionary("/draft-profiles/","/draft-tables/", " Draft")
-
-    print("Processing Draft Profiles Finished.")
+    # # Process Draft Profiles
+    # print("Processing Draft Profiles with the following relative paths:")
+    # print("\tGithub Profiles Path: ", DraftProfilesDirectoryPath)
+    # GithubProfilePath = DraftProfilesDirectoryPath
+    # print("\tGithub Types Path: ", DraftTypesDirectoryPath)
+    # GithubTypePath = DraftTypesDirectoryPath
+    #
+    # # Reset global variables for draft profiles
+    # ##TempWorkingDirectory = ""
+    # ##TempWorkingDirectoryYAML = ""
+    # ProfileJSONDefinitionDictionary = {}
+    # ProfileJSONSchemaDictionary = {}
+    # ProfileJSONTableDictionary = {}
+    # ProfileMinimumDefinitionDictionary = {}
+    # ProfileShExDictionary = {}
+    # ListOfBioschemasProfiles = []
+    # ListOfBioschemasTypes = []
+    #
+    # # Transformation Process for Draft Profiles
+    # extractYAML()
+    # convertYAML()
+    # processJSONDictionary("/draft-profiles/","/draft-tables/", " Draft")
+    #
+    # print("Processing Draft Profiles Finished.")
 
 
 def downloadGithubRepository():
@@ -164,6 +167,7 @@ def downloadGithubRepository():
     except:
         print("Error: downloadGithubRepository")
         sys.exit(2)
+    print("GitHub repository zip file downloaded")
 
 
 def extractGithubRepositoryZip():
@@ -174,7 +178,35 @@ def extractGithubRepositoryZip():
     except:
         print("Error: extractGithubRepositoryZip")
         sys.exit(2)
+    print("GitHub zip file extracted")
 
+def extractProfileMetadata():
+    # Extract the Bioschemas profiles metadata
+    global ProfileMetadata
+    yamlDataFile = TempWorkingDirectory + GithubDirectoryPath + "_data/profile_versions.yaml"
+    print("Profile data file:", yamlDataFile)
+    try:
+        with open(yamlDataFile, "r", encoding="utf8") as input:
+            ProfileMetadata = list(yaml.load_all(input, Loader=Loader))[0]
+        ListOfBioschemasProfiles.extend(list(ProfileMetadata.keys()))
+    except:
+        print("ERROR: extractProfileMetadata")
+        sys.exit(2)
+    print("Finished extracting profile metadata")
+
+def extractTypeMetadata():
+    # Extract the Bioschemas types metadata
+    global BioschemasTypeMetadata
+    yamlDataFile = TempWorkingDirectory + GithubDirectoryPath + "_data/type_versions.yaml"
+    print("Type data file:", yamlDataFile)
+    try:
+        with open(yamlDataFile, "r", encoding="utf8") as input:
+            BioschemasTypeMetadata = list(yaml.load_all(input, Loader=Loader))[0]
+        ListOfBioschemasTypes.extend(list(BioschemasTypeMetadata.keys()))
+    except:
+        print("ERROR: extractTypeMetadata")
+        sys.exit(2)
+    print("Finished extracting type metadata")
 
 def extractYAML():
     # Extract the YAML from the HTML files by specifiying the directory in the command line arguments using -d
@@ -186,25 +218,29 @@ def extractYAML():
     if not os.path.exists(TempWorkingDirectoryYAML):
         os.makedirs(TempWorkingDirectoryYAML)
 
-    htmlToProcess = glob.glob(
-        TempWorkingDirectory + GithubDirectoryPath + "*.html")
+    for profile in ProfileMetadata:
+        print("Processing: ", profile)
+        htmlToProcess = glob.glob(
+            TempWorkingDirectory + GithubProfilePath + profile + "/*.html")
 
-    for htmlFile in htmlToProcess:
-        try:
-            htmlFileName = os.path.basename(htmlFile)
-            profileName = os.path.splitext(htmlFileName)[0]
-            newYAMLFile = TempWorkingDirectoryYAML + profileName + ".yaml"
-            with open(htmlFile, "r", encoding="utf8") as input:
-                with open(newYAMLFile, "w", encoding="utf8") as output:
-                    seperatorCount = 0
-                    for line in input:
-                        if "---" == line.strip():
-                            seperatorCount = seperatorCount + 1
-                            if seperatorCount == 2:
-                                break
-                        output.write(line)
-        except:
-            print("Error: extractYAML")
+        for htmlFile in htmlToProcess:
+            try:
+                print("\tFile: ",htmlFile)
+                htmlFileName = os.path.basename(htmlFile)
+                profileName = profile + "_" + os.path.splitext(htmlFileName)[0]
+                newYAMLFile = TempWorkingDirectoryYAML + profileName + ".yaml"
+                with open(htmlFile, "r", encoding="utf8") as input:
+                    with open(newYAMLFile, "w", encoding="utf8") as output:
+                        seperatorCount = 0
+                        for line in input:
+                            if "---" == line.strip():
+                                seperatorCount = seperatorCount + 1
+                                if seperatorCount == 2:
+                                    break
+                            output.write(line)
+            except:
+                print("Error: extractYAML")
+    print("YAML successfully extracted")
 
 
 def convertYAML():
@@ -212,8 +248,8 @@ def convertYAML():
     global ProfileJSONDefinitionDictionary
 
     yamlToProcess = glob.glob(TempWorkingDirectoryYAML + "*.yaml")
-
     for yamlFile in yamlToProcess:
+        # print("\tProcessing: ", yamlFile)
         try:
             yamlFileName = os.path.basename(yamlFile)
             profileName = os.path.splitext(yamlFileName)[0]
@@ -222,21 +258,26 @@ def convertYAML():
                     input, Loader=Loader)
         except:
             print("Error: convertYAML")
+    print("YAML successfully converted to JSON")
 
 
 def processJSONDictionary(profileDirectory, tableDirectory, additionalTitleInfo):
-    # Get List of Profiles and List of Types for Bioschemas
-    listOfBioschemasProfiles()
-    listOfBioschemasTypes()
+    # Check List of Profiles and List of Types for Bioschemas is not empty
+    if not ListOfBioschemasProfiles:
+        print("ERROR: No profiles retrieved")
+        return
+    if not ListOfBioschemasTypes:
+        print("ERROR: No types retrieved")
+        return
 
     # For each definition create a JSON-Schema and JSON Table file
     for key, value in ProfileJSONDefinitionDictionary.items():
         try:
-            print(key)
+            print("\t", key)
             fullSchema, minimumSchema =  createJSONSchema(value, additionalTitleInfo )
             ProfileJSONSchemaDictionary[key] = fullSchema
             ProfileMinimumDefinitionDictionary[key] = minimumSchema
-            ProfileShExDictionary[key] = createShExSchema(value, additionalTitleInfo)
+            # ProfileShExDictionary[key] = createShExSchema(value, additionalTitleInfo)
             ProfileJSONTableDictionary[key + "-Table"] = createJSONTable(value)
         except:
             print("Error: processJSONDictionary")
@@ -304,7 +345,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
 
         # dct:conformsTo
         dctObject = {}
-        dctObject["default"] = "https://bioschemas.org/specifications/" + \
+        dctObject["default"] = "https://bioschemas.org/profiles/" + \
             definitionObject["spec_info"]["title"] + "/" + \
             str(definitionObject["spec_info"]["version"])
         dctObject["options"] = optionsObject
@@ -579,7 +620,8 @@ def createShExSchema(definitionObject, additionalTitleInfo):
 
         # Minimum shape
         shapeMinimum = '\n<' + definitionObject["spec_info"]["title"] + 'Minimum> {\n '
-        shapeMinimum += '\trdf:type [schema:' + definitionObject["spec_info"]["title"] + '] ;'
+        shapeMinimum += '\trdf:type [schema:' + definitionObject["spec_info"]["title"] + '] ;\n'
+        shapeMinimum += '\tdct:conformsTo IRI ;'
     except:
         print("Error: createShExSchema")
     shape += shapeMinimum + '\n}\n\n'
@@ -613,39 +655,23 @@ def addMinimumDefinitions(jsonSchemaDictionary,definitionsMinimum):
     print("Adding minimum versions of Bioschemas profiles to definitions for profiles:")
 
     for key, value in jsonSchemaDictionary.items():
+        print("Adding minimum version for:", key)
         try:
             for key2, value2 in jsonSchemaDictionary[key]["definitions"].items():
-                if key2 in definitionsMinimum:
-                    jsonSchemaDictionary[key]["definitions"][key2] = definitionsMinimum[key2]
+                # Check if there is a Bioschemas Profile
+                if key2 in ListOfBioschemasProfiles:
+                    # Retrieve latest stable release
+                    latest_release = ProfileMetadata[key2]["latest_release"]
+                    if latest_release is None:
+                        # No latest stable release, use latest draft instead
+                        latest_publication = ProfileMetadata[key2]["latest_publication"]
+                        jsonSchemaDictionary[key]["definitions"][key2] = definitionsMinimum[key2+"_"+latest_publication]
+                    else:
+                        jsonSchemaDictionary[key]["definitions"][key2] = definitionsMinimum[key2+"_"+latest_release]
         except:
             print("Error: addMinimumDefinitions for profile: ", key)
 
     return jsonSchemaDictionary
-
-def listOfBioschemasProfiles():
-    # Retrieve a list of all Bioschemas profiles
-    global ListOfBioschemasProfiles
-    bioschemasProfilesDirectory = TempWorkingDirectory + GithubDirectoryPath
-    tempListOfProfiles = glob.glob(bioschemasProfilesDirectory + "*.html")
-
-    for profile in tempListOfProfiles:
-        htmlFileName = os.path.basename(profile)
-        profileName = os.path.splitext(htmlFileName)[0]
-        ListOfBioschemasProfiles.append(profileName)
-
-
-def listOfBioschemasTypes():
-    # Retrieve a list of all Bioschemas types
-    global ListOfBioschemasTypes
-
-    bioschemasTypesDirectory = TempWorkingDirectory + GithubTypePath
-    tempListOfTypes = glob.glob(bioschemasTypesDirectory + "*.html")
-
-    for type in tempListOfTypes:
-        htmlFileName = os.path.basename(type)
-        typeName = os.path.splitext(htmlFileName)[0]
-        ListOfBioschemasTypes.append(typeName)
-
 
 def fetchSchemaDescription(definition):
     # Fetch the description of Schema.org types
