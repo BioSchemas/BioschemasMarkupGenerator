@@ -224,13 +224,13 @@ def extractYAML():
         os.makedirs(TempWorkingDirectoryYAML)
 
     for profile in ProfileMetadata:
-        print("Processing: ", profile)
+        # print("Processing: ", profile)
         htmlToProcess = glob.glob(
             TempWorkingDirectory + GithubProfilePath + profile + "/*.html")
 
         for htmlFile in htmlToProcess:
             try:
-                print("\tFile: ",htmlFile)
+                # print("\tFile: ",htmlFile)
                 htmlFileName = os.path.basename(htmlFile)
                 profileName = profile + "_" + os.path.splitext(htmlFileName)[0]
                 newYAMLFile = TempWorkingDirectoryYAML + profileName + ".yaml"
@@ -438,7 +438,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
         minimumSchemaObject["required"] = profileRequiredProperties
 
     except:
-        print("Error: createJSONSchema")
+        print("Error: createJSONSchema:", definitionObject["spec_info"]["title"], additionalTitleInfo)
 
     return schemaJSONObject, minimumSchemaObject
 
@@ -571,7 +571,7 @@ def generateBioschemasDefinition(definition):
         return definitionSchema
 
     except:
-        print("Error: generateBioschemasDefinition")
+        print("Error: generateBioschemasDefinition for", definition)
 
 
 def generateSchemaDefinition(definition):
@@ -650,7 +650,7 @@ def createJSONTable(definitionObject):
                 propertyObject["marginality"] = property["marginality"]
                 tableJSONObject[property["property"]] = propertyObject
     except:
-        print("Error: createJSONTable")
+        print("Error: createJSONTable:", definitionObject["spec_info"]["title"])
 
     return tableJSONObject
 
@@ -660,7 +660,6 @@ def addMinimumDefinitions(jsonSchemaDictionary,definitionsMinimum):
     print("Adding minimum versions of Bioschemas profiles to definitions for profiles:")
 
     for key, value in jsonSchemaDictionary.items():
-        print("Adding minimum version for:", key)
         try:
             for key2, value2 in jsonSchemaDictionary[key]["definitions"].items():
                 # Check if there is a Bioschemas Profile
