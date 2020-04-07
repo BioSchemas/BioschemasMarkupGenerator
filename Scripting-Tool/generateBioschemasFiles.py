@@ -146,7 +146,6 @@ def main(argv):
     # ProfileJSONSchemaDictionary = {}
     # ProfileJSONTableDictionary = {}
     # ProfileMinimumDefinitionDictionary = {}
-    # ProfileShExDictionary = {}
     # ListOfBioschemasProfiles = []
     # ListOfBioschemasTypes = []
     #
@@ -282,7 +281,6 @@ def processJSONDictionary(profileDirectory, tableDirectory, additionalTitleInfo)
             fullSchema, minimumSchema =  createJSONSchema(value, additionalTitleInfo )
             ProfileJSONSchemaDictionary[key] = fullSchema
             ProfileMinimumDefinitionDictionary[key] = minimumSchema
-            # ProfileShExDictionary[key] = createShExSchema(value, additionalTitleInfo)
             ProfileJSONTableDictionary[key + "-Table"] = createJSONTable(value)
         except:
             print("Error: processJSONDictionary")
@@ -603,35 +601,6 @@ def generateSchemaDefinition(definition):
     schemaDefinition["required"] = ["@id", "@type"]
 
     return schemaDefinition
-
-def createShExSchema(definitionObject, additionalTitleInfo):
-    # Create the ShEx for a Bioschemas Profiles
-    try:
-        print("Creating ShEx for " + definitionObject["spec_info"]["title"])
-
-        # Metadata for the generate file
-        shape = '# Auto generated shape definitions using ' + sys.argv[0] + '\n'
-        shape += '# Date generated: ' + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n'
-        shape += '# Profile: ' + definitionObject["spec_info"]["title"] + \
-            ' (v' + str(definitionObject["spec_info"]["version"]) + ")" + \
-            additionalTitleInfo + '\n\n'
-
-        # Prefixes and utility shapes
-        shape += 'PREFIX schema: <http://schema.org/>\n'
-        shape += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n'
-        shape += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n'
-        shape += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n'
-        shape += '\n<URL>\n\t xsd:string OR IRI\n'
-
-        # Minimum shape
-        shapeMinimum = '\n<' + definitionObject["spec_info"]["title"] + 'Minimum> {\n '
-        shapeMinimum += '\trdf:type [schema:' + definitionObject["spec_info"]["title"] + '] ;\n'
-        shapeMinimum += '\tdct:conformsTo IRI ;'
-    except:
-        print("Error: createShExSchema")
-    shape += shapeMinimum + '\n}\n\n'
-    print(shape)
-    return shapeMinimum
 
 def createJSONTable(definitionObject):
     # Create JSON object with additional information about property (example's and controlled vocabularies)
