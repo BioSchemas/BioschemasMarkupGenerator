@@ -570,7 +570,39 @@ def generateBioschemasDefinition(definition):
 
     except:
         print("Error: generateBioschemasDefinition for", definition)
+        definitionSchema = generatePlaceholderDefinition(definition)
+        return definitionSchema
 
+def generatePlaceholderDefinition(definition):
+    print("Generate place holder definition for", definition)
+
+    try:
+
+        definitionSchema = {}
+        schemaProperties = {}
+        requiredProperties = []
+        optionsObject = {}
+        optionsObject["hidden"] = "true"
+
+        # Title of Bioschemas Type
+        definitionSchema["title"] = definition
+
+        # JSON-LD Type Attribute
+        typeObject = {}
+        typeObject["default"] = definition
+        typeObject["options"] = optionsObject
+        typeObject["type"] = "string"
+        schemaProperties["@type"] = typeObject
+        requiredProperties.append("@type")
+
+        # Add properties and required sections to JSON Schema
+        definitionSchema["properties"] = schemaProperties
+        definitionSchema["required"] = requiredProperties
+
+        return definitionSchema
+    except:
+        print("Error: generatePlaceholderDefinition for", definition)
+        print(sys.exc_info()[0])
 
 def generateSchemaDefinition(definition):
     # Generate definition for Schema.org type
