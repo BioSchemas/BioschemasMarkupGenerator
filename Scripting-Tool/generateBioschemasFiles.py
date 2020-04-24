@@ -540,7 +540,7 @@ def generateBioschemasDefinition(definition):
 
                                 identifierObject = {}
                                 identifierObject["title"] = "Link to other resource"
-                                identifierObject["description"] = "Placeholder Description"
+                                identifierObject["description"] = "URL of page describing the resource"
                                 identifierObject["$ref"] = "#/definitions/URL"
                                 typeProperties["@id"] = identifierObject
 
@@ -592,7 +592,7 @@ def generateSchemaDefinition(definition):
 
     identifierObject = {}
     identifierObject["title"] = "Link to other resource"
-    identifierObject["description"] = "Placeholder Description"
+    identifierObject["description"] = "URL of page describing the resource"
     identifierObject["$ref"] = "#/definitions/URL"
     schemaProperties["@id"] = identifierObject
 
