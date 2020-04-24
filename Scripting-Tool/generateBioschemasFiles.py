@@ -595,6 +595,14 @@ def generatePlaceholderDefinition(definition):
         schemaProperties["@type"] = typeObject
         requiredProperties.append("@type")
 
+        # Identifier (@id) link to other resource
+        identifierObject = {}
+        identifierObject["title"] = "Link to other resource"
+        identifierObject["description"] = "URL of page describing the resource"
+        identifierObject["$ref"] = "#/definitions/URL"
+        schemaProperties["@id"] = identifierObject
+        requiredProperties.append("@id")
+
         # Add properties and required sections to JSON Schema
         definitionSchema["properties"] = schemaProperties
         definitionSchema["required"] = requiredProperties
