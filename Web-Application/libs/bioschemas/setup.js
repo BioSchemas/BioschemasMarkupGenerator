@@ -1,7 +1,7 @@
 //GLOBAL VARIABLES
 var editor;
 var dropdownArray = new Array();
-var websiteURL = "http://www2.macs.hw.ac.uk/~st24/Web-Application/"
+var websiteURL = "https://www.macs.hw.ac.uk/SWeL/BioschemasGenerator"
 //JSON Editor Settings
 JSONEditor.defaults.theme = 'bootstrap4';
 JSONEditor.defaults.options["display_required_only"] = true;
