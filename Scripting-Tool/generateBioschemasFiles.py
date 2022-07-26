@@ -328,7 +328,7 @@ def createJSONSchema(definitionObject, additionalTitleInfo):
 
         # JSON-LD Context Attribute
         contextObject = {}
-        contextObject["default"] = "http://schema.org"
+        contextObject["default"] = "https://schema.org"
         optionsObject = {}
         optionsObject["hidden"] = "true"
         contextObject["options"] = optionsObject
@@ -478,7 +478,7 @@ def generateBioschemasDefinition(definition):
 
         # JSON-LD Context Attribute
         contextObject = {}
-        contextObject["default"] = "http://schema.org"
+        contextObject["default"] = "https://schema.org"
         contextObject["type"] = "string"
         optionsObject = {}
         optionsObject["hidden"] = "true"
