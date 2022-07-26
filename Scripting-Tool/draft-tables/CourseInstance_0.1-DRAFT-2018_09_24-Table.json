@@ -1,0 +1,72 @@
+{
+    "contributor": {
+        "example": "\"contributor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"Frank Sidebottom\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"Dennis M\u00e9na\u00e7e\"\n}]",
+        "marginality": "Optional"
+    },
+    "courseMode": {
+        "example": "\"courseMode\": \"online\"",
+        "controlled_vocab": "\"online\", \"onsite\" or \"blended\"; \"synchronous\" or \"asynchronous\"; \"full-time\" or \"part-time\"",
+        "marginality": "Minimum"
+    },
+    "description": {
+        "example": "\"description\": \"An instance of a course being ran\"",
+        "marginality": "Recommended"
+    },
+    "doorTime": {
+        "example": "\"doorTime\": \"2019-02-04T11:00:00\"",
+        "marginality": "Optional"
+    },
+    "duration": {
+        "example": "\"duration\": \"P1DT6H\"",
+        "marginality": "Recommended"
+    },
+    "endDate": {
+        "example": "\"endTime\": \"2019-02-05T17:00:00\"",
+        "marginality": "Recommended"
+    },
+    "eventStatus": {
+        "example": "\"eventStatus\": \"Rescheduled\"",
+        "marginality": "Optional"
+    },
+    "funder": {
+        "example": "\"funder\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Optional"
+    },
+    "image": {
+        "example": "\"image\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "instructor": {
+        "example": "\"instructor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"Alan Smithee\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"John Smith\",\n  \"sameAs\": \"https://manchester.ac.uk/staff/profiles/john-smith\"\n}]",
+        "marginality": "Minimum"
+    },
+    "location": {
+        "example": "\"location\": {\n    \"@type\": \"Place\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"streetAddress\": \"1.17, Kilburn Building, University of Manchester\",\n      \"addressLocality\": \"Manchester\",\n      \"addressRegion\": \"Greater Manchester\",\n      \"addressCountry\": \"United Kingdom\",\n      \"postalCode\": \"M13 9PL\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "maximumAttendeeCapacity": {
+        "example": " \"maximumAttendeeCapacity\": 35",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "\"name\": \"RNA-seq in R\"",
+        "marginality": "Minimum"
+    },
+    "offers": {
+        "example": "\"offers\":     {\n      \"@type\": \"Offer\",\n      \"price\": \"100.00\",\n      \"priceCurrency\": \"GBP\",\n      \"url\": \"http://www.eventbrite.com/my-workshop\"\n}",
+        "controlled_vocab": "Currency and value, Date specified price",
+        "marginality": "Minimum"
+    },
+    "startDate": {
+        "example": "\"startDate\": \"2019-02-04T09:00:00\"",
+        "marginality": "Minimum"
+    },
+    "subEvent": {
+        "example": "\"subEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"Lunch time Lecture\",\n      \"url\": \"https://lectureatlunch.com\",\n      \"description\": \"This special lecture hosted during lunchtime as part of the RNA-SEQ in R workshop demonstrates some of the latest technologies available.\"\n  }]",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"http://example.com/rna-seq_in_r\"",
+        "marginality": "Minimum"
+    }
+}

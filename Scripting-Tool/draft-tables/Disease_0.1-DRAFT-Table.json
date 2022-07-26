@@ -1,0 +1,34 @@
+{
+    "alternateName": {
+        "example": "{ \"@type\": \"Disease\", \"alternateName\": \"neoplasm of the meninges\" }",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "{\n    \"@type\": \"Disease\",\n    \"description\": \"A central nervous system cancer\"\n}",
+        "marginality": "Recommended"
+    },
+    "drug": {
+        "example": " { \"@type\": \"Disease\", \"drug\": \"https://www.drugbank.ca/drugs/DB00295\" }",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "//Using text\n{\n        \"@type\": \"Disease\",\n    \"identifier\": \"DOID:3565\"\n}\n//Using a URL directly (looks like a text)\n{\n        \"@type\": \"Disease\",\n    \"identifier\": \"https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http://purl.obolibrary.org/obo/DOID_3565\"\n}\n//Using a URL modeled as schema:URL (equivalent to the previous one but more verbose)\n{\n        \"@type\": \"Disease\",\n    \"identifier\": {\n      \"@type\": \"URL\",\n      \"url\": \"https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http://purl.obolibrary.org/obo/DOID_3565\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "//Using a URL directly (looks like a text)\n",
+        "marginality": "Recommended"
+    },
+    "name": {
+        "example": "{\n  \"@type\": \"Disease\",\n  \"name\": \"Meningioma\"\n}",
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "example": "{\n  \"@type\": \"Disease\",\n  \"sameAs\": \"https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http://purl.obolibrary.org/obo/DOID_3565\"\n}",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "{\n  \"@type\": \"Disease\",\n  \"url\": \"https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http://purl.obolibrary.org/obo/DOID_3565\"\n}",
+        "marginality": "Recommended"
+    }
+}

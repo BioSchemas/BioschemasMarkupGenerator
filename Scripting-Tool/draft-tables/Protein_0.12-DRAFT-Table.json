@@ -1,0 +1,89 @@
+{
+    "alternateName": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"alternateName\": [\"ABL\", \"JTK7\"]\n}",
+        "marginality": "Optional"
+    },
+    "associatedDisease": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"associatedDisease\": {\n    \"@type\": \"MedicalCondition\",\n    \"name\": \"Leukemia, chronic myeloid (CML)\",\n    \"code\": {\n      \"@type\": \"MedicalCode\",\n      \"codeValue\": \"608232\",\n      \"codingSystem\": \"OMIM\"\n    },\n    \"id\": \"http://purl.uniprot.org/diseases/03735\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "bioChemInteraction": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05067\",\n  \"bioChemInteraction\": [{\n    \"@id\": \"http://purl.uniprot.org/uniprot/Q306T3\" \n  },{\n    \"@id\": \"http://purl.uniprot.org/uniprot/Q02410\"\n  }]\n}",
+        "controlled_vocab": "Any suitable source of information",
+        "marginality": "Optional"
+    },
+    "bioChemSimilarity": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P05067\" ,\n  \"bioChemSimilarity\": [{ \n    \"@id\" : \"http://purl.uniprot.org/uniprot/O97584\" \n  }, { \"@id\" : \"http://purl.uniprot.org/uniparc/UPI0000110448\" } ]\n}",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"description\": \"Function: Non-receptor tyrosine-protein kinase that plays a role...\"\n}",
+        "marginality": "Recommended"
+    },
+    "hasBioChemEntityPart": {
+        "controlled_vocab": "Any suitable ontology",
+        "marginality": "Optional"
+    },
+    "hasBioPolymerSequence": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"hasSequence\": \"MVLSPADKTN\"\n}",
+        "marginality": "Optional"
+    },
+    "hasMolecularFunction": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"hasMolecularFunction\": \"http://purl.obolibrary.org/obo/GO_0035325\"\n}",
+        "controlled_vocab": "Any suitable ontology",
+        "marginality": "Optional"
+    },
+    "hasSequenceAnnotation": {
+        "example": "\"hasSequenceAnnotation\": [\n    {\n      \"@type\": \"SequenceAnnotation\",\n      \"@id\": \"https://disprot.org/DP00086r026\",\n      \"http://purl.org/dc/terms/conformsTo\": {\"@id\": \"https://bioschemas.org/specifications/SequenceAnnotation/0.7-DRAFT\"},\n      \"creationMethod\": {\n        \"@type\": \"DefinedTerm\",\n        \"@id\": \"http://www.semanticweb.org/idpfun/ontologies/2019/08/idpontology_disprot_8#DO:00120\",\n        \"inDefinedTermSet\": {\n          \"@type\": \"DefinedTermSet\",\n          \"@id\": \"https://www.disprot.org/assets/data/idpontology_disprot_8_v0.1.0.owl\",\n          \"name\": \"IDP Ontology\"\n        },\n        \"termCode\": \"DO:00120\",\n        \"name\": \"Nuclear magnetic resonance\",\n        \"url\": \"http://www.semanticweb.org/idpfun/ontologies/2019/08/idpontology_disprot_8#DO:00120\"\n      },\n      \"editor\": {\n        \"@id\": \"https://disprot.org/curator#bhajdu\"\n      },\n      \"citation\": {\n        \"@id\": \"https://www.ncbi.nlm.nih.gov/pubmed/16793543\"\n      },\n      \"isPartOfBioChemEntity\": {\n        \"@id\": \"http://disprot.org/DP00086\"\n      },\n      \"sequenceLocation\": {\n        \"@type\": \"SequenceRange\",\n        \"http://purl.org/dc/terms/conformsTo\": {\"@id\": \"https://bioschemas.org/specifications/SequenceRange/0.1-DRAFT\"},\n        \"rangeStart\": 20,\n        \"rangeEnd\": 73\n      },\n      \"additionalProperty\": {\n        \"@type\": \"PropertyValue\",\n        \"name\": \"Term\",\n        \"value\": {\n          \"@type\": \"DefinedTerm\",\n          \"@id\": \"http://www.semanticweb.org/idpfun/ontologies/2019/08/idpontology_disprot_8#DO:00076\",\n          \"inDefinedTermSet\": {\n            \"@type\": \"DefinedTermSet\",\n            \"@id\": \"https://www.disprot.org/assets/data/idpontology_disprot_8_v0.1.0.owl\",\n            \"name\": \"IDP Ontology\"\n          },\n          \"termCode\": \"DO:00076\",\n          \"name\": \"Disorder\",\n          \"url\": \"http://www.semanticweb.org/idpfun/ontologies/2019/08/idpontology_disprot_8#DO:00076\"\n        }\n      },\n      \"description\": [\n        \"Chemical shift analysis and the NOE pattern demonstrated that p53 in complex with Tfb1 adopts an\\na-helical fold that extends from Pro47 to Thr55. Outside this region, p53 is flexible, as also supported by the 15N-1H heteronuclear NOE data.\"\n      ]\n    }",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"identifier\": \"http://purl.uniprot.org/uniprot/P00519\"\n}",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "{ \n  \"@type\": \"Protein\", \n  \"image\": \"https://commons.wikimedia.org/wiki/File:Spombe_Pop2p_protein_structure_rainbow.png\" \"http://rdf.wwpdb.org/pdb/2WJD\"\n}",
+        "marginality": "Optional"
+    },
+    "isEncodedByBioChemEntity": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"isEncodedByBioChemEntity\": \"https://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Hs&CID=146339\"\n}",
+        "controlled_vocab": "Any suitable ontology",
+        "marginality": "Recommended"
+    },
+    "isInvolvedInBiologicalProcess": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"isInvolvedInBiologicalProcess\": \"http://purl.obolibrary.org/obo/GO_0005739\"\n}",
+        "controlled_vocab": "Any suitable ontology",
+        "marginality": "Optional"
+    },
+    "isLocatedInSubcellularLocation": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"isLocatedInSubcellularLocation\": \"http://purl.obolibrary.org/obo/GO_0005739\"\n}",
+        "controlled_vocab": "Any suitable ontology",
+        "marginality": "Optional"
+    },
+    "isPartOfBioChemEntity": {
+        "example": "//Protein is part of a protein complex\n{\n  \"@type\": \"Protein\",\n  \"isPartOfBioChemEntity\": {\n    \"@type\": \"BioChemEntity\",\n    \"url\": \"https://www.ebi.ac.uk/complexportal/complex/CPX-2158\"\n    }\n}",
+        "controlled_vocab": "Any suitable ontology",
+        "marginality": "Optional"
+    },
+    "mainEntityOfPage": {
+        "example": "//From a webpage\n{\n\n  \"@type\": \"WebPage\",\n  \"@id\": \"https://www.uniprot.org/uniprot/P05519\",\n  \"mainEntity\": {\n    \"@type\": \"Protein\",\n    \"@id\" : \"http://purl.uniprot.org/uniprot/P05519\"\n    #Any other property for this Protein entity    \n  }\n}\n\n//Also possible from Protein or any other entity referred to from the Protein, e.g., associated disease\n{\n  \"@type\": \"Protein\",\n   \"@id\" : \"http://purl.uniprot.org/uniprot/P05519\"\n  \"mainEntityOfPage\": {\n     \"@id\": \"https://www.uniprot.org/uniprot/P05519\" \n  }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"name\": \"ABL1\"\n}",
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"sameAs\": [\n    \"https://www.wikidata.org/wiki/Q587961\", \n    \"https://identifiers.org/uniprot:P05519\",\n    \"https://purl.org/uniprot/P05519\"\n  ]\n}",
+        "marginality": "Optional"
+    },
+    "taxonomicRange": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"taxonomicRange\": {\n    \"@type\": \"DefinedTerm\",\n    \"termCode\": \"9606\",\n    \"url\": \"http://purl.bioontology.org/ontology/NCBITAXON/9606\",\n    \"sameAs\": \"http://purl.uniprot.org/taxonomy/9606\",\n    \"inDefinedTermSet\": {\n      \"@type\": \"DefinedTermSet\",\n      \"name\": \"NCBI taxon\",\n      \"url\": \"https://bioportal.bioontology.org/ontologies/NCBITAXON\"\n    } \n  }\n}\n// This could also be e.g. all bacteria and does not need to be a single organism",
+        "controlled_vocab": "Taxonomies or any suitable controlled vocabulary",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"url\": \"https://www.uniprot.org/uniprot/P05519\"\n}",
+        "marginality": "Recommended"
+    }
+}

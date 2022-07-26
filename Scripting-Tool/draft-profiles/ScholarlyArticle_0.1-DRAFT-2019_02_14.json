@@ -1,0 +1,1101 @@
+{
+    "title": "ScholarlyArticle (v0.1-DRAFT-2019_02_14)",
+    "description": "A ScholarlyArticle is an article commonly reporting a scientific research, for instance a journal article or thesis.",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Organization": {
+            "title": "Organization (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Organization/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "legalName": {
+                    "title": "legalName (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The official name of the organization, e.g. the registered company name. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "sameAs": {
+                    "title": "sameAs (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "topic": {
+                    "title": "topic (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Scientific topics that describe the organization and its activities, ideally using an ontology term from EDAM:Topic. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "title": "type (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The type of the organization should be selected from the Controlled Vocabulary column. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "legalName",
+                "name",
+                "sameAs",
+                "topic",
+                "type"
+            ]
+        },
+        "Person": {
+            "title": "Person (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "CreativeWork",
+                                "$ref": "#/definitions/CreativeWork"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "mainEntityOfPage",
+                "name"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Comment": {
+            "title": "Comment",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Comment",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "SemanticScholarlyAnnotation": {
+            "title": "SemanticScholarlyAnnotation",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "SemanticScholarlyAnnotation",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Trip": {
+            "title": "Trip",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Trip",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ScholarlySemanticAnnotation": {
+            "title": "ScholarlySemanticAnnotation",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ScholarlySemanticAnnotation",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Language": {
+            "title": "Language",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Language",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Product": {
+            "title": "Product",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Product",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Journal": {
+            "title": "Journal (v0.2-DRAFT-2020_12_03) Minimum Version",
+            "description": "A Journal is a collection of publication issues, publication volumes or scholarly articles, or possibly, although no commonly, any mix from those mentioned. <h4>Summary of Changes</h4>    Changes since previous draft 0.1 Journal profile:    <ul>      <li>Add examples</li>      <li>Keywords range updated as per changes on schema.org</li>    </ul>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Journal",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Journal/0.2-DRAFT-2020_12_03",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Journals are commonly identified by their issn. We recommend to use here the form namespace:id. For instance, issn:2041-1480.  Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "PropertyValue",
+                            "$ref": "#/definitions/PropertyValue"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "identifier",
+                "name"
+            ]
+        },
+        "PublicationVolume": {
+            "title": "PublicationVolume (v0.2-DRAFT-2020_12_03) Minimum Version",
+            "description": "A PublicationVolume is a collection of publication issues, or scholarly articles, or possibly, although no commonly, any mix from those mentioned. It is commonly part of a Journal.<h4>Summary of Changes</h4>    Changes since previous draft 0.1 of the PublicationVolumen profile:    <ul>      <li>Add examples</li>      <li>Keywords range updated as per changes on schema.org</li>    </ul>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "PublicationVolume",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/PublicationVolume/0.2-DRAFT-2020_12_03",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "url": {
+                    "title": "url (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Oficial URL. Schema.org: URL of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "volumeNumber": {
+                    "title": "volumeNumber (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\". ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "url",
+                "volumeNumber"
+            ]
+        },
+        "PublicationIssue": {
+            "title": "PublicationIssue (v0.2-DRAFT-2020_12_03) Minimum Version",
+            "description": "A PublicationIssue is a collection of publication scholarly articles published as a collection in a publication volume or a journal.<h4>Summary of Changes</h4>    Changes since previous draft 0.1 of the PublicationIssue profile:    <ul>      <li>Add examples</li>      <li>Keywords range updated as per changes on schema.org</li>    </ul>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "PublicationIssue",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/PublicationIssue/0.2-DRAFT-2020_12_03",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "issueNumber": {
+                    "title": "issueNumber (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Identifies the issue of publication; for example, \"iii\" or \"2\". ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "issueNumber"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "ScholarlyArticle",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/ScholarlyArticle/0.1-DRAFT-2019_02_14",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "alternateName": {
+            "title": "alternateName (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Any othe name, including alternate identifiers in the form namespace:id such as pmcid:PMC3804025 or pmid:29312824. Schema.org: An alias for the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "alternativeHeadline": {
+            "title": "alternativeHeadline (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A secondary title of the CreativeWork. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "articleBody": {
+            "title": "articleBody (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: If included, could be separated in paragraphs or so. Schema.org: The actual body of the article. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "articleSection": {
+            "title": "articleSection (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "author": {
+            "title": "author (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "backstory": {
+            "title": "backstory (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Abstract. Schema.org: For an Article, typically a NewsArticle, the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
+                }
+            ]
+        },
+        "citation": {
+            "title": "citation (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "comment": {
+            "title": "comment (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Semantic scholarly annotations identified in this scholarly article Schema.org: Comments, typically from users. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Comment",
+                        "$ref": "#/definitions/Comment"
+                    },
+                    {
+                        "title": "SemanticScholarlyAnnotation",
+                        "$ref": "#/definitions/SemanticScholarlyAnnotation"
+                    }
+                ]
+            }
+        },
+        "commentCount": {
+            "title": "commentCount (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Number of semantic scholarly annotations identified in this article Schema.org: The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere. ",
+            "oneOf": [
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "copyrightHolder": {
+            "title": "copyrightHolder (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The party holding the legal copyright to the CreativeWork. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "copyrightYear": {
+            "title": "copyrightYear (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The year during which the claimed copyright for the CreativeWork was first asserted. ",
+            "oneOf": [
+                {
+                    "title": "Number",
+                    "$ref": "#/definitions/Number"
+                }
+            ]
+        },
+        "dateCreated": {
+            "title": "dateCreated (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                },
+                {
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
+                }
+            ]
+        },
+        "dateModified": {
+            "title": "dateModified (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Date",
+                        "$ref": "#/definitions/Date"
+                    },
+                    {
+                        "title": "DateTime",
+                        "$ref": "#/definitions/DateTime"
+                    }
+                ]
+            }
+        },
+        "datePublished": {
+            "title": "datePublished (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Date of first broadcast/publication. ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                }
+            ]
+        },
+        "hasPart": {
+            "title": "hasPart (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: An article has part ScholarlySemanticAnnotation, i.e., entities recognized in the text and associated to an ontology term. Schema.org: Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).\n Inverse property: isPartOf. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "Trip",
+                        "$ref": "#/definitions/Trip"
+                    },
+                    {
+                        "title": "ScholarlySemanticAnnotation",
+                        "$ref": "#/definitions/ScholarlySemanticAnnotation"
+                    }
+                ]
+            }
+        },
+        "headline": {
+            "title": "headline (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Title of the article. Schema.org: Headline of the article. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "identifier": {
+            "title": "identifier (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: A global a unique identifier for articles in their DOI. Any other identifier can be included as an alternate name. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "inLanguage": {
+            "title": "inLanguage (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also availableLanguage. Supersedes language. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "Language",
+                        "$ref": "#/definitions/Language"
+                    }
+                ]
+            }
+        },
+        "isAccessibleForFree": {
+            "title": "isAccessibleForFree (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A flag to signal that the item, event, or place is accessible for free. Supersedes free. ",
+            "oneOf": [
+                {
+                    "title": "Boolean",
+                    "$ref": "#/definitions/Boolean"
+                }
+            ]
+        },
+        "isBasedOn": {
+            "title": "isBasedOn (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Link to any HTML other than the DOI one as well as to possible web services, such as PMC OAI service, providing machine-readable versions used to create this metadata. Schema.org: A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "Product",
+                        "$ref": "#/definitions/Product"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isPartOf": {
+            "title": "isPartOf (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: We recommend at least to inlcude a link to the lowest level possible, i.e., PublicationIssue. It is also possible to use 'isPartOf' to link as well directly to the PublicationVolume or the Journal, making it easier to find links to each other. Schema.org: Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.\n Inverse property: hasPart. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "Trip",
+                        "$ref": "#/definitions/Trip"
+                    },
+                    {
+                        "title": "Journal",
+                        "$ref": "#/definitions/Journal"
+                    },
+                    {
+                        "title": "PublicationVolume",
+                        "$ref": "#/definitions/PublicationVolume"
+                    },
+                    {
+                        "title": "PublicationIssue",
+                        "$ref": "#/definitions/PublicationIssue"
+                    }
+                ]
+            }
+        },
+        "keywords": {
+            "title": "keywords (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "license": {
+            "title": "license (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A license document that applies to this content, typically indicated by URL. ",
+            "oneOf": [
+                {
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "pageEnd": {
+            "title": "pageEnd (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The page on which the work ends; for example \"138\" or \"xvi\". ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "pageStart": {
+            "title": "pageStart (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The page on which the work starts; for example \"135\" or \"xiii\". ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "pagination": {
+            "title": "pagination (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Any description of pages that is not separated into pageStart and pageEnd; for example, \"1-6, 9, 55\" or \"10-12, 46-49\". ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "sameAs": {
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Any other link to this article, including those machine readable. Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: DOI is the recommended URL, any other should go as sameAs. Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "version": {
+            "title": "version (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The version of the CreativeWork embodied by a specified resource. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "Number",
+                        "$ref": "#/definitions/Number"
+                    }
+                ]
+            }
+        },
+        "wordCount": {
+            "title": "wordCount (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The number of words in the text of the Article. ",
+            "oneOf": [
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "sdDatePublished": {
+            "title": "sdDatePublished (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Indicates the date on which the current structured data was generated / published. Typically used alongside sdPublisher. ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                }
+            ]
+        },
+        "sdPublisher": {
+            "title": "sdPublisher (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The sdPublisher property helps make such practices more explicit. ",
+            "oneOf": [
+                {
+                    "title": "Organization",
+                    "$ref": "#/definitions/Organization"
+                },
+                {
+                    "title": "Person",
+                    "$ref": "#/definitions/Person"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "headline",
+        "identifier"
+    ]
+}

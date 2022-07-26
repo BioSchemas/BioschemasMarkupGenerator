@@ -1,0 +1,219 @@
+{
+    "title": "Taxon (v0.1-DRAFT-2018_09_26)",
+    "description": "This profile aims to denote a taxon by common properties such as its scientific name, authority, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI.",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "BioChemEntity": {
+            "title": "BioChemEntity",
+            "properties": {
+                "@type": {
+                    "default": "BioChemEntity",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@type",
+                "@id"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Taxon",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/Taxon/0.1-DRAFT-2018_09_26",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "additionalType": {
+            "title": "additionalType (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A Taxon type from a well known vocabulary, e.g. DarwinCore http://rs.tdwg.org/dwc/terms/Taxon or http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.\nBioChemEntity: Whenever a suitable profile exists, the profile type should be used in addition to the BioChemEntity type. Other additional types are always possible via the additionalType property. For instance, http://purl.obolibrary.org/obo/PR_000000001 is the type used for the Protein profile but http://semanticscience.org/resource/SIO_010043 or https://www.wikidata.org/wiki/Q8054 can be used as an additionalType if that results useful somehow to the data providers. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "alternateName": {
+            "title": "alternateName (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Scientific name, possibly including authorship and date information, of a synonym of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: An alias for the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "isContainedIn": {
+            "title": "isContainedIn (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Direct, most proximate higher-rank parent taxon Schema.org: Indicates a BioChemEntity that this BioChemEntity is (in some sense) part of. ",
+            "oneOf": [
+                {
+                    "title": "BioChemEntity",
+                    "$ref": "#/definitions/BioChemEntity"
+                }
+            ]
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Taxon name (without authorship nor date information) of the currently valid (zoological) or accepted (botanical) taxon. Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "rank": {
+            "title": "rank (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The taxonomic rank of this name given as a URI from a controled vocabulary, typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "sameAs": {
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: URL of third-party webpages describing the same taxon Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "scientificName": {
+            "title": "scientificName (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Full scientific name, with authorship and date information if known ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "scientificNameAuthorship": {
+            "title": "scientificNameAuthorship (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Authorship information for the scientificName formatted according to the conventions of the applicable nomenclatural Code. Example: \"(Torr.) J.T. Howell\", \"(Martinovsk\u00fd) Tzvelev\", \"(Gy\u00f6rfi, 1952)\" ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "taxonRank": {
+            "title": "taxonRank (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: The taxonomic rank of this name given as a literal ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Link to the webpage associated with this taxon Schema.org: URL of the item.\nBioChemEntity: Link to the official webpage associated to this entity. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "vernacularName": {
+            "title": "vernacularName (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A vernacular (common) name of the taxon ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "name"
+    ]
+}

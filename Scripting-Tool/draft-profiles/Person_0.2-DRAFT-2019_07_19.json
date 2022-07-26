@@ -1,0 +1,683 @@
+{
+    "title": "Person (v0.2-DRAFT-2019_07_19)",
+    "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Person": {
+            "title": "Person (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "CreativeWork",
+                                "$ref": "#/definitions/CreativeWork"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "mainEntityOfPage",
+                "name"
+            ]
+        },
+        "ContactPoint": {
+            "title": "ContactPoint",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ContactPoint",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Organization/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "legalName": {
+                    "title": "legalName (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The official name of the organization, e.g. the registered company name. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "sameAs": {
+                    "title": "sameAs (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "topic": {
+                    "title": "topic (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Scientific topics that describe the organization and its activities, ideally using an ontology term from EDAM:Topic. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "title": "type (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The type of the organization should be selected from the Controlled Vocabulary column. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "legalName",
+                "name",
+                "sameAs",
+                "topic",
+                "type"
+            ]
+        },
+        "Place": {
+            "title": "Place",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Place",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ImageObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Language": {
+            "title": "Language",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Language",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ProgramMembership": {
+            "title": "ProgramMembership",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ProgramMembership",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Person",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "advisor": {
+            "title": "advisor (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A person who has been an educational, professional or personal advisor to the person. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "curriculumVitae": {
+            "title": "curriculumVitae (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A link or body of text describing the person's notable achievements, employment history, and contact details. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: A description of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "email": {
+            "title": "email (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Email address. ",
+            "oneOf": [
+                {
+                    "title": "ContactPoint",
+                    "$ref": "#/definitions/ContactPoint"
+                },
+                {
+                    "title": "Organization",
+                    "$ref": "#/definitions/Organization"
+                },
+                {
+                    "title": "Place",
+                    "$ref": "#/definitions/Place"
+                }
+            ]
+        },
+        "experience": {
+            "title": "experience (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A textual description of the professional experiences a person has acquired. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "expertise": {
+            "title": "expertise (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: A textual description of the topic which a person has the most expertise in. This should make use of an ontology such as the EDAM ontology ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "funding": {
+            "title": "funding (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Textual description of current or past funding ths person has acquired ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "homeLocation": {
+            "title": "homeLocation (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A contact location for a person's residence. ",
+            "oneOf": [
+                {
+                    "title": "ContactPoint",
+                    "$ref": "#/definitions/ContactPoint"
+                },
+                {
+                    "title": "Place",
+                    "$ref": "#/definitions/Place"
+                }
+            ]
+        },
+        "image": {
+            "title": "image (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
+            "oneOf": [
+                {
+                    "title": "ImageObject",
+                    "$ref": "#/definitions/ImageObject"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "interest": {
+            "title": "interest (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Any interests held by the person. These should be single words or short phrases that relate to a person ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "internatonalActivities": {
+            "title": "internatonalActivities (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Global connetions related to teaching and scholarly work in the past 3 years ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "journalReferee": {
+            "title": "journalReferee (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Which journals this person is a reeree of ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "keywords": {
+            "title": "keywords (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Keywords to describe the person. These should be single words or short phrases that relate to a person. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "knowsLanguage": {
+            "title": "knowsLanguage (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A list of languages spoken by the Person Schema.org: Of a Person, and less typically of an Organization, to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard. ",
+            "oneOf": [
+                {
+                    "title": "Language",
+                    "$ref": "#/definitions/Language"
+                }
+            ]
+        },
+        "mainEntityOfPage": {
+            "title": "mainEntityOfPage (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "memberOf": {
+            "title": "memberOf (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: An Organization (or ProgramMembership) to which this Person or Organization belongs.\nInverse property: member. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "ProgramMembership",
+                        "$ref": "#/definitions/ProgramMembership"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "orcid": {
+            "title": "orcid (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The url of ID of the person's ORCID (see http://orcid.org) ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "works": {
+            "title": "works (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: All or notable publications, presentations, training materials, research outputs or any other body of work attributed to this person. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "worksFor": {
+            "title": "worksFor (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Organizations that the person works for. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "description",
+        "mainEntityOfPage",
+        "name"
+    ]
+}

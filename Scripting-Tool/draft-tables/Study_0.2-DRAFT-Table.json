@@ -1,0 +1,39 @@
+{
+    "additionalProperty": {
+        "example": "{\n  \"@type\": [\"Study\"],\n  \"additionalProperty\": {\n   \"@type\": \"PropertyValue\",\n    \"name\": \"Organism\",\n    \"value\": \"Homo sapiens\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "creator": {
+        "example": "{\n    \"creator\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://ror.org/018cxtf62\",\n        \"name\": \"Earlham Institute\"\n    }\n}",
+        "marginality": "Recommended"
+    },
+    "endDate": {
+        "example": "{\n    \"endDate\": \"2020-11-24\"\n}",
+        "marginality": "Recommended"
+    },
+    "PPEO:hasGrowthChamber": {
+        "example": "{\n    \"http://purl.org/ppeo/PPEO.owl#hasGrowthChamber\": {\n        \"http://purl.org/ppeo/PPEO.owl#hasType\": \"field\"\n    }\n}",
+        "controlled_vocab": "[\n{\n    \"PPEO:hasGrowthChamber\": {\n        \"PPEO:hasType\": \"field\"\n    }\n},\n{\n    \"PPEO:hasGrowthChamber\": {\n        \"PPEO:hasType\": \"growth chamber\"\n    }\n},\n{\n    \"PPEO:hasGrowthChamber\": {\n        \"PPEO:hasType\": \"greenhouse\"\n    }\n},\n{\n    \"PPEO:hasGrowthChamber\": {\n        \"PPEO:hasType\": \"nursery\"\n    }\n}\n]",
+        "marginality": "Optional"
+    },
+    "relatedStudy": {
+        "example": "{\n  \"relatedStudy\": {\n    \"@type\": \"Study\",\n    \"@id\": \"https://ega-archive.org/studies/EGAS00000000001\",\n    \"name\": \"WTCCC case-control study for Bipolar Disorder\"\n  }\n}",
+        "marginality": "Optional"
+    },
+    "startDate": {
+        "example": "{\n    \"startDate\": \"2019-11-24\"\n}",
+        "marginality": "Recommended"
+    },
+    "studyLocation": {
+        "example": "{\n  \"studyLocation\": {\n    \"@type\": \"Place\",\n    \"name\": \"France\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "studyProcess": {
+        "controlled_vocab": "http://www.ebi.ac.uk/efo/EFO_0001433",
+        "marginality": "Recommended"
+    },
+    "studySubject": {
+        "example": "{\n    \"@type\" : \"BioChemEntity\",\n    \"identifier\":\"Aus29020/annuello*27\", \n    \"name\":\"Aus29020 = CROC_1/AE.SQUARROSA (517)\", \n    \"taxonomicRange\" : {\n        \"@Type\":\"Taxon\", \n        \"parentTaxon\":\"https://www.wikidata.org/entity/Q161098\",  \n        \"taxonRank\": \"variety\", \n        \"name\":\"subsp. aestivum\"\n    }\n}",
+        "marginality": "Minimum"
+    }
+}

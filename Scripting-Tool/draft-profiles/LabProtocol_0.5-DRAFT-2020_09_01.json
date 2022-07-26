@@ -1,0 +1,1206 @@
+{
+    "title": "LabProtocol (v0.5-DRAFT-2020_09_01)",
+    "description": "This LabProtocol profile specification presents the markup for describing a LabProtocol type according to Bioschemas. An experimental LabProtocol is a sequence of tasks and operations executed to perform experimental research in biological and biomedical areas. <h4>Summary of Changes</h4>    Changes since previous draft of the LabProtocols profile:    <ul>      <li>LabProtocol profile definition updated to the one on the type, see <a href='https://github.com/Bioschemas/specifications/issues/331'>issue 331</a></li>      <li>Description property added, see <a href='https://github.com/Bioschemas/specifications/issues/436'>issue 436</a></li>      <li>Title added as minimum, see <a href='https://github.com/Bioschemas/specifications/issues/438'>issue 438</a>.</li>      <li>Protocol advantage property description updated, see <a href='https://github.com/Bioschemas/specifications/issues/440'>issue 440</a></li>      <li>Time properties updated (totalTime as it was plus performTime and prepTime as optional), see <a href='https://github.com/Bioschemas/specifications/issues/441'>issue 441</a></li>      <li>ReagentUsed property description updated, now using CHEBI definition, also MolecularEntity and ChemicalSubstance to the range list added, see <a href='https://github.com/Bioschemas/specifications/issues/442'>issue 442</a></li>            <li>LabProtocol now used as the parent type for this profile, see <a href='https://github.com/Bioschemas/specifications/issues/443'>issue 443</a></li>    </ul>",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Organization": {
+            "title": "Organization (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Organization/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "legalName": {
+                    "title": "legalName (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The official name of the organization, e.g. the registered company name. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "sameAs": {
+                    "title": "sameAs (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "topic": {
+                    "title": "topic (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Scientific topics that describe the organization and its activities, ideally using an ontology term from EDAM:Topic. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "title": "type (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The type of the organization should be selected from the Controlled Vocabulary column. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "legalName",
+                "name",
+                "sameAs",
+                "topic",
+                "type"
+            ]
+        },
+        "Person": {
+            "title": "Person (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "CreativeWork",
+                                "$ref": "#/definitions/CreativeWork"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "mainEntityOfPage",
+                "name"
+            ]
+        },
+        "BioChemEntity": {
+            "title": "BioChemEntity",
+            "properties": {
+                "@type": {
+                    "default": "BioChemEntity",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@type",
+                "@id"
+            ]
+        },
+        "BioSample": {
+            "title": "BioSample (v0.1-DRAFT-2019_11_12) Minimum Version",
+            "description": "A biological material entity that is representative of a whole. Comments: Typically samples are intended to be representative of the whole or aspects thereof. Examples of samples include biomedical samples (blood, urine) and plant specimens held at herbaria.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "BioSample",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/BioSample/0.1-DRAFT-2019_11_12",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](https://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "$ref": "#/definitions/PropertyValue"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "url": {
+                    "title": "url (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "identifier",
+                "name",
+                "url"
+            ]
+        },
+        "DefinedTerm": {
+            "title": "DefinedTerm",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "DefinedTerm",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Taxon": {
+            "title": "Taxon (v0.6-RELEASE) Minimum Version",
+            "description": "This profile aims to denote a taxon by common properties such as its scientific name, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI. <br/> <h4>Summary of Changes</h4> Changes since previous release of the Taxon Profile: <ul> <li>taxonRank promoted to Minimum level</li> <li>No other changes at Recommended level</li> <li>hasCategoryCode, scientificName, scientificNameAuthorship removed from Optional level</li> </ul> No Changes introduced since draft 0.5-DRAFT-2020_04_06",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Taxon",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Taxon/0.6-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Currently valid (zoological) or accepted (botanical) name for that taxon, with authorship and date information if known. Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "taxonRank": {
+                    "title": "taxonRank (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary (e.g. the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs) ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "$ref": "#/definitions/PropertyValue"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "name",
+                "taxonRank"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Duration": {
+            "title": "Duration",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Duration",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "MolecularEntity": {
+            "title": "MolecularEntity (v0.5-RELEASE) Minimum Version",
+            "description": "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity. (Source: <a href='https://www.ebi.ac.uk/chebi/searchId.do?chebiId=23367'>ChEBI:23367</a>) <h4>Summary of Changes</h4> This is the first release of the MolecularEntity profile. There are no changes from the previous draft.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "MolecularEntity",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The identifier property represents any kind of identifier for any kind ofThing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "PropertyValue",
+                            "$ref": "#/definitions/PropertyValue"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "url": {
+                    "title": "url (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "identifier",
+                "name",
+                "url"
+            ]
+        },
+        "ChemicalSubstance": {
+            "title": "ChemicalSubstance (v0.4-RELEASE) Minimum Version",
+            "description": "This profile describes a ChemicalSubstance which is 'a portion of matter of constant composition, composed of molecular entities of the same type or of different types' (source: <a href='https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59999'>ChEBI:59999</a>). <h4>Summary of Changes</h4> This is the first release of the ChemicalSubstance profile. There are no changes from the previous draft. ",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "ChemicalSubstance",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/ChemicalSubstance/0.4-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The identifier property represents any kind of identifier for any kind ofThing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "PropertyValue",
+                            "$ref": "#/definitions/PropertyValue"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "url": {
+                    "title": "url (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "identifier",
+                "name",
+                "url"
+            ]
+        },
+        "SoftwareApplication": {
+            "title": "SoftwareApplication",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "SoftwareApplication",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "HowToSection": {
+            "title": "HowToSection",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "HowToSection",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "HowToStep": {
+            "title": "HowToStep",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "HowToStep",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "LabProtocol",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/LabProtocol/0.5-DRAFT-2020_09_01",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "author": {
+            "title": "author (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "bioSampleUsed": {
+            "title": "bioSampleUsed (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: BioSample used in the protocol. It could be a record in a Dataset describing the sample or a physical object corresponding to the sample or a URL pointing to the type of sample used.  ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    },
+                    {
+                        "title": "BioSample",
+                        "$ref": "#/definitions/BioSample"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    },
+                    {
+                        "title": "Taxon",
+                        "$ref": "#/definitions/Taxon"
+                    }
+                ]
+            }
+        },
+        "citation": {
+            "title": "citation (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "dateCreated": {
+            "title": "dateCreated (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                },
+                {
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
+                }
+            ]
+        },
+        "dateModified": {
+            "title": "dateModified (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Last modified date Schema.org: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                },
+                {
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
+                }
+            ]
+        },
+        "datePublished": {
+            "title": "datePublished (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Many is used to cover original printed and electronic publication dates. Schema.org: Date of first broadcast/publication. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Date",
+                        "$ref": "#/definitions/Date"
+                    }
+                ]
+            }
+        },
+        "description": {
+            "title": "description (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "headline": {
+            "title": "headline (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Main title of the LabProtocol Schema.org: Headline of the article. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "identifier": {
+            "title": "identifier (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "isBasedOn": {
+            "title": "isBasedOn (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Note: Bioschemas has removed Product from the Expected Types Schema.org: A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isPartOf": {
+            "title": "isPartOf (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of. Inverse property: hasPart. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "keywords": {
+            "title": "keywords (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "labEquipmentUsed": {
+            "title": "labEquipmentUsed (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: A laboratory equipment used by a person to follow one or more steps described in this LabProtocol.  ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "license": {
+            "title": "license (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A license document that applies to this content, typically indicated by URL. ",
+            "oneOf": [
+                {
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "performTime": {
+            "title": "performTime (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in ISO 8601 duration format. ",
+            "oneOf": [
+                {
+                    "title": "Duration",
+                    "$ref": "#/definitions/Duration"
+                }
+            ]
+        },
+        "prepTime": {
+            "title": "prepTime (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The length of time it takes to prepare the items to be used in instructions or a direction, in ISO 8601 duration format. ",
+            "oneOf": [
+                {
+                    "title": "Duration",
+                    "$ref": "#/definitions/Duration"
+                }
+            ]
+        },
+        "protocolAdvantage": {
+            "title": "protocolAdvantage (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Situations where the Protocol has been successfully employed including advantageous elements (e.g. better yield, shorter running time) (see more information <a href=\"http://vocab.linkeddata.es/SMARTProtocols/myDocumentation_SPdoc_18Abril2017/index_SPdoc_V4.0.html#AdvantageOfTheProtocol\">here</a>) ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "protocolApplication": {
+            "title": "protocolApplication (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Applications of the protocol list the full diversity of the applications of the method and support if is possible to extend the range of applications of the protocol. e.g. northern blot assays, sequencing, etc. (see more information  <a href=\"http://vocab.linkeddata.es/SMARTProtocols/myDocumentation_SPdoc_18Abril2017/index_SPdoc_V4.0.html#ApplicationOfTheProtocol\">here</a>) ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "protocolLimitation": {
+            "title": "protocolLimitation (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Situations where the Protocol would be unreliable or otherwise unsuccessful (see more information <a href=\"http://vocab.linkeddata.es/SMARTProtocols/myDocumentation_SPdoc_18Abril2017/index_SPdoc_V4.0.html#LimitationOfTheProtocol\">here</a>) ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "protocolOutcome": {
+            "title": "protocolOutcome (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Outcome or expected result by a protocol execution (see more information <a href=\"http://vocab.linkeddata.es/SMARTProtocols/myDocumentation_SPdoc_18Abril2017/index_SPdoc_V4.0.html#OutcomeOfTheProtocol\">here</a>) ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "protocolPurpose": {
+            "title": "protocolPurpose (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The purpose of the protocol enables readers to make a decision as to the suitability of the protocol to their experimental problem. (see more information <a href=\"http://vocab.linkeddata.es/SMARTProtocols/myDocumentation_SPdoc_18Abril2017/index_SPdoc_V4.0.html#PurposeOfProtocol\">here</a>) ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
+                }
+            ]
+        },
+        "reagentUsed": {
+            "title": "reagentUsed (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: Reagents used in the protocol. ChEBI and PubChem entities can be used whenever available. Commercial names are also acceptable. A reagent is defined as 'A substance used in a chemical reaction to detect, measure, examine, or produce other substances' in <a href='https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:33893'>CHEBI:33893</a> ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    },
+                    {
+                        "title": "MolecularEntity",
+                        "$ref": "#/definitions/MolecularEntity"
+                    },
+                    {
+                        "title": "ChemicalSubstance",
+                        "$ref": "#/definitions/ChemicalSubstance"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "softwareUsed": {
+            "title": "softwareUsed (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Software or tool used as part of the lab protocol to complete a part of it. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "SoftwareApplication",
+                        "$ref": "#/definitions/SoftwareApplication"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "step": {
+            "title": "step (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A single step item (as HowToStep, text, document, video, etc.) or a HowToSection. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "HowToSection",
+                        "$ref": "#/definitions/HowToSection"
+                    },
+                    {
+                        "title": "HowToStep",
+                        "$ref": "#/definitions/HowToStep"
+                    }
+                ]
+            }
+        },
+        "totalTime": {
+            "title": "totalTime (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The total time required to perform instructions or a direction (including time to prepare the supplies), in ISO 8601 duration format. ",
+            "oneOf": [
+                {
+                    "title": "Duration",
+                    "$ref": "#/definitions/Duration"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "bioSampleUsed",
+        "headline",
+        "keywords",
+        "labEquipmentUsed",
+        "protocolPurpose",
+        "reagentUsed"
+    ]
+}

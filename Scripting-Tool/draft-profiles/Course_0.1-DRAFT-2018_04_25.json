@@ -1,0 +1,724 @@
+{
+    "title": "Course (v0.1-DRAFT-2018_04_25)",
+    "description": "This specification must be used in tandem with a courseInstance. A course is used to describe the broad, common aspects of a recurring training event - whereas a course instance is about the specific times and location of when that course is held. ",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Audience": {
+            "title": "Audience",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Audience",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Organization/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "legalName": {
+                    "title": "legalName (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The official name of the organization, e.g. the registered company name. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "sameAs": {
+                    "title": "sameAs (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "topic": {
+                    "title": "topic (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Scientific topics that describe the organization and its activities, ideally using an ontology term from EDAM:Topic. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "title": "type (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The type of the organization should be selected from the Controlled Vocabulary column. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "legalName",
+                "name",
+                "sameAs",
+                "topic",
+                "type"
+            ]
+        },
+        "Person": {
+            "title": "Person (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "CreativeWork",
+                                "$ref": "#/definitions/CreativeWork"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "mainEntityOfPage",
+                "name"
+            ]
+        },
+        "AlignmentObject": {
+            "title": "AlignmentObject",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "AlignmentObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Course": {
+            "title": "Course (v0.9-DRAFT-2020_12_08) Minimum Version",
+            "description": "This specification must be used in tandem with a courseInstance. A course is used to describe the broad, common aspects of a recurring training event - whereas a course instance is about the specific times and location of when that course is held. <h4>Summary of Changes</h4>    Changes since previous draft 0.8 of the Course profile:    <ul>      <li>Update ranges as per latest version of schema.org</li>         </ul>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Course",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Course/0.9-DRAFT-2020_12_08",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "keywords": {
+                    "title": "keywords (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Free text keywords delimited by commas describing the Course content. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "DefinedTerm",
+                            "$ref": "#/definitions/DefinedTerm"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "keywords",
+                "name"
+            ]
+        },
+        "CourseInstance": {
+            "title": "CourseInstance (v0.8-DRAFT-2020_10_06) Minimum Version",
+            "description": "This specification can be used in tandem with a Course. A course is used to describe the broad, common aspects of a recurring training event - whereas a course instance is about the specific times and location of when that course is held. <h4>Summary of Changes</h4>    Changes since previous draft 0.7 of the CourseInstance profile:    <ul>     <li>Removed CourseInstance->mentions</li><li>Inserted CourseInstance->courseWorkLoad (it was missing)</li><li>Inserted Event->eventAttendanceMode</li><li>Inserted Event->eventSchedule</li><li>doorTime - added Time in Expected Type column (it was missing)</li><li>location - added VirtualLocation in Expected Type column (it was missing)</li><li>offers - added \"Demand or\" in Expected Type column (it was missing)</li><li>offers - modified Description column (it was not the same as in schema.org)</li><li>instructor - added BSC Description</li><li>duration - changed the BSC Description (changed timeRequired by duration, which was changed also in Course)</li><li>name - changed the BSC Description (made the description more explicit)</li><li>offers - changed the BSC Description (corrected wording)</li><li>description - extended the example</li><li>workFeatured - changed the BSC Description (extended the description)</li><li>Adjusted Authors: Patricia Palagi to editor; Niall Beard no longer editor</li> <li>Changes prepared by Patricia Palagi</li>    </ul>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "CourseInstance",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/CourseInstance/0.8-DRAFT-2020_10_06",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "courseMode": {
+                    "title": "courseMode (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. \"online\", \"onsite\" or \"blended\"; \"synchronous\" or \"asynchronous\"; \"full-time\" or \"part-time\") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ). ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "location": {
+                    "title": "location (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Location of the Course Instance. If the Course Instance is online, add the connection details as text Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Place",
+                            "$ref": "#/definitions/Place"
+                        },
+                        {
+                            "title": "PostalAddress",
+                            "$ref": "#/definitions/PostalAddress"
+                        },
+                        {
+                            "title": "VirtualLocation",
+                            "$ref": "#/definitions/VirtualLocation"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "courseMode",
+                "location"
+            ]
+        },
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ImageObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Language": {
+            "title": "Language",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Language",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Course",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/Course/0.1-DRAFT-2018_04_25",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "audience": {
+            "title": "audience (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: An intended audience, i.e. a group for whom something was created. Supersedes [serviceAudience](http://schema.org/serviceAudience). ",
+            "oneOf": [
+                {
+                    "title": "Audience",
+                    "$ref": "#/definitions/Audience"
+                }
+            ]
+        },
+        "author": {
+            "title": "author (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "courseCode": {
+            "title": "courseCode (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: About this course. Schema.org: The identifier for the [Course](http://schema.org/Course) used by the course [provider](http://schema.org/provider) (e.g. CS101 or 6.001). ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "coursePrerequisites": {
+            "title": "coursePrerequisites (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Pre-requisite requirments before you can take this course. Schema.org: Requirements for taking the [Course](http://schema.org/Course). May be completion of another Course or a textual description like \"permission of instructor\". Requirements may be a pre-requisite competency, referenced using [AlignmentObject](http://schema.org/AlignmentObject). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "AlignmentObject",
+                        "$ref": "#/definitions/AlignmentObject"
+                    },
+                    {
+                        "title": "Course",
+                        "$ref": "#/definitions/Course"
+                    }
+                ]
+            }
+        },
+        "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "hasCourseInstance": {
+            "title": "hasCourseInstance (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An offering of the course at a specific time and place or through specific media or mode of study or to a specific section of students. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CourseInstance",
+                        "$ref": "#/definitions/CourseInstance"
+                    }
+                ]
+            }
+        },
+        "image": {
+            "title": "image (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An image of the item. This can be a URL or a fully described [ImageObject](http://schema.org/ImageObject). ",
+            "oneOf": [
+                {
+                    "title": "ImageObject",
+                    "$ref": "#/definitions/ImageObject"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "inLanguage": {
+            "title": "inLanguage (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47](https://tools.ietf.org/html/bcp47) standard. See also [availableLanguage](http://schema.org/availableLanguage). Supersedes language. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Language",
+                    "$ref": "#/definitions/Language"
+                }
+            ]
+        },
+        "keywords": {
+            "title": "keywords (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Keywords describing course. Use terms from Controlled Vocabularies where possible, e.g., [EDAM](http://edamontology.org/page). Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Title of the course Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "producer": {
+            "title": "producer (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Faciliator/contact person. Schema.org: The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "provider": {
+            "title": "provider (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Host organization. Schema.org: The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "sponsor": {
+            "title": "sponsor (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "thumbnailUrl": {
+            "title": "thumbnailUrl (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A thumbnail image relevant to the Thing. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "url": {
+            "title": "url (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: URL fo the course page. Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "audience",
+        "coursePrerequisites",
+        "description",
+        "keywords",
+        "name",
+        "url"
+    ]
+}

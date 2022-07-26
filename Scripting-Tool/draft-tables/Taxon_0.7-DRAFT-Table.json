@@ -1,0 +1,50 @@
+{
+    "additionalType": {
+        "example": "\"@context\": [\n      \"http://schema.org\",\n      { \"dwc\": \"http://rs.tdwg.org/dwc/terms/\" }\n  ],\n\"@type\" : \"Taxon\",\n\"additionalType\": \"dwc:Taxon\"\n",
+        "marginality": "Optional"
+    },
+    "alternateName": {
+        "example": "{\n    \"alternateName\": \"Balaena albicans Muller, 1776\"\n}",
+        "marginality": "Optional"
+    },
+    "alternateScientificName": {
+        "example": "\"alternateScientificName\": [\n    {   \"@type\" : \"TaxonName\",\n        \"name\": \"Balaena albicans\",\n        \"author\": \"Muller, 1776\"\n    },\n    {   \"@type\" : \"TaxonName\",\n        \"name\": \"Beluga catodon\",\n        \"author\": \"Gray, 1846\"\n    }\n]",
+        "marginality": "Optional"
+    },
+    "childTaxon": {
+        "example": "\"@type\" : \"Taxon\",\n\"name\": \"Delphinapterus\",\n\"taxonRank\" : [ \"WD:Q34740\",  \"genus\" ],\n\"childTaxon\": { \n    \"@type\": \"Taxon\",\n    \"name\": \"Delphinapterus leucas\",\n    \"taxonRank\" : [ \"WD:Q7432\",  \"species\" ]\n}",
+        "marginality": "Optional"
+    },
+    "dwc:vernacularName": {
+        "example": "\"dwc:vernacularName\": [\n    { \"@language\": \"en\", \"@value\": \"Beluga Whale\" },\n    { \"@language\": \"fr\", \"@value\": \"B\u00e9louga\" }\n]",
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "\"identifier\": [\n    { \n        \"@type\": \"PropertyValue\",\n        \"name\": \"TAXREF id\",\n        \"propertyID\": \"https://www.wikidata.org/entity/P3186\",\n        \"value\": \"60932\"\n    },\n    { \n        \"@type\": \"PropertyValue\",\n        \"name\": \"WoRMS id\",\n        \"propertyID\": \"https://www.wikidata.org/entity/P850\",\n        \"value\": \"137115\"\n    }\n]",
+        "marginality": "Optional"
+    },
+    "isBasedOn": {
+        "example": "\"isBasedOn\": {\n    \"@type\": \"ScholarlyArticle\",\n    \"name\": \"The taxonomic status of the nominal dolphin species Delphinus tropicalis Van Bree, 1971\",\n    \"author\": [ \"Jefferson, T.A.\", \"Van Waerebeek, K.\" ],\n    \"datePublished\": \"2002\",\n    \"pageStart\": \"787\",\n    \"pageEnd\": \"818\",\n    \"isPartOf\": {\n        \"@type\": \"PublicationIssue\",\n        \"issueNumber\": \"4\",\n        \"isPartOf\": {\n            \"@type\": \"PublicationVolume\",\n            \"name\": \"Marine Mammal Science\",\n            \"volumeNumber\": \"18\"\n        }\n    }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n    \"name\": \"Delphinapterus leucas (Pallas, 1776)\"\n}",
+        "marginality": "Minimum"
+    },
+    "parentTaxon": {
+        "example": "\"parentTaxon\": { \n    \"@type\": \"Taxon\",\n    \"@id\": \"WD:Q16628343\",\n    \"name\": \"Delphinapterus\",\n    \"taxonRank\" : [ \"WD:Q34740\",  \"genus\" ]\n}",
+        "marginality": "Recommended"
+    },
+    "sameAs": {
+        "example": "\"sameAs\": [\n    \"http://eol.org/pages/328541\",\n    \"http://en.wikipedia.org/w/index.php?title=Beluga_whale\",\n    \"http://www.catalogueoflife.org/annual-checklist/details/species/id/6850357\",\n    \"http://www.iucnredlist.org/details/6335\"\n]",
+        "marginality": "Optional"
+    },
+    "scientificName": {
+        "example": "\"scientificName\": {\n    \"@type\" : \"TaxonName\",\n    \"name\": \"Delphinapterus leucas\",\n    \"author\": \"(Pallas, 1776)\",\n    \"taxonRank\": \"species\"\n}",
+        "marginality": "Recommended"
+    },
+    "taxonRank": {
+        "example": "\"taxonRank\": [\n  \"http://rs.tdwg.org/ontology/voc/TaxonRank#Species\",\n  \"http://www.wikidata.org/entity/Q7432\",\n  \"species\"\n]\n",
+        "marginality": "Minimum"
+    }
+}

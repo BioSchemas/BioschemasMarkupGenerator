@@ -1,0 +1,38 @@
+{
+    "about": {
+        "example": "\"about\": \"Accuracy, efficiency and transferability are realistic issues in clinical practice, and research hotspots as well...\"",
+        "marginality": "Optional"
+    },
+    "editor": {
+        "example": "\"editor\": [\n  {\n    \"@type\": \"Person\",\n    \"givenName\": \"Honghao\",\n    \"familyname\": \"Gao\"\n  }\n]",
+        "marginality": "Optional"
+    },
+    "hasPart": {
+        "example": "\"hasPart\": \"https://doi.org/exampleDOI/\"",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "\"identifier\": \"https://jbiomedsem.biomedcentral.com/icccd2020\"",
+        "marginality": "Recommended"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\":\"EN\"",
+        "marginality": "Optional"
+    },
+    "isPartOf": {
+        "example": "\"isPartOf\": [\n  {\n    \"@type\": \"Periodical\",\n    \"identifier\": \"issn:2041-1480\",\n    \"name\": \"Journal of Biomedical Semantics\"\n  }\n]",
+        "marginality": "Recommended"
+    },
+    "issueNumber": {
+        "example": "\"issueNumber\": 1",
+        "marginality": "Minimum"
+    },
+    "keywords": {
+        "example": "\"keywords\": \"Intelligence Computing, models, clinical data\"",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"https://jbiomedsem.biomedcentral.com/icccd2020\"",
+        "marginality": "Recommended"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "status": {
+        "controlled_vocab": "active, dormant, merged, closed",
+        "marginality": "Recommended"
+    },
+    "topic": {
+        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
+        "marginality": "Minimum"
+    },
+    "type": {
+        "controlled_vocab": "single-company corporation,\nmultinational,\nnot-for-profit,\nalliance,\nconsortium,\ninstitute,\ndepartment,\nworking party,\nproject.",
+        "marginality": "Minimum"
+    }
+}

@@ -1,0 +1,938 @@
+{
+    "title": "CourseInstance (v0.5-DRAFT-2019_02_22)",
+    "description": "This specification can be used in tandem with a Course. A course is used to describe the broad, common aspects of a recurring training event - whereas a course instance is about the specific times and location of when that course is held. ",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Organization": {
+            "title": "Organization (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Organization/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "legalName": {
+                    "title": "legalName (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The official name of the organization, e.g. the registered company name. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "sameAs": {
+                    "title": "sameAs (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "topic": {
+                    "title": "topic (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Scientific topics that describe the organization and its activities, ideally using an ontology term from EDAM:Topic. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "title": "type (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The type of the organization should be selected from the Controlled Vocabulary column. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "legalName",
+                "name",
+                "sameAs",
+                "topic",
+                "type"
+            ]
+        },
+        "Person": {
+            "title": "Person (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "CreativeWork",
+                                "$ref": "#/definitions/CreativeWork"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "mainEntityOfPage",
+                "name"
+            ]
+        },
+        "Duration": {
+            "title": "Duration",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Duration",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "EventStatusType": {
+            "title": "EventStatusType",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "EventStatusType",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ImageObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Language": {
+            "title": "Language",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Language",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Place": {
+            "title": "Place",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Place",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PostalAddress": {
+            "title": "PostalAddress",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PostalAddress",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Thing": {
+            "title": "Thing",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Thing",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Offer": {
+            "title": "Offer",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Offer",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Event": {
+            "title": "Event (v0.2-DRAFT-2019_06_14) Minimum Version",
+            "description": "Specification for describing a Life Science event. This includes conferences, workshops, meetings, courses, receptions, networking and prizegivings.        ",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Event",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Event/0.2-DRAFT-2019_06_14",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "contact": {
+                    "title": "contact (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Main point of contact that can be contacted for general queries. This would be an event organizer or an administrator. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Organization",
+                                "$ref": "#/definitions/Organization"
+                            },
+                            {
+                                "title": "Person",
+                                "$ref": "#/definitions/Person"
+                            }
+                        ]
+                    }
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "endDate": {
+                    "title": "endDate (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The end date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
+                    "oneOf": [
+                        {
+                            "title": "Date",
+                            "$ref": "#/definitions/Date"
+                        },
+                        {
+                            "title": "DateTime",
+                            "$ref": "#/definitions/DateTime"
+                        }
+                    ]
+                },
+                "eventType": {
+                    "title": "eventType (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: This can be one of 4 options. Please see controlled vocabulary ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "EventType",
+                                "$ref": "#/definitions/EventType"
+                            }
+                        ]
+                    }
+                },
+                "hostInstitution": {
+                    "title": "hostInstitution (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The organization or institution responsible for hosting the event (not necessarily responsible for organizing). ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Organization",
+                                "$ref": "#/definitions/Organization"
+                            }
+                        ]
+                    }
+                },
+                "location": {
+                    "title": "location (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The location of the event. It is recommended to use Place, and within [Place](http://schema.org/Place) use the [PostalAddress](http://schema.org/PostalAddress) and [GeoCoordinates](http://schema.org/GeoCoordinates). Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "Place",
+                            "$ref": "#/definitions/Place"
+                        },
+                        {
+                            "title": "PostalAddress",
+                            "$ref": "#/definitions/PostalAddress"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "startDate": {
+                    "title": "startDate (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The start date and time of the item (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format). ",
+                    "oneOf": [
+                        {
+                            "title": "Date",
+                            "$ref": "#/definitions/Date"
+                        },
+                        {
+                            "title": "DateTime",
+                            "$ref": "#/definitions/DateTime"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "contact",
+                "description",
+                "endDate",
+                "eventType",
+                "hostInstitution",
+                "location",
+                "name",
+                "startDate"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "CourseInstance",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/CourseInstance/0.5-DRAFT-2019_02_22",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "alternateName": {
+            "title": "alternateName (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An alias for the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "contributor": {
+            "title": "contributor (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A secondary contributor to the CreativeWork or Event. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "courseMode": {
+            "title": "courseMode (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. \"online\", \"onsite\" or \"blended\"; \"synchronous\" or \"asynchronous\"; \"full-time\" or \"part-time\") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "description": {
+            "title": "description (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A description of the Course Instance. \n\n(courseInstance) description can be used to override (course) description for specific course instances. Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "duration": {
+            "title": "duration (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: (courseInstance) duration can be used to override (course) timeRequired for specific course instances. Schema.org: The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format. ",
+            "oneOf": [
+                {
+                    "title": "Duration",
+                    "$ref": "#/definitions/Duration"
+                }
+            ]
+        },
+        "endDate": {
+            "title": "endDate (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The end date and time of the item (in ISO 8601 date format). ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                },
+                {
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
+                }
+            ]
+        },
+        "eventStatus": {
+            "title": "eventStatus (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled. ",
+            "oneOf": [
+                {
+                    "title": "EventStatusType",
+                    "$ref": "#/definitions/EventStatusType"
+                }
+            ]
+        },
+        "funder": {
+            "title": "funder (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A person or organization that supports (sponsors) something through some kind of financial contribution. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "image": {
+            "title": "image (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
+            "oneOf": [
+                {
+                    "title": "ImageObject",
+                    "$ref": "#/definitions/ImageObject"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "inLanguage": {
+            "title": "inLanguage (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also availableLanguage. Supersedes language. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Language",
+                    "$ref": "#/definitions/Language"
+                }
+            ]
+        },
+        "instructor": {
+            "title": "instructor (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A person assigned to instruct or provide instructional assistance for the CourseInstance. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "location": {
+            "title": "location (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Location of the Course Instance. If the Course Instance is online, add the connection details as text Schema.org: The location of for example where the event is happening, an organization is located, or where an action takes place. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Place",
+                    "$ref": "#/definitions/Place"
+                },
+                {
+                    "title": "PostalAddress",
+                    "$ref": "#/definitions/PostalAddress"
+                }
+            ]
+        },
+        "maximumAttendeeCapacity": {
+            "title": "maximumAttendeeCapacity (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The total number of individuals that may attend an event or venue. ",
+            "oneOf": [
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "mentions": {
+            "title": "mentions (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Datasets, tools, technologies, entities etc, which are used by or referred to by this course instance.\n\nTypically this should be covered by Mentions in Course. Use this property if the CourseInstance *mentions* varies from Course *mentions* Schema.org: Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Thing",
+                        "$ref": "#/definitions/Thing"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: The name of the course.\n\n(courseInstance) Name overrides (course) Name. Use name from Course unless the course instance has a different name from the course Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "offers": {
+            "title": "offers (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The cost an attendee would pay to attend this course Schema.org: An offer to provide this item\u2014for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Offer",
+                        "$ref": "#/definitions/Offer"
+                    }
+                ]
+            }
+        },
+        "organizer": {
+            "title": "organizer (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An organizer of an Event. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "startDate": {
+            "title": "startDate (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The start date and time of the item (in ISO 8601 date format). ",
+            "oneOf": [
+                {
+                    "title": "Date",
+                    "$ref": "#/definitions/Date"
+                },
+                {
+                    "title": "DateTime",
+                    "$ref": "#/definitions/DateTime"
+                }
+            ]
+        },
+        "subEvent": {
+            "title": "subEvent (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: For events within events e.g. guest lecture within a workshop event Schema.org: An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference. Supersedes subEvents.\nInverse property: superEvent. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Event",
+                        "$ref": "#/definitions/Event"
+                    }
+                ]
+            }
+        },
+        "superEvent": {
+            "title": "superEvent (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Use to describe the event a course instance takes place within. e.g. Galaxy Workshop during the ISMB Conference.  Schema.org: An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.\nInverse property: subEvent. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Event",
+                        "$ref": "#/definitions/Event"
+                    }
+                ]
+            }
+        },
+        "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The preferred URL of this course instance. You must provide this value if it is known Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "workFeatured": {
+            "title": "workFeatured (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: The training material used in this specific course instance. \n\nInverse property: workFeatured\n\nIf this is the same for all Course Instances, use hasPart in Course instead Schema.org: A work featured in some event, e.g. exhibited in an ExhibitionEvent. Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "courseMode",
+        "location"
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "alternateName": {
+        "example": "{\n    \"@type\": \"Phenotype\",\n    \"alternateName\": \"abnormal finger morphology\"\n}",
+        "marginality": "Optional"
+    },
+    "anatomicalLocation": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n  \"anatomicalLocation\": {\n                \"@type\": \"DefinedTerm\",\n                \"name\": \"limb digit\",\n                \"inDefinedTermSet\": \"http://purl.obolibrary.org/obo/emapa.owl\",\n                \"termCode\": \"EMAPA_32725\"\n        }\n}",
+        "controlled_vocab": "Any term from a suitable ontology such as [Foundational Model of Anatomy Ontology](http://www.ontobee.org/ontology/FMA), [EMAPA](http://www.ontobee.org/ontology/EMAPA), ",
+        "marginality": "Optional"
+    },
+    "associatedDisease": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n        \"associatedDisease\": \"https://omim.org/entry/605909?search=parkinson&highlight=parkinson\"\n}",
+        "controlled_vocab": "Any term from a suitable ontology such as [OMIM](https://omim.org/), [DO](https://disease-ontology.org/), ",
+        "marginality": "Optional"
+    },
+    "bioChemAssociation": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n        \"isAssociatedWith\": {\n                \"@type\": \"Gene\",\n                \"name\": \"Ascc2\"\n        }\n}",
+        "marginality": "Recommended"
+    },
+    "description": {
+        "example": "{\n    \"@type\": \"Phenotype\",\n    \"description\": \"any structural anomaly of the fingers or toes\"\n}",
+        "marginality": "Recommended"
+    },
+    "hasMolecularFunction": {
+        "controlled_vocab": "GO molecular function branch",
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "//Using a text\n{\n    \"@type\": \"Phenotype\",\n    \"identifier\": \"MP:0002110\"\n}\n//Using a URL directly (looks like a text)\n{\n    \"@type\": \"Phenotype\",\n    \"identifier\": \"http://purl.obolibrary.org/obo/MP_0002110\"\n}\n//Using a URL modeled as schema:URL (equivalent to the previous one but more verbose)\n{\n    \"@type\": \"Phenotype\",\n    \"identifier\": {\n      \"@type\": \"URL\",\n      \"url\": \"http://purl.obolibrary.org/obo/MP_0002110\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "//Using a URL directly (looks like a text)\n{\n  \"@type\": \"Phenotype\",\n  \"image\": \"http://www.ebi.ac.uk/mi/impc/phenotype-archive/media/images/900/M00571072_00021593_download_tn_large.jpg\"\n}\n",
+        "marginality": "Optional"
+    },
+    "isInvolvedInBiologicalProcess": {
+        "controlled_vocab": "GO biological process branch",
+        "marginality": "Optional"
+    },
+    "isLocatedInSubcellularLocation": {
+        "controlled_vocab": "GO subcellular location branch",
+        "marginality": "Optional"
+    },
+    "mainEntityOfPage": {
+        "example": "//Preferred way from DataRecord\n{\n\n  \"@type\": \"DataRecord\",\n  \"@id\": \"http://www.mousephenotype.org/data/phenotypes/MP:0002110\"\n  \"mainEntity\": {\n    \"@type\": \"Phenotype\",\n    \"name\": \"Name and any other property for this Phenotype entity\"\n  }\n}\n\n//Also possible from Phenotype\n{\n  \"@type\": \"Phenotype\",\n  \"mainEntityOfPage\": { \"@id\": \"http://www.mousephenotype.org/data/phenotypes/MP:0002110\" }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n  \"name\": \"abnormal digit morphology\"\n}",
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n  \"sameAs\": \"http://www.informatics.jax.org/vocab/mp_ontology/MP:0002110\"\n}",
+        "marginality": "Optional"
+    },
+    "taxonomicRange": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n   \"taxonomicRange\": {\n                \"@type\": \"Taxon\",\n                \"name\": \"Mus musculus\",\n                \"url\": \"https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=10090\"\n      }\n}",
+        "controlled_vocab": "NCBITaxon",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n  \"url\": \"http://www.mousephenotype.org/data/phenotypes/MP:0002110\"\n}",
+        "marginality": "Recommended"
+    },
+    "valueReference": {
+        "example": "{\n  \"@type\": \"Phenotype\",\n   \"valueReference\": {\n                \"@type\": \"DefinedTerm\",\n                \"inDefinedTermSet\": \"http://purl.obolibrary.org/obo/mp.owl\",\n                \"termCode\": \"MP:0002110\"\n        }\n}",
+        "controlled_vocab": "Any term from a suitable ontology such as [Human Phenotype Ontology](http://www.ontobee.org/ontology/HP),  [Mammalian Phenotype Ontology](http://www.ontobee.org/ontology/MP), [Plant Phenotype Ontology](http://www.ontobee.org/ontology/flopo)",
+        "marginality": "Optional"
+    }
+}

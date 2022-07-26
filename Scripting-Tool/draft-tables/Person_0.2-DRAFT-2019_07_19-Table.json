@@ -1,0 +1,10 @@
+{
+    "expertise": {
+        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
+        "marginality": "Recommended"
+    },
+    "interest": {
+        "controlled_vocab": "[EDAM:Topic](http://edamontology.org/topic_0003)",
+        "marginality": "Optional"
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "contributor": {
+        "example": "\"contributor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"Frank Sidebottom\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"Dennis M\u00e9na\u00e7e\"\n}]",
+        "marginality": "Optional"
+    },
+    "courseMode": {
+        "example": "\"courseMode\": [\"online\", \"synchronous\", \"part-time\"]",
+        "controlled_vocab": "- \"online\", \"onsite\" or \"blend of online and onsite\" \n- \"synchronous\" or \"asynchronous\"\n- \"full-time\" or \"part-time\"",
+        "marginality": "Minimum"
+    },
+    "description": {
+        "example": "\"description\": \"An instance of a course being ran\"",
+        "marginality": "Optional"
+    },
+    "duration": {
+        "example": "\"duration\": \"P1DT6H\"",
+        "marginality": "Optional"
+    },
+    "endDate": {
+        "example": "\"endTime\": \"2019-02-05T17:00:00\"",
+        "marginality": "Recommended"
+    },
+    "eventStatus": {
+        "example": "\"eventStatus\": \"Rescheduled\"",
+        "marginality": "Optional"
+    },
+    "funder": {
+        "example": "\"funder\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Optional"
+    },
+    "image": {
+        "example": "\"image\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\": \"En\"",
+        "marginality": "Minimum"
+    },
+    "instructor": {
+        "example": "\"instructor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"Alan Smithee\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"John Smith\",\n  \"sameAs\": \"https://manchester.ac.uk/staff/profiles/john-smith\"\n}]",
+        "marginality": "Recommended"
+    },
+    "location": {
+        "example": "\"location\": {\n    \"@type\": \"Place\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"streetAddress\": \"1.17, Kilburn Building, University of Manchester\",\n      \"addressLocality\": \"Manchester\",\n      \"addressRegion\": \"Greater Manchester\",\n      \"addressCountry\": \"United Kingdom\",\n      \"postalCode\": \"M13 9PL\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "maximumAttendeeCapacity": {
+        "example": " \"maximumAttendeeCapacity\": 35",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "\"name\": \"RNA-seq in R\"",
+        "marginality": "Optional"
+    },
+    "offers": {
+        "example": "\"offers\":     {\n      \"@type\": \"Offer\",\n      \"price\": \"100.00\",\n      \"priceCurrency\": \"GBP\",\n      \"url\": \"http://www.eventbrite.com/my-workshop\"\n}",
+        "controlled_vocab": "Currency and value, Date specified price",
+        "marginality": "Recommended"
+    },
+    "organizer": {
+        "example": "\"organizer\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\",\n  \"email\": \"e.r.windsor@gmail.com\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Optional"
+    },
+    "startDate": {
+        "example": "\"startDate\": \"2019-02-04T09:00:00\"",
+        "marginality": "Recommended"
+    },
+    "subEvent": {
+        "example": "\"subEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"Lunch time Lecture\",\n      \"url\": \"https://lectureatlunch.com\",\n      \"description\": \"This special lecture hosted during lunchtime as part of the RNA-SEQ in R workshop demonstrates some of the latest technologies available.\"\n  }]",
+        "marginality": "Optional"
+    },
+    "superEvent": {
+        "example": "\"subEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"Galaxy Conference\",\n      \"url\": \"https://usegalaxy.org\",\n      \"description\": \"This years galaxy conference will contain a special education section\"\n  }]",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"http://example.com/rna-seq_in_r\"",
+        "marginality": "Recommended"
+    }
+}

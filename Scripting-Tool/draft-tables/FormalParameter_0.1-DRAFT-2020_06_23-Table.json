@@ -1,0 +1,10 @@
+{
+    "additionalType": {
+        "controlled_vocab": "http://edamontology.org/data_0006",
+        "marginality": "Minimum"
+    },
+    "encodingFormat": {
+        "controlled_vocab": "http://edamontology.org/format_1915",
+        "marginality": "Minimum"
+    }
+}

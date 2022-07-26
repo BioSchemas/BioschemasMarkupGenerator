@@ -1,0 +1,86 @@
+{
+    "alternateName": {
+        "example": "\"alternateName\": {\"Evolutionary Analysis\"}",
+        "marginality": "Optional"
+    },
+    "citation": {
+        "example": "\"citation\" : \"https://covid19.galaxyproject.org/genomics/\"",
+        "marginality": "Recommended"
+    },
+    "creativeWorkStatus": {
+        "example": "\"creativeWorkStatus\": \"Draft\"",
+        "marginality": "Recommended"
+    },
+    "creator": {
+        "example": "\"creator\": [\n    {\n      \"@type\": \"Person\",\n      \"name\": \"Dannon Baker\"\n    },\n    {\n      \"@type\": \"Person\",\n      \"name\": \"Marius van den Beek\"\n    }\n  ]",
+        "marginality": "Minimum"
+    },
+    "dateCreated": {
+        "example": "\"dateCreated\": \"2020-04-07 13:16:09 UTC\"",
+        "marginality": "Minimum"
+    },
+    "dateModified": {
+        "example": "\"dateModified\": \"2020-04-10 13:30:37 UTC\"",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "\"description\": \"This workflow employs a recombination detection algorithm (GARD) developed by Kosakovsky Pond et al. and implemented in the hyphy package. More info can be found at https://covid19.galaxyproject.org/genomics/\"",
+        "marginality": "Recommended"
+    },
+    "encodingFormat": {
+        "example": "\"encodingFormat\": \"application/zip\"",
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "\"identifier\" : \"https://workflowhub.eu/workflows/10\"",
+        "marginality": "Optional"
+    },
+    "image": {
+        "example": "\"image\": \"https://covid19.workflowhub.eu/workflows/10/diagram?version=1\"",
+        "marginality": "Optional"
+    },
+    "input": {
+        "example": "   \"input\" : {\n      \"@type\": \"PropertyValueSpecification\",\n       \"name\": \"Input Dataset\",\n      \"valueRequired\": true\n    }",
+        "marginality": "Minimum"
+    },
+    "keywords": {
+        "example": "  \"keywords\": \"covid-19\"",
+        "marginality": "Recommended"
+    },
+    "license": {
+        "example": "\"license\": \"https://opensource.org/licenses/MIT\"",
+        "marginality": "Minimum"
+    },
+    "name": {
+        "example": "\"name\": \"Genomics - Recombination and selection analysis\"",
+        "marginality": "Minimum"
+    },
+    "programmingLanguage": {
+        "example": "  \"programmingLanguage\": \"Galaxy\"",
+        "marginality": "Minimum"
+    },
+    "publisher": {
+        "example": "\"publisher\": \"https://github.com/EBI-Metagenomics/emg-viral-pipeline/blob/master/virify.nf\" ",
+        "marginality": "Recommended"
+    },
+    "runtimePlatform": {
+        "example": "\"runtimePlatform\": \"https://usegalaxy.org/\"",
+        "marginality": "Recommended"
+    },
+    "sdPublisher": {
+        "example": "\"sdPublisher\": [\n    \"https://www.workflowhub.eu\"\n  ]",
+        "marginality": "Minimum"
+    },
+    "targetProduct": {
+        "example": "\"targetProduct\": \"Galaxy Project\"",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "\"url\": \"https://covid19.workflowhub.eu/workflows/10\"",
+        "marginality": "Minimum"
+    },
+    "version": {
+        "example": "\"version\" : 1",
+        "marginality": "Minimum"
+    }
+}
