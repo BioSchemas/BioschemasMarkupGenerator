@@ -1,0 +1,91 @@
+{
+    "alternateName": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05067\",\n  \"alternateName\": [\"ABL\", \"JTK7\"]\n}",
+        "marginality": "Optional"
+    },
+    "associatedDisease": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05067\",\n  \"associatedDisease\": [\n    {\n      \"@type\": \"MedicalCondition\",\n      \"name\": \"Leukemia, chronic myeloid (CML)\",\n      \"code\": {\n        \"@type\": \"MedicalCode\",\n        \"codeValue\": \"608232\",\n        \"codingSystem\": \"OMIM\"\n      },\n      \"id\": \"http://purl.uniprot.org/diseases/03735\"\n    }\n  ]\n}",
+        "controlled_vocab": "Any suitable disease ontology",
+        "marginality": "Recommended"
+    },
+    "bioChemInteraction": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05067\",\n  \"bioChemInteraction\": [\n    { \"@id\": \"http://purl.uniprot.org/uniprot/Q306T3\" },\n    { \"@id\": \"http://purl.uniprot.org/uniprot/Q02410\" }\n  ]\n}",
+        "marginality": "Optional"
+    },
+    "bioChemSimilarity": {
+        "example": {
+            "@type": "Protein",
+            "@id": "http://purl.uniprot.org/uniprot/P05067",
+            "bioChemSimilarity": [
+                {
+                    "@id": "http://purl.uniprot.org/uniprot/O97584"
+                },
+                {
+                    "@id": "http://purl.uniprot.org/uniparc/UPI0000110448"
+                }
+            ]
+        },
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"@id\": \"http://purl.uniprot.org/uniprot/P05067\",\n  \"description\": \"Function: Non-receptor tyrosine-protein kinase that plays a role...\"\n}",
+        "marginality": "Recommended"
+    },
+    "hasMolecularFunction": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P05067\",\n  \"hasMolecularFunction\": \"http://purl.obolibrary.org/obo/GO_0035325\"\n}",
+        "controlled_vocab": "Gene Ontology",
+        "marginality": "Optional"
+    },
+    "hasRepresentation": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P05067\",\n  \"hasRepresentation\": \"MLPGLALLLLAAWTARALEVPTDGNAGLLAEPQIAMFCGR...\"\n}\n\n{\n  \"@type\": \"Protein\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P05067\",\n  \"hasRepresentation\": {\n    \"@type\": \"PropertyValue\",\n    \"value\": [\n      \"MLLGLALLLLAAWTARALEVPTDGNAGLLAEPQIAMFCGR...\",\n      \"MLPGGGLALLLLAAWTARALEVPTDGNAGLLAEPQIAMFCGR...\"\n    ],\n    \"referenceValue\": \"MLPGLALLLLAAWTARALEVPTDGNAGLLAEPQIAMFCGR...\"\n}",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "{\n  \"@type\": [\"Protein\"],\n  \"@id\": \"http://purl.uniprot.org/uniprot/P00519\",\n  \"identifier\": \"http://purl.uniprot.org/uniprot/P00519\"\n}",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "{\n  \"@type\": [Protein],\n  \"@id\": \"http://purl.uniprot.org/uniprot/P00519\",\n  \"image\": \"https://commons.wikimedia.org/wiki/File:Spombe_Pop2p_protein_structure_rainbow.png\"\n}",
+        "marginality": "Optional"
+    },
+    "isEncodedByBioChemEntity": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P00519\",\n  \"isEncodedByBioChemEntity\": \"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000097007;r=9:130713946-130887675\"\n}",
+        "marginality": "Recommended"
+    },
+    "isInvolvedInBiologicalProcess": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P00519\",\n  \"isInvolvedInBiologicalProcess\": \"http://purl.obolibrary.org/obo/GO_0005739\"\n}",
+        "controlled_vocab": "Gene Ontology",
+        "marginality": "Optional"
+    },
+    "isLocatedInSubcellularLocation": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\": \"http://purl.uniprot.org/uniprot/P00519\",\n  \"isLocatedInSubcellularLocation\": \"http://purl.obolibrary.org/obo/GO_0005739\"\n}",
+        "controlled_vocab": "Gene Ontology",
+        "marginality": "Optional"
+    },
+    "isPartOfBioChemEntity": {
+        "example": "//Protein is part of a protein complex\n{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P69905\",\n  \"isPartOfBioChemEntity\": {\n    \"@type\": \"BioChemEntity\",\n    \"url\": \"https://www.ebi.ac.uk/complexportal/complex/CPX-2158\"\n    }\n}",
+        "controlled_vocab": "Any suitable ontology",
+        "marginality": "Optional"
+    },
+    "mainEntityOfPage": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05519\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.uniprot.org/uniprot/P05519\"\n  }\n}\n//Using the inverse mainEntity property (preferred way)\n{\n  \"@type\": \"WebPage\",\n  \"@id\": \"https://www.uniprot.org/uniprot/P05519\",\n  \"mainEntity\": {\n    \"@type\": \"Protein\",\n    \"@id\" : \"http://purl.uniprot.org/uniprot/P05519\"\n  }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05067\",\n  \"name\": \"ABL1\"\n}",
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05519\",\n  \"sameAs\": [\n    \"https://www.wikidata.org/wiki/Q587961\",\n    \"https://identifiers.org/uniprot:P05519\",\n    \"https://purl.org/uniprot/P05519\"\n  ]\n}",
+        "marginality": "Optional"
+    },
+    "taxonomicRange": {
+        "example": "//In this example, taxon 9606 is described somewhere else so there is no need to include all the information but just pointing to it\n{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05519\",\n  \"taxonomicRange\": {\n    \"@type\": \"Taxon\",\n    \"@id\": \"http://purl.uniprot.org/taxonomy/9606\"\n  }\n}\n// This could also be e.g. all bacteria and does not need to be a single organism",
+        "controlled_vocab": "Taxonomies or any suitable controlled vocabulary",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "{\n  \"@type\": \"Protein\",\n  \"@id\" : \"http://purl.uniprot.org/uniprot/P05519\",\n  \"url\": \"https://www.uniprot.org/uniprot/P05519\"\n}",
+        "marginality": "Recommended"
+    }
+}

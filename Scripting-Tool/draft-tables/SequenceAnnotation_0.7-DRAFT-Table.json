@@ -1,0 +1,52 @@
+{
+    "alternateName": {
+        "example": "{\n\"alternateName\": [\" BRCA2_hlx\"]\n}",
+        "marginality": "Optional"
+    },
+    "creationMethod": {
+        "example": "{\n  \"creationMethod\": {\n    \"@type\": \"PropertyValue\",\n    \"value\": \"imported manually asserted information used in automatic assertion\",\n    \"valueReference\": {\n      \"@type\": \"CategoryCode\",\n      \"codeValue\": \"ECO:0000322\",\n      \"inCategorySet\": {\n        \"@type\": \"CategoryCodeSet\",\n        \"name\": \"ECO Evidence Code Ontology\"\n      }\n    }\n  }\n}\n",
+        "marginality": "Recommended"
+    },
+    "description": {
+        "example": "{\n    \"description\": \"This entry represents a domain found in BRCA2 proteins. This domain adopts a helical...\"\n}",
+        "marginality": "Recommended"
+    },
+    "image": {
+        "example": "{\n  \"image\": {\n    \"@id\": \"https://www.ebi.ac.uk/interpro/assets/images/ssf_logo.1Jk.avif\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "isLocatedInSubcellularLocation": {
+        "example": "{\n  \"isLocatedInSubcellularLocation\": [\n    \"http://identifiers.org/GO:0012505\",\n    \"http://identifiers.org/GO:0009707\" \n  ]\n}",
+        "controlled_vocab": "Any URL to a GO cellular_component",
+        "marginality": "Optional"
+    },
+    "isPartOfBioChemEntity": {
+        "example": "//A protein variant is contained in the proteine sequence:\n{\n  \"isPartOfBioChemEntity\": {\"@id\": \"http://purl.uniprot.org/uniprot/P05067\"}\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"name\": \"Breast cancer type 2 susceptibility protein, helical domain\"\n}",
+        "marginality": "Recommended"
+    },
+    "sameAs": {
+        "example": "{\n  \"sameAs\": \"https://www.ebi.ac.uk/interpro/entry/pfam/PF09169/\"\n}",
+        "marginality": "Recommended"
+    },
+    "sequenceLocation": {
+        "example": "{\n  \"sequenceLocation\": {\n    \"@type\":\"SequenceRange\",\n    \"rangeStart\":20,\n    \"rangeEnd\":73\n  }\n}",
+        "controlled_vocab": "FALDO may be used",
+        "marginality": "Minimum"
+    },
+    "sequenceOrientation": {
+        "example": "{\n  \"sequenceOrientation\": 0\n}",
+        "marginality": "Recommended"
+    },
+    "sequenceValue": {
+        "example": "{\n  \"sequenceValue\": \"AMSQSLLKTTQEPLARDPVKLP\"\n}",
+        "marginality": "Recommended"
+    },
+    "url": {
+        "example": "{\n  \"url\": \"https://www.ebi.ac.uk/interpro/entry/IPR015252\"\n}",
+        "marginality": "Recommended"
+    }
+}

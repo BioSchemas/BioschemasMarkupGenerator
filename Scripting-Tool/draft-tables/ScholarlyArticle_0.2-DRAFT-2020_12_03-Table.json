@@ -1,0 +1,58 @@
+{
+    "about": {
+        "example": "\"about\": [\n  {\n    \"@type\": \"CreativeWork\",\n    \"mainEntity\": {\n      \"@type\": \"DefinedTerm\",\n      \"inDefinedTermSet\": \"https://bioportal.bioontology.org/ontologies/NCIT\",\n      \"termCode\": \"ncit:C61011\",\n      \"name\": \"Resource Description Framework\",\n      \"url\": \"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C61011\",\n    },\n    \"text\": [\"RDF\"]\n  }\n]",
+        "marginality": "Optional"
+    },
+    "abstract": {
+        "example": " \"abstract\": \"Background: The World Wide Web has become a dissemination platform for scientific and non-scientific publications...\"",
+        "marginality": "Recommended"
+    },
+    "author": {
+        "example": "\"author\": [\n  {\n    \"@type\": \"Person\",\n    \"givenName\": \"Alexander\",\n    \"familyName\": \"Garcia\"\n  }\n]",
+        "marginality": "Recommended"
+    },
+    "citation": {
+        "example": "\"citation\": [{\"@id\": \"doi.org/10.1016/j.jbi.2008.03.004\"}]",
+        "marginality": "Recommended"
+    },
+    "datePublished": {
+        "example": "\"datePublished\": \"2013-04-15\"",
+        "marginality": "Recommended"
+    },
+    "headline": {
+        "example": "\"headline\": \"Biotea: RDFizing PubMed Central in support for the paper as an interface to the Web of Data\"",
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "\"identifier\": [\"pmid:23734622\", \"pmc:3804025\", \"doi:10.1186/2041-1480-4-S1-S5\"]",
+        "marginality": "Minimum"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\": \"EN\"",
+        "marginality": "Optional"
+    },
+    "isAccessibleForFree": {
+        "example": "\"isAccessibleForFree\": true",
+        "marginality": "Optional"
+    },
+    "isPartOf": {
+        "example": "\"isPartOf\": [\n  {\n    \"@type\": \"Periodical\",\n    \"identifier\": \"issn:2041-1480\",\n    \"name\": \"Journal of Biomedical Semantics\", \n    \"url\": \"https://jbiomedsem.biomedcentral.com/\"\n  }\n]",
+        "marginality": "Recommended"
+    },
+    "keywords": {
+        "example": "\"keywords\": \"Semantic web, RDF, semantic annotations, scholarly publications\"",
+        "marginality": "Recommended"
+    },
+    "license": {
+        "example": "\"license\": \"http://creativecommons.org/licenses/by/2.0\"",
+        "marginality": "Recommended"
+    },
+    "name": {
+        "example": "\"name\": \"Biotea: RDFizing PubMed Central in support for the paper as an interface to the Web of Data\"",
+        "marginality": "Minimum"
+    },
+    "url": {
+        "example": "\"url\": [\"https://jbiomedsem.biomedcentral.com/articles/10.1186/2041-1480-4-S1-S5\", \"https://pubmed.ncbi.nlm.nih.gov/23734622/\", \"https://doi.org/10.1186/2041-1480-4-s1-s5\", \"http://www.ncbi.nlm.nih.gov/pmc/articles/pmc3804025/\"]",
+        "marginality": "Recommended"
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "about": {
+        "example": "\"about\": [{\n  \"@type\": \"DefinedTerm\", \n  \"@id\": \"http://edamontology.org/topic_3316\",\n  \"inDefinedTermSet\": \"http://edamontology.org\",\n  \"termCode\": \"topic_3316\",\n  \"name\": \"Computer Science\",\n  \"url\": \"https://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Ftopic_3316\"\n}]",
+        "controlled_vocab": "EDAM",
+        "marginality": "Recommended"
+    },
+    "audience": {
+        "example": "\"audience\": [{\n  \"@type\": \"Audience\",\n  \"audienceType\": \"PhD students\" \n}]",
+        "marginality": "Optional"
+    },
+    "courseCode": {
+        "example": "\"courseCode\": \"CS101\"",
+        "marginality": "Optional"
+    },
+    "coursePrerequisites": {
+        "example": "\"coursePrerequisites\": \"You must first compelete the Foundation CS course; FCS500\"",
+        "marginality": "Recommended"
+    },
+    "creator": {
+        "example": "\"author\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "\"description\": \"This is a course ran at an institution. It's ran periodically - specific courses can be found through CourseInstances\"",
+        "marginality": "Minimum"
+    },
+    "educationalLevel": {
+        "example": "\"educationalLevel\": [{\n  \"@type\": \"\n}]",
+        "marginality": "Recommended"
+    },
+    "hasCourseInstance": {
+        "example": "\"hasCourseInstance\": [\n{\n  \"@type\": \"CourseInstance\",\n  \"instructor\": [{\n    \"@type\": \"Person\",\n    \"name\": \"Frank Sidebottom\"\n  },{ \n    \"@type\": \"Person\",\n    \"name\": \"Dennis M\u00e9na\u00e7e\"\n  }],\n  \"courseMode\": \"online\",\n  \"doorTime\": \"2019-02-04T11:00:00\",\n  \"duration\": \"P1DT6H\",\n  \"endTime\": \"2019-02-05T17:00:00\",\n  \"eventStatus\": \"Rescheduled\",\n  \"funder\":  [{\n    \"@type\": \"Person\",\n    \"name\": \"Elizabeth Windsor\"\n  },{ \n    \"@type\": \"Organization\",\n    \"name\": \"University of Manchester\"\n  }],\n  \"image\": \"https://image.server.com/my-image.jpg\",\n  \"location\": {\n      \"@type\": \"Place\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"1.17, Kilburn Building, University of Manchester\",\n        \"addressLocality\": \"Manchester\",\n        \"addressRegion\": \"Greater Manchester\",\n        \"addressCountry\": \"United Kingdom\",\n        \"postalCode\": \"M13 9PL\"\n      }\n  },\n  \"maximumAttendeeCapacity\": 35,\n  \"name\": \"Training Workshop\",\n  \"offers\":     {\n        \"@type\": \"Offer\",\n        \"price\": \"100.00\",\n        \"priceCurrency\": \"GBP\",\n        \"url\": \"http://www.eventbrite.com/my-workshop\"\n  },\n  \"startDate\": \"2019-02-04T09:00:00\",\n  \"subEvent\": [{\n        \"@type\": \"Event\",\n        \"name\": \"Satellite workshop\",\n        \"url\": \"https://my-training.com/SGM\",\n        \"description\": \"This is a satellite meeting being held during the workshop.\"\n  }],\n  \"url\": \"http://my-training.com\"\n}\n]",
+        "marginality": "Recommended"
+    },
+    "image": {
+        "example": "\"image\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "keywords": {
+        "example": "\"keywords\": \"RNA-Seq, Workshop\"",
+        "marginality": "Minimum"
+    },
+    "name": {
+        "example": "\"name\": \"My Course\"",
+        "marginality": "Minimum"
+    },
+    "provider": {
+        "example": "\"provider\":  [{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Recommended"
+    },
+    "thumbnailUrl": {
+        "example": "\"thumbnailUrl\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"image\": \"https://training.site/123\"",
+        "marginality": "Recommended"
+    }
+}

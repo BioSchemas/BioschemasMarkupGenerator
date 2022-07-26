@@ -1,0 +1,91 @@
+{
+    "alternateName": {
+        "example": "\"alternateName\": \"CS101 as part of M.130\"",
+        "marginality": "Optional"
+    },
+    "contributor": {
+        "example": "\"contributor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"John Smith\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"Janet Jones\",\n \"url\": \"https://manchester.ac.uk/staff/profiles/janet-jones\"\n}]",
+        "marginality": "Optional"
+    },
+    "courseMode": {
+        "example": "\"courseMode\": [\"online\", \"synchronous\", \"part-time\"]",
+        "controlled_vocab": "- \"online\", \"onsite\" or \"blend of online and onsite\" \n- \"synchronous\" or \"asynchronous\"\n- \"full-time\" or \"part-time\"",
+        "marginality": "Minimum"
+    },
+    "description": {
+        "example": "\"description\": \"An instance of a course being ran in an institution Y in the Fall 2020 onsite\"",
+        "marginality": "Optional"
+    },
+    "duration": {
+        "example": "\"duration\": \"P1DT6H\"",
+        "marginality": "Optional"
+    },
+    "endDate": {
+        "example": "\"endTime\": \"2019-02-05T17:00:00\"",
+        "controlled_vocab": "ISO 8601",
+        "marginality": "Recommended"
+    },
+    "eventStatus": {
+        "example": "\"eventStatus\": \"postponed\"",
+        "controlled_vocab": "- postponed\n- cancelled\n- date TBD\n- application open \n- registration closed",
+        "marginality": "Optional"
+    },
+    "funder": {
+        "example": "\"funder\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"John Smith\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of South Africa\"\n}]",
+        "marginality": "Optional"
+    },
+    "image": {
+        "example": "\"image\": \"https://image.server.com/my-image.jpg\"",
+        "marginality": "Optional"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\": \"en-GB\"",
+        "marginality": "Recommended"
+    },
+    "instructor": {
+        "example": "\"instructor\": [{\n  \"@type\": \"Person\",\n  \"name\": \"Alan Jones\"\n},{ \n  \"@type\": \"Person\",\n  \"name\": \"John Smith\",\n  \"url\": \"https://manchester.ac.uk/staff/profiles/john-smith\"\n}]",
+        "marginality": "Recommended"
+    },
+    "location": {
+        "example": "\"location\": {\n    \"@type\": \"Place\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"streetAddress\": \"1.17, Kilburn Building, University of Manchester\",\n      \"addressLocality\": \"Manchester\",\n      \"addressRegion\": \"Greater Manchester\",\n      \"addressCountry\": \"United Kingdom\",\n      \"postalCode\": \"M13 9PL\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "maximumAttendeeCapacity": {
+        "example": " \"maximumAttendeeCapacity\": \"35\"",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "\"name\": \"RNA-seq data analysis in R in Autumn 2020 CS101\"",
+        "marginality": "Optional"
+    },
+    "offers": {
+        "example": "\"offers\": [\n    //Early bird tickets\n    {\n        \"@type\": \"Offer\",\n        \"name\": \"Early Bird Tickets\",\n        \"priceValidUntil\": \"2021-02-04T09:00:00\",\n        \"price\": \"50.00\",\n        \"priceCurrency\": \"GBP\"\n    },\n\n    //Academic Pricing\n    {\n      \"@type\": \"Offer\",\n      \"name\": \"Academic Price\",\n      \"price\": \"100.00\",\n      \"priceValidUntil\": \"2021-02-05T17:00:00\",\n      \"eligibleCustomerType\": {\n        \"@type\": \"BusinessEntityType\",\n        \"name\": \"Academic\"\n      },\n      \"priceCurrency\": \"GBP\",\n    },\n    //Industry Pricing\n    {\n      \"@type\": \"Offer\",\n      \"name\": \"Industry Price\",\n      \"price\": \"500.00\",\n      \"priceCurrency\": \"GBP\",\n        \"eligibleCustomerType\": {\n        \"@type\": \"BusinessEntityType\",\n        \"name\": \"Industrial\"\n      },\n    },\n    //First 50 tickets free\n    {\n      \"@type\": \"Offer\",\n      \"name\": \"Free bursary for first 50 registrants\",\n      \"price\": \"0.00\",\n      \"priceCurrency\": \"GBP\",\n      \"url\": \"http://www.eventbrite.com/my-workshop\",\n      \"eligibleQuantity\": {\n        \"@type\": \"QuantitativeValue\",\n        \"value\": 50\n      }\n    }\n]",
+        "controlled_vocab": "Currency and value, Date specified price",
+        "marginality": "Recommended"
+    },
+    "organizer": {
+        "example": "\"organizer\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\",\n  \"email\": \"e.r.windsor@gmail.com\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Soth Wales\"\n}]\n",
+        "marginality": "Optional"
+    },
+    "startDate": {
+        "example": "\"startDate\": \"2019-02-04T09:00:00\"",
+        "controlled_vocab": "ISO 8601",
+        "marginality": "Recommended"
+    },
+    "subEvent": {
+        "example": "\"subEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"Lunch time Lecture\",\n      \"url\": \"https://lectureatlunch.com\",\n      \"description\": \"This special lecture hosted during lunchtime as part of the RNA-SEQ in R workshop demonstrates some of the latest technologies available.\"\n  }]\n",
+        "marginality": "Optional"
+    },
+    "superEvent": {
+        "example": "\"superEvent\": [{\n      \"@type\": \"Event\",\n      \"name\": \"ISCB Conference\",\n      \"url\": \"https://www.iscb.org\",\n      \"description\": \"This years ISCB conference will contain a special education section\"\n  },\n{\n      \"@type\": \"Event\",\n      \"name\": \"Online lecture\",\n      \"url\": \"https://onlinelectureat.org\",\n      \"description\": \"This online lecture describes the neXtProt database. It closes the general, and in person, course on protein sequence databases.\"\n}]",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"http://example.com/rna-seq_in_r\"",
+        "marginality": "Recommended"
+    },
+    "workFeatured": {
+        "example": "\"workFeatured\": [{\n  \"@type\": \"TrainingMaterial\",\n  \"name\": \"Course Slides for Autumn 2020 offering of CS101\",\n  \"url\": \"http://example.com/slides_website\"\n  \"description\": \"The course slides contain diagrams, questions, and links to various resources about this course\" \n  \"keywords\": \"Computer Science, CS, Introductory\"\n},\n{\n  \"@type\": \"Thing\",\n  \"name\": \"neXtProt database\",\n  \"url\": \"https://www.nextprot.org\"\n  \"description\": \"The course instance was dedicated to the neXtProt datbase and how to explore the universe of human proteins\" \n  \"keywords\": \"Molecular Biology, Introductory\"\n}\n]",
+        "marginality": "Optional"
+    }
+}

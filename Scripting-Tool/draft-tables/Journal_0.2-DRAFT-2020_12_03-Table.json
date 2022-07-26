@@ -1,0 +1,46 @@
+{
+    "about": {
+        "example": "\"about\": \"Journal of Biomedical Semantics addresses issues of semantic enrichment and semantic processing in the biomedical domain...\"",
+        "marginality": "Optional"
+    },
+    "editor": {
+        "example": "\"editor\": [\n  {\n    \"@type\": \"Person\",\n    \"givenName\": \"Dietrich\",\n    \"familyName\": \"Rebholz-Schuhmann\"\n  }\n]",
+        "marginality": "Optional"
+    },
+    "hasPart": {
+        "example": "\"hasPart\": [\n  {\"@id\": \"https://doi.org/10.1186/2041-1480-4-s1-s5\"},\n  {\n    \"@type\": \"PublicationVolume\",\n    \"url\": \"https://jbiomedsem.biomedcentral.com/articles/supplements/volume-4-supplement-1\",\n    \"volumeNumber\": \"Volume 4 supplement 1\"\n  }\n]",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "\"identifier\": \"issn:2041-1480\"",
+        "marginality": "Minimum"
+    },
+    "isAccessibleForFree": {
+        "example": "\"isAccessibleForFree\": true",
+        "marginality": "Recommended"
+    },
+    "keywords": {
+        "example": "\"keywords\": \"Biomedical semantics, semantic web, RDF, ontologies, linked data\"",
+        "marginality": "Recommended"
+    },
+    "license": {
+        "example": "\"license\": \"https://www.biomedcentral.com/about/policies/license-agreement\"",
+        "marginality": "Recommended"
+    },
+    "name": {
+        "example": "\"name\": \"Journal of Biomedical Semantics\"",
+        "marginality": "Minimum"
+    },
+    "publisher": {
+        "example": "\"publisher\": [\n  {\n    \"@type\": \"Organization\",\n    \"name\": \"BMC BioMedCentral\",\n    \"url\": \"https://www.biomedcentral.com\"\n  }\n]",
+        "marginality": "Recommended"
+    },
+    "publishingPrinciples": {
+        "example": "\"publishingPrinciples\": \"https://jbiomedsem.biomedcentral.com/submission-guidelines\"",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"https://jbiomedsem.biomedcentral.com/\"",
+        "marginality": "Recommended"
+    }
+}

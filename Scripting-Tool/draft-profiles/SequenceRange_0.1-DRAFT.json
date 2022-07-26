@@ -1,0 +1,107 @@
+{
+    "title": "SequenceRange (v0.1-DRAFT)",
+    "description": "Used to define the range of a subsequence, typically used in conjunction with SequenceAnnotation to define the range of the annotation on the protein or gene sequence.",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "SequenceRange",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/SequenceRange/0.1-DRAFT",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "endUncertainty": {
+            "title": "endUncertainty (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: If the initial position is not known with reasonable certainty, specify here the uncertainty type as one of '<' (any position before than rangeEnd), '>' (any position after rangeEnd), '~' (around rangeEnd), '[#-#] (to indicate a range where rangeEnd could be located)'. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "rangeEnd": {
+            "title": "rangeEnd (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: Final position of the range ",
+            "oneOf": [
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "rangeStart": {
+            "title": "rangeStart (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: Initial position of the range. ",
+            "oneOf": [
+                {
+                    "title": "Integer",
+                    "$ref": "#/definitions/Integer"
+                }
+            ]
+        },
+        "startUncertainty": {
+            "title": "startUncertainty (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: If the initial position is not known with reasonable certainty, specify here the uncertainty type as one of '<' (any position before than rangeStart), '>' (any position after rangeStart), '~' (around the rangeStart), '[#-#] (to indicate a range where rangeStart could be located)'. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "rangeEnd",
+        "rangeStart"
+    ]
+}

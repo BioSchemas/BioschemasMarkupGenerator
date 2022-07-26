@@ -1,0 +1,1037 @@
+{
+    "title": "BioSample (v0.1-DRAFT-2019_11_12)",
+    "description": "A biological material entity that is representative of a whole. Comments: Typically samples are intended to be representative of the whole or aspects thereof. Examples of samples include biomedical samples (blood, urine) and plant specimens held at herbaria.",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "MedicalCondition": {
+            "title": "MedicalCondition",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "MedicalCondition",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "BioChemEntity": {
+            "title": "BioChemEntity",
+            "properties": {
+                "@type": {
+                    "default": "BioChemEntity",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@type",
+                "@id"
+            ]
+        },
+        "DefinedTerm": {
+            "title": "DefinedTerm",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "DefinedTerm",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Organization": {
+            "title": "Organization (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Organization/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "legalName": {
+                    "title": "legalName (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The official name of the organization, e.g. the registered company name. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "sameAs": {
+                    "title": "sameAs (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "topic": {
+                    "title": "topic (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Scientific topics that describe the organization and its activities, ideally using an ontology term from EDAM:Topic. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "title": "type (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The type of the organization should be selected from the Controlled Vocabulary column. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "legalName",
+                "name",
+                "sameAs",
+                "topic",
+                "type"
+            ]
+        },
+        "Person": {
+            "title": "Person (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "CreativeWork",
+                                "$ref": "#/definitions/CreativeWork"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "mainEntityOfPage",
+                "name"
+            ]
+        },
+        "GenderType": {
+            "title": "GenderType",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "GenderType",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ImageObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Gene": {
+            "title": "Gene (v1.0-RELEASE) Minimum Version",
+            "description": "This Gene profile specification presents the markup for describing a Gene.<h4>Summary of Changes</h4>Changes introduced on Gene profile 0.7-RELEASE in response to <a href=\"https://github.com/BioSchemas/specifications/issues/492\">issue 492</a><ul><li>add cardinality for associatedDisease and taxonomicRange following the one in Protein</li><li>add suggestion on controlled vocabularies for taxonomicRange following the one in Protein</li></ul>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Gene",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Gene/1.0-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "PropertyValue",
+                            "$ref": "#/definitions/PropertyValue"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "identifier",
+                "name"
+            ]
+        },
+        "Place": {
+            "title": "Place",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Place",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PostalAddress": {
+            "title": "PostalAddress",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PostalAddress",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Taxon": {
+            "title": "Taxon (v0.6-RELEASE) Minimum Version",
+            "description": "This profile aims to denote a taxon by common properties such as its scientific name, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI. <br/> <h4>Summary of Changes</h4> Changes since previous release of the Taxon Profile: <ul> <li>taxonRank promoted to Minimum level</li> <li>No other changes at Recommended level</li> <li>hasCategoryCode, scientificName, scientificNameAuthorship removed from Optional level</li> </ul> No Changes introduced since draft 0.5-DRAFT-2020_04_06",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Taxon",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Taxon/0.6-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Currently valid (zoological) or accepted (botanical) name for that taxon, with authorship and date information if known. Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "taxonRank": {
+                    "title": "taxonRank (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary (e.g. the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs) ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "$ref": "#/definitions/PropertyValue"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "name",
+                "taxonRank"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "BioSample",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/BioSample/0.1-DRAFT-2019_11_12",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "additionalProperty": {
+            "title": "additionalProperty (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    }
+                ]
+            }
+        },
+        "associatedDisease": {
+            "title": "associatedDisease (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Disease associated to this BioChemEntity. Such a disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "MedicalCondition",
+                        "$ref": "#/definitions/MedicalCondition"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "bioChemInteraction": {
+            "title": "bioChemInteraction (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A BioChemEntity that is know to interact with this item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "bioChemSimilarity": {
+            "title": "bioChemSimilarity (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A similar molecular entity, e.g., obtained by fingerprint similarity algorithm. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "biologicalRole": {
+            "title": "biologicalRole (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A role played by the molecular entity within a biological context. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    }
+                ]
+            }
+        },
+        "collector": {
+            "title": "collector (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The Person or Organization who collected the Sample. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "custodian": {
+            "title": "custodian (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The Person or Organization who is responsible for the Sample. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "dateCreated": {
+            "title": "dateCreated (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The date on which the CreativeWork was created or the item was added to a DataFeed. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Date",
+                        "$ref": "#/definitions/Date"
+                    },
+                    {
+                        "title": "DateTime",
+                        "$ref": "#/definitions/DateTime"
+                    }
+                ]
+            }
+        },
+        "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: A description of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "gender": {
+            "title": "gender (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Gender of the person. While http://schema.org/Male and http://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "GenderType",
+                        "$ref": "#/definitions/GenderType"
+                    }
+                ]
+            }
+        },
+        "hasBioChemEntityPart": {
+            "title": "hasBioChemEntityPart (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.\nInverse property:isPartOfBioChemEntity ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "hasMolecularFunction": {
+            "title": "hasMolecularFunction (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "hasRepresentation": {
+            "title": "hasRepresentation (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "identifier": {
+            "title": "identifier (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](https://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "image": {
+            "title": "image (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "ImageObject",
+                        "$ref": "#/definitions/ImageObject"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isControl": {
+            "title": "isControl (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Indicates whether the sample is being used as a normal control, may be in combination with another sample. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Boolean",
+                        "$ref": "#/definitions/Boolean"
+                    }
+                ]
+            }
+        },
+        "isEncodedByBioChemEntity": {
+            "title": "isEncodedByBioChemEntity (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Another BioChemEntity encoding this one.\nInverse property:encodesBioChemEntity. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Gene",
+                        "$ref": "#/definitions/Gene"
+                    }
+                ]
+            }
+        },
+        "isInvolvedInBiologicalProcess": {
+            "title": "isInvolvedInBiologicalProcess (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Biological process this BioChemEntity is involved in; please use PropertyValue if you want to include any evidence. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isLocatedInSubcellularLocation": {
+            "title": "isLocatedInSubcellularLocation (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isPartOfBioChemEntity": {
+            "title": "isPartOfBioChemEntity (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.\nInverse property:hasBioChemEntityPart ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "itemLocation": {
+            "title": "itemLocation (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Current location of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "Place",
+                        "$ref": "#/definitions/Place"
+                    },
+                    {
+                        "title": "PostalAddress",
+                        "$ref": "#/definitions/PostalAddress"
+                    }
+                ]
+            }
+        },
+        "locationCreated": {
+            "title": "locationCreated (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Place",
+                        "$ref": "#/definitions/Place"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The name of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "sameAs": {
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "samplingAge": {
+            "title": "samplingAge (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The age of the object when the Sample was created. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Integer",
+                        "$ref": "#/definitions/Integer"
+                    }
+                ]
+            }
+        },
+        "taxonomicRange": {
+            "title": "taxonomicRange (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The taxonomic grouping of the organism that expresses, encodes, or in someway related to the BioChemEntity. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "Taxon",
+                        "$ref": "#/definitions/Taxon"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "url": {
+            "title": "url (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: URL of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "description",
+        "identifier",
+        "name",
+        "url"
+    ]
+}

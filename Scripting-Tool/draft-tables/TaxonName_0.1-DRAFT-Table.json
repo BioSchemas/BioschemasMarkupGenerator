@@ -1,0 +1,26 @@
+{
+    "additionalType": {
+        "controlled_vocab": "\"@context\": [\n      \"http://schema.org\",\n      { \"tn\": \" http://rs.tdwg.org/ontology/voc/TaxonName#\" }\n  ],\n\"@type\" : \"TaxonName\",\n\"additionalType\": \"tn:TaxonName\"\n",
+        "marginality": "Optional"
+    },
+    "author": {
+        "example": "{\n    \"name\": \"Delphinapterus leucas\",\n    \"author\": \"(Pallas, 1776)\"\n}",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "\"identifier\": [\n    {\n        \"@type\": \"PropertyValue\",\n        \"name\": \"WoRMS id\",\n        \"propertyID\": \"https://www.wikidata.org/entity/P850\",\n        \"value\": \"137115\"\n    }\n]\n",
+        "marginality": "Optional"
+    },
+    "isBasedOn": {
+        "example": "\"isBasedOn\": {\n    \"@type\": \"ScholarlyArticle\",\n    \"name\": \"...\",\n    \"author\": [ \"First Author\", \"Second Author\" ],\n    \"datePublished\": \"...\"\n}\n",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n    \"name\": \"Delphinapterus leucas\",\n    \"author\": \"(Pallas, 1776)\"\n}",
+        "marginality": "Minimum"
+    },
+    "taxonRank": {
+        "example": "\"taxonRank\": [\n  \"http://rs.tdwg.org/ontology/voc/TaxonRank#Species\",\n  \"http://www.wikidata.org/entity/Q7432\",\n  \"species\"\n]\n",
+        "marginality": "Recommended"
+    }
+}

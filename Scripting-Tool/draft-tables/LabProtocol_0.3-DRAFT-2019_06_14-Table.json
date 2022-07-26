@@ -1,0 +1,26 @@
+{
+    "additionalType": {
+        "controlled_vocab": "sp:ExperimentalProtocol",
+        "marginality": "Optional"
+    },
+    "ChEBI:reagent": {
+        "controlled_vocab": "ChEBI, PubChem",
+        "marginality": "Minimum"
+    },
+    "hasPart": {
+        "controlled_vocab": "SMART Protocols",
+        "marginality": "Recommended"
+    },
+    "instrument": {
+        "controlled_vocab": "BAO, EFO, ERO, OBI",
+        "marginality": "Minimum"
+    },
+    "purpose": {
+        "controlled_vocab": "SMART Protocols",
+        "marginality": "Minimum"
+    },
+    "sample": {
+        "controlled_vocab": "NCBI Taxonomy, Uberon",
+        "marginality": "Minimum"
+    }
+}

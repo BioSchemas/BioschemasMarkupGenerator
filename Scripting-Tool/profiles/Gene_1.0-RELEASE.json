@@ -1,0 +1,721 @@
+{
+    "title": "Gene (v1.0-RELEASE)",
+    "description": "This Gene profile specification presents the markup for describing a Gene.<h4>Summary of Changes</h4>Changes introduced on Gene profile 0.7-RELEASE in response to <a href=\"https://github.com/BioSchemas/specifications/issues/492\">issue 492</a><ul><li>add cardinality for associatedDisease and taxonomicRange following the one in Protein</li><li>add suggestion on controlled vocabularies for taxonomicRange following the one in Protein</li></ul>",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Gene": {
+            "title": "Gene (v1.0-RELEASE) Minimum Version",
+            "description": "This Gene profile specification presents the markup for describing a Gene.<h4>Summary of Changes</h4>Changes introduced on Gene profile 0.7-RELEASE in response to <a href=\"https://github.com/BioSchemas/specifications/issues/492\">issue 492</a><ul><li>add cardinality for associatedDisease and taxonomicRange following the one in Protein</li><li>add suggestion on controlled vocabularies for taxonomicRange following the one in Protein</li></ul>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Gene",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Gene/1.0-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "identifier": {
+                    "title": "identifier (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        },
+                        {
+                            "title": "PropertyValue",
+                            "$ref": "#/definitions/PropertyValue"
+                        },
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "identifier",
+                "name"
+            ]
+        },
+        "MedicalCondition": {
+            "title": "MedicalCondition",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "MedicalCondition",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "BioChemEntity": {
+            "title": "BioChemEntity",
+            "properties": {
+                "@type": {
+                    "default": "BioChemEntity",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@type",
+                "@id"
+            ]
+        },
+        "AnatomicalStructure": {
+            "title": "AnatomicalStructure",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "AnatomicalStructure",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "AnatomicalSystem": {
+            "title": "AnatomicalSystem",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "AnatomicalSystem",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "DefinedTerm": {
+            "title": "DefinedTerm",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "DefinedTerm",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ImageObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "Taxon": {
+            "title": "Taxon (v0.6-RELEASE) Minimum Version",
+            "description": "This profile aims to denote a taxon by common properties such as its scientific name, taxonomic rank and vernacular names. It is also a means to link to existing taxonomic registers where each taxon has a URI. <br/> <h4>Summary of Changes</h4> Changes since previous release of the Taxon Profile: <ul> <li>taxonRank promoted to Minimum level</li> <li>No other changes at Recommended level</li> <li>hasCategoryCode, scientificName, scientificNameAuthorship removed from Optional level</li> </ul> No Changes introduced since draft 0.5-DRAFT-2020_04_06",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Taxon",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Taxon/0.6-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Currently valid (zoological) or accepted (botanical) name for that taxon, with authorship and date information if known. Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "taxonRank": {
+                    "title": "taxonRank (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary (e.g. the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs) ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "PropertyValue",
+                                "$ref": "#/definitions/PropertyValue"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "name",
+                "taxonRank"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "Gene",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/Gene/1.0-RELEASE",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "alternateName": {
+            "title": "alternateName (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An alias for the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "alternativeOf": {
+            "title": "alternativeOf (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Is variant of. Use this property to express when a gene is a variant of any other gene. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Gene",
+                        "$ref": "#/definitions/Gene"
+                    }
+                ]
+            }
+        },
+        "associatedDisease": {
+            "title": "associatedDisease (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Disease associated to this BioChemEntity ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "MedicalCondition",
+                        "$ref": "#/definitions/MedicalCondition"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "description": {
+            "title": "description (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "encodesBioChemEntity": {
+            "title": "encodesBioChemEntity (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: For genes, this property is used to express in a generic way gene products encoded by this gene, for instance RNA or Protein Schema.org: This property is used to link to gene products encoded (even indirectly) from this gene such as RNA or proteins. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "expressedIn": {
+            "title": "expressedIn (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Tissue, organ, biological sample, etc in which activity of this gene has\n been observed experimentally. For example brain, digestive system. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "AnatomicalStructure",
+                        "$ref": "#/definitions/AnatomicalStructure"
+                    },
+                    {
+                        "title": "AnatomicalSystem",
+                        "$ref": "#/definitions/AnatomicalSystem"
+                    },
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    }
+                ]
+            }
+        },
+        "hasBioChemEntityPart": {
+            "title": "hasBioChemEntityPart (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: For genes, it can be used to link to gene sequence annotations such as variants or so.\n\n Schema.org: Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.\nInverse property: isPartOfBioChemEntity ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "hasBioPolymerSequence": {
+            "title": "hasBioPolymerSequence (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A symbolic representation of a BioChemEnity. For example, a nucleotide \nsequence of a Gene or an amino acid sequence of a Protein. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "hasMolecularFunction": {
+            "title": "hasMolecularFunction (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: GO molecular function enabled by the gene/protein. \n ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "hasRepresentation": {
+            "title": "hasRepresentation (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: For genes it can be used to link to a page with the corresponding sequence. If you want to better define the nature of the representation, use a PropertyValue as described in additionalProperty or a third-party ontology predicate. Schema.org: A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "hasStatus": {
+            "title": "hasStatus (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: One of pseudogene, dead, killed, live, predicted, suppressed. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "identifier": {
+            "title": "identifier (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "image": {
+            "title": "image (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
+            "oneOf": [
+                {
+                    "title": "ImageObject",
+                    "$ref": "#/definitions/ImageObject"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "isInvolvedInBiologicalProcess": {
+            "title": "isInvolvedInBiologicalProcess (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: GO biological process this gene/protein is involved in.\n ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isLocatedInSubcellularLocation": {
+            "title": "isLocatedInSubcellularLocation (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: GO subcellular location this gene/protein is located in.\n ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isPartOfBioChemEntity": {
+            "title": "isPartOfBioChemEntity (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: For genes, it is recommended to at least specify the DNA/chromosome containing this gene Schema.org: Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.\nInverse property: hasBioChemEntity ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "mainEntityOfPage": {
+            "title": "mainEntityOfPage (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Link via DataRecord to the main DataRecord representing this entity in a dataset. It is usually preferred to use mainEntity from a DataRecord to point to its corresponding entity. Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](http://schema.org/docs/datamodel.html#mainEntityBackground) for details.\nInverse property: mainEntity. ",
+            "oneOf": [
+                {
+                    "title": "CreativeWork",
+                    "$ref": "#/definitions/CreativeWork"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "sameAs": {
+            "title": "sameAs (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "taxonomicRange": {
+            "title": "taxonomicRange (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The taxonomic grouping of the organism that expresses, encodes, or in someway related to the BioChemEntity. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "Taxon",
+                        "$ref": "#/definitions/Taxon"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Link to the official webpage associated to this entity. Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "identifier",
+        "name"
+    ]
+}

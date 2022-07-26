@@ -1,0 +1,120 @@
+{
+    "about": {
+        "example": "\"about\": [{\n  \"@type\": \"DefinedTerm\", \n  \"@id\": \"http://edamontology.org/topic_3316\",\n  \"inDefinedTermSet\": \"http://edamontology.org\",\n  \"termCode\": \"topic_3316\",\n  \"name\": \"Computer Science\",\n  \"url\": \"https://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Ftopic_3316\"\n}, {\n   \"@id\": \"https://zenodo.org/record/1480624#.W-2as3r0nCM\"\n}]",
+        "controlled_vocab": "[EDAM Topic Ontology](http://edamontology.org)",
+        "marginality": "Recommended"
+    },
+    "abstract": {
+        "example": "\"abstract\": \"This tutorial will take you through the basic usage of the command line shell. In it, you will discover what a shell is, skills for directory navigation, file manipulation, and how to run tools\"\n",
+        "marginality": "Recommended"
+    },
+    "accessibilitySummary": {
+        "example": "\"accessibilitySummary\": \"Visual elements are not described.\"\n",
+        "marginality": "Optional"
+    },
+    "audience": {
+        "example": "\"audience\": {\n  \"@type\": \"Audience\",\n  \"audienceType\": \"PhD students\" \n}",
+        "marginality": "Recommended"
+    },
+    "author": {
+        "example": "\"author\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Elizabeth Windsor\",\n  \"email\": \"e.r.windsor@gmail.com\"\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Manchester\"\n}]",
+        "marginality": "Recommended"
+    },
+    "contributor": {
+        "example": "\"contributor\":  [{\n  \"@type\": \"Person\",\n  \"name\": \"Bob Smith\",\n},{ \n  \"@type\": \"Organization\",\n  \"name\": \"University of Edinburgh\"\n}]",
+        "marginality": "Optional"
+    },
+    "dateCreated": {
+        "example": "\"dateCreated\": \"2018-07-04T11:24:13+00:00\"",
+        "marginality": "Optional"
+    },
+    "dateModified": {
+        "example": "\"dateModified\": \"2018-08-04T19:34:12+00:00\"",
+        "marginality": "Optional"
+    },
+    "datePublished": {
+        "example": "\"datePublished\": \"2018-08-04T19:34:12+00:00\"",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "\"description\": \"This tutorial will take you through the basic usage of the command line shell. In it, you will discover what a shell is, skills for directory navigation, file manipulation, and how to run tools. To complete this training material you will need to have a shell (linux), powershell (windows), or terminal (mac) ready. You do not need any previous experience to complete the tasks\"\n",
+        "marginality": "Minimum"
+    },
+    "featuredInEvent": {
+        "example": "\"featuredIn\": [{\n\"@type\": \"CourseInstance\",\n\"name\": \"CS101 Summer 2009\",\n\"url\": \"http://101.cs.org\"\n}]",
+        "marginality": "Optional"
+    },
+    "hasPart": {
+        "example": "\"hasPart\": [\n{\n    \"@type\": \"CreativeWork\",\n    \"url\": \"http://directoryVisuals.io\",\n    \"name\": \"Shell Directory Visualizer\"\n }, \n {\n    \"@type\": \"CreativeWork\",\n    \"url\": \"http://shell.io\",\n    \"name\": \"Interactive Shell tutorial\"\n}]",
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "\"identifier\": [\n  \"http://identifiers.org/my-org/13412\",\n  \"http://dx.doi.org/12349302\"\n]",
+        "marginality": "Recommended"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\": [\"en-US\", \"fr-FR\"]",
+        "controlled_vocab": "[IETF BCP 47 standard](http://tools.ietf.org/html/bcp47)",
+        "marginality": "Recommended"
+    },
+    "isPartOf": {
+        "example": "\"isPartOf\": [{\n      \"@type\": \"CreativeWork\",\n      \"url\": \"http://computerScience4LS.org\",\n      \"name\": \"The complete Computer Science for Life Scientists Coursebook\"\n}]",
+        "marginality": "Optional"
+    },
+    "keywords": {
+        "example": "\"keywords\": \"Unix, Shell, Command Line Tools, Terminal, Bash\"",
+        "marginality": "Minimum"
+    },
+    "learningOutcome": {
+        "example": "\"learningOutcome\": [\"The student will be able to recall shell commands\", \"The student will be able to write code to copy files\", \"The student will be able to discover new commands on their own\"]\n",
+        "controlled_vocab": "It is recommended that you utilize terms from Blooms taxonomy",
+        "marginality": "Recommended"
+    },
+    "learningResourceType": {
+        "example": "\"learningResourceType\": [\"handout\"]",
+        "marginality": "Recommended"
+    },
+    "license": {
+        "example": "\"license\": [\"https://creativecommons.org/licenses/by/4.0/\"]",
+        "marginality": "Recommended"
+    },
+    "mentions": {
+        "example": "\"mentions\": [{\n  \"@type\": \"Tool\",\n  \"name\": \"Galaxy\",\n  \"url\": \"https://bio.tools/galaxy\",\n  \"description\": \"Open, web-based platform for data intensive biomedical research\"\n},{\n  \"@type\": \"Dataset\",\n  \"name\": \"European Genome-phenome Archive\",\n  \"url\": \"https://www.ebi.ac.uk/ega/home\",\n  \"description\": \"The EGA archives a large number of datasets, the access to which is controlled by a Data Access Committee (DAC).\"\n}]",
+        "marginality": "Recommended"
+    },
+    "name": {
+        "example": "\"name\": \"The Unix Command Line tutorial for Bioinformaticians\"",
+        "marginality": "Minimum"
+    },
+    "skillLevel": {
+        "example": "\"skillLevel\": \"beginner\"",
+        "controlled_vocab": "- Beginner\n- Intermediate\n- Advanced",
+        "marginality": "Recommended"
+    },
+    "status": {
+        "example": "\"status\": \"active\"",
+        "controlled_vocab": "- Active\n- Under development\n- Archived",
+        "marginality": "Optional"
+    },
+    "timeRequired": {
+        "example": "\"timeRequired\": \"P1W2DT5H\"",
+        "controlled_vocab": "[ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601).",
+        "marginality": "Recommended"
+    },
+    "translatedInto": {
+        "example": "\"translatedInto\": [\n\"fr-FR\"\n]",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"http://teach-me-ctl.com/tutorial\"",
+        "marginality": "Recommended"
+    },
+    "uses": {
+        "example": "\"uses\": [{\n  \"@type\": \"Tool\",\n  \"name\": \"Galaxy\",\n  \"url\": \"https://bio.tools/galaxy\",\n  \"description\": \"Open, web-based platform for data intensive biomedical research\"\n},{\n  \"@type\": \"Dataset\",\n  \"name\": \"European Genome-phenome Archive\",\n  \"url\": \"https://www.ebi.ac.uk/ega/home\",\n  \"description\": \"The EGA archives a large number of datasets, the access to which is controlled by a Data Access Committee (DAC).\"\n}]",
+        "marginality": "Recommended"
+    },
+    "version": {
+        "example": "\"version\": \"0.2.0\"",
+        "marginality": "Optional"
+    }
+}

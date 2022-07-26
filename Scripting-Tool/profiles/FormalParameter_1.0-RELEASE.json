@@ -1,0 +1,208 @@
+{
+    "title": "FormalParameter (v1.0-RELEASE)",
+    "description": "A FormalParameter is an identified variable used to stand for the actual value(s) are consumed/produced by a ComputationalWorkflow<h3>Change Log</h3><p>No change from 0.1-DRAFT-2020_07_21</p>",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Thing": {
+            "title": "Thing",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Thing",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "FormalParameter",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "additionalType": {
+            "title": "additionalType (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The type of data consumed / produced at the FormalParameter.\n\nIt is strongly recommented that this be specified. If it is not specified, then nothing should be assumed about the type of the FormalParameter. Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "defaultValue": {
+            "title": "defaultValue (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The default value for the FormalParameter. This is commonly only used for Inputs. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "Thing",
+                    "$ref": "#/definitions/Thing"
+                }
+            ]
+        },
+        "description": {
+            "title": "description (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The description may include verbatim the ComputationalWorkflow's description of the FormalParameter and its type Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "encodingFormat": {
+            "title": "encodingFormat (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: URLs to accepted formats.\n\nIt is strongly recommented that this be specified. If it is not specified, then nothing should be assumed about the encoding formats of the FormalParameter. Schema.org: Media type typically expressed using a MIME format (see IANA site and MDN reference) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.).\n\nIn cases where a CreativeWork has several media type representations, encoding can be used to indicate each MediaObject alongside particular encodingFormat information.\n\nUnregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "identifier": {
+            "title": "identifier (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Note that this is identification of what is produced / consumed by the FormalParameter.\n\nThe identifier may, for example, indicate a gene position that is expected to be read. The value supplied as the actual value will be read from that position. Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "valueRequired": {
+            "title": "valueRequired (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: If the FormalParameter must be specified. This is commonly only used for Inputs ",
+            "oneOf": [
+                {
+                    "title": "Boolean",
+                    "$ref": "#/definitions/Boolean"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "name"
+    ]
+}

@@ -1,6 +1,6 @@
 "<script type=""application/ld+json"">
     {
-      ""@context"": ""http://schema.org"",
+      ""@context"": ""https://schema.org"",
       ""@type"": ""DataCatalog"",
       ""description"": ""OMA is a project that aims to identify orthologs among publicly available, complete genomes."",
       ""keywords"": ""evolutionary relation, orthology prediction, paralogy"",

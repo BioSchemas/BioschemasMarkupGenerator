@@ -1,0 +1,886 @@
+{
+    "title": "ComputationalTool (v0.6-DRAFT)",
+    "description": "The Life Science Tools specification provides a way to describe bioscience tools and software on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent such tools in Web pages and applications. The goal of the specification is to make it easier to discover, exchange and integrate information about life science tools across the Internet.<h3>Summary of Changes</h3>    <p>Changes since the 0.5-DRAFT of the ComputationalTools profile:</p>    <ul>        <li>provided consumption use cases</li>        <li>renamed profile to ComputationalTool</li>        <li>replaced the expected type of citation to URL </li>        <li>renamed edam:has_input to input with a FormalParameter as expected type</li>        <li>replaced serviceOutput property by output , with a FormalParameter as expected type</li>        <li>removed type SoftwareSourceCode</li>        <li>minor typos have been fixed</li>    </ul>",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "Organization": {
+            "title": "Organization (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "Provides a way to describe bioscience organizations on the World Wide Web. It defines metadata terms that can be used in the code of web pages and applications, and builds on top of existing technologies and standards. The goal of the specification is to make it easier to discover, exchange and integrate life science organization profiles across the Internet.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Organization",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Organization/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "legalName": {
+                    "title": "legalName (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The official name of the organization, e.g. the registered company name. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                },
+                "sameAs": {
+                    "title": "sameAs (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "$ref": "#/definitions/URL"
+                        }
+                    ]
+                },
+                "topic": {
+                    "title": "topic (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: Scientific topics that describe the organization and its activities, ideally using an ontology term from EDAM:Topic. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "title": "type (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Bioschemas: The type of the organization should be selected from the Controlled Vocabulary column. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "legalName",
+                "name",
+                "sameAs",
+                "topic",
+                "type"
+            ]
+        },
+        "Person": {
+            "title": "Person (v0.2-DRAFT-2019_07_19) Minimum Version",
+            "description": "The Life Science Person specification provides a way to describe bioscience events on the World Wide Web. It defines a set of metadata and vocabularies, built on top of existing technologies and standards, that can be used to represent the profile information of people in Web pages and applications. The goal of the specification is to make it easier to discover, life science profile information.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "Person",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: A description of the item. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Text",
+                                "$ref": "#/definitions/Text"
+                            }
+                        ]
+                    }
+                },
+                "mainEntityOfPage": {
+                    "title": "mainEntityOfPage (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details.\nInverse property: mainEntity. ",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "CreativeWork",
+                                "$ref": "#/definitions/CreativeWork"
+                            },
+                            {
+                                "title": "URL",
+                                "$ref": "#/definitions/URL"
+                            }
+                        ]
+                    }
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "description",
+                "mainEntityOfPage",
+                "name"
+            ]
+        },
+        "CreativeWork": {
+            "title": "CreativeWork",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "CreativeWork",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "FormalParameter": {
+            "title": "FormalParameter (v1.0-RELEASE) Minimum Version",
+            "description": "A FormalParameter is an identified variable used to stand for the actual value(s) are consumed/produced by a ComputationalWorkflow<h3>Change Log</h3><p>No change from 0.1-DRAFT-2020_07_21</p>",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "FormalParameter",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "name": {
+                    "title": "name (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: The name of the item. ",
+                    "oneOf": [
+                        {
+                            "title": "Text",
+                            "$ref": "#/definitions/Text"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "name"
+            ]
+        },
+        "Product": {
+            "title": "Product",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Product",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "ComputerLanguage": {
+            "title": "ComputerLanguage",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ComputerLanguage",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "SoftwareApplication": {
+            "title": "SoftwareApplication",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "SoftwareApplication",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "ComputationalTool",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "additionalType": {
+            "title": "additionalType (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Type of tool e.g. Command-line tool, Web application etc.\n**Note:** Bioschemas have changed [URL](http://schema.org/URL) to [Text](http://schema.org/Text) in the Expected Types. This will be reverted once Bio.Tools provides stable URIs for tool types. Schema.org: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "applicationCategory": {
+            "title": "applicationCategory (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The high-level category in the global context, **please always use \"Computational science tool\"**. Schema.org: Type of software application, e.g. 'Game, Multimedia'. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "applicationSubCategory": {
+            "title": "applicationSubCategory (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Use an [EDAM:Topic](http://edamontology.org/topic_0003) to describe the category of application Schema.org: Subcategory of the application, e.g. 'Arcade Game'. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "applicationSuite": {
+            "title": "applicationSuite (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A suite of tools, to which the tool belongs. Schema.org: The name of the application suite to which the application belongs (e.g. Excel belongs to Office). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "author": {
+            "title": "author (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "citation": {
+            "title": "citation (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Publication about this tool. Schema.org: A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "codeRepository": {
+            "title": "codeRepository (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Link to the source code repository of the tool. Schema.org: Link to the repository where the un-compiled, human readable code and related code is located (SVN, github, CodePlex). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "contributor": {
+            "title": "contributor (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A secondary contributor to the CreativeWork or Event. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "description": {
+            "title": "description (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: A short description of the tool. Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "discussionUrl": {
+            "title": "discussionUrl (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A link to the page containing the comments of the CreativeWork. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "downloadUrl": {
+            "title": "downloadUrl (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A link to the downloadable(s). Schema.org: If the file can be downloaded, URL to download the binary. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "featureList": {
+            "title": "featureList (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Functionality provided by the tool.\n**Note:** Bioschemas have removed [Text](http://schema.org/Text) from the Expected Types Schema.org: Features or modules provided by this application (and possibly required by other applications). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "funder": {
+            "title": "funder (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A person or organization that supports (sponsors) something through some kind of financial contribution. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "hasPart": {
+            "title": "hasPart (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Indicates any software dependency Schema.org: Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).\nInverse property: isPartOf. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "identifier": {
+            "title": "identifier (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg) for more details. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "input": {
+            "title": "input (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Specification of a consumed input. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "FormalParameter",
+                        "$ref": "#/definitions/FormalParameter"
+                    }
+                ]
+            }
+        },
+        "isAccessibleForFree": {
+            "title": "isAccessibleForFree (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A flag to signal that the tool or the service are available to be used for free. Schema.org: A flag to signal that the item, event, or place is accessible for free. Supersedes free. ",
+            "oneOf": [
+                {
+                    "title": "Boolean",
+                    "$ref": "#/definitions/Boolean"
+                }
+            ]
+        },
+        "isBasedOn": {
+            "title": "isBasedOn (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A tool or another work which this tool is based on, or is an extension, distribution, or deployment of. Schema.org: A resource from which this work is derived or from which it is a modification or adaption. Supersedes isBasedOnUrl. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "Product",
+                        "$ref": "#/definitions/Product"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isPartOf": {
+            "title": "isPartOf (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A collection, other than a suite of tools, to which the tool belongs. Schema.org: Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.\nInverse property:hasPart. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "keywords": {
+            "title": "keywords (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Additional keywords or tags important for this tool. Multiple entries are delimited by commas. Schema.org: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "license": {
+            "title": "license (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: The license of a software, curated dataset, etc. Schema.org: A license document that applies to this content, typically indicated by URL. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: The name of the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "operatingSystem": {
+            "title": "operatingSystem (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Operating systems on which the tool can be used (without additional wrapping). Schema.org: Operating systems supported (Windows 7, OSX 10.6, Android 1.6). ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "output": {
+            "title": "output (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Specification of a produced output. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "FormalParameter",
+                        "$ref": "#/definitions/FormalParameter"
+                    }
+                ]
+            }
+        },
+        "programmingLanguage": {
+            "title": "programmingLanguage (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: The main programming language(s) used to build or execute the tool. Schema.org: The computer programming language. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "ComputerLanguage",
+                        "$ref": "#/definitions/ComputerLanguage"
+                    }
+                ]
+            }
+        },
+        "provider": {
+            "title": "provider (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: The provider organization of a web application, database portal, web service, etc.\n**Note:** Bioschemas have removed [Person](http://schema.org/Person) from the Expected Types. Schema.org: The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedescarrier. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Organization",
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "title": "Person",
+                        "$ref": "#/definitions/Person"
+                    }
+                ]
+            }
+        },
+        "softwareAddOn": {
+            "title": "softwareAddOn (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: Additional sub-tools (add-ons, plug-ins, tools in a suite, etc.) that are included in the tool or workflow. Schema.org: Additional content for a software application. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "SoftwareApplication",
+                        "$ref": "#/definitions/SoftwareApplication"
+                    }
+                ]
+            }
+        },
+        "softwareHelp": {
+            "title": "softwareHelp (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A documentation of the tool. Schema.org: Software application help. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "CreativeWork",
+                        "$ref": "#/definitions/CreativeWork"
+                    }
+                ]
+            }
+        },
+        "softwareVersion": {
+            "title": "softwareVersion (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Version(s) of the tool, which this information is valid for. Can also be a comma-delimited list and include hyphen-separated ranges of versions. Schema.org: Version of the software instance. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "thumbnailUrl": {
+            "title": "thumbnailUrl (Optional)",
+            "propertyOrder": 3,
+            "description": "Bioschemas: A small image representing the tool, such as an icon. Schema.org: A thumbnail image relevant to the Thing. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "url": {
+            "title": "url (Minimum)",
+            "propertyOrder": 1,
+            "description": "Bioschemas: Homepage of the tool. Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "description",
+        "name",
+        "url"
+    ]
+}

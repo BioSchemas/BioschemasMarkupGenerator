@@ -1,0 +1,42 @@
+{
+    "contributor": {
+        "example": "\"contributor\" : \"Stefan Helfrich\"",
+        "marginality": "Recommended"
+    },
+    "creator": {
+        "example": "\"creator\" : \"Thomas Duigou\"",
+        "marginality": "Minimum"
+    },
+    "dateCreated": {
+        "example": "\"dateCreated\" ; \"2019-04-30\"",
+        "marginality": "Minimum"
+    },
+    "dateModified": {
+        "example": "\"dateModified\" : \"2019-11-05\"",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "\"description\": \"RetroPath2.0 builds a reaction network from a set of source compounds to a set of sink compounds. When applied in a retrosynthetic fashion, the source is composed of the target compounds and the sink is composed of the available reactants (for instance in the context of metabolic engineering the sink is the set of native metabolites of a chassis strain). From amongst all the chemical reactions generated using RetroPath2.0 (in the retrosynthetic way), only a subset may effectively link a source to a subset of sink compounds. This sub-network is considered as a scope and is output in dedicated files.\"",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "\"identifier\": \"72782bbecfeff6f3e43e2278ee3353adf4515207\"",
+        "marginality": "Optional"
+    },
+    "license": {
+        "example": "\"license\" : \"https://spdx.org/licenses/CC-BY-4.0.html\"",
+        "marginality": "Recommended"
+    },
+    "name": {
+        "example": "\"name\": \"RetroPath2.0 IBISBA workflow node\"",
+        "marginality": "Minimum"
+    },
+    "sdPublisher": {
+        "example": "\"sdPublisher\" : \"IBISBA Admin\"",
+        "marginality": "Minimum"
+    },
+    "version": {
+        "example": "\"version\" : 1",
+        "marginality": "Minimum"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "additionalType": {
+        "example": "{\n    \"@type\" : [ \"BioChemEntity\", \"Taxon\" ],\n    \"additionalType\": \"dwc:Taxon\"\n}",
+        "marginality": "Optional"
+    },
+    "alternateName": {
+        "example": "{\n    \"name\": \"Delphinapterus leucas (Pallas, 1776)\",\n    \"alternateName\": \"Balaena albicans Muller, 1776\"\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n    \"name\": \"Delphinapterus leucas (Pallas, 1776)\",\n    \"alternateName\": \"Balaena albicans Muller, 1776\"\n}",
+        "marginality": "Minimum"
+    },
+    "rank": {
+        "example": "{\n    \"dwc:taxonRank\": \"species\",    \n    \"tc:rank\": \"http://rs.tdwg.org/ontology/voc/TaxonRank#Species\",\n}",
+        "marginality": "Recommended"
+    },
+    "sameAs": {
+        "example": "{\n    \"sameAs\": [\n        \"http://eol.org/pages/328541\",\n        \"http://en.wikipedia.org/w/index.php?title=Beluga_whale\",\n        \"http://www.catalogueoflife.org/annual-checklist/details/species/id/6850357\",\n        \"http://www.iucnredlist.org/details/6335\"\n    ]\n}",
+        "marginality": "Optional"
+    },
+    "scientificName": {
+        "example": "{\n    \"dwc:scientificName\": \"Delphinapterus leucas (Pallas, 1776)\",\n    \"dwc:scientificNameAuthorship\": \"(Pallas, 1776)\"\n}",
+        "marginality": "Optional"
+    },
+    "scientificNameAuthorship": {
+        "example": "{\n    \"dwc:scientificName\": \"Delphinapterus leucas (Pallas, 1776)\",\n    \"dwc:scientificNameAuthorship\": \"(Pallas, 1776)\"\n}",
+        "marginality": "Optional"
+    },
+    "taxonRank": {
+        "example": "{\n    \"dwc:taxonRank\": \"species\",    \n    \"tc:rank\": \"http://rs.tdwg.org/ontology/voc/TaxonRank#Species\",\n}",
+        "marginality": "Recommended"
+    },
+    "vernacularName": {
+        "example": "{\n    \"dwc:vernacularName\": [\n        { \"@language\": \"en\", \"@value\": \"Beluga Whale\" },\n        { \"@language\": \"fr\", \"@value\": \"B\u00e9louga\" }\n    ]\n}",
+        "marginality": "Optional"
+    }
+}

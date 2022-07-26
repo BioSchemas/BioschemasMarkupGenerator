@@ -1,0 +1,38 @@
+{
+    "about": {
+        "example": "\"about\": \"Extended versions of accepted papers submitted to Bio-ontologies\"",
+        "marginality": "Optional"
+    },
+    "editor": {
+        "example": "\"editor\": [\n  {\n    \"@type\": \"Person\",\n    \"givenName\": \"Larisa\",\n    \"familyname\": \"Soldatova\"\n  }\n]",
+        "marginality": "Optional"
+    },
+    "hasPart": {
+        "example": "\"hasPart\": [\n  {\"@id\": \"https://doi.org/10.1186/2041-1480-4-s1-s5\"}\n]\n",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "\"identifier\": \"https://jbiomedsem.biomedcentral.com/articles/supplements/volume-4-supplement-1\"",
+        "marginality": "Recommended"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\": \"EN\"",
+        "marginality": "Optional"
+    },
+    "isPartOf": {
+        "example": "\"isPartOf\": [\n  {\n    \"@type\": \"Periodical\",\n    \"identifier\": \"issn:2041-1480\",\n    \"name\": \"Journal of Biomedical Semantics\"\n  }\n]",
+        "marginality": "Recommended"
+    },
+    "keywords": {
+        "example": "\"keywords\": \"Bio-ontologies, ISMB\"",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "\"url\": \"https://jbiomedsem.biomedcentral.com/articles/supplements/volume-4-supplement-1\"",
+        "marginality": "Minimum"
+    },
+    "volumeNumber": {
+        "example": "\"volumeNumber\": \"Volume 4 supplement 1\"",
+        "marginality": "Minimum"
+    }
+}

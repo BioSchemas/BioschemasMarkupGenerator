@@ -1,0 +1,105 @@
+{
+    "author": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"@id\": \"http://orcid.org/1234\"\n}",
+        "marginality": "Recommended"
+    },
+    "bioSampleUsed": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"bioSampleUsed\": \"Mouse\"\n}",
+        "controlled_vocab": "NCBI Taxonomy, Uberon",
+        "marginality": "Minimum"
+    },
+    "citation": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"citation\": {\n    \"@type\": \"CreativeWork\",\n    \"@id\": \"http://doi.org/1234/1234\"\n}",
+        "marginality": "Recommended"
+    },
+    "dateCreated": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"dateCreated\": \"2014-10-01T19:30\"\n}",
+        "marginality": "Optional"
+    },
+    "dateModified": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"dateModified\": \"2014-10-01T19:30\"\n}",
+        "marginality": "Optional"
+    },
+    "datePublished": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"datePublished\": \"2014-10-01T19:30\"\n}",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"description\": \"Quick overview of this lab protocol. Step 1: Use a solvent resistant maker... Step2: Record weight\"\n}",
+        "marginality": "Optional"
+    },
+    "headline": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"headline\": \"Nanopore community protocol\"\n}",
+        "marginality": "Minimum"
+    },
+    "identifier": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"identifier\": \"DOI:1234\"\n}",
+        "marginality": "Recommended"
+    },
+    "isBasedOn": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"citation\": {\n    \"@type\": \"CreativeWork\",\n    \"@id\": \"http://doi.org/0147/1234\"\n}",
+        "marginality": "Optional"
+    },
+    "isPartOf": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"citation\": {\n    \"@type\": \"CreativeWork\",\n    \"@id\": \"http://doi.org/4567/1234\"\n}",
+        "marginality": "Recommended"
+    },
+    "keywords": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"keywords\": \"wet lab, disease, chemical\"\n}",
+        "marginality": "Minimum"
+    },
+    "labEquipmentUsed": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"labEquipmentUsed\": \"beaker\"\n}",
+        "controlled_vocab": "BAO, EFO, ERO, OBI",
+        "marginality": "Minimum"
+    },
+    "license": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"URL\": \"https://creativecommons.org/licenses/by/4.0/\"\n}",
+        "marginality": "Recommended"
+    },
+    "performTime": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"performTime\": \"10:00:00\"\n}",
+        "marginality": "Optional"
+    },
+    "prepTime": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"prepTime\": \"5:00:00\"\n}",
+        "marginality": "Optional"
+    },
+    "protocolAdvantage": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"protocolAdvantage\": \"This protocol has the advantage of improving processing times for ...\"\n}",
+        "marginality": "Recommended"
+    },
+    "protocolApplication": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"protocolApplication\": \"This protocol can be applied to ...\"\n}",
+        "marginality": "Recommended"
+    },
+    "protocolLimitation": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"protocolLimitation\": \"This protocol has the limitation of not considering ...\"\n}",
+        "marginality": "Recommended"
+    },
+    "protocolOutcome": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"protocolOutcome\": \"The main outcome of this protocol is ...\"\n}",
+        "marginality": "Recommended"
+    },
+    "protocolPurpose": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"protocolPurpose\": \"This protocol has been defined to perform ...\"\n}",
+        "marginality": "Minimum"
+    },
+    "reagentUsed": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"reagentUsed\": {\n    \"@type\": \"DefinedTerm\",\n    \"@id\": \"http://purl.obolibrary.org/obo/CHEBI_53438\"\n  }\n}",
+        "controlled_vocab": "ChEBI, PubChem",
+        "marginality": "Minimum"
+    },
+    "softwareUsed": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"softwareUsed\": \"https://github.com/biotea/biotea-annotation\"\n}",
+        "marginality": "Recommended"
+    },
+    "step": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"step\": \"First, measure the solution in a ...\"\n}",
+        "marginality": "Recommended"
+    },
+    "totalTime": {
+        "example": "{\n  \"@type\": \"LabProtocol\",\n  \"totalTime\": \"15:00:00\"\n}",
+        "marginality": "Recommended"
+    }
+}

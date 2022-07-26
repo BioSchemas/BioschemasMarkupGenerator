@@ -1,0 +1,42 @@
+{
+    "commentCount": {
+        "example": "\"commentCount\": 5",
+        "marginality": "Optional"
+    },
+    "creator": {
+        "example": "\"creator\": [\n  {\n    \"@type\": \"Organization\",\n    \"name\": Biotea project\"\n  }\n]",
+        "marginality": "Optional"
+    },
+    "dateCreated": {
+        "example": "\"dateCreated\": \"2013-01-30\"",
+        "marginality": "Optional"
+    },
+    "dateModified": {
+        "example": "\"dateModified\": \"2013-01-30\"",
+        "marginality": "Optional"
+    },
+    "datePublished": {
+        "example": "\"dateCreated\": \"2013-03-30\"",
+        "marginality": "Optional"
+    },
+    "inLanguage": {
+        "example": "\"inLanguage\": \"EN\"",
+        "marginality": "Optional"
+    },
+    "isPartOf": {
+        "example": "\"isPartOf\": [\n  {\"@id\": \"https://doi.org/10.5281/zenodo.839715\"}\n]",
+        "marginality": "Optional"
+    },
+    "mainEntity": {
+        "example": "\"mainEntity\": {\n  \"@type\": \"DefinedTerm\",\n  \"inDefinedTermSet\": \"https://bioportal.bioontology.org/ontologies/NCIT\",\n  \"termCode\": \"ncit:C61011\",\n  \"name\": \"Resource Description Framework\",\n  \"url\": \"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C61011\",\n}",
+        "marginality": "Minimum"
+    },
+    "subjectOf": {
+        "example": "\"subjectOf\": {\"@id\": \"https://doi.org/10.1186/2041-1480-4-s1-s5\"}",
+        "marginality": "Recommended"
+    },
+    "text": {
+        "example": "\"text\": [\"RDF\"]",
+        "marginality": "Minimum"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "additionalType": {
+        "example": "\"additionalType\" : \"http://edamontology.org/data_3494\"",
+        "controlled_vocab": "http://edamontology.org/data_0006",
+        "marginality": "Recommended"
+    },
+    "defaultValue": {
+        "example": "\"defaultValue\": \"7\"",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "\"description\" : \"The DNA squence to compare against known sequences\"",
+        "marginality": "Recommended"
+    },
+    "encodingFormat": {
+        "example": "\"encodingFormat\" : \"http://edamontology.org/format_1929\"",
+        "controlled_vocab": "http://edamontology.org/format_1915",
+        "marginality": "Recommended"
+    },
+    "identifier": {
+        "example": "\"identifier\" : \"17q12-q21\"",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "\"name\" : \"dna_sequence\"",
+        "marginality": "Minimum"
+    },
+    "valueRequired": {
+        "example": "\"valueRequired\" : true",
+        "marginality": "Optional"
+    }
+}

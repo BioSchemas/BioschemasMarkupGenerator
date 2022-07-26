@@ -1,0 +1,20 @@
+{
+    "endUncertainty": {
+        "example": "{\n  \"endUncertainty\": \"~\"\n}",
+        "controlled_vocab": "Use one of the following values \n'<' (any position before than rangeEnd), \n'>' (any position after rangeEnd), \n'~' (around rangeEnd),\n '[#-#] (to indicate a range where rangeEnd could be located)'.",
+        "marginality": "Recommended"
+    },
+    "rangeEnd": {
+        "example": "{\n  \"rangeEnd\": 20\n}",
+        "marginality": "Minimum"
+    },
+    "rangeStart": {
+        "example": "{\n  \"rangeStart\": 7\n}",
+        "marginality": "Minimum"
+    },
+    "startUncertainty": {
+        "example": "{\n  \"startUncertainty\": \"<\"\n}",
+        "controlled_vocab": "Use one of the following values \n'<' (any position before than rangeEnd), \n'>' (any position after rangeEnd), \n'~' (around rangeEnd),\n '[#-#] (to indicate a range where rangeEnd could be located)'.",
+        "marginality": "Recommended"
+    }
+}

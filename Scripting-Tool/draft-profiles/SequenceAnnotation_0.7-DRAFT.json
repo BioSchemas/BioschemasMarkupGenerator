@@ -1,0 +1,556 @@
+{
+    "title": "SequenceAnnotation (v0.7-DRAFT)",
+    "description": "Used to provide metadata about Sequence Annotations. The sequence can be an amino acid (protein) or nucleic acid (Gene, DNA, RNA).<h3>Summary of Changes</h3><p>This version supersedes the ProteinAnnotation 0.6-DRAFT.</p><ul><li>Change base type to SequenceAnnotation</li><li>location is replaced with sequenceLocation; promoted to minimal</li><li>sequenceOrientation added as a minimal property</li><li>sequenceValue added as a recommended property</li><li>valueReference added as an optional property</li><li>sameAs promoted to a recommended property</li></ul>",
+    "type": "object",
+    "definitions": {
+        "Boolean": {
+            "type": "boolean"
+        },
+        "Date": {
+            "type": "string"
+        },
+        "DateTime": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Number": {
+            "type": "number"
+        },
+        "Text": {
+            "type": "string",
+            "format": "text"
+        },
+        "URL": {
+            "type": "string",
+            "format": "url"
+        },
+        "String": {
+            "type": "string"
+        },
+        "PropertyValue": {
+            "title": "PropertyValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "PropertyValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "BioChemEntity": {
+            "title": "BioChemEntity",
+            "properties": {
+                "@type": {
+                    "default": "BioChemEntity",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@type",
+                "@id"
+            ]
+        },
+        "ImageObject": {
+            "title": "ImageObject",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "ImageObject",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "DefinedTerm": {
+            "title": "DefinedTerm",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "DefinedTerm",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "SequenceRange": {
+            "title": "SequenceRange (v0.1-DRAFT) Minimum Version",
+            "description": "Used to define the range of a subsequence, typically used in conjunction with SequenceAnnotation to define the range of the annotation on the protein or gene sequence.",
+            "type": "object",
+            "properties": {
+                "@context": {
+                    "default": "https://schema.org",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "@type": {
+                    "default": "SequenceRange",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "default": "https://bioschemas.org/profiles/SequenceRange/0.1-DRAFT",
+                    "options": {
+                        "hidden": "true"
+                    },
+                    "type": "string"
+                },
+                "rangeEnd": {
+                    "title": "rangeEnd (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Final position of the range ",
+                    "oneOf": [
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                },
+                "rangeStart": {
+                    "title": "rangeStart (Minimum)",
+                    "propertyOrder": 1,
+                    "description": "Schema.org: Initial position of the range. ",
+                    "oneOf": [
+                        {
+                            "title": "Integer",
+                            "$ref": "#/definitions/Integer"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "@context",
+                "dct:conformsTo",
+                "rangeEnd",
+                "rangeStart"
+            ]
+        },
+        "Enumeration": {
+            "title": "Enumeration",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "Enumeration",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "QualitativeValue": {
+            "title": "QualitativeValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "QualitativeValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "QuantitativeValue": {
+            "title": "QuantitativeValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "QuantitativeValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        },
+        "StructuredValue": {
+            "title": "StructuredValue",
+            "description": "No Description Available.",
+            "properties": {
+                "@type": {
+                    "default": "StructuredValue",
+                    "type": "string",
+                    "options": {
+                        "hidden": "true"
+                    }
+                },
+                "@id": {
+                    "title": "Link to other resource",
+                    "description": "URL of page describing the resource",
+                    "$ref": "#/definitions/URL"
+                }
+            },
+            "required": [
+                "@id",
+                "@type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": {
+            "default": "https://schema.org",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "@type": {
+            "default": "SequenceAnnotation",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "dct:conformsTo": {
+            "default": "https://bioschemas.org/profiles/SequenceAnnotation/0.7-DRAFT",
+            "options": {
+                "hidden": "true"
+            },
+            "type": "string"
+        },
+        "alternateName": {
+            "title": "alternateName (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: An alias for the item. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    }
+                ]
+            }
+        },
+        "creationMethod": {
+            "title": "creationMethod (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: Method used to create or obtain this annotation or BioChemEntity; please use PropertyValue if you want to include any evidence. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                },
+                {
+                    "title": "PropertyValue",
+                    "$ref": "#/definitions/PropertyValue"
+                },
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "description": {
+            "title": "description (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: A description of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "hasBioChemEntityPart": {
+            "title": "hasBioChemEntityPart (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.\n Inverse property: isPartOfBioChemEntity. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    }
+                ]
+            }
+        },
+        "hasRepresentation": {
+            "title": "hasRepresentation (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "image": {
+            "title": "image (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: An image of the item. This can be a URL or a fully described ImageObject. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "ImageObject",
+                        "$ref": "#/definitions/ImageObject"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isLocatedInSubcellularLocation": {
+            "title": "isLocatedInSubcellularLocation (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "isPartOfBioChemEntity": {
+            "title": "isPartOfBioChemEntity (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.\n Inverse property: hasBioChemEntityPart. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "BioChemEntity",
+                        "$ref": "#/definitions/BioChemEntity"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "name": {
+            "title": "name (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: The name of the item. ",
+            "oneOf": [
+                {
+                    "title": "Text",
+                    "$ref": "#/definitions/Text"
+                }
+            ]
+        },
+        "sameAs": {
+            "title": "sameAs (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Link to any resource other than the Record and the official webpage, for instance a Wikipedia page. Schema.org: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "sequenceLocation": {
+            "title": "sequenceLocation (Minimum)",
+            "propertyOrder": 1,
+            "description": "Schema.org: A range/position location where this annotation or BioChemEntity is located reagrding another BioChemEntity, for instance a BioChemStructure in a Protein. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "SequenceRange",
+                        "$ref": "#/definitions/SequenceRange"
+                    }
+                ]
+            }
+        },
+        "sequenceOrientation": {
+            "title": "sequenceOrientation (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: One of 1, 0 or -1. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Integer",
+                        "$ref": "#/definitions/Integer"
+                    }
+                ]
+            }
+        },
+        "sequenceValue": {
+            "title": "sequenceValue (Recommended)",
+            "propertyOrder": 2,
+            "description": "Schema.org: - ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        },
+        "url": {
+            "title": "url (Recommended)",
+            "propertyOrder": 2,
+            "description": "Bioschemas: Link to the official webpage associated to this entity Schema.org: URL of the item. ",
+            "oneOf": [
+                {
+                    "title": "URL",
+                    "$ref": "#/definitions/URL"
+                }
+            ]
+        },
+        "valueReference": {
+            "title": "valueReference (Optional)",
+            "propertyOrder": 3,
+            "description": "Schema.org: A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature. ",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "Text",
+                        "$ref": "#/definitions/Text"
+                    },
+                    {
+                        "title": "DefinedTerm",
+                        "$ref": "#/definitions/DefinedTerm"
+                    },
+                    {
+                        "title": "Enumeration",
+                        "$ref": "#/definitions/Enumeration"
+                    },
+                    {
+                        "title": "PropertyValue",
+                        "$ref": "#/definitions/PropertyValue"
+                    },
+                    {
+                        "title": "QualitativeValue",
+                        "$ref": "#/definitions/QualitativeValue"
+                    },
+                    {
+                        "title": "QuantitativeValue",
+                        "$ref": "#/definitions/QuantitativeValue"
+                    },
+                    {
+                        "title": "StructuredValue",
+                        "$ref": "#/definitions/StructuredValue"
+                    },
+                    {
+                        "title": "URL",
+                        "$ref": "#/definitions/URL"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "@type",
+        "@context",
+        "dct:conformsTo",
+        "sequenceLocation"
+    ]
+}

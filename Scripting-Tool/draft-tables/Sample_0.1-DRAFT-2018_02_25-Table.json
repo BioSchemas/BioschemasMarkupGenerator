@@ -1,0 +1,6 @@
+{
+    "rdf:type": {
+        "controlled_vocab": "[OBI:material sample]()",
+        "marginality": "Minimum"
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "alternateName": {
+        "example": "{\n    \"@type\": \"Gene\",\n    \"alternateName\": \"AD1\"\n}",
+        "marginality": "Optional"
+    },
+    "description": {
+        "example": "{\n    \"@type\": \"Gene\",\n    \"description\": \"amyloid beta precursor\"\n}",
+        "marginality": "Recommended"
+    },
+    "encodesBioChemEntity": {
+        "example": "{\n  \"@type\": \"Gene\",\n  \"encodesBioChemEntity\": { \n    \"@type\": \"Protein\",\n    \"identifier\": \"uniprotkb:P05067\",\n    \"url\": \"https://www.uniprot.org/uniprot/P05067\"\n  }\n}",
+        "marginality": "Recommended"
+    },
+    "hasBioChemEntityPart": {
+        "example": "//Contains a variant\n{\n  \"@type\": \"Gene\",\n  \"hasBioChemEntityPart\": { \n    \"@type\": \"BioChemEntity\",\n    \"identifier\": \"rs577882423\",\n    },\n    \"url\": \"https://www.ensembl.org/Homo_sapiens/Variation/Summary?db=core;g=ENSG00000142192;r=21:25880550-26171128;vf=110312838\"\n  }\n}\n",
+        "marginality": "Optional"
+    },
+    "hasMolecularFunction": {
+        "example": "//Gene enabling a GO molecular function\n{\n  \"@type\": \"Gene\",\n  \"hasMolecularFunction\": {\n    \"@type\": \"DefinedTerm\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000166\",\n    \"termCode\": \"GO:0000166\",\n    \"name\": \"nucleotide binding\",\n    \"inDefinedTermSet\": {\n      \"@type\": \"DefinedTermSet\",\n      \"name\": \"Gene Ontology\",\n      \"url\": \"https://bioportal.bioontology.org/ontologies/GO\"\n    } \n  }\n}",
+        "controlled_vocab": "Only the molecular function branch of [Gene Ontology (GO)](http://www.geneontology.org)",
+        "marginality": "Optional"
+    },
+    "hasRepresentation": {
+        "example": "{\n  \"@type\": \"Gene\",\n  \"hasRepresentation\": \"https://www.ncbi.nlm.nih.gov/nuccore/NC_000021.9?report=fasta&from=25880550&to=26171128&strand=true\"\n}",
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "//Using a text, remember you still need @id in any case\n{\n    \"@type\": \"Gene\",\n    \"identifier\": \"ENSG00000142192\"\n}\n//Using a URL directly (looks like a text), remember you need @id in any case\n{\n    \"@type\": \"Gene\",\n    \"identifier\": \"http://identifiers.org/ensembl:ENSG00000142192\"\n}\n//Using a URL modeled as schema:URL (equivalent to the previous one but more verbose), remember you need @id in any case\n{\n    \"@type\": \"Gene\",\n    \"identifier\": {\n      \"@type\": \"URL\",\n      \"url\": \"http://identifiers.org/ensembl:ENSG00000142192\"\n    }\n}",
+        "marginality": "Minimum"
+    },
+    "image": {
+        "example": "//Using a URL directly (looks like a text)\n{\n  \"@type\": \"Gene\",\n  \"image\": \"https://en.wikipedia.org/wiki/Amyloid_precursor_protein#/media/File:Ideogram_human_chromosome_21.svg\"\n}",
+        "marginality": "Optional"
+    },
+    "isInvolvedInBiologicalProcess": {
+        "example": "//Gene involved in a GO biological process\n{\n  \"@type\": \"Gene\",\n  \"isInvolvedInBiologicalProcess\": {\n    \"@type\": \"DefefinedTerm\",\n    \"url\": \"http://purl.obolibrary.org/obo/GO_0000278\",\n    \"termCode\": \"GO:0000278\",\n    \"name\": \"mitotic cell cycle\",\n    \"inDefinedTermSet\": {\n      \"@type\": \"DefinedTermSet\",\n      \"name\": \"Gene Ontology\",\n      \"url\": \"https://bioportal.bioontology.org/ontologies/GO\"\n    } \n  }\n}",
+        "controlled_vocab": "Only the biological process branch of [Gene Ontology (GO)](http://www.geneontology.org)",
+        "marginality": "Optional"
+    },
+    "isLocatedInSubcellularLocation": {
+        "controlled_vocab": "Only the subcellular location branch of [Gene Ontology (GO)](http://www.geneontology.org)",
+        "marginality": "Optional"
+    },
+    "isPartOfBioChemEntity": {
+        "example": "//Is contained in a chromosome in positions X to Y\n{\n  \"@type\": \"Gene\",\n  \"isPartOfBioChemEntity\": {\n    \"@type\": \"BioChemEntity\",\n    \"name\": \"Chromosome 21\",\n  }\n}\n",
+        "marginality": "Recommended"
+    },
+    "mainEntityOfPage": {
+        "example": "//From DataRecord\n{\n\n  \"@type\": \"DataRecord\",\n  \"@id\": \"http://rdf.ebi.ac.uk/resource/ensembl/ENSG00000142192\",\n  \"mainEntity\": {\n    \"@type\": \"Gene\",\n    \"name\": \"Name and any other property for this Gene entity\"\n  }\n}\n\n//Also possible from Gene\n{\n  \"@type\": \"Gene\",\n  \"mainEntityOfPage\": { \"@id\": \"http://rdf.ebi.ac.uk/resource/ensembl/ENSG00000142192\" }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"@type\": \"Gene\",\n  \"name\": \"APP\"\n}",
+        "marginality": "Minimum"
+    },
+    "sameAs": {
+        "example": "{\n  \"@type\": \"Gene\",\n  \"sameAs\": \"https://www.wikidata.org/wiki/Q14865870\"\n}",
+        "marginality": "Optional"
+    },
+    "taxonomicRange": {
+        "example": "{\n  \"@type\": \"Gene\",\n  \"taxonomicRange\": {\n    \"@type\": \"DefinedTerm\",\n    \"termCode\": \"9606\",\n    \"url\": \"http://purl.bioontology.org/ontology/NCBITAXON/9606\",\n    \"sameAs\": \"http://purl.uniprot.org/taxonomy/9606\",\n    \"inDefinedTermSet\": {\n      \"@type\": \"DefinedTermSet\",\n      \"name\": \"NCBI taxon\",\n      \"url\": \"https://bioportal.bioontology.org/ontologies/NCBITAXON\"\n    } \n  }\n}",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "{\n  \"@type\": \"Gene\",\n  \"url\": \"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000142192;r=21:25880550-26171128\"\n}",
+        "marginality": "Recommended"
+    }
+}

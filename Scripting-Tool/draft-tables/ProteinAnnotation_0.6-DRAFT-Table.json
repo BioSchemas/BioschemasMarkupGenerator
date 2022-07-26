@@ -1,0 +1,52 @@
+{
+    "additionalProperty": {
+        "example": "//Short direct alternative to express, for instance, a relation between a protein annotation and a protein clan.\n{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"http://semanticscience.org/resource/SIO_000095\":\"http://pfam.xfam.org/clan/CL0001\"\n}\n                \n//If no ontology term expressing the desired relation exists, then and only then use additionaProperty\n{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"additionalProperty\": {\n    \"name\": \"my new property\",\n    \"value\": {\n      \"@type\": \"PropertyValue\",\n      \"value\": \"the object in this relation, more properties can be used as needed\"\n    }\n  }\n}",
+        "marginality": "Optional"
+    },
+    "additionalType": {
+        "example": "{\n\"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n\"additionalType\": \"http://semanticscience.org/resource/SIO_010041\"\n}",
+        "controlled_vocab": "[SIO:active_site](http://semanticscience.org/resource/SIO_010041)\n[SIO:binding_site](http://semanticscience.org/resource/SIO_010040)\n[SIO:molecular_site](http://semanticscience.org/resource/SIO_010049)\n[SIO:protein_domain](http://semanticscience.org/resource/SIO_001379)\n[SIO:protein_family](http://semanticscience.org/resource/SIO_001380)",
+        "marginality": "Recommended"
+    },
+    "alternateName": {
+        "example": "{\n\"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n\"alternateName\": [\" BRCA2_hlx\"]\n}",
+        "marginality": "Optional"
+    },
+    "creationMethod": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"creationMethod\": {\n    \"@type\": \"PropertyValue\",\n    \"value\": \"imported manually asserted information used in automatic assertion\",\n    \"valueReference\": {\n      \"@type\": \"CategoryCode\",\n      \"codeValue\": \"ECO:0000322\",\n      \"inCategorySet\": {\n        \"@type\": \"CategoryCodeSet\",\n        \"name\": \"ECO Evidence Code Ontology\"\n      }\n    }\n  }\n}\n",
+        "marginality": "Recommended"
+    },
+    "description": {
+        "example": "{\n\"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n\"description\": \"This entry represents a domain found in BRCA2 proteins. This domain adopts a helical...\"\n}",
+        "marginality": "Recommended"
+    },
+    "hasCategoryCode": {
+        "controlled_vocab": "Any suitable controlled vocabulary",
+        "marginality": "Optional"
+    },
+    "identifier": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"identifier\": \"interpro:IPR015252\"\n}",
+        "marginality": "Minimum"
+    },
+    "isPartOfBioChemEntity": {
+        "example": "//A protein variant is contained in the proteine sequence:\n{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"isPartOfBioChemEntity\": {\"@id\": \"http://purl.uniprot.org/uniprot/P05067\"}\n}",
+        "marginality": "Optional"
+    },
+    "mainEntityOfPage": {
+        "example": "//Preferred way from DataRecord\n{\n  \"@type\": \"DataRecord\",\n  \"@id\": \"https://www.ebi.ac.uk/interpro/entry/IPR015252\",\n  \"mainEntity\": {\n    \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"]\n    #Any other property for this ProteinAnnotation entity\n  }\n}\n\n//Also possible from ProteinAnnotation\n{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"mainEntityOfPage\": { \"@id\": \"https://www.ebi.ac.uk/interpro/entry/IPR015252\" }\n}",
+        "marginality": "Optional"
+    },
+    "name": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"name\": \"Breast cancer type 2 susceptibility protein, helical domain\"\n}",
+        "marginality": "Recommended"
+    },
+    "subcellularLocation": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"subcellularLocation\": [\n    \"http://identifiers.org/GO:0012505\",\n    \"http://identifiers.org/GO:0009707\" \n  ]\n}",
+        "controlled_vocab": "Any URL to a GO cellular_component",
+        "marginality": "Optional"
+    },
+    "url": {
+        "example": "{\n  \"@type\": [\"BioChemEntity\", \"ProteinAnnotation\"],\n  \"url\": \"https://www.ebi.ac.uk/interpro/entry/IPR015252\"\n}",
+        "marginality": "Recommended"
+    }
+}
