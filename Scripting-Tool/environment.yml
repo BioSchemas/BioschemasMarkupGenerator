@@ -1,0 +1,8 @@
+name: bioschemasmarkupgenerator
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pyyaml
+  - requests
