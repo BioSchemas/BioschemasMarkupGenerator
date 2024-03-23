@@ -1,7 +1,7 @@
 //GLOBAL VARIABLES
 var editor;
 var dropdownArray = new Array();
-var websiteURL = "https://www.macs.hw.ac.uk/SWeL/BioschemasGenerator"
+var websiteURL = "http://localhost:8080/"
 //JSON Editor Settings
 JSONEditor.defaults.theme = 'bootstrap4';
 JSONEditor.defaults.options["display_required_only"] = true;
@@ -86,7 +86,7 @@ function listOfFiles(websiteURL) {
     $.ajax({
         url: websiteURL,
         success: function (data) {
-            $(data).find("td > a").each(function () {
+            $(data).find("li > a").each(function () {
                 //If file is a JSON Schema file add to list
                 if ((/\.(json)$/i).test($(this).attr("href"))) {
                     fileNames.push($(this).attr("href"));
